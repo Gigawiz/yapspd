@@ -1,0 +1,719 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body>
+<small><b>last modified: Sat, 23 Dec 2006 22:46:32 </b></small><br><br><h1 align="center">yet another PlayStationPortable Documentation<br><font size="-1">(not quite worth printing - yet)</font> </h1>
+<center><img src="sony_psp_1.png" alt="images/sony_psp_1.png"></center>this is the result of myself pasting together various freely available
+documents aswell as adding some of my own findings. have fun... additions
+and corrections welcome :)<br><br><b>THIS IS WORK IN PROGRESS! INFORMATION CONTAINED IN THIS DOCUMENT
+MAY BE MISSING, INCOMPLETE OR EVEN PLAIN WRONG! NO F****N'
+WARRANTY IMPLIED</b>! <b>IF THE USE OF THE INFORMATION CONTAINED
+HERE RESULTS IN ULTRA REALISTIC SMOKE EFFECTS, BRAIN DAMAGE OR LOSS
+OF PHYSICAL AND/OR MENTAL HEALTH PLEASE DON'T COME BACK AND SAY YOU
+HAVEN'T BEEN WARNED! YOU SHOULDN'T BE USING THIS IN THE FIRST PLACE!</b><br><br>
+groepaz/hitmen (<tt>groepaz@gmx.net)</tt><br>
+Hitmen-Console <a href="http://www.hitmen-console.org"><tt>http://www.hitmen-console.org</tt></a>
+ 
+<h2>
+<a name="sec0">
+Contents</a>
+</h2>
+<!--Table of Contents-->
+<ul class="TofC">
+<li><a name="idx1" href="chap1.html#sec1">1 Introductional Rant</a></li>
+<ul>
+<li><a name="idx1.1" href="chap1.html#sec1.1">1.1 Things that are in this document</a></li>
+<li><a name="idx1.2" href="chap1.html#sec1.2">1.2 Things that are not in this document</a></li>
+<li><a name="idx1.3" href="chap1.html#sec1.3">1.3 Conventions</a></li>
+</ul>
+<br><li><a name="idx2" href="chap2.html#sec2">2 System Overview</a></li>
+<ul>
+<li><a name="idx2.1" href="chap2.html#sec2.1">2.1 Playstation Portable Main Unit</a></li>
+<ul>
+<li><a name="idx2.1.1" href="chap2.html#sec2.1.1">2.1.1 Modells/Revisions</a></li>
+</ul>
+<li><a name="idx2.2" href="chap2.html#sec2.2">2.2 Game Specifications</a></li>
+<li><a name="idx2.3" href="chap2.html#sec2.3">2.3 Supplied accessories </a></li>
+<li><a name="idx2.4" href="chap2.html#sec2.4">2.4 Separately Sold Accessories </a></li>
+<ul>
+<li><a name="idx2.4.1" href="chap2.html#sec2.4.1">2.4.1 Memory Stick Duo (PSP-M32)</a></li>
+<li><a name="idx2.4.2" href="chap2.html#sec2.4.2">2.4.2 AC adaptor (PSP-100) </a></li>
+<li><a name="idx2.4.3" href="chap2.html#sec2.4.3">2.4.3 Battery pack (PSP-110)</a></li>
+<li><a name="idx2.4.4" href="chap2.html#sec2.4.4">2.4.4 Headphone with remote control (PSP-140(W)) </a></li>
+<li><a name="idx2.4.5" href="chap2.html#sec2.4.5">2.4.5 Soft case and hand strap (PSP-170(B)) </a></li>
+<li><a name="idx2.4.6" href="chap2.html#sec2.4.6">2.4.6 USB microphone (PSP-240(X)) </a></li>
+<li><a name="idx2.4.7" href="chap2.html#sec2.4.7">2.4.7 GPS receiver </a></li>
+<li><a name="idx2.4.8" href="chap2.html#sec2.4.8">2.4.8 Camera </a></li>
+</ul>
+<li><a name="idx2.5" href="chap2.html#sec2.5">2.5 Development Hardware (DEM-100)</a></li>
+</ul>
+<br><li><a name="idx3" href="chap3.html#sec3">3 Hardware Overview</a></li>
+<ul>
+<li><a name="idx3.1" href="chap3.html#sec3.1">3.1 Mainboard</a></li>
+<ul>
+<li><a name="idx3.1.1" href="chap3.html#sec3.1.1">3.1.1 Revisions</a></li>
+<li><a name="idx3.1.2" href="chap3.html#sec3.1.2">3.1.2 Semiconductors</a></li>
+<li><a name="idx3.1.3" href="chap3.html#sec3.1.3">3.1.3 other</a></li>
+</ul>
+<li><a name="idx3.2" href="chap3.html#sec3.2">3.2 WIFI Daughterboard</a></li>
+<ul>
+<li><a name="idx3.2.1" href="chap3.html#sec3.2.1">3.2.1 Semiconductors</a></li>
+</ul>
+<li><a name="idx3.3" href="chap3.html#sec3.3">3.3 Headphones/Remote Control</a></li>
+<li><a name="idx3.4" href="chap3.html#sec3.4">3.4 Memory Stick</a></li>
+<li><a name="idx3.5" href="chap3.html#sec3.5">3.5 Talkman Microphone</a></li>
+</ul>
+<br><li><a name="idx4" href="chap4.html#sec4">4 CPU Overview</a></li>
+<ul>
+<li><a name="idx4.1" href="chap4.html#sec4.1">4.1 Registers</a></li>
+<li><a name="idx4.2" href="chap4.html#sec4.2">4.2 Debug Registers</a></li>
+<li><a name="idx4.3" href="chap4.html#sec4.3">4.3 COP0 (System Control)</a></li>
+<ul>
+<li><a name="idx4.3.1" href="chap4.html#sec4.3.1">4.3.1 Status Registers (mfc/mtc)</a></li>
+<li><a name="idx4.3.2" href="chap4.html#sec4.3.2">4.3.2 Control Registers (cfc/ctc)</a></li>
+</ul>
+<li><a name="idx4.4" href="chap4.html#sec4.4">4.4 COP1 (FPU)</a></li>
+<ul>
+<li><a name="idx4.4.1" href="chap4.html#sec4.4.1">4.4.1 Status Registers (mfc/mtc)</a></li>
+<li><a name="idx4.4.2" href="chap4.html#sec4.4.2">4.4.2 Control Registers (cfc/ctc)</a></li>
+</ul>
+<li><a name="idx4.5" href="chap4.html#sec4.5">4.5 COP2 (VFPU)</a></li>
+<ul>
+<li><a name="idx4.5.1" href="chap4.html#sec4.5.1">4.5.1 Registers</a></li>
+<li><a name="idx4.5.2" href="chap4.html#sec4.5.2">4.5.2 Extra Registers</a></li>
+</ul>
+<li><a name="idx4.6" href="chap4.html#sec4.6">4.6 Instruction Format</a></li>
+<li><a name="idx4.7" href="chap4.html#sec4.7">4.7 MIPS Instructions</a></li>
+<ul>
+<li><a name="idx4.7.1" href="chap4.html#sec4.7.1">4.7.1 lw</a></li>
+<li><a name="idx4.7.2" href="chap4.html#sec4.7.2">4.7.2 sw</a></li>
+<li><a name="idx4.7.3" href="chap4.html#sec4.7.3">4.7.3 addiu</a></li>
+</ul>
+<li><a name="idx4.8" href="chap4.html#sec4.8">4.8 Allegrex Instructions</a></li>
+<ul>
+<li><a name="idx4.8.1" href="chap4.html#sec4.8.1">4.8.1 halt</a></li>
+<li><a name="idx4.8.2" href="chap4.html#sec4.8.2">4.8.2 mfic / mtic</a></li>
+</ul>
+<li><a name="idx4.9" href="chap4.html#sec4.9">4.9 VFPU Instructions</a></li>
+<ul>
+<li><a name="idx4.9.1" href="chap4.html#sec4.9.1">4.9.1 lv</a></li>
+<li><a name="idx4.9.2" href="chap4.html#sec4.9.2">4.9.2 sv</a></li>
+<li><a name="idx4.9.3" href="chap4.html#sec4.9.3">4.9.3 vzero</a></li>
+<li><a name="idx4.9.4" href="chap4.html#sec4.9.4">4.9.4 vone</a></li>
+<li><a name="idx4.9.5" href="chap4.html#sec4.9.5">4.9.5 vmzero</a></li>
+<li><a name="idx4.9.6" href="chap4.html#sec4.9.6">4.9.6 vmidt</a></li>
+<li><a name="idx4.9.7" href="chap4.html#sec4.9.7">4.9.7 vmmul</a></li>
+<li><a name="idx4.9.8" href="chap4.html#sec4.9.8">4.9.8 vrcp</a></li>
+<li><a name="idx4.9.9" href="chap4.html#sec4.9.9">4.9.9 vexp2</a></li>
+<li><a name="idx4.9.10" href="chap4.html#sec4.9.10">4.9.10 vlog2</a></li>
+<li><a name="idx4.9.11" href="chap4.html#sec4.9.11">4.9.11 vsqrt</a></li>
+<li><a name="idx4.9.12" href="chap4.html#sec4.9.12">4.9.12 vrsq</a></li>
+<li><a name="idx4.9.13" href="chap4.html#sec4.9.13">4.9.13 vsin</a></li>
+<li><a name="idx4.9.14" href="chap4.html#sec4.9.14">4.9.14 vcos</a></li>
+<li><a name="idx4.9.15" href="chap4.html#sec4.9.15">4.9.15 vasin</a></li>
+<li><a name="idx4.9.16" href="chap4.html#sec4.9.16">4.9.16 vnrcp</a></li>
+<li><a name="idx4.9.17" href="chap4.html#sec4.9.17">4.9.17 vnsin</a></li>
+<li><a name="idx4.9.18" href="chap4.html#sec4.9.18">4.9.18 vrexp2</a></li>
+<li><a name="idx4.9.19" href="chap4.html#sec4.9.19">4.9.19 vi2uc</a></li>
+<li><a name="idx4.9.20" href="chap4.html#sec4.9.20">4.9.20 vi2s</a></li>
+<li><a name="idx4.9.21" href="chap4.html#sec4.9.21">4.9.21 vcst</a></li>
+<li><a name="idx4.9.22" href="chap4.html#sec4.9.22">4.9.22 vf2in</a></li>
+<li><a name="idx4.9.23" href="chap4.html#sec4.9.23">4.9.23 vi2f</a></li>
+<li><a name="idx4.9.24" href="chap4.html#sec4.9.24">4.9.24 vadd</a></li>
+<li><a name="idx4.9.25" href="chap4.html#sec4.9.25">4.9.25 vsub</a></li>
+<li><a name="idx4.9.26" href="chap4.html#sec4.9.26">4.9.26 vdiv</a></li>
+<li><a name="idx4.9.27" href="chap4.html#sec4.9.27">4.9.27 vmul</a></li>
+<li><a name="idx4.9.28" href="chap4.html#sec4.9.28">4.9.28 vdot</a></li>
+<li><a name="idx4.9.29" href="chap4.html#sec4.9.29">4.9.29 vhdp</a></li>
+<li><a name="idx4.9.30" href="chap4.html#sec4.9.30">4.9.30 vidt</a></li>
+<li><a name="idx4.9.31" href="chap4.html#sec4.9.31">4.9.31 vabs</a></li>
+<li><a name="idx4.9.32" href="chap4.html#sec4.9.32">4.9.32 vneg</a></li>
+<li><a name="idx4.9.33" href="chap4.html#sec4.9.33">4.9.33 vsgn</a></li>
+<li><a name="idx4.9.34" href="chap4.html#sec4.9.34">4.9.34 vmin</a></li>
+<li><a name="idx4.9.35" href="chap4.html#sec4.9.35">4.9.35 vmax</a></li>
+<li><a name="idx4.9.36" href="chap4.html#sec4.9.36">4.9.36 vtfm</a></li>
+<li><a name="idx4.9.37" href="chap4.html#sec4.9.37">4.9.37 vhtfm</a></li>
+</ul>
+<li><a name="idx4.10" href="chap4.html#sec4.10">4.10 Caches</a></li>
+<ul>
+<li><a name="idx4.10.1" href="chap4.html#sec4.10.1">4.10.1 Cache structure and operation</a></li>
+<li><a name="idx4.10.2" href="chap4.html#sec4.10.2">4.10.2 Cache Coherency</a></li>
+<li><a name="idx4.10.3" href="chap4.html#sec4.10.3">4.10.3 The Uncached Address Space</a></li>
+<li><a name="idx4.10.4" href="chap4.html#sec4.10.4">4.10.4 Cache Management Functions</a></li>
+</ul>
+</ul>
+<br><li><a name="idx5" href="chap5.html#sec5">5 Media Engine</a></li>
+<ul>
+<li><a name="idx5.1" href="chap5.html#sec5.1">5.1 Overview</a></li>
+<li><a name="idx5.2" href="chap5.html#sec5.2">5.2 Memory Map</a></li>
+<ul>
+<li><a name="idx5.2.1" href="chap5.html#sec5.2.1">5.2.1 physical Memory</a></li>
+<li><a name="idx5.2.2" href="chap5.html#sec5.2.2">5.2.2 Ram Usage</a></li>
+</ul>
+<li><a name="idx5.3" href="chap5.html#sec5.3">5.3 COP0</a></li>
+<ul>
+<li><a name="idx5.3.1" href="chap5.html#sec5.3.1">5.3.1 Status registers (mfc/mtc)</a></li>
+<li><a name="idx5.3.2" href="chap5.html#sec5.3.2">5.3.2 Control Registers (cfc/ctc)</a></li>
+</ul>
+<li><a name="idx5.4" href="chap5.html#sec5.4">5.4 COP1 (FPU)</a></li>
+<ul>
+<li><a name="idx5.4.1" href="chap5.html#sec5.4.1">5.4.1 Status Registers (mfc/mtc)</a></li>
+<li><a name="idx5.4.2" href="chap5.html#sec5.4.2">5.4.2 Control Registers (cfc/ctc)</a></li>
+</ul>
+</ul>
+<br><li><a name="idx6" href="chap6.html#sec6">6 VME </a></li>
+<ul>
+<li><a name="idx6.1" href="chap6.html#sec6.1">6.1 Overview</a></li>
+</ul>
+<br><li><a name="idx7" href="chap7.html#sec7">7 Memory Map</a></li>
+<ul>
+<li><a name="idx7.1" href="chap7.html#sec7.1">7.1 Segments</a></li>
+<li><a name="idx7.2" href="chap7.html#sec7.2">7.2 physical Memory</a></li>
+<li><a name="idx7.3" href="chap7.html#sec7.3">7.3 Ram usage</a></li>
+<ul>
+<li><a name="idx7.3.1" href="chap7.html#sec7.3.1">7.3.1 Kernel</a></li>
+<li><a name="idx7.3.2" href="chap7.html#sec7.3.2">7.3.2 Userspace</a></li>
+</ul>
+<li><a name="idx7.4" href="chap7.html#sec7.4">7.4 Hardware</a></li>
+</ul>
+<br><li><a name="idx8" href="chap8.html#sec8">8 Hardware Registers</a></li>
+<ul>
+<li><a name="idx8.1" href="chap8.html#sec8.1">8.1 ? (threadman)</a></li>
+<li><a name="idx8.2" href="chap8.html#sec8.2">8.2 System Config</a></li>
+<li><a name="idx8.3" href="chap8.html#sec8.3">8.3 ? (interruptman)</a></li>
+<li><a name="idx8.4" href="chap8.html#sec8.4">8.4 Profiler</a></li>
+<li><a name="idx8.5" href="chap8.html#sec8.5">8.5 ME Control</a></li>
+<li><a name="idx8.6" href="chap8.html#sec8.6">8.6 NAND Flash</a></li>
+<ul>
+<li><a name="idx8.6.1" href="chap8.html#sec8.6.1">8.6.1 Command Set</a></li>
+<li><a name="idx8.6.2" href="chap8.html#sec8.6.2">8.6.2 Read ID</a></li>
+<li><a name="idx8.6.3" href="chap8.html#sec8.6.3">8.6.3 read from NAND</a></li>
+<li><a name="idx8.6.4" href="chap8.html#sec8.6.4">8.6.4 write to NAND</a></li>
+</ul>
+<li><a name="idx8.7" href="chap8.html#sec8.7">8.7 KIRK - Decryption Engine</a></li>
+<ul>
+<li><a name="idx8.7.1" href="chap8.html#sec8.7.1">8.7.1 Keys</a></li>
+</ul>
+<li><a name="idx8.8" href="chap8.html#sec8.8">8.8 GPIO</a></li>
+<li><a name="idx8.9" href="chap8.html#sec8.9">8.9 UART4</a></li>
+<li><a name="idx8.10" href="chap8.html#sec8.10">8.10 UART3 Headphone/Remote SIO</a></li>
+</ul>
+<br><li><a name="idx9" href="chap9.html#sec9">9 Exception Processing</a></li>
+<ul>
+<li><a name="idx9.1" href="chap9.html#sec9.1">9.1 Exception Cause</a></li>
+<li><a name="idx9.2" href="chap9.html#sec9.2">9.2 Reset Vector (HW,SW,NMI)</a></li>
+<ul>
+<li><a name="idx9.2.1" href="chap9.html#sec9.2.1">9.2.1 ME Reset Handler</a></li>
+</ul>
+<li><a name="idx9.3" href="chap9.html#sec9.3">9.3 EBASE Vector (IRQ,Syscall)</a></li>
+<li><a name="idx9.4" href="chap9.html#sec9.4">9.4 Error Handler</a></li>
+<li><a name="idx9.5" href="chap9.html#sec9.5">9.5 Exception Handler </a></li>
+<ul>
+<li><a name="idx9.5.1" href="chap9.html#sec9.5.1">9.5.1 error</a></li>
+<li><a name="idx9.5.2" href="chap9.html#sec9.5.2">9.5.2 interrupt</a></li>
+<li><a name="idx9.5.3" href="chap9.html#sec9.5.3">9.5.3 syscall</a></li>
+</ul>
+<li><a name="idx9.6" href="chap9.html#sec9.6">9.6 Debug Exception Vectors</a></li>
+<ul>
+<li><a name="idx9.6.1" href="chap9.html#sec9.6.1">9.6.1 Debug Handler</a></li>
+</ul>
+</ul>
+<br><li><a name="idx10" href="chap10.html#sec10">10 Video Processing</a></li>
+<ul>
+<li><a name="idx10.1" href="chap10.html#sec10.1">10.1 Overview</a></li>
+<li><a name="idx10.2" href="chap10.html#sec10.2">10.2 VRAM Mirrors</a></li>
+<ul>
+<li><a name="idx10.2.1" href="chap10.html#sec10.2.1">10.2.1 VRAM</a></li>
+<li><a name="idx10.2.2" href="chap10.html#sec10.2.2">10.2.2 VRAM +2Mib</a></li>
+<li><a name="idx10.2.3" href="chap10.html#sec10.2.3">10.2.3 VRAM +4Mib</a></li>
+<li><a name="idx10.2.4" href="chap10.html#sec10.2.4">10.2.4 VRAM +6Mib</a></li>
+</ul>
+</ul>
+<br><li><a name="idx11" href="chap11.html#sec11">11 3D Graphics Processing</a></li>
+<ul>
+<li><a name="idx11.1" href="chap11.html#sec11.1">11.1 GE Command Format</a></li>
+<li><a name="idx11.2" href="chap11.html#sec11.2">11.2 GE Floats</a></li>
+<li><a name="idx11.3" href="chap11.html#sec11.3">11.3 Pointers</a></li>
+<li><a name="idx11.4" href="chap11.html#sec11.4">11.4 Enabling Registers</a></li>
+<li><a name="idx11.5" href="chap11.html#sec11.5">11.5 GE Command List</a></li>
+<ul>
+<li><a name="idx11.5.1" href="chap11.html#sec11.5.1">11.5.1 VADDR </a></li>
+<li><a name="idx11.5.2" href="chap11.html#sec11.5.2">11.5.2 IADDR</a></li>
+<li><a name="idx11.5.3" href="chap11.html#sec11.5.3">11.5.3 PRIM</a></li>
+<li><a name="idx11.5.4" href="chap11.html#sec11.5.4">11.5.4 BEZIER</a></li>
+<li><a name="idx11.5.5" href="chap11.html#sec11.5.5">11.5.5 SPLINE</a></li>
+<li><a name="idx11.5.6" href="chap11.html#sec11.5.6">11.5.6 BBOX</a></li>
+<li><a name="idx11.5.7" href="chap11.html#sec11.5.7">11.5.7 JUMP</a></li>
+<li><a name="idx11.5.8" href="chap11.html#sec11.5.8">11.5.8 BJUMP</a></li>
+<li><a name="idx11.5.9" href="chap11.html#sec11.5.9">11.5.9 CALL</a></li>
+<li><a name="idx11.5.10" href="chap11.html#sec11.5.10">11.5.10 RET</a></li>
+<li><a name="idx11.5.11" href="chap11.html#sec11.5.11">11.5.11 END</a></li>
+<li><a name="idx11.5.12" href="chap11.html#sec11.5.12">11.5.12 SIGNAL</a></li>
+<li><a name="idx11.5.13" href="chap11.html#sec11.5.13">11.5.13 FINISH</a></li>
+<li><a name="idx11.5.14" href="chap11.html#sec11.5.14">11.5.14 BASE</a></li>
+<li><a name="idx11.5.15" href="chap11.html#sec11.5.15">11.5.15 VTYPE</a></li>
+<li><a name="idx11.5.16" href="chap11.html#sec11.5.16">11.5.16 REGION1</a></li>
+<li><a name="idx11.5.17" href="chap11.html#sec11.5.17">11.5.17 REGION2</a></li>
+<li><a name="idx11.5.18" href="chap11.html#sec11.5.18">11.5.18 BOFS</a></li>
+<li><a name="idx11.5.19" href="chap11.html#sec11.5.19">11.5.19 BONE</a></li>
+<li><a name="idx11.5.20" href="chap11.html#sec11.5.20">11.5.20 MW0</a></li>
+<li><a name="idx11.5.21" href="chap11.html#sec11.5.21">11.5.21 MW1</a></li>
+<li><a name="idx11.5.22" href="chap11.html#sec11.5.22">11.5.22 MW2</a></li>
+<li><a name="idx11.5.23" href="chap11.html#sec11.5.23">11.5.23 MW3</a></li>
+<li><a name="idx11.5.24" href="chap11.html#sec11.5.24">11.5.24 MW4</a></li>
+<li><a name="idx11.5.25" href="chap11.html#sec11.5.25">11.5.25 MW5</a></li>
+<li><a name="idx11.5.26" href="chap11.html#sec11.5.26">11.5.26 MW6</a></li>
+<li><a name="idx11.5.27" href="chap11.html#sec11.5.27">11.5.27 MW7</a></li>
+<li><a name="idx11.5.28" href="chap11.html#sec11.5.28">11.5.28 PSUB</a></li>
+<li><a name="idx11.5.29" href="chap11.html#sec11.5.29">11.5.29 PPRIM</a></li>
+<li><a name="idx11.5.30" href="chap11.html#sec11.5.30">11.5.30 PFACE</a></li>
+<li><a name="idx11.5.31" href="chap11.html#sec11.5.31">11.5.31 WORLD</a></li>
+<li><a name="idx11.5.32" href="chap11.html#sec11.5.32">11.5.32 VIEW</a></li>
+<li><a name="idx11.5.33" href="chap11.html#sec11.5.33">11.5.33 PROJ</a></li>
+<li><a name="idx11.5.34" href="chap11.html#sec11.5.34">11.5.34 TMA</a></li>
+<li><a name="idx11.5.35" href="chap11.html#sec11.5.35">11.5.35 XSCALE</a></li>
+<li><a name="idx11.5.36" href="chap11.html#sec11.5.36">11.5.36 YSCALE</a></li>
+<li><a name="idx11.5.37" href="chap11.html#sec11.5.37">11.5.37 ZSCALE</a></li>
+<li><a name="idx11.5.38" href="chap11.html#sec11.5.38">11.5.38 XPOS</a></li>
+<li><a name="idx11.5.39" href="chap11.html#sec11.5.39">11.5.39 YPOS</a></li>
+<li><a name="idx11.5.40" href="chap11.html#sec11.5.40">11.5.40 ZPOS</a></li>
+<li><a name="idx11.5.41" href="chap11.html#sec11.5.41">11.5.41 USCALE</a></li>
+<li><a name="idx11.5.42" href="chap11.html#sec11.5.42">11.5.42 VSCALE</a></li>
+<li><a name="idx11.5.43" href="chap11.html#sec11.5.43">11.5.43 UOFFSET</a></li>
+<li><a name="idx11.5.44" href="chap11.html#sec11.5.44">11.5.44 VOFFSET</a></li>
+<li><a name="idx11.5.45" href="chap11.html#sec11.5.45">11.5.45 OFFSETX</a></li>
+<li><a name="idx11.5.46" href="chap11.html#sec11.5.46">11.5.46 OFFSETY</a></li>
+<li><a name="idx11.5.47" href="chap11.html#sec11.5.47">11.5.47 SHADE</a></li>
+<li><a name="idx11.5.48" href="chap11.html#sec11.5.48">11.5.48 CMAT</a></li>
+<li><a name="idx11.5.49" href="chap11.html#sec11.5.49">11.5.49 EMC</a></li>
+<li><a name="idx11.5.50" href="chap11.html#sec11.5.50">11.5.50 AMC</a></li>
+<li><a name="idx11.5.51" href="chap11.html#sec11.5.51">11.5.51 DMC</a></li>
+<li><a name="idx11.5.52" href="chap11.html#sec11.5.52">11.5.52 SMC</a></li>
+<li><a name="idx11.5.53" href="chap11.html#sec11.5.53">11.5.53 AMA</a></li>
+<li><a name="idx11.5.54" href="chap11.html#sec11.5.54">11.5.54 SPOW</a></li>
+<li><a name="idx11.5.55" href="chap11.html#sec11.5.55">11.5.55 ALC</a></li>
+<li><a name="idx11.5.56" href="chap11.html#sec11.5.56">11.5.56 ALA</a></li>
+<li><a name="idx11.5.57" href="chap11.html#sec11.5.57">11.5.57 LMODE</a></li>
+<li><a name="idx11.5.58" href="chap11.html#sec11.5.58">11.5.58 LT0</a></li>
+<li><a name="idx11.5.59" href="chap11.html#sec11.5.59">11.5.59 LT1</a></li>
+<li><a name="idx11.5.60" href="chap11.html#sec11.5.60">11.5.60 LT2</a></li>
+<li><a name="idx11.5.61" href="chap11.html#sec11.5.61">11.5.61 LT3</a></li>
+<li><a name="idx11.5.62" href="chap11.html#sec11.5.62">11.5.62 LXP0</a></li>
+<li><a name="idx11.5.63" href="chap11.html#sec11.5.63">11.5.63 LYP0</a></li>
+<li><a name="idx11.5.64" href="chap11.html#sec11.5.64">11.5.64 LZP0</a></li>
+<li><a name="idx11.5.65" href="chap11.html#sec11.5.65">11.5.65 LXP1</a></li>
+<li><a name="idx11.5.66" href="chap11.html#sec11.5.66">11.5.66 LYP1</a></li>
+<li><a name="idx11.5.67" href="chap11.html#sec11.5.67">11.5.67 LZP1</a></li>
+<li><a name="idx11.5.68" href="chap11.html#sec11.5.68">11.5.68 LXP2</a></li>
+<li><a name="idx11.5.69" href="chap11.html#sec11.5.69">11.5.69 LYP2</a></li>
+<li><a name="idx11.5.70" href="chap11.html#sec11.5.70">11.5.70 LZP2</a></li>
+<li><a name="idx11.5.71" href="chap11.html#sec11.5.71">11.5.71 LXP3</a></li>
+<li><a name="idx11.5.72" href="chap11.html#sec11.5.72">11.5.72 LYP3</a></li>
+<li><a name="idx11.5.73" href="chap11.html#sec11.5.73">11.5.73 LZP3</a></li>
+<li><a name="idx11.5.74" href="chap11.html#sec11.5.74">11.5.74 LXD0</a></li>
+<li><a name="idx11.5.75" href="chap11.html#sec11.5.75">11.5.75 LYD0</a></li>
+<li><a name="idx11.5.76" href="chap11.html#sec11.5.76">11.5.76 LZD0</a></li>
+<li><a name="idx11.5.77" href="chap11.html#sec11.5.77">11.5.77 LXD1</a></li>
+<li><a name="idx11.5.78" href="chap11.html#sec11.5.78">11.5.78 LYD1</a></li>
+<li><a name="idx11.5.79" href="chap11.html#sec11.5.79">11.5.79 LZD1</a></li>
+<li><a name="idx11.5.80" href="chap11.html#sec11.5.80">11.5.80 LXD2</a></li>
+<li><a name="idx11.5.81" href="chap11.html#sec11.5.81">11.5.81 LYD2</a></li>
+<li><a name="idx11.5.82" href="chap11.html#sec11.5.82">11.5.82 LZD2</a></li>
+<li><a name="idx11.5.83" href="chap11.html#sec11.5.83">11.5.83 LXD3</a></li>
+<li><a name="idx11.5.84" href="chap11.html#sec11.5.84">11.5.84 LYD3</a></li>
+<li><a name="idx11.5.85" href="chap11.html#sec11.5.85">11.5.85 LZD3</a></li>
+<li><a name="idx11.5.86" href="chap11.html#sec11.5.86">11.5.86 LCA0</a></li>
+<li><a name="idx11.5.87" href="chap11.html#sec11.5.87">11.5.87 LLA0</a></li>
+<li><a name="idx11.5.88" href="chap11.html#sec11.5.88">11.5.88 LQA0</a></li>
+<li><a name="idx11.5.89" href="chap11.html#sec11.5.89">11.5.89 LCA1</a></li>
+<li><a name="idx11.5.90" href="chap11.html#sec11.5.90">11.5.90 LLA1</a></li>
+<li><a name="idx11.5.91" href="chap11.html#sec11.5.91">11.5.91 LQA1</a></li>
+<li><a name="idx11.5.92" href="chap11.html#sec11.5.92">11.5.92 LCA2</a></li>
+<li><a name="idx11.5.93" href="chap11.html#sec11.5.93">11.5.93 LLA2</a></li>
+<li><a name="idx11.5.94" href="chap11.html#sec11.5.94">11.5.94 LQA2</a></li>
+<li><a name="idx11.5.95" href="chap11.html#sec11.5.95">11.5.95 LCA3</a></li>
+<li><a name="idx11.5.96" href="chap11.html#sec11.5.96">11.5.96 LLA3</a></li>
+<li><a name="idx11.5.97" href="chap11.html#sec11.5.97">11.5.97 LQA3</a></li>
+<li><a name="idx11.5.98" href="chap11.html#sec11.5.98">11.5.98 ???</a></li>
+<li><a name="idx11.5.99" href="chap11.html#sec11.5.99">11.5.99 ???</a></li>
+<li><a name="idx11.5.100" href="chap11.html#sec11.5.100">11.5.100 ???</a></li>
+<li><a name="idx11.5.101" href="chap11.html#sec11.5.101">11.5.101 ???</a></li>
+<li><a name="idx11.5.102" href="chap11.html#sec11.5.102">11.5.102 ???</a></li>
+<li><a name="idx11.5.103" href="chap11.html#sec11.5.103">11.5.103 ???</a></li>
+<li><a name="idx11.5.104" href="chap11.html#sec11.5.104">11.5.104 ???</a></li>
+<li><a name="idx11.5.105" href="chap11.html#sec11.5.105">11.5.105 ???</a></li>
+<li><a name="idx11.5.106" href="chap11.html#sec11.5.106">11.5.106 ALC0</a></li>
+<li><a name="idx11.5.107" href="chap11.html#sec11.5.107">11.5.107 DLC0</a></li>
+<li><a name="idx11.5.108" href="chap11.html#sec11.5.108">11.5.108 SLC0</a></li>
+<li><a name="idx11.5.109" href="chap11.html#sec11.5.109">11.5.109 ALC1</a></li>
+<li><a name="idx11.5.110" href="chap11.html#sec11.5.110">11.5.110 DLC1</a></li>
+<li><a name="idx11.5.111" href="chap11.html#sec11.5.111">11.5.111 SLC1</a></li>
+<li><a name="idx11.5.112" href="chap11.html#sec11.5.112">11.5.112 ALC2</a></li>
+<li><a name="idx11.5.113" href="chap11.html#sec11.5.113">11.5.113 DLC2</a></li>
+<li><a name="idx11.5.114" href="chap11.html#sec11.5.114">11.5.114 SLC2</a></li>
+<li><a name="idx11.5.115" href="chap11.html#sec11.5.115">11.5.115 ALC3</a></li>
+<li><a name="idx11.5.116" href="chap11.html#sec11.5.116">11.5.116 DLC3</a></li>
+<li><a name="idx11.5.117" href="chap11.html#sec11.5.117">11.5.117 SLC3</a></li>
+<li><a name="idx11.5.118" href="chap11.html#sec11.5.118">11.5.118 FFACE</a></li>
+<li><a name="idx11.5.119" href="chap11.html#sec11.5.119">11.5.119 FBP</a></li>
+<li><a name="idx11.5.120" href="chap11.html#sec11.5.120">11.5.120 FBW</a></li>
+<li><a name="idx11.5.121" href="chap11.html#sec11.5.121">11.5.121 ZBP</a></li>
+<li><a name="idx11.5.122" href="chap11.html#sec11.5.122">11.5.122 ZBW</a></li>
+<li><a name="idx11.5.123" href="chap11.html#sec11.5.123">11.5.123 TBP0</a></li>
+<li><a name="idx11.5.124" href="chap11.html#sec11.5.124">11.5.124 TBP1</a></li>
+<li><a name="idx11.5.125" href="chap11.html#sec11.5.125">11.5.125 TBP2</a></li>
+<li><a name="idx11.5.126" href="chap11.html#sec11.5.126">11.5.126 TBP3</a></li>
+<li><a name="idx11.5.127" href="chap11.html#sec11.5.127">11.5.127 TBP4</a></li>
+<li><a name="idx11.5.128" href="chap11.html#sec11.5.128">11.5.128 TBP5</a></li>
+<li><a name="idx11.5.129" href="chap11.html#sec11.5.129">11.5.129 TBP6</a></li>
+<li><a name="idx11.5.130" href="chap11.html#sec11.5.130">11.5.130 TBP7</a></li>
+<li><a name="idx11.5.131" href="chap11.html#sec11.5.131">11.5.131 TBW0</a></li>
+<li><a name="idx11.5.132" href="chap11.html#sec11.5.132">11.5.132 TBW1</a></li>
+<li><a name="idx11.5.133" href="chap11.html#sec11.5.133">11.5.133 TBW2</a></li>
+<li><a name="idx11.5.134" href="chap11.html#sec11.5.134">11.5.134 TBW3</a></li>
+<li><a name="idx11.5.135" href="chap11.html#sec11.5.135">11.5.135 TBW4</a></li>
+<li><a name="idx11.5.136" href="chap11.html#sec11.5.136">11.5.136 TBW5</a></li>
+<li><a name="idx11.5.137" href="chap11.html#sec11.5.137">11.5.137 TBW6</a></li>
+<li><a name="idx11.5.138" href="chap11.html#sec11.5.138">11.5.138 TBW7</a></li>
+<li><a name="idx11.5.139" href="chap11.html#sec11.5.139">11.5.139 CBP</a></li>
+<li><a name="idx11.5.140" href="chap11.html#sec11.5.140">11.5.140 CBPH</a></li>
+<li><a name="idx11.5.141" href="chap11.html#sec11.5.141">11.5.141 TRXSBP</a></li>
+<li><a name="idx11.5.142" href="chap11.html#sec11.5.142">11.5.142 TRXSBW</a></li>
+<li><a name="idx11.5.143" href="chap11.html#sec11.5.143">11.5.143 TRXDBP</a></li>
+<li><a name="idx11.5.144" href="chap11.html#sec11.5.144">11.5.144 TRXDBW</a></li>
+<li><a name="idx11.5.145" href="chap11.html#sec11.5.145">11.5.145 TSIZE0</a></li>
+<li><a name="idx11.5.146" href="chap11.html#sec11.5.146">11.5.146 TSIZE1</a></li>
+<li><a name="idx11.5.147" href="chap11.html#sec11.5.147">11.5.147 TSIZE2</a></li>
+<li><a name="idx11.5.148" href="chap11.html#sec11.5.148">11.5.148 TSIZE3</a></li>
+<li><a name="idx11.5.149" href="chap11.html#sec11.5.149">11.5.149 TSIZE4</a></li>
+<li><a name="idx11.5.150" href="chap11.html#sec11.5.150">11.5.150 TSIZE5</a></li>
+<li><a name="idx11.5.151" href="chap11.html#sec11.5.151">11.5.151 TSIZE6</a></li>
+<li><a name="idx11.5.152" href="chap11.html#sec11.5.152">11.5.152 TSIZE7</a></li>
+<li><a name="idx11.5.153" href="chap11.html#sec11.5.153">11.5.153 TMAP</a></li>
+<li><a name="idx11.5.154" href="chap11.html#sec11.5.154">11.5.154 ???</a></li>
+<li><a name="idx11.5.155" href="chap11.html#sec11.5.155">11.5.155 TMODE</a></li>
+<li><a name="idx11.5.156" href="chap11.html#sec11.5.156">11.5.156 TPSM</a></li>
+<li><a name="idx11.5.157" href="chap11.html#sec11.5.157">11.5.157 CLOAD</a></li>
+<li><a name="idx11.5.158" href="chap11.html#sec11.5.158">11.5.158 CMODE</a></li>
+<li><a name="idx11.5.159" href="chap11.html#sec11.5.159">11.5.159 TFLT</a></li>
+<li><a name="idx11.5.160" href="chap11.html#sec11.5.160">11.5.160 TWRAP</a></li>
+<li><a name="idx11.5.161" href="chap11.html#sec11.5.161">11.5.161 TBIAS</a></li>
+<li><a name="idx11.5.162" href="chap11.html#sec11.5.162">11.5.162 TFUNC</a></li>
+<li><a name="idx11.5.163" href="chap11.html#sec11.5.163">11.5.163 TEC</a></li>
+<li><a name="idx11.5.164" href="chap11.html#sec11.5.164">11.5.164 TFLUSH</a></li>
+<li><a name="idx11.5.165" href="chap11.html#sec11.5.165">11.5.165 TSYNC</a></li>
+<li><a name="idx11.5.166" href="chap11.html#sec11.5.166">11.5.166 FDIST</a></li>
+<li><a name="idx11.5.167" href="chap11.html#sec11.5.167">11.5.167 FCOL</a></li>
+<li><a name="idx11.5.168" href="chap11.html#sec11.5.168">11.5.168 TSLOPE</a></li>
+<li><a name="idx11.5.169" href="chap11.html#sec11.5.169">11.5.169 PSM</a></li>
+<li><a name="idx11.5.170" href="chap11.html#sec11.5.170">11.5.170 CLEAR</a></li>
+<li><a name="idx11.5.171" href="chap11.html#sec11.5.171">11.5.171 SCISSOR1</a></li>
+<li><a name="idx11.5.172" href="chap11.html#sec11.5.172">11.5.172 SCISSOR2</a></li>
+<li><a name="idx11.5.173" href="chap11.html#sec11.5.173">11.5.173 NEARZ</a></li>
+<li><a name="idx11.5.174" href="chap11.html#sec11.5.174">11.5.174 FARZ</a></li>
+<li><a name="idx11.5.175" href="chap11.html#sec11.5.175">11.5.175 CTST</a></li>
+<li><a name="idx11.5.176" href="chap11.html#sec11.5.176">11.5.176 CREF</a></li>
+<li><a name="idx11.5.177" href="chap11.html#sec11.5.177">11.5.177 CMSK</a></li>
+<li><a name="idx11.5.178" href="chap11.html#sec11.5.178">11.5.178 ATST</a></li>
+<li><a name="idx11.5.179" href="chap11.html#sec11.5.179">11.5.179 STST</a></li>
+<li><a name="idx11.5.180" href="chap11.html#sec11.5.180">11.5.180 SOP</a></li>
+<li><a name="idx11.5.181" href="chap11.html#sec11.5.181">11.5.181 ZTST</a></li>
+<li><a name="idx11.5.182" href="chap11.html#sec11.5.182">11.5.182 ALPHA</a></li>
+<li><a name="idx11.5.183" href="chap11.html#sec11.5.183">11.5.183 SFIX</a></li>
+<li><a name="idx11.5.184" href="chap11.html#sec11.5.184">11.5.184 DFIX</a></li>
+<li><a name="idx11.5.185" href="chap11.html#sec11.5.185">11.5.185 DTH0</a></li>
+<li><a name="idx11.5.186" href="chap11.html#sec11.5.186">11.5.186 DTH1</a></li>
+<li><a name="idx11.5.187" href="chap11.html#sec11.5.187">11.5.187 DTH2</a></li>
+<li><a name="idx11.5.188" href="chap11.html#sec11.5.188">11.5.188 DTH3</a></li>
+<li><a name="idx11.5.189" href="chap11.html#sec11.5.189">11.5.189 LOP</a></li>
+<li><a name="idx11.5.190" href="chap11.html#sec11.5.190">11.5.190 ZMSK</a></li>
+<li><a name="idx11.5.191" href="chap11.html#sec11.5.191">11.5.191 PMSKC</a></li>
+<li><a name="idx11.5.192" href="chap11.html#sec11.5.192">11.5.192 PMSKA</a></li>
+<li><a name="idx11.5.193" href="chap11.html#sec11.5.193">11.5.193 TRXKICK</a></li>
+<li><a name="idx11.5.194" href="chap11.html#sec11.5.194">11.5.194 TRXSPOS</a></li>
+<li><a name="idx11.5.195" href="chap11.html#sec11.5.195">11.5.195 TRXDPOS</a></li>
+<li><a name="idx11.5.196" href="chap11.html#sec11.5.196">11.5.196 TRXSIZE</a></li>
+</ul>
+<li><a name="idx11.6" href="chap11.html#sec11.6">11.6 Texture Cache</a></li>
+<li><a name="idx11.7" href="chap11.html#sec11.7">11.7 Memory Bandwidth</a></li>
+</ul>
+<br><li><a name="idx12" href="chap12.html#sec12">12 Audio Processing</a></li>
+<ul>
+<li><a name="idx12.1" href="chap12.html#sec12.1">12.1 Overview</a></li>
+</ul>
+<br><li><a name="idx13" href="chap13.html#sec13">13 Infrared Port</a></li>
+<li><a name="idx14" href="chap14.html#sec14">14 WLAN</a></li>
+<li><a name="idx15" href="chap15.html#sec15">15 USB Port</a></li>
+<li><a name="idx16" href="chap16.html#sec16">16 UMD</a></li>
+<li><a name="idx17" href="chap17.html#sec17">17 Memory Stick</a></li>
+<li><a name="idx18" href="chap18.html#sec18">18 Headphone/Remote Control</a></li>
+<ul>
+<li><a name="idx18.1" href="chap18.html#sec18.1">18.1 Audio Input</a></li>
+<li><a name="idx18.2" href="chap18.html#sec18.2">18.2 Serial Communications</a></li>
+</ul>
+<br><li><a name="idx19" href="chap19.html#sec19">19 Flash Memory</a></li>
+<ul>
+<li><a name="idx19.1" href="chap19.html#sec19.1">19.1 Physical Layout</a></li>
+<li><a name="idx19.2" href="chap19.html#sec19.2">19.2 User Area (Main Data)</a></li>
+<ul>
+<li><a name="idx19.2.1" href="chap19.html#sec19.2.1">19.2.1 Physical Layout (unmapped)</a></li>
+<li><a name="idx19.2.2" href="chap19.html#sec19.2.2">19.2.2 Logical Layout (mapped)</a></li>
+<li><a name="idx19.2.3" href="chap19.html#sec19.2.3">19.2.3 Bootstrap (IPL Area)</a></li>
+<li><a name="idx19.2.4" href="chap19.html#sec19.2.4">19.2.4 ID Storage Area</a></li>
+<li><a name="idx19.2.5" href="chap19.html#sec19.2.5">19.2.5 FAT Area</a></li>
+</ul>
+<li><a name="idx19.3" href="chap19.html#sec19.3">19.3 Spare Area (extra Data)</a></li>
+<li><a name="idx19.4" href="chap19.html#sec19.4">19.4 Tools</a></li>
+</ul>
+<br><li><a name="idx20" href="chap20.html#sec20">20 Flash Memory Structure (flash0)</a></li>
+<ul>
+<li><a name="idx20.1" href="chap20.html#sec20.1">20.1 DATA Subdirectory</a></li>
+<ul>
+<li><a name="idx20.1.1" href="chap20.html#sec20.1.1">20.1.1 CERT Subdirectory</a></li>
+</ul>
+<li><a name="idx20.2" href="chap20.html#sec20.2">20.2 DIC Subdirectory</a></li>
+<li><a name="idx20.3" href="chap20.html#sec20.3">20.3 FONT Subdirectory</a></li>
+<li><a name="idx20.4" href="chap20.html#sec20.4">20.4 KD Subdirectory</a></li>
+<ul>
+<li><a name="idx20.4.1" href="chap20.html#sec20.4.1">20.4.1 Kernel Modules</a></li>
+<li><a name="idx20.4.2" href="chap20.html#sec20.4.2">20.4.2 Boot Configurations</a></li>
+</ul>
+<li><a name="idx20.5" href="chap20.html#sec20.5">20.5 VSH Subdirectory</a></li>
+<ul>
+<li><a name="idx20.5.1" href="chap20.html#sec20.5.1">20.5.1 ETC Subdirectory</a></li>
+<li><a name="idx20.5.2" href="chap20.html#sec20.5.2">20.5.2 MODULE Subdirectory</a></li>
+<li><a name="idx20.5.3" href="chap20.html#sec20.5.3">20.5.3 RESOURCE Subdirectory</a></li>
+</ul>
+</ul>
+<br><li><a name="idx21" href="chap21.html#sec21">21 Flash Memory Structure (flash1)</a></li>
+<ul>
+<li><a name="idx21.1" href="chap21.html#sec21.1">21.1 DIC Subdirectory</a></li>
+<li><a name="idx21.2" href="chap21.html#sec21.2">21.2 REGISTRY Subdirectory</a></li>
+<li><a name="idx21.3" href="chap21.html#sec21.3">21.3 VSH Subdirectory</a></li>
+<ul>
+<li><a name="idx21.3.1" href="chap21.html#sec21.3.1">21.3.1 THEME Subdirectory</a></li>
+</ul>
+</ul>
+<br><li><a name="idx22" href="chap22.html#sec22">22 Memory Stick Structure</a></li>
+<ul>
+<li><a name="idx22.1" href="chap22.html#sec22.1">22.1 Root Directory</a></li>
+<ul>
+<li><a name="idx22.1.1" href="chap22.html#sec22.1.1">22.1.1 PSP Subdirectory</a></li>
+<li><a name="idx22.1.2" href="chap22.html#sec22.1.2">22.1.2 MP_Root Subdirectory</a></li>
+<li><a name="idx22.1.3" href="chap22.html#sec22.1.3">22.1.3 HIFI Subdirectory</a></li>
+<li><a name="idx22.1.4" href="chap22.html#sec22.1.4">22.1.4 CONTROL Subdirectory</a></li>
+<li><a name="idx22.1.5" href="chap22.html#sec22.1.5">22.1.5 DCIM Subdirectory</a></li>
+<li><a name="idx22.1.6" href="chap22.html#sec22.1.6">22.1.6 MISC Subdirectory</a></li>
+</ul>
+</ul>
+<br><li><a name="idx23" href="chap23.html#sec23">23 UMD Game Structure</a></li>
+<ul>
+<li><a name="idx23.1" href="chap23.html#sec23.1">23.1 Root Directory</a></li>
+<ul>
+<li><a name="idx23.1.1" href="chap23.html#sec23.1.1">23.1.1 PSP_GAME Subdirectory</a></li>
+</ul>
+</ul>
+<br><li><a name="idx24" href="chap24.html#sec24">24 UMD Video Structure</a></li>
+<ul>
+<li><a name="idx24.1" href="chap24.html#sec24.1">24.1 Root Directory</a></li>
+<ul>
+<li><a name="idx24.1.1" href="chap24.html#sec24.1.1">24.1.1 UMD_VIDEO Subdirectory</a></li>
+</ul>
+</ul>
+<br><li><a name="idx25" href="chap25.html#sec25">25 UMD Audio Structure</a></li>
+<ul>
+<li><a name="idx25.1" href="chap25.html#sec25.1">25.1 Root Directory</a></li>
+<ul>
+<li><a name="idx25.1.1" href="chap25.html#sec25.1.1">25.1.1 UMD_VIDEO Subdirectory</a></li>
+</ul>
+</ul>
+<br><li><a name="idx26" href="chap26.html#sec26">26 File Formats</a></li>
+<ul>
+<li><a name="idx26.1" href="chap26.html#sec26.1">26.1 ELF (Executable &amp; Linkable Fileformat)</a></li>
+<ul>
+<li><a name="idx26.1.1" href="chap26.html#sec26.1.1">26.1.1 Tools</a></li>
+</ul>
+<li><a name="idx26.2" href="chap26.html#sec26.2">26.2 PRX (PSP Relocateble eXecutable)</a></li>
+<ul>
+<li><a name="idx26.2.1" href="chap26.html#sec26.2.1">26.2.1 Program Headers</a></li>
+<li><a name="idx26.2.2" href="chap26.html#sec26.2.2">26.2.2 special Sections</a></li>
+<li><a name="idx26.2.3" href="chap26.html#sec26.2.3">26.2.3 Custom Relocation Format</a></li>
+<li><a name="idx26.2.4" href="chap26.html#sec26.2.4">26.2.4 Unique ELF type</a></li>
+<li><a name="idx26.2.5" href="chap26.html#sec26.2.5">26.2.5 Tools</a></li>
+</ul>
+<li><a name="idx26.3" href="chap26.html#sec26.3">26.3 PBP</a></li>
+<ul>
+<li><a name="idx26.3.1" href="chap26.html#sec26.3.1">26.3.1 Tools</a></li>
+</ul>
+<li><a name="idx26.4" href="chap26.html#sec26.4">26.4 PSF (SFO)</a></li>
+<ul>
+<li><a name="idx26.4.1" href="chap26.html#sec26.4.1">26.4.1 Tools</a></li>
+</ul>
+<li><a name="idx26.5" href="chap26.html#sec26.5">26.5 PSP</a></li>
+<ul>
+<li><a name="idx26.5.1" href="chap26.html#sec26.5.1">26.5.1 Tools</a></li>
+</ul>
+<li><a name="idx26.6" href="chap26.html#sec26.6">26.6 PSAR</a></li>
+<ul>
+<li><a name="idx26.6.1" href="chap26.html#sec26.6.1">26.6.1 Structure </a></li>
+<li><a name="idx26.6.2" href="chap26.html#sec26.6.2">26.6.2 Header</a></li>
+<li><a name="idx26.6.3" href="chap26.html#sec26.6.3">26.6.3 Section Header</a></li>
+<li><a name="idx26.6.4" href="chap26.html#sec26.6.4">26.6.4 Type A Section (Data Block)</a></li>
+<li><a name="idx26.6.5" href="chap26.html#sec26.6.5">26.6.5 Type B Section (compressed Data Block)</a></li>
+<li><a name="idx26.6.6" href="chap26.html#sec26.6.6">26.6.6 Tools</a></li>
+</ul>
+<li><a name="idx26.7" href="chap26.html#sec26.7">26.7 Gamesave</a></li>
+<ul>
+<li><a name="idx26.7.1" href="chap26.html#sec26.7.1">26.7.1 Tools</a></li>
+</ul>
+<li><a name="idx26.8" href="chap26.html#sec26.8">26.8 PMF (PSMF)</a></li>
+<li><a name="idx26.9" href="chap26.html#sec26.9">26.9 PGF</a></li>
+<ul>
+<li><a name="idx26.9.1" href="chap26.html#sec26.9.1">26.9.1 Tools</a></li>
+</ul>
+<li><a name="idx26.10" href="chap26.html#sec26.10">26.10 THM</a></li>
+<li><a name="idx26.11" href="chap26.html#sec26.11">26.11 MP4</a></li>
+<li><a name="idx26.12" href="chap26.html#sec26.12">26.12 AT3</a></li>
+<li><a name="idx26.13" href="chap26.html#sec26.13">26.13 PNG</a></li>
+<li><a name="idx26.14" href="chap26.html#sec26.14">26.14 RCO</a></li>
+<li><a name="idx26.15" href="chap26.html#sec26.15">26.15 IREG </a></li>
+<ul>
+<li><a name="idx26.15.1" href="chap26.html#sec26.15.1">26.15.1 Header</a></li>
+<li><a name="idx26.15.2" href="chap26.html#sec26.15.2">26.15.2 Entries</a></li>
+</ul>
+<li><a name="idx26.16" href="chap26.html#sec26.16">26.16 DREG </a></li>
+<ul>
+<li><a name="idx26.16.1" href="chap26.html#sec26.16.1">26.16.1 Entry</a></li>
+<li><a name="idx26.16.2" href="chap26.html#sec26.16.2">26.16.2 Tools</a></li>
+</ul>
+<li><a name="idx26.17" href="chap26.html#sec26.17">26.17 CER</a></li>
+<li><a name="idx26.18" href="chap26.html#sec26.18">26.18 DIC</a></li>
+<li><a name="idx26.19" href="chap26.html#sec26.19">26.19 flash</a></li>
+<li><a name="idx26.20" href="chap26.html#sec26.20">26.20 ISO</a></li>
+<li><a name="idx26.21" href="chap26.html#sec26.21">26.21 DAX</a></li>
+<li><a name="idx26.22" href="chap26.html#sec26.22">26.22 CSO</a></li>
+<li><a name="idx26.23" href="chap26.html#sec26.23">26.23 ezip</a></li>
+</ul>
+<br><li><a name="idx27" href="chap27.html#sec27">27 Graphic Formats</a></li>
+<ul>
+<li><a name="idx27.1" href="chap27.html#sec27.1">27.1 1555 ABGR</a></li>
+<li><a name="idx27.2" href="chap27.html#sec27.2">27.2 4444 ABGR</a></li>
+<li><a name="idx27.3" href="chap27.html#sec27.3">27.3 565 BGR</a></li>
+<li><a name="idx27.4" href="chap27.html#sec27.4">27.4 8888 ABGR</a></li>
+<li><a name="idx27.5" href="chap27.html#sec27.5">27.5 swizzling</a></li>
+<li><a name="idx27.6" href="chap27.html#sec27.6">27.6 S3TC Compression</a></li>
+<ul>
+<li><a name="idx27.6.1" href="chap27.html#sec27.6.1">27.6.1 DXT1</a></li>
+<li><a name="idx27.6.2" href="chap27.html#sec27.6.2">27.6.2 DXT3</a></li>
+<li><a name="idx27.6.3" href="chap27.html#sec27.6.3">27.6.3 DXT5</a></li>
+</ul>
+</ul>
+<br><li><a name="idx28" href="chap28.html#sec28">28 Boot Process</a></li>
+<ul>
+<li><a name="idx28.1" href="chap28.html#sec28.1">28.1 Cold Boot</a></li>
+<ul>
+<li><a name="idx28.1.1" href="chap28.html#sec28.1.1">28.1.1 embedded Bootstrap</a></li>
+<li><a name="idx28.1.2" href="chap28.html#sec28.1.2">28.1.2 IPL Stage 1</a></li>
+<li><a name="idx28.1.3" href="chap28.html#sec28.1.3">28.1.3 IPL Stage 2</a></li>
+</ul>
+<li><a name="idx28.2" href="chap28.html#sec28.2">28.2 Load Exec</a></li>
+<ul>
+<li><a name="idx28.2.1" href="chap28.html#sec28.2.1">28.2.1 Stage 1</a></li>
+<li><a name="idx28.2.2" href="chap28.html#sec28.2.2">28.2.2 Stage 2</a></li>
+</ul>
+<li><a name="idx28.3" href="chap28.html#sec28.3">28.3 Exit Game</a></li>
+<li><a name="idx28.4" href="chap28.html#sec28.4">28.4 reboot.prx</a></li>
+</ul>
+<br><li><a name="idx29" href="chap29.html#sec29">29 Kernel</a></li>
+<ul>
+<li><a name="idx29.1" href="chap29.html#sec29.1">29.1 Devices</a></li>
+<ul>
+<li><a name="idx29.1.1" href="chap29.html#sec29.1.1">29.1.1 Block Devices</a></li>
+<li><a name="idx29.1.2" href="chap29.html#sec29.1.2">29.1.2 Filesystems</a></li>
+</ul>
+<li><a name="idx29.2" href="chap29.html#sec29.2">29.2 Return Codes</a></li>
+<ul>
+<li><a name="idx29.2.1" href="chap29.html#sec29.2.1">29.2.1 Structure</a></li>
+<li><a name="idx29.2.2" href="chap29.html#sec29.2.2">29.2.2 Facilities</a></li>
+<li><a name="idx29.2.3" href="chap29.html#sec29.2.3">29.2.3 General Errors</a></li>
+<li><a name="idx29.2.4" href="chap29.html#sec29.2.4">29.2.4 Errnos</a></li>
+<li><a name="idx29.2.5" href="chap29.html#sec29.2.5">29.2.5 Kernel Errors </a></li>
+<li><a name="idx29.2.6" href="chap29.html#sec29.2.6">29.2.6 Network Errors</a></li>
+<li><a name="idx29.2.7" href="chap29.html#sec29.2.7">29.2.7 unspecified Errors</a></li>
+</ul>
+<li><a name="idx29.3" href="chap29.html#sec29.3">29.3 Versions</a></li>
+<ul>
+<li><a name="idx29.3.1" href="chap29.html#sec29.3.1">29.3.1 1.0</a></li>
+<li><a name="idx29.3.2" href="chap29.html#sec29.3.2">29.3.2 1.5</a></li>
+<li><a name="idx29.3.3" href="chap29.html#sec29.3.3">29.3.3 1.51</a></li>
+<li><a name="idx29.3.4" href="chap29.html#sec29.3.4">29.3.4 1.52</a></li>
+<li><a name="idx29.3.5" href="chap29.html#sec29.3.5">29.3.5 2.0</a></li>
+<li><a name="idx29.3.6" href="chap29.html#sec29.3.6">29.3.6 2.01</a></li>
+<li><a name="idx29.3.7" href="chap29.html#sec29.3.7">29.3.7 2.5</a></li>
+<li><a name="idx29.3.8" href="chap29.html#sec29.3.8">29.3.8 2.6</a></li>
+<li><a name="idx29.3.9" href="chap29.html#sec29.3.9">29.3.9 2.7</a></li>
+<li><a name="idx29.3.10" href="chap29.html#sec29.3.10">29.3.10 2.71</a></li>
+<li><a name="idx29.3.11" href="chap29.html#sec29.3.11">29.3.11 2.8</a></li>
+<li><a name="idx29.3.12" href="chap29.html#sec29.3.12">29.3.12 2.81</a></li>
+<li><a name="idx29.3.13" href="chap29.html#sec29.3.13">29.3.13 2.82</a></li>
+<li><a name="idx29.3.14" href="chap29.html#sec29.3.14">29.3.14 3.0</a></li>
+<li><a name="idx29.3.15" href="chap29.html#sec29.3.15">29.3.15 3.01</a></li>
+<li><a name="idx29.3.16" href="chap29.html#sec29.3.16">29.3.16 3.02</a></li>
+<li><a name="idx29.3.17" href="chap29.html#sec29.3.17">29.3.17 3.03</a></li>
+</ul>
+<li><a name="idx29.4" href="chap29.html#sec29.4">29.4 Exploits</a></li>
+<ul>
+<li><a name="idx29.4.1" href="chap29.html#sec29.4.1">29.4.1 Kxploit (Code Execution)</a></li>
+<li><a name="idx29.4.2" href="chap29.html#sec29.4.2">29.4.2 TIFF Exploit (Code Execution)</a></li>
+<li><a name="idx29.4.3" href="chap29.html#sec29.4.3">29.4.3 GTA Savegame Exploit (Code Execution)</a></li>
+<li><a name="idx29.4.4" href="chap29.html#sec29.4.4">29.4.4 LoadExec Exploit (gain Kernel access)</a></li>
+</ul>
+<li><a name="idx29.5" href="chap29.html#sec29.5">29.5 Network Update</a></li>
+<li><a name="idx29.6" href="chap29.html#sec29.6">29.6 Network Test</a></li>
+<li><a name="idx29.7" href="chap29.html#sec29.7">29.7 Registry</a></li>
+<li><a name="idx29.8" href="chap29.html#sec29.8">29.8 VSH</a></li>
+<li><a name="idx29.9" href="chap29.html#sec29.9">29.9 Game Sharing</a></li>
+</ul>
+<br><li><a name="idx30" href="chap30.html#sec30">30 Modchips</a></li>
+<ul>
+<li><a name="idx30.1" href="chap30.html#sec30.1">30.1 Undiluted Platinum (UP)</a></li>
+<li><a name="idx30.2" href="chap30.html#sec30.2">30.2 0okm's Multi Firmware Module (MFM)</a></li>
+<li><a name="idx30.3" href="chap30.html#sec30.3">30.3 Homemade Flash Interfaces</a></li>
+<ul>
+<li><a name="idx30.3.1" href="chap30.html#sec30.3.1">30.3.1 Nem</a></li>
+<li><a name="idx30.3.2" href="chap30.html#sec30.3.2">30.3.2 0okm</a></li>
+<li><a name="idx30.3.3" href="chap30.html#sec30.3.3">30.3.3 Booster</a></li>
+<li><a name="idx30.3.4" href="chap30.html#sec30.3.4">30.3.4 ryoko no usagi</a></li>
+</ul>
+</ul>
+<br><li><a name="idx31" href="chap31.html#sec31">31 Appendix</a></li>
+<ul>
+<li><a name="idx31.1" href="chap31.html#sec31.1">31.1 GCC Quick How To</a></li>
+<ul>
+<li><a name="idx31.1.1" href="chap31.html#sec31.1.1">31.1.1 compile ASM to object:</a></li>
+<li><a name="idx31.1.2" href="chap31.html#sec31.1.2">31.1.2 compile C to object:</a></li>
+<li><a name="idx31.1.3" href="chap31.html#sec31.1.3">31.1.3 compile C++ to object:</a></li>
+<li><a name="idx31.1.4" href="chap31.html#sec31.1.4">31.1.4 link objects</a></li>
+<li><a name="idx31.1.5" href="chap31.html#sec31.1.5">31.1.5 remove unneeded sections (debug info etc) from object</a></li>
+<li><a name="idx31.1.6" href="chap31.html#sec31.1.6">31.1.6 convert object to plain binary</a></li>
+<li><a name="idx31.1.7" href="chap31.html#sec31.1.7">31.1.7 convert absolute address into filename/line number/function</a></li>
+<li><a name="idx31.1.8" href="chap31.html#sec31.1.8">31.1.8 Building a Crosscompiler</a></li>
+<li><a name="idx31.1.9" href="chap31.html#sec31.1.9">31.1.9 Linker Script</a></li>
+<li><a name="idx31.1.10" href="chap31.html#sec31.1.10">31.1.10 Startup Code</a></li>
+</ul>
+<li><a name="idx31.2" href="chap31.html#sec31.2">31.2 Games</a></li>
+<li><a name="idx31.3" href="chap31.html#sec31.3">31.3 Developers</a></li>
+</ul>
+<br><li><a name="idx32" href="chap32.html#sec32">32 References</a></li>
+<ul>
+<li><a name="idx32.1" href="chap32.html#sec32.1">32.1 Sources</a></li>
+</ul>
+<br><li><a name="idx33" href="chap33.html#sec33">33 Credits</a></li>
+</ul>
+<div class="p">
+<div class="idx"><a href="#idx1">index</a></div>
+</body></html>

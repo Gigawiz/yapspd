@@ -1,0 +1,186 @@
+
+note: check vfpu.txt http://wiki.fx-world.org/doku.php, 
+      http://wiki.ps2dev.org/psp:ge_vertex_format
+
+latest changes will be on top of this list.
+
+---->>>-------------------------------->>>-------------------------------->>>-
+
+22/11/2006
+- added note on 3.01 firmware
+
+21/11/2006
+- added note on 3.0 firmware
+
+17/11/2006
+- added info on TA-086 board (posted by Ookm)
+- added some info on the GPS and Camera (better images wanted!)
+- updated info on PMF header (provided by piccahoe)
+
+16/11/2006
+- added info on memory protection registers (posted by Tyranid)
+- added info on SC/ME RPC/Semaphore registers (posted by Tyranid)
+- updated NAND register info (posted by ryoko_no_usagi)
+- fixed some GU stuff, checked against gu.txt (revision 1762)
+
+26/10/2006
+- added info on fw2.82
+
+07/10/2006
+- added missing info on update folder on memstick
+
+01/10/2006
+- added info on the GTA Exploit (provided by Fanjita)
+- checked wikis (no new info)
+
+07/09/2006
+- added info on fw2.81
+
+---->>>-------------------------------->>>-------------------------------->>>-
+
+27/07/2006
+- added info on fw2.8
+- added info on .flash fileformat
+- added notes on some tools at some places
+
+26/07/2006
+- added details on 2.5/2.6 kernelmode exploit (provided by hitchhikr)
+
+---->>>-------------------------------->>>-------------------------------->>>-
+
+17/07/2006
+- checked wikis (no new info)
+- added info on SCEKxploit
+
+16/07/2006
+- fixed some errors in the flash layout section
+
+05/07/2006
+- moved kernel exploits into a seperate section under "kernel"
+- added some info on different hardware revisions
+
+---->>>-------------------------------->>>-------------------------------->>>-
+
+16/05/2006
+- checked wikis (no new info)
+
+08/05/2006
+- few details on umd structure added
+- more reversing in irq section
+- added some info on cop0 and cop1 registers
+- flash layout section updated
+- added vram info from (http://forums.ps2dev.org/viewtopic.php?t=4421)
+- added info on caches from (http://goop.org/psp/cache-howto.html)
+- added info on dxt1/3/5 from (http://forums.ps2dev.org/viewtopic.php?t=3034)
+
+02/05/2006
+- hw regs updated
+- some more reversing in irq section
+
+30/04/2006
+- added some info on index.dat/version.txt
+
+29/04/2006
+- more irq stuff reversed
+
+26/04/2006
+- added some info on fw 2.7
+
+24/04/2006
+- some more bootprocess details
+- added debug registers, special vfpu registers, fpu control registers
+
+08/04/2006
+- some small formatting fixes
+- memory map updated
+- me memory map updated
+- added PGF format (posted by Skylark)
+- moved ireg/dreg format into fileformat section
+
+---->>>-------------------------------->>>-------------------------------->>>-
+02/04/2006
+- added IRQ info (provided by Florin Sasu)
+- FPU Exception was missing (pointed out by Tyranid)
+- added Decryption-Engine Register Info (provided by Florin Sasu)
+- added System Config Register Info (provided by Florin Sasu)
+
+25/03/2006
+- updated/fixed flash/ddr pinout
+- checked http://wiki.pspdev.org and http://www.pspbrew.com/wiki/ for possible
+  new stuff (there wasnt any :=P)
+- added some documents to the list of references
+
+---->>>-------------------------------->>>-------------------------------->>>-
+15/03/2006
+- added details on PRX sections
+- added info on system registry (posted by skylark and freeplay)
+
+13/02/2006
+- added talkman info (posted by Dr. Vegetable)
+- updated flash pinout (info by Dr. Vegetable)
+- added some rough info on the IPL
+- added kernel errors (posted by Tyranid)
+- info on wifi daughterboard updated a little
+- checked http://wiki.pspdev.org and http://www.pspbrew.com/wiki/ for possible
+  new stuff (there wasnt any :=P)
+- added GE block diagram
+- added a few VFPU opcodes (posted by nugi)
+
+03/02/2006
+- added "halt" opcode (thanks to tyranid)
+
+---->>>-------------------------------->>>-------------------------------->>>-
+07/12/2005
+- updated hw memory map
+
+05/12/2005
+- added flash pinout info posted by Dr. Vegetable
+
+29/11/2005
+- added firmware 2.6 stuff
+
+28/10/2005
+- added some cop0 register info
+
+20/10/2005
+- added PRX info (written by Tyranid)
+- added info on PSP fileformat
+- updated GE info (provided by chip)
+- added vfpu register info (provided by mrmr)
+
+17/10/2005
+
+- added note on fw 2.5
+- added some vfpu instructions
+- added some allegrex instructions
+
+11/10/2005
+- added note on problem with kxploit (explained in the forum by jimparis)
+- added note on vram bandwidth
+- added note on fw 2.01
+- added note on vfpu instructions
+
+02/10/2005
+- fixed cop0 regs
+- fixed memory segments
+- fixed memory map
+
+26/09/2005
+- applied few little fixes provied by bri3d (cheers)
+
+25/09/2005
+- added texture cache info
+- added flash registers
+- added cop1 section
+
+19/09/2005
+- changelog started
+- cop0 registers updated
+- some trivial fixes in system overview
+- UART4 hw addresses added
+- exception cause values added
+- added info on swizzled textures
+
+13/05/2005
+- initial creation 
+

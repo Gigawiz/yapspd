@@ -1,0 +1,2042 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec26">
+26</a>&nbsp;&nbsp;File Formats</h2>
+<br>
+Note on the Tools Sections: at the bottom of every Fileformats Section
+there might be a list of some related Tools.
+     <div class="idx"><a href="index.html#idx26.1">index</a></div>
+<h3>
+<a name="sec26.1">
+26.1</a>&nbsp;&nbsp;ELF (Executable &amp; Linkable Fileformat)</h3>
+<br>
+this is an Industry-Standard Fileformat used by many Operating Systems,
+Compilers etc. (refer to one of the many free Documentations for Details)
+      <div class="idx"><a href="index.html#idx26.1.1">index</a></div>
+<h4>
+<a name="sec26.1.1">
+26.1.1</a>&nbsp;&nbsp;Tools</h4>
+<br>
+since this is a widely accepted standard, many available (non PSP
+specific) tools support it, for example
+<ul>
+<li> <tt>psp-objdump</tt> (GNU) show contents, structure, disassemble...
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx26.2">index</a></div>
+<h3>
+<a name="sec26.2">
+26.2</a>&nbsp;&nbsp;PRX (PSP Relocateble eXecutable)</h3>
+<br>
+Sony's PRX (PSP Relocation eXecutable?) format is a relocation executable
+based on the standard ELF format. It is distinguised from a normal
+ELF file by having customised Program Headers, Non-standard MIPS relocation
+sections and a unique ELF type.
+      <div class="idx"><a href="index.html#idx26.2.1">index</a></div>
+<h4>
+<a name="sec26.2.1">
+26.2.1</a>&nbsp;&nbsp;Program Headers</h4>
+<br>
+A valid PRX must have at least one program header in order to be loadable,
+due to the way the relocation entries work. In all program headers
+the Physical address is not used in the way it is described in the
+ELF documentation. In the first program header in the list the physical
+address is actually set to the offset of the .rodata.sceModuleInfo
+in the PRX file. It is not the load address in memory. In any subsequent
+program headers the physical address is set to 0. Just to slightly
+complicate matters if the PRX file is a kernel module then the most
+significant bit must be set in the phsyical address of the first program
+header.
+As a side note the data referenced by the Program Headers must at
+least be aligned to 16 byte boundaries otherwise the kernel ELF loader
+will fail (tested on v1.0 and v1.5). 
+      <div class="idx"><a href="index.html#idx26.2.2">index</a></div>
+<h4>
+<a name="sec26.2.2">
+26.2.2</a>&nbsp;&nbsp;special Sections</h4>
+<br><h5>26.2.2.1 <a name="sec26.2.2.1">
+    &nbsp;&nbsp;.sceStub.text (Systemcall Stubs)</a>
+</h5>
+<br><table><tr><td nowrap align="center">
+<table><tr><td nowrap width="0">
+<tt>sceXXX:</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jr $ra</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nop</tt>
+</td></tr></table>
+</td></tr></table>
+<br><h5>26.2.2.2 <a name="sec26.2.2.2">
+    &nbsp;&nbsp;.lib.ent.top (Marks Beginning of Entry Section)</a>
+</h5>
+<br>
+contains one 32bit word with the value 0x00000000
+<h5>26.2.2.3 <a name="sec26.2.2.3">
+    &nbsp;&nbsp;.lib.ent:</a>
+</h5>
+<br>
+_library_entry:
+<tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">32bit word</td>
+<td nowrap>Addr: Name of Export Library (default: 0)</td>
+</tr>
+<tr>
+<td nowrap align="center">u16</td>
+<td nowrap>BCD Version</td>
+</tr>
+<tr>
+<td nowrap align="center">u16</td>
+<td nowrap>module attributes</td>
+</tr>
+<tr>
+<td nowrap align="center">u8</td>
+<td nowrap>size of export entry in dwords</td>
+</tr>
+<tr>
+<td nowrap align="center">u8</td>
+<td nowrap>number of variables</td>
+</tr>
+<tr>
+<td nowrap align="center">u16</td>
+<td nowrap>number of Functions</td>
+</tr>
+<tr>
+<td nowrap align="center">32bit word</td>
+<td nowrap>Addr: __entrytable in .rodata.sceResident</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>26.2.2.4 <a name="sec26.2.2.4">
+    &nbsp;&nbsp;.lib.ent.btm (Marks End of Entry Section)</a>
+</h5>
+<br>
+contains one 32bit word with the value 0x00000000
+<h5>26.2.2.5 <a name="sec26.2.2.5">
+    &nbsp;&nbsp;.lib.stub.top (Marks Beginning of Stub Section)</a>
+</h5>
+<br>
+contains one 32bit word with the value 0x00000000
+<h5>26.2.2.6 <a name="sec26.2.2.6">
+    &nbsp;&nbsp;.lib.stub (Stub Entries)</a>
+</h5>
+<br>
+__stub_module_sceXXX:
+<tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">32bit word</td>
+<td nowrap>Addr: __stub_modulestr in .rodata.sceResident</td>
+</tr>
+<tr>
+<td nowrap align="center">u16</td>
+<td nowrap>Import Flags</td>
+</tr>
+<tr>
+<td nowrap align="center">u16</td>
+<td nowrap>Library Version</td>
+</tr>
+<tr>
+<td nowrap align="center">u16</td>
+<td nowrap>Number of Stubs to Import</td>
+</tr>
+<tr>
+<td nowrap align="center">u16</td>
+<td nowrap>Size of the Stub itself (in 32bit words)</td>
+</tr>
+<tr>
+<td nowrap align="center">32bit word</td>
+<td nowrap>Addr: __stub_nidtable in .rodata.sceNid</td>
+</tr>
+<tr>
+<td nowrap align="center">32bit word</td>
+<td nowrap>Addr: sceXXX stub in .sceStub.text</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>26.2.2.7 <a name="sec26.2.2.7">
+    &nbsp;&nbsp;.lib.stub.btm (Marks End of Stub Section)</a>
+</h5>
+<br>
+contains one 32bit word with the value 0x00000000
+<h5>26.2.2.8 <a name="sec26.2.2.8">
+    &nbsp;&nbsp;.rodata.sceModuleInfo:</a>
+</h5>
+<br>
+module_info:
+<tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">u16</td>
+<td nowrap>Module Attributes</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>0x0000</tt></td>
+<td nowrap>Module starts in User Mode</td>
+</tr>
+<tr>
+<td nowrap><tt>0x1000</tt></td>
+<td nowrap>Module starts in Kernel Mode</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap align="center">u16</td>
+<td nowrap>Module Version (2 chars)</td>
+</tr>
+<tr>
+<td nowrap align="center">28 bytes</td>
+<td nowrap>Module Name (0 terminated)</td>
+</tr>
+<tr>
+<td nowrap align="center">32bit word</td>
+<td nowrap>Addr: GP</td>
+</tr>
+<tr>
+<td nowrap align="center">32bit word</td>
+<td nowrap>Addr:.lib.ent</td>
+</tr>
+<tr>
+<td nowrap align="center">32bit word</td>
+<td nowrap>Addr:.lib.ent.btm</td>
+</tr>
+<tr>
+<td nowrap align="center">32bit word</td>
+<td nowrap>Addr:.lib.stub</td>
+</tr>
+<tr>
+<td nowrap align="center">32bit word</td>
+<td nowrap>Addr:.lib.stub.btm</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>26.2.2.9 <a name="sec26.2.2.9">
+    &nbsp;&nbsp;.rodata.sceResident (magic words and their memory offsets)</a>
+</h5>
+<br><ol type="1">
+<li> first comes a list of magic words (__entrytable),a PRX (PSP module)
+can have<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>Magic</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xd3744be0</tt></td>
+<td nowrap>module_bootstart</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x2f064fa6</tt></td>
+<td nowrap>module_reboot_before </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xadf12745</tt></td>
+<td nowrap>module_reboot_phase</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xd632acdb</tt></td>
+<td nowrap>module_start</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xcee8593c</tt></td>
+<td nowrap>module_stop</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xf01d73a7</tt></td>
+<td nowrap>module_info</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0f7c276c</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr></table>
+</li>
+<li> now immediatly follows a list of the memory offsets for the magic
+(referenced in .lib.stub)
+</li>
+</ol>
+<h5>26.2.2.10 <a name="sec26.2.2.10">
+    &nbsp;&nbsp;.rodata.sceNid (Import stubs hashes; referenced in .lib.stub)</a>
+</h5>
+<br><div class="idx"><a href="index.html#idx26.2.3">index</a></div>
+<h4>
+<a name="sec26.2.3">
+26.2.3</a>&nbsp;&nbsp;Custom Relocation Format</h4>
+<br>
+The first customisation is the section type of the PRX relocation
+entries differ from that used in standard ELFs. In standard ELFs a
+relocation section is of type 9, in a PRX they are of type 0x700000A0.
+The second customisation is in the entries themselves. Each entry
+is 2 32bit words, the first word is the offset field of the relocation,
+the second is a compound structure consisting of the standard MIPS
+relcocation type and a custom base selection field.<br><br>
+This is represented in C like this:<br><br><table><tr><td nowrap align="center">
+<table>
+<tr><td nowrap width="0">
+<tt>// Defines for the r_info field</tt><br><tt>#define ELF32_R_ADDR_BASE(i) (((i)&gt;&nbsp;&gt;16)
+&amp; 0xFF)</tt><br><tt>#define ELF32_R_OFS_BASE(i) (((i)&gt;&nbsp;&gt;8)
+&amp; 0xFF)</tt><br><tt>#define ELF32_R_TYPE(i) (i&amp;0xFF)</tt>&nbsp;</td></tr>
+<tr><td nowrap width="0">
+<tt></tt>&nbsp;</td></tr>
+<tr><td nowrap width="0">
+<tt>typedef struct {</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;Elf32_Addr r_offset;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;Elf32_Word r_info;</tt><br><tt>} Elf32_Rel;</tt>&nbsp;</td></tr>
+<tr><td nowrap width="0">
+<tt></tt>&nbsp;</td></tr>
+<tr><td nowrap width="0">
+<tt>// MIPS Reloc Entry Types</tt><br><tt>#define R_MIPS_NONE 0</tt><br><tt>#define R_MIPS_16 1</tt><br><tt>#define R_MIPS_32 2</tt><br><tt>#define R_MIPS_REL32 3</tt><br><tt>#define R_MIPS_26 4</tt><br><tt>#define R_MIPS_HI16 5</tt><br><tt>#define R_MIPS_LO16 6</tt><br><tt>#define R_MIPS_GPREL16 7</tt><br><tt>#define R_MIPS_LITERAL 8</tt><br><tt>#define R_MIPS_GOT16 9</tt><br><tt>#define R_MIPS_PC16 10</tt><br><tt>#define R_MIPS_CALL16 11</tt><br><tt>#define R_MIPS_GPREL32 12</tt>
+</td></tr>
+</table>
+</td></tr></table>
+<br><br>
+OFS_BASE determines which program header the r_offset field is based
+from. So if r_offset is 0x100 and OFS_BASE is 0 (which is a PH starting
+at address 0) then the address to read is at 0x100.
+ADDR_BASE determines which program header the current address value
+in memory should be relocated from. So for example if ADDR_BASE was
+1, program header 1 is loaded to 0x1000 and the current address stored
+in the ELF is 0xF0 then the resulting address is 0x10F0. 
+      <div class="idx"><a href="index.html#idx26.2.4">index</a></div>
+<h4>
+<a name="sec26.2.4">
+26.2.4</a>&nbsp;&nbsp;Unique ELF type</h4>
+<br>
+PRX files report the value 0xFFA0 as their type in the header instead
+of 0x0002 which is usual for normal MIPS ELF files.
+      <div class="idx"><a href="index.html#idx26.2.5">index</a></div>
+<h4>
+<a name="sec26.2.5">
+26.2.5</a>&nbsp;&nbsp;Tools</h4>
+<br><ul>
+<li> <tt>prxtool</tt> (Tyranid) show content, structure, convert prx to
+elf, create idc script...
+</li>
+<li> <tt>psp-prxgen</tt> (Tyranid) create prx from elf
+</li>
+<li> <tt>nidattack</tt> (adresd, djhuevo) bruteforce NID cracker
+</li>
+<li> <tt>prxdecrypt</tt> (MrBrown, Tyranid, John Kelley) decrypt [runs
+on PSP]
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx26.3">index</a></div>
+<h3>
+<a name="sec26.3">
+26.3</a>&nbsp;&nbsp;PBP</h3>
+<br>
+A PBP file collects the files needed for a game executable from a
+MemoryStick into a single file, for easier transfer. The files are
+simply concatenated with a small index at the start. There does not
+seem to be any alignment requirements.<br><br>
+All the offsets are in bytes from the beginning of the PBP file, and
+store in unsigned little endian 32 bit format (ul32).<br><br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap width="0"><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">3</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">0 "PBP" A file type identification cookie. A zero
+byte is followed by the three uppercase ASCII characters "PBP"</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">7</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">0 0 1 0 This might be some kind of indication of the PBP version.
+Currently it's always two 0 bytes followed by a 1 byte and then one
+more 0 byte. </td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">11</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">ul32 Offset of param.sfo data </td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">15</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">ul32 Offset of icon0.png data (thumbnail icon)</td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap align="center">19</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">ul32 Offset of icon1.pmf data (movie icon highlighted)</td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap align="center">23</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">ul32 Offset of PNG image of unknown purpose (thumbnail icon highlighted
+?)</td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap align="center">27</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">ul32 Offset of pic1.png data (background image)</td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap align="center">31</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">ul32 Offset of snd0.at3 data (ambient sound)</td>
+</tr>
+<tr>
+<td nowrap align="center">32</td>
+<td nowrap align="center">35</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">ul32 Offset of PSP data </td>
+</tr>
+<tr>
+<td nowrap align="center">36</td>
+<td nowrap align="center">39</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">ul32 Offset of PSAR data</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx26.3.1">index</a></div>
+<h4>
+<a name="sec26.3.1">
+26.3.1</a>&nbsp;&nbsp;Tools</h4>
+<br><ul>
+<li> <tt>unpack-pbp</tt> (Dan Peori aka Oopo) show content, structure,
+extract ...
+</li>
+<li> <tt>pack-pbp</tt> (Dan Peori aka Oopo) create pbp file
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx26.4">index</a></div>
+<h3>
+<a name="sec26.4">
+26.4</a>&nbsp;&nbsp;PSF (SFO)</h3>
+<br>
+PSF files are used in various places on the PSP to store metadata
+about other files. It contains a list of keys, and the values associated
+with these keys. This can be information such as parental level, and
+language. Numerical data is stored in little endian format, I will
+use the notation ul32 for "unsigned little endian 32 bit"
+etc.<br><br>
+The file starts with a header, giving the number of key/value pairs
+and the offsets for the main parts of the file:<br><br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap width="0"><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0 </td>
+<td nowrap align="center">3</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">0 "PSF" A file type identification cookie. A zero
+byte is followed by the three uppercase ASCII characters "PSF". </td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">7</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">1 1 0 0 This might be some kind of indication of the PSF version.
+Currently it's always two 1 bytes followed by two 0 bytes. </td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">11</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">ul32 Offset from the start of the file to the start of the key table
+(in bytes) </td>
+</tr>
+<tr>
+<td nowrap align="center">12 </td>
+<td nowrap align="center">15</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">ul32 Offset from the start of the file to the start of the value table
+(in bytes) </td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap align="center">19</td>
+<td nowrap align="center">4</td>
+<td nowrap width="0">ul32 Number of key/value pairs in the index</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br>
+This header is immediately followed by the index table, which has
+one entry per key/value pair. This table seems to always be sorted
+alphabetically on the key string, allowing binary search to be used,
+although it is unknown if this is actually guaranteed. The entries
+look like this:<br><br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">1</td>
+<td nowrap align="center">2</td>
+<td nowrap>ul16 Offset of the key name into the key table (in bytes) </td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">2</td>
+<td nowrap align="center">1</td>
+<td nowrap>4 Unknown, always 4. Maybe alignment requirement for the data? </td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap align="center">3</td>
+<td nowrap align="center">1</td>
+<td nowrap>ul8 Datatype of the value, see below. </td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">7</td>
+<td nowrap align="center">4</td>
+<td nowrap>ul32 Size of value data, in bytes </td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">11</td>
+<td nowrap align="center">4</td>
+<td nowrap>ul32 Size of value data plus padding, in bytes </td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">15</td>
+<td nowrap align="center">4</td>
+<td nowrap>ul32 Offset of the data value into the value table (in bytes)</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><br>
+Value data is always aligned to a 4 byte boundary, so if the size
+of the data is not dividable by four, the data is padded with zero
+bytes. The two size fields in the index entry gives the size with
+and without this padding, respectively. It is allowed to add arbitrary
+amounts of extra padding (as long as alignment is ensured), which
+makes it easier to modify data in place. Some games seem to take advantage
+of this to update the text descriptions as the player progresses in
+the game. 
+After the index table comes the key table, at the offset (from the
+beginning of the file) indicated in the file header. Each key is a
+NUL-terminated ASCII string. The keys are referenced from the index
+table by offset from tge key table start, so the first key will have
+offset 0. 
+The last part of the file is the value table, again at an offset indicated
+in the file header. Since value data is required to be aligned, zero
+padding may exist between the key table and the value table. The offset
+in the file header will indicate the true start of the value table
+though. 
+The type of data in the value table depends on the type field of the
+index entry that references that particular value. The known types
+are:<br><br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>Code</b></td>
+<td nowrap align="center"><b>Type</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">BIN</td>
+<td nowrap>Arbitrary binary data, interpretation depending on key </td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">TXT</td>
+<td nowrap>UTF-8 text string, NUL-terminated. (The NUL is included in the data
+size.) </td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">INT</td>
+<td nowrap>An sl32 integer</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><br>
+Before listing the various known keys, the key CATEGORY should be
+mentioned. This key exists in all PSF files, and indicate the type
+of entity described by the PSF file. It has TXT data, and the currertly
+known values are:<br><br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>category</b></td>
+<td nowrap><b>description</b></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">WG</td>
+<td nowrap>WLAN Game</td>
+<td nowrap>a game runable via Gamesharing</td>
+</tr>
+<tr>
+<td nowrap align="center">MS</td>
+<td nowrap>MemoryStick Save</td>
+<td nowrap>a savegame</td>
+</tr>
+<tr>
+<td nowrap align="center">MG</td>
+<td nowrap>MemoryStick Game</td>
+<td nowrap>a game runnable from MemoryStick </td>
+</tr>
+<tr>
+<td nowrap align="center">UG</td>
+<td nowrap>UMD Game</td>
+<td nowrap>a game runnable from UMD</td>
+</tr>
+<tr>
+<td nowrap align="center">UV</td>
+<td nowrap>UMD Video</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">UA</td>
+<td nowrap>UMD Audio</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">UC</td>
+<td nowrap>UMD Cleaning Disc</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><br>
+ Depending on the category, different keys may be relevant. In the
+following table of observed keys, an * indicates that the key occurs
+in that category of PSF.<br><br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap><b>key</b></td>
+<td nowrap align="center"><b>type</b></td>
+<td nowrap align="center"><b>WG</b></td>
+<td nowrap align="center"><b>MS</b></td>
+<td nowrap align="center"><b>MG</b></td>
+<td nowrap align="center"><b>UG</b></td>
+<td nowrap width="0"><b>description</b></td>
+</tr>
+<tr>
+<td nowrap>BOOTABLE</td>
+<td nowrap align="center">INT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Setting this to 1 seems to indicate that the game should be autolaunched
+at bootup. </td>
+</tr>
+<tr>
+<td nowrap>CATEGORY</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Category of PSF, as per the table above </td>
+</tr>
+<tr>
+<td nowrap>DISC_ID</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Product number of the game(?), e.g. "ABCD-00000" </td>
+</tr>
+<tr>
+<td nowrap>DISC_NUMBER</td>
+<td nowrap align="center">INT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Which disc (out of DISC_TOTAL) is this? (Counts from 1.) </td>
+</tr>
+<tr>
+<td nowrap>DISC_TOTAL</td>
+<td nowrap align="center">INT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Total number of UMD discs for this game. </td>
+</tr>
+<tr>
+<td nowrap>DISC_VERSION</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Version of the game(?), e.g. "1.00"</td>
+</tr>
+<tr>
+<td nowrap>DRIVER_PATH</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">Unknown. </td>
+</tr>
+<tr>
+<td nowrap>LANGUAGE</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">Language of the game. "JP" indicates Japanese, even
+though this is not the proper ISO 639 code... </td>
+</tr>
+<tr>
+<td nowrap>PARENTAL_LEVEL</td>
+<td nowrap align="center">INT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Minimum parental control level needed to access this file (1-11, 1=general
+audience, 5=12 years, 7=15 years, 9=18 years) </td>
+</tr>
+<tr>
+<td nowrap>PSP_SYSTEM_VER</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Version of PSP system software required to run the game(?), e.g. "1.00" </td>
+</tr>
+<tr>
+<td nowrap>REGION</td>
+<td nowrap align="center">INT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Bitmask of allowed regions. 0x8000 is region 2? </td>
+</tr>
+<tr>
+<td nowrap>SAVEDATA_DETAIL</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">Text shown under the "Details" heading in the save
+game menu. Can contain multiple lines of text by embedding CR LF. </td>
+</tr>
+<tr>
+<td nowrap>SAVEDATA_DIRECTORY</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">The name of the subdirectory to savedata where this game stores its
+savefiles (e.g. UCJS10001) </td>
+</tr>
+<tr>
+<td nowrap>SAVEDATA_FILE_LIST</td>
+<td nowrap align="center">BIN</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">A list of filenames the game uses for the actual save data (typically
+something like "DATA.BIN"). Data format currently
+unknown</td>
+</tr>
+<tr>
+<td nowrap>SAVEDATA_PARAMS</td>
+<td nowrap align="center">BIN</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">Additional parameters of unknown function and data format.</td>
+</tr>
+<tr>
+<td nowrap>SAVEDATA_TITLE</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">Text shown under the "Saved Data" heading in the
+save game menu. </td>
+</tr>
+<tr>
+<td nowrap>TITLE</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Text shown under the "Game" heading in the save
+game menu. </td>
+</tr>
+<tr>
+<td nowrap>TITLE_0</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Localized version of the TITLE attribute: Japanese</td>
+</tr>
+<tr>
+<td nowrap>TITLE_2</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Localized version of the TITLE attribute: French </td>
+</tr>
+<tr>
+<td nowrap>TITLE_3</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Localized version of the TITLE attribute: Spanish</td>
+</tr>
+<tr>
+<td nowrap>TITLE_4</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Localized version of the TITLE attribute: German </td>
+</tr>
+<tr>
+<td nowrap>TITLE_5</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Localized version of the TITLE attribute: Italian </td>
+</tr>
+<tr>
+<td nowrap>TITLE_6</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Localized version of the TITLE attribute: Dutch</td>
+</tr>
+<tr>
+<td nowrap>TITLE_7</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Localized version of the TITLE attribute: Portuguese</td>
+</tr>
+<tr>
+<td nowrap>TITLE_8</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap width="0">Localized version of the TITLE attribute: Russian</td>
+</tr>
+<tr>
+<td nowrap>UPDATER_VER</td>
+<td nowrap align="center">TXT</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">Used by the firmware updater program to denote the version it upgrades
+the firmware to.</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx26.4.1">index</a></div>
+<h4>
+<a name="sec26.4.1">
+26.4.1</a>&nbsp;&nbsp;Tools</h4>
+<br><ul>
+<li> <tt>SFOParse</tt> (Chris Barrera a.k.a. Gorim) show contents
+</li>
+<li> <tt>mksfo</tt> (MrBrown) create file
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx26.5">index</a></div>
+<h3>
+<a name="sec26.5">
+26.5</a>&nbsp;&nbsp;PSP</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00</tt></td>
+<td nowrap align="center">3</td>
+<td nowrap align="center">4</td>
+<td nowrap>'~PSP'</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x04</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">2</td>
+<td nowrap>attribute</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap>SCE_MODULE_ATTR_CANT_STOP</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap>SCE_MODULE_ATTR_LOAD</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap>SCE_MODULE_ATTR_START</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x06</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">2</td>
+<td nowrap>comp_attribute</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap>FLAG_COMPRESS</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap>FLAG_NORELOC (ie. norel=PFX; rel=PRX)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x08</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1</td>
+<td nowrap>module version lo</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x09</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1</td>
+<td nowrap>module version hi</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0a</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">28</td>
+<td nowrap>name</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x26</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1</td>
+<td nowrap>fileformat version (=1)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x27</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1</td>
+<td nowrap>nsegments</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x28</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">4</td>
+<td nowrap>elf_size (unencrypted)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x2c</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">4</td>
+<td nowrap>psp_size (encrypted)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x30</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">4</td>
+<td nowrap>entry</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x34</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">4</td>
+<td nowrap>modinfo_offset (high 8 bits are substracted from low 24 bits)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x38</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">4</td>
+<td nowrap>bss_size</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x3c</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>alignment (4 16bit values)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x44</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>address (4 32bit values)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x54</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>size (4 32bit values)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x64</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>? (6 32bit values)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x7c</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1</td>
+<td nowrap>type</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x7d</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">3</td>
+<td nowrap>? (3 8bit values)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">0x30</td>
+<td nowrap>?</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xb0</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">4</td>
+<td nowrap>elf_size_comp; (*1) psp_size - 0x150 ( == elf_size if uncompressed
+file)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xb4</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">4</td>
+<td nowrap>? always 0x00000080 ?</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xb8</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">0x18</td>
+<td nowrap>? always 0x00 ?</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xd0</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">4</td>
+<td nowrap>ID ?</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xd4</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">0x7c</td>
+<td nowrap>?</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br>
+*1) elf_size_comp is the size of the compressed elf; if the file
+is not compressed, it is equal to elf_size; rounded up to the next
+align boundary, is equal to psp_size - 0x150
+      <div class="idx"><a href="index.html#idx26.5.1">index</a></div>
+<h4>
+<a name="sec26.5.1">
+26.5.1</a>&nbsp;&nbsp;Tools</h4>
+<br><ul>
+<li> <tt>psardump</tt> (PspPet) decrypt [runs on PSP]
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx26.6">index</a></div>
+<h3>
+<a name="sec26.6">
+26.6</a>&nbsp;&nbsp;PSAR</h3>
+<br><div class="idx"><a href="index.html#idx26.6.1">index</a></div>
+<h4>
+<a name="sec26.6.1">
+26.6.1</a>&nbsp;&nbsp;Structure </h4>
+<br><ul>
+<li> 1. Header
+</li>
+<li> 2. type A section 
+a. Header 
+b. Data
+</li>
+<li> 3. type A section 
+a. Header 
+b. Data
+</li>
+<li> 4. type B section 
+a. Header 
+b. Data
+</li>
+</ul>
+... alternating type A and type B sections ...
+<ul>
+<li> N-1.type A section 
+a. Header 
+b. Data
+</li>
+<li> N. type B section 
+a. Header 
+b. Data
+</li>
+</ul>
+Type A : 272 bytes (0x110) 
+Type B : Variable size data
+      <div class="idx"><a href="index.html#idx26.6.2">index</a></div>
+<h4>
+<a name="sec26.6.2">
+26.6.2</a>&nbsp;&nbsp;Header</h4>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">3</td>
+<td nowrap align="center">4</td>
+<td nowrap>'PSAR'</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">7</td>
+<td nowrap align="center">4</td>
+<td nowrap>0x01, 0x00, 0x00, 0x00</td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">11</td>
+<td nowrap align="center">4</td>
+<td nowrap>Size of the archive file (not including the PSAR header)</td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">15</td>
+<td nowrap align="center">4</td>
+<td nowrap>0x01, 0x00, 0x00, 0x00</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx26.6.3">index</a></div>
+<h4>
+<a name="sec26.6.3">
+26.6.3</a>&nbsp;&nbsp;Section Header</h4>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">0xb0</td>
+<td nowrap>??</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">4</td>
+<td nowrap><tt>u32 Size of data (without padding)</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>0x04</tt></td>
+<td nowrap><tt>[0] always 0x80 ??</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>0x18</tt></td>
+<td nowrap><tt>[*] Always 0x00 ??</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>0x04</tt></td>
+<td nowrap><tt>[3] always 0x06 ??</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>0x0C</tt></td>
+<td nowrap>??</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>0x70</tt></td>
+<td nowrap>??</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx26.6.4">index</a></div>
+<h4>
+<a name="sec26.6.4">
+26.6.4</a>&nbsp;&nbsp;Type A Section (Data Block)</h4>
+<br>
+Data in Sections is padded to 16 bytes alignment. A "type
+1" Section always contains 0x110 bytes of Data, and 0x260
+bytes total (including Header).
+      <div class="idx"><a href="index.html#idx26.6.5">index</a></div>
+<h4>
+<a name="sec26.6.5">
+26.6.5</a>&nbsp;&nbsp;Type B Section (compressed Data Block)</h4>
+<br>
+A "type 2" Section contains variable amount of Data.
+      <div class="idx"><a href="index.html#idx26.6.6">index</a></div>
+<h4>
+<a name="sec26.6.6">
+26.6.6</a>&nbsp;&nbsp;Tools</h4>
+<br><ul>
+<li> <tt>psardump</tt> (PspPet) extract, unpack and decrypt files [runs
+on PSP]
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx26.7">index</a></div>
+<h3>
+<a name="sec26.7">
+26.7</a>&nbsp;&nbsp;Gamesave</h3>
+<br><div class="idx"><a href="index.html#idx26.7.1">index</a></div>
+<h4>
+<a name="sec26.7.1">
+26.7.1</a>&nbsp;&nbsp;Tools</h4>
+<br><div class="idx"><a href="index.html#idx26.8">index</a></div>
+<h3>
+<a name="sec26.8">
+26.8</a>&nbsp;&nbsp;PMF (PSMF)</h3>
+<br>
+PSMF, or PlayStation Movie Format, is a proprietary movie format created
+by Sony for the PSP. PSMF videos can be as small as 64x64 pixels,
+and have a framerate of 29.97fps. The video codec used is H.264, also
+known as MPEG-4 Part 10 AVC. The audio codec is the Sony proprietary
+ATRAC3plus.
+<tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00</tt></td>
+<td nowrap align="center"><tt>0x03</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap>'PSMF'</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x04</tt></td>
+<td nowrap align="center"><tt>0x07</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap>'0012' (icon) or '0014' (movie)</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0c</tt></td>
+<td nowrap align="center"><tt>0x0f</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap>the filesize without the header (Filesize of pmf in bytes - 2,048
+bytes)</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x5c</tt></td>
+<td nowrap align="center"><tt>0x5f</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap>Total time (take the total value and then div it by 60 then 30 then
+60)</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x76</tt></td>
+<td nowrap align="center"><tt>0x79</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap>Total time (take the total value and then div it by 60 then 30 then
+60)</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8d</tt></td>
+<td nowrap align="center"><tt>0x8e</tt></td>
+<td nowrap align="center">2</td>
+<td nowrap>width of the movie (add a zero)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8f</tt></td>
+<td nowrap align="center"><tt>0x90</tt></td>
+<td nowrap align="center">2</td>
+<td nowrap>height of the movie (add a zero)</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr></table>
+<br>
+The PMF file has a 2048 byte header, the actual MPEG-2 Program Stream
+starts with a 32-bit "pack code" which is 0x000001BA;
+this appears 2048 bytes into the file.
+     <div class="idx"><a href="index.html#idx26.9">index</a></div>
+<h3>
+<a name="sec26.9">
+26.9</a>&nbsp;&nbsp;PGF</h3>
+<br>
+The PSP font format (.PGF files) is a bitmap based font format. Each
+letter (as well as its shadow) is a single, 4bpp bitmap, saved in
+the font file in a RLE compressed form. The bitmaps are encoded using
+either vertical or horizontal rows, depending on a certain 2-bit field
+in character metrics. 
+Every [character, shadow] bitmap pair is preceded by a character
+metrics record. For Latin fonts the length of this record appears
+to be 12 bytes (with an optional 7-byte extension), for other families
+it's different. It's not known at this time what is the determinant
+of the record length. The metrics record contains the following fields: 
+<ul>
+<li> 14-bit offset of the shadow header record
+</li>
+<li> 7-bit width
+</li>
+<li> 7-bit height
+</li>
+<li> 7-bit signed horizontal adjustment
+</li>
+<li> 7-bit ascender
+</li>
+<li> 2-bit transposition (1 - horizontal rows, 2 - vertical rows)
+</li>
+<li> 1-bit modified record field (adds a 7-byte extension to the 12-byte
+header for ltn0.pgf)
+</li>
+<li> 46 bits of unknown data
+</li>
+<li> 5-bit horizontal advance
+</li>
+</ul>
+To find the character metrics one has to read the main pointer table.
+The table is constructed of N-bit pointers, where N is found in the
+file header at offset 0x1C. The number of pointers (and characters)
+can be found in the file header at offset 0x14. 
+It is not known yet how to locate the main pointer table. 
+The RLE compression works on 4-bit nibbles (the low nibble of a byte
+is considered to precede the high nibble in the stream). There are
+two sequences defined for this RLE: 
+<ul>
+<li> a nibble N&lt;8: take next nibble and replicate N+1 times into the output
+stream
+</li>
+<li> a nibble N&gt;7: take next 16-N nibbles and copy directly into the output
+stream
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx26.9.1">index</a></div>
+<h4>
+<a name="sec26.9.1">
+26.9.1</a>&nbsp;&nbsp;Tools</h4>
+<br><ul>
+<li> <tt>ttf2pgf</tt> (Skylark) convert Truetype to pgf format
+</li>
+<li> <tt>mkfontset</tt> (Skylark) create a set of fonts suitable for the
+PSP Firmware
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx26.10">index</a></div>
+<h3>
+<a name="sec26.10">
+26.10</a>&nbsp;&nbsp;THM</h3>
+<br>
+THM files, or "thumbnail" files, are nothing more
+than JPEG images. Specifically, they are 160x120 pixels, and use the
+.THM file extension.
+     <div class="idx"><a href="index.html#idx26.11">index</a></div>
+<h3>
+<a name="sec26.11">
+26.11</a>&nbsp;&nbsp;MP4</h3>
+<br>
+note: this refers to MP4 files as required by the player in the VSH
+<ul>
+<li> Video Limitation
+Resolution: 320 x 240 (QVGA), Nonstandard resolutions can be used
+but are still limited to the 76,800 pixel resolution of QVGA. 
+Codec: MPEG-4 SP (Simple Profile), which has different headers than
+the more common MPEG-4 formats.
+</li>
+<li> Audio Limitation
+Codec: AAC
+Sampling Rate: 24000hz
+Bitrate Limitation: 1-768kb/s &amp; 1500kb/s. Any combination of video
+and audio bitrate that is equal to or less than 768kb/s is acceptable
+(i.e. 640kb/s video + 128kb/s audio = 768kb/s total, or 300kb/s video
++ 32kb/s audio = 332kb/s total). The PSP also supports a bitrate of
+1500kb/s, but no bitrates inbetween 768kb/s and 1500kb/s.
+</li>
+</ul>
+note: ffmpeg can create PSP compatible mpeg4 files using the '3gp'
+profile
+     <div class="idx"><a href="index.html#idx26.12">index</a></div>
+<h3>
+<a name="sec26.12">
+26.12</a>&nbsp;&nbsp;AT3</h3>
+<br><div class="idx"><a href="index.html#idx26.13">index</a></div>
+<h3>
+<a name="sec26.13">
+26.13</a>&nbsp;&nbsp;PNG</h3>
+<br>
+these are standard PNG image files.
+     <div class="idx"><a href="index.html#idx26.14">index</a></div>
+<h3>
+<a name="sec26.14">
+26.14</a>&nbsp;&nbsp;RCO</h3>
+<br>
+.rco files are localized resources.
+     <div class="idx"><a href="index.html#idx26.15">index</a></div>
+<h3>
+<a name="sec26.15">
+26.15</a>&nbsp;&nbsp;IREG </h3>
+<br>
+Block Mapping File for the System Registry
+      <div class="idx"><a href="index.html#idx26.15.1">index</a></div>
+<h4>
+<a name="sec26.15.1">
+26.15.1</a>&nbsp;&nbsp;Header</h4>
+<br>
+IREG starts with a 0x5C-byte header
+<tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>offset</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0x00</td>
+<td nowrap align="center">4</td>
+<td nowrap>?</td>
+</tr>
+<tr>
+<td nowrap align="center">0x04</td>
+<td nowrap align="center">4</td>
+<td nowrap>?</td>
+</tr>
+<tr>
+<td nowrap align="center">0x08 </td>
+<td nowrap align="center">0x14</td>
+<td nowrap>full SHA-1 checksum, possibly of the whole file (with checksum bytes
+cleared before checksumming)</td>
+</tr>
+<tr>
+<td nowrap align="center">0x1c</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>?</td>
+</tr>
+<tr>
+<td nowrap align="center">0x58</td>
+<td nowrap align="center">4</td>
+<td nowrap>?</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx26.15.2">index</a></div>
+<h4>
+<a name="sec26.15.2">
+26.15.2</a>&nbsp;&nbsp;Entries</h4>
+<br>
+IREG entries are - for a change - 0x3a-byte and there are 256 of them
+(after the header). Only a few fields of the IREG entry are known,
+the most important being: 
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>offset</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap width="0"><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">0x04</td>
+<td nowrap align="center">0x02</td>
+<td nowrap width="0">parent index (16-bit, little endian) - it's the index of the parent
+entry in the IREG (1.5 and 2.0 firmwares differ about the "no
+parent" value - 0x0000 or 0xFFFF :) </td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">0x0a</td>
+<td nowrap align="center">0x02</td>
+<td nowrap width="0">number of entries in the DREG block described by this IREG entry (16-bit,
+little endian)</td>
+</tr>
+<tr>
+<td nowrap align="center">0x0c</td>
+<td nowrap align="center">0x02</td>
+<td nowrap width="0">number of DREG sectors used by this IREG entry (16-bit, little endian)</td>
+</tr>
+<tr>
+<td nowrap align="center">0x10</td>
+<td nowrap align="center">0x1c</td>
+<td nowrap width="0">entry name (28 bytes, null-terminated)</td>
+</tr>
+<tr>
+<td nowrap align="center">0x2c</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">0x2c</td>
+<td nowrap align="center">7*0x0e</td>
+<td nowrap width="0">7-sector chain description</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>26.15.2.1 <a name="sec26.15.2.1">
+    &nbsp;&nbsp;Sector chains </a>
+</h5>
+<br>
+Sector chains are described by the 14-byte field, made up of 7 16-bit
+little endian DREG sector indices. Those indicate the sequence of
+DREG sectors in a given DREG block.
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>offset</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0x00</td>
+<td nowrap align="center">2</td>
+<td nowrap>DREG sector index 1</td>
+</tr>
+<tr>
+<td nowrap align="center">0x02</td>
+<td nowrap align="center">2</td>
+<td nowrap>DREG sector index 2</td>
+</tr>
+<tr>
+<td nowrap align="center">0x04</td>
+<td nowrap align="center">2</td>
+<td nowrap>DREG sector index 3</td>
+</tr>
+<tr>
+<td nowrap align="center">0x06</td>
+<td nowrap align="center">2</td>
+<td nowrap>DREG sector index 4</td>
+</tr>
+<tr>
+<td nowrap align="center">0x08</td>
+<td nowrap align="center">2</td>
+<td nowrap>DREG sector index 5</td>
+</tr>
+<tr>
+<td nowrap align="center">0x0a</td>
+<td nowrap align="center">2</td>
+<td nowrap>DREG sector index 6</td>
+</tr>
+<tr>
+<td nowrap align="center">0x0c</td>
+<td nowrap align="center">2</td>
+<td nowrap>DREG sector index 7</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx26.16">index</a></div>
+<h3>
+<a name="sec26.16">
+26.16</a>&nbsp;&nbsp;DREG </h3>
+<br>
+Every 512-byte DREG sector contains a certain number (specified in
+the IREG and in the DREG header) of 32-byte entries.
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>offset</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">16*0x20</td>
+<td nowrap>DREG Entry</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx26.16.1">index</a></div>
+<h4>
+<a name="sec26.16.1">
+26.16.1</a>&nbsp;&nbsp;Entry</h4>
+<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>Type</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap>Subdirectory</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap>Integer</td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap>String</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap>Secret</td>
+</tr>
+<tr>
+<td nowrap align="center">0x0f</td>
+<td nowrap>Block Header</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>26.16.1.1 <a name="sec26.16.1.1">
+    &nbsp;&nbsp;Block header</a>
+</h5>
+<br>
+Only the first sector in a block (as defined in the IREG) contains
+a block header, and it is always the first entry. 
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>offset</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">1</td>
+<td nowrap>=0x0F (Entry Type)</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">1</td>
+<td nowrap>?</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">2</td>
+<td nowrap>The short (or byte? not sure) is block size in 512-byte units</td>
+</tr>
+<tr>
+<td nowrap align="center">4-5</td>
+<td nowrap align="center">2</td>
+<td nowrap>allocation unit (size of keys? always 32)</td>
+</tr>
+<tr>
+<td nowrap align="center">6-7</td>
+<td nowrap align="center">2</td>
+<td nowrap>(unsigned 16-bit little-endian) - number of free entries in the block </td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">2</td>
+<td nowrap>Number of tags - 1 (start of free space?)</td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap align="center">2</td>
+<td nowrap>Number of tag slots (i.e. deducting strings at the end)</td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">2</td>
+<td nowrap>(Short) number of keys following</td>
+</tr>
+<tr>
+<td nowrap align="center">14-17</td>
+<td nowrap align="center">4</td>
+<td nowrap>reduced SHA-1 checksum for integrity verification (*)</td>
+</tr>
+<tr>
+<td nowrap align="center">18-?</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(MSB of byte 18 - entry 0) - allocation map (1 for an allocated entry)</td>
+</tr>
+</table>
+</td></tr></table>
+<br>
+*) The bytes are computed as follows: calculate SHA1 of a block
+with checksum bytes zeroed, and then XOR the 20 bytes of the SHA-1
+into 4 bytes of checksum. Basically, those bytes are the only protection
+for data contents (DREG). 
+<h5>26.16.1.2 <a name="sec26.16.1.2">
+    &nbsp;&nbsp;Subdirectory</a>
+</h5>
+<br>
+To enter the directory, a lookup in IREG to retrieve the sector indices
+is required. 
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>offset</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">1</td>
+<td nowrap>=0x01 (Entry Type)</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">31</td>
+<td nowrap>directory name (null-terminated string )</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>26.16.1.3 <a name="sec26.16.1.3">
+    &nbsp;&nbsp;Integer</a>
+</h5>
+<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>offset</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">1</td>
+<td nowrap>=0x02 (Entry Type)</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">27</td>
+<td nowrap>name</td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap align="center">4</td>
+<td nowrap>(little-endian, signed) value</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>26.16.1.4 <a name="sec26.16.1.4">
+    &nbsp;&nbsp;String</a>
+</h5>
+<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>offset</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">1</td>
+<td nowrap>=0x03 (Entry Type)</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">27</td>
+<td nowrap>name</td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap align="center">2</td>
+<td nowrap>(little endian, unsigned) length value (includes the terminating NUL)</td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap align="center">1</td>
+<td nowrap>flag byte of unknown content</td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap align="center">1</td>
+<td nowrap>starting DREG entry index</td>
+</tr>
+</table>
+</td></tr></table>
+<br>
+The starting index is the index of the (32-byte) DREG entry in the
+current block that holds the beginning of the string contents. Remember
+that string contents can span arbitrarily many entries, and even sectors
+- they just have to fit in a single block. 
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>offset</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">32</td>
+<td nowrap>String Contents</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>26.16.1.5 <a name="sec26.16.1.5">
+    &nbsp;&nbsp;Secret</a>
+</h5>
+<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>offset</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">1</td>
+<td nowrap>=0x04 (Entry Type)</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">27</td>
+<td nowrap>name</td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap align="center">2</td>
+<td nowrap>(little endian, unsigned) length value (includes the terminating NUL)</td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap align="center">1</td>
+<td nowrap>flag byte of unknown content</td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap align="center">1</td>
+<td nowrap>starting DREG entry index</td>
+</tr>
+</table>
+</td></tr></table>
+<br>
+The starting index is the index of the (32-byte) DREG entry in the
+current block that holds the beginning of the string contents. Remember
+that string contents can span arbitrarily many entries, and even sectors
+- they just have to fit in a single block. 
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>offset</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">32</td>
+<td nowrap>String Contents</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx26.16.2">index</a></div>
+<h4>
+<a name="sec26.16.2">
+26.16.2</a>&nbsp;&nbsp;Tools</h4>
+<br><ul>
+<li> <tt>parsedreg2</tt> (Skylark, Freeplay)
+</li>
+<li> <tt>fixupdreg2</tt> (Skylark, Freeplay) recalculate SHA1 hashes used
+to ensure data integrity
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx26.17">index</a></div>
+<h3>
+<a name="sec26.17">
+26.17</a>&nbsp;&nbsp;CER</h3>
+<br>
+ordinal base64 encoded certificate, not encrypted.
+     <div class="idx"><a href="index.html#idx26.18">index</a></div>
+<h3>
+<a name="sec26.18">
+26.18</a>&nbsp;&nbsp;DIC</h3>
+<br><div class="idx"><a href="index.html#idx26.19">index</a></div>
+<h3>
+<a name="sec26.19">
+26.19</a>&nbsp;&nbsp;flash</h3>
+<br>
+raw flash image format used by the "Undiluted Platinum" Modchip
+flasher. Contains a linear image of the full Flashrom content (data
+and spare areas interleaved for each physical page)
+     <div class="idx"><a href="index.html#idx26.20">index</a></div>
+<h3>
+<a name="sec26.20">
+26.20</a>&nbsp;&nbsp;ISO</h3>
+<br>
+plain UMD Image. contains a linear image of all sectors of a UMD (unused
+sectors at the end might be omitted)
+     <div class="idx"><a href="index.html#idx26.21">index</a></div>
+<h3>
+<a name="sec26.21">
+26.21</a>&nbsp;&nbsp;DAX</h3>
+<br>
+compressed ISO Image used by "DAX ISO Loader"
+     <div class="idx"><a href="index.html#idx26.22">index</a></div>
+<h3>
+<a name="sec26.22">
+26.22</a>&nbsp;&nbsp;CSO</h3>
+<br>
+compressed ISO Image used by "Devhook"
+     <div class="idx"><a href="index.html#idx26.23">index</a></div>
+<h3>
+<a name="sec26.23">
+26.23</a>&nbsp;&nbsp;ezip</h3>
+<br>
+compressed ISO Image used by "Epsilon BIOS"
+ <div class="idx"><a href="index.html#idx27">index</a></div>
+</body></html>

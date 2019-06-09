@@ -1,0 +1,4870 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec8">
+8</a>&nbsp;&nbsp;Hardware Registers</h2>
+<br><div class="idx"><a href="index.html#idx8.1">index</a></div>
+<h3>
+<a name="sec8.1">
+8.1</a>&nbsp;&nbsp;? (threadman)</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center"><b>Registerblock Base</b></td>
+<td nowrap align="center"><b>Size of Registerblock</b></td>
+<td nowrap align="center"><b>common access size</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc000000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">32 bit</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc000000</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">Memory Protection <tt>0x08000000 -&gt; 0x081FFFFFF</tt>
+</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x081c0000 -&gt; 0x081FFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x081c0000 -&gt; 0x081FFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">29</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x081c0000 -&gt; 0x081FFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x081c0000 -&gt; 0x081FFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">27</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08180000 -&gt; 0x081BFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">26</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08180000 -&gt; 0x081BFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">25</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08180000 -&gt; 0x081BFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08180000 -&gt; 0x081BFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">23</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08140000 -&gt; 0x0817FFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">22</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08140000 -&gt; 0x0817FFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">21</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08140000 -&gt; 0x0817FFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08140000 -&gt; 0x0817FFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">19</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08100000 -&gt; 0x0813FFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">18</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08100000 -&gt; 0x0813FFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08100000 -&gt; 0x0813FFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08100000 -&gt; 0x0813FFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">15</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x080c0000 -&gt; 0x080FFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x080c0000 -&gt; 0x080FFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x080c0000 -&gt; 0x080FFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x080c0000 -&gt; 0x080FFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08080000 -&gt; 0x080BFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08080000 -&gt; 0x080BFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08080000 -&gt; 0x080BFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08080000 -&gt; 0x080BFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08040000 -&gt; 0x0807FFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08040000 -&gt; 0x0807FFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08040000 -&gt; 0x0807FFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08040000 -&gt; 0x0807FFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08000000 -&gt; 0x08003FFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08000000 -&gt; 0x08003FFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08000000 -&gt; 0x08003FFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08000000 -&gt; 0x08003FFFF User Read Enable</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc000004</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">Memory Protection <tt>0x08200000 -&gt; 0x083FFFFFF</tt>
+</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x083c0000 -&gt; 0x083FFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x083c0000 -&gt; 0x083FFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">29</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x083c0000 -&gt; 0x083FFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x083c0000 -&gt; 0x083FFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">27</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08380000 -&gt; 0x083BFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">26</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08380000 -&gt; 0x083BFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">25</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08380000 -&gt; 0x083BFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08380000 -&gt; 0x083BFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">23</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08340000 -&gt; 0x0837FFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">22</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08340000 -&gt; 0x0837FFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">21</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08340000 -&gt; 0x0837FFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08340000 -&gt; 0x0837FFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">19</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08300000 -&gt; 0x0833FFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">18</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08300000 -&gt; 0x0833FFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08300000 -&gt; 0x0833FFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08300000 -&gt; 0x0833FFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">15</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x082c0000 -&gt; 0x082FFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x082c0000 -&gt; 0x082FFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x082c0000 -&gt; 0x082FFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x082c0000 -&gt; 0x082FFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08280000 -&gt; 0x082BFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08280000 -&gt; 0x082BFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08280000 -&gt; 0x082BFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08280000 -&gt; 0x082BFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08240000 -&gt; 0x0827FFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08240000 -&gt; 0x0827FFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08240000 -&gt; 0x0827FFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08240000 -&gt; 0x0827FFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08200000 -&gt; 0x08203FFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08200000 -&gt; 0x08203FFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08200000 -&gt; 0x08203FFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08200000 -&gt; 0x08203FFFF User Read Enable</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc000008</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">Memory Protection <tt>0x08400000 -&gt; 0x085FFFFFF</tt>
+</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x085c0000 -&gt; 0x085FFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x085c0000 -&gt; 0x085FFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">29</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x085c0000 -&gt; 0x085FFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x085c0000 -&gt; 0x085FFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">27</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08580000 -&gt; 0x085BFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">26</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08580000 -&gt; 0x085BFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">25</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08580000 -&gt; 0x085BFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08580000 -&gt; 0x085BFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">23</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08540000 -&gt; 0x0857FFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">22</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08540000 -&gt; 0x0857FFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">21</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08540000 -&gt; 0x0857FFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08540000 -&gt; 0x0857FFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">19</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08500000 -&gt; 0x0853FFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">18</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08500000 -&gt; 0x0853FFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08500000 -&gt; 0x0853FFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08500000 -&gt; 0x0853FFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">15</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x084c0000 -&gt; 0x084FFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x084c0000 -&gt; 0x084FFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x084c0000 -&gt; 0x084FFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x084c0000 -&gt; 0x084FFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08480000 -&gt; 0x084BFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08480000 -&gt; 0x084BFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08480000 -&gt; 0x084BFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08480000 -&gt; 0x084BFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08440000 -&gt; 0x0847FFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08440000 -&gt; 0x0847FFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08440000 -&gt; 0x0847FFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08440000 -&gt; 0x0847FFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08400000 -&gt; 0x08403FFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08400000 -&gt; 0x08403FFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08400000 -&gt; 0x08403FFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08400000 -&gt; 0x08403FFFF User Read Enable</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc00000c</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">Memory Protection <tt>0x08600000 -&gt; 0x087FFFFFF</tt>
+</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x087c0000 -&gt; 0x087FFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x087c0000 -&gt; 0x087FFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">29</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x087c0000 -&gt; 0x087FFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x087c0000 -&gt; 0x087FFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">27</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08780000 -&gt; 0x087BFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">26</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08780000 -&gt; 0x087BFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">25</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08780000 -&gt; 0x087BFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08780000 -&gt; 0x087BFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">23</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08740000 -&gt; 0x0877FFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">22</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08740000 -&gt; 0x0877FFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">21</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08740000 -&gt; 0x0877FFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08740000 -&gt; 0x0877FFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">19</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08700000 -&gt; 0x0873FFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">18</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08700000 -&gt; 0x0873FFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08700000 -&gt; 0x0873FFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08700000 -&gt; 0x0873FFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">15</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x086c0000 -&gt; 0x086FFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x086c0000 -&gt; 0x086FFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x086c0000 -&gt; 0x086FFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x086c0000 -&gt; 0x086FFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08680000 -&gt; 0x086BFFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08680000 -&gt; 0x086BFFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08680000 -&gt; 0x086BFFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08680000 -&gt; 0x086BFFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08640000 -&gt; 0x0867FFFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08640000 -&gt; 0x0867FFFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08640000 -&gt; 0x0867FFFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08640000 -&gt; 0x0867FFFFF User Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08600000 -&gt; 0x08603FFFF Kernel Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08600000 -&gt; 0x08603FFFF Kernel Read Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08600000 -&gt; 0x08603FFFF User Write Enable</tt></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>0x08600000 -&gt; 0x08603FFFF User Read Enable</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc000030</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">8-9</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>1: thread profile mode 3: make profiler accessable in usermode at
+<tt>0x5c400000</tt> (used in threadman)</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc000044</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(used in threadman)</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx8.2">index</a></div>
+<h3>
+<a name="sec8.2">
+8.2</a>&nbsp;&nbsp;System Config</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center"><b>Registerblock Base</b></td>
+<td nowrap align="center"><b>Size of Registerblock</b></td>
+<td nowrap align="center"><b>common access size</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc100000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">32 bit</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc100000</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">25-16</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Number of NMI that occured</td>
+</tr>
+<tr>
+<td nowrap align="center">0-9</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br>
+NMI related, looks like enable mask (upper 16bits: kernel lower:user)<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc100004</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br>
+ NMI related, looks like IRQ latches (written to ACK)<br><br><tt>bc100010,..28,..30</tt> might have flags for individual NMI sources<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc100040</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0-1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>RAM size: 0-16M; 1-32M; 2-64M; 3-128M</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc100044</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">SC/ME RPC Interrupt</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>write 1 to post interrupt</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br>
+The RPC works by posting an interrupt to the other processor using
+the following code: 
+asm("syncn"); 
+_sw(1, 0xBC100044); 
+asm("syncn"); 
+If you do that on the SC you interrupt (interrupt 31 ?) the ME, on
+the ME is does the reverse. On the SC side that is wrapped up in sceSysregInterruptToOther.
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc100048</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">SC/ME Semaphore</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br><br>
+For semaphores there seems to be a shared lock register at 0xBC100048
+which both the ME and the SC can write to and it used as a spin lock.<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc10004c</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center"><tt>RESET ENABLE</tt></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>KIRK</td>
+</tr>
+<tr>
+<td nowrap align="center">8-9</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>MSIF</td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>ATA</td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>USB</td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>AVC</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>VME</td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>AW</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>ME</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>SC</td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Top</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc100050</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center"><tt>BUS CLOCK ENABLE</tt></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">15-16</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Audio</td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>UART4 ?</td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>EMCSM (nand)</td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>?</td>
+</tr>
+<tr>
+<td nowrap align="center">10-11</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>MSIF</td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>USB</td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>ATA</td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>KIRK</td>
+</tr>
+<tr>
+<td nowrap align="center">5-6</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>DMAC</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>DMACPlus</td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>AW ?</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>AW ?</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>AW ?</td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>ME</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc100078</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center"><tt>IO ENABLE</tt></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">19-24</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>SPI</td>
+</tr>
+<tr>
+<td nowrap align="center">13-18</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>UART</td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>PWM</td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>KEY</td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>AUDIO ?</td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>SIRCS</td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>IIC</td>
+</tr>
+<tr>
+<td nowrap align="center">6-7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>AUDIO</td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>LCDC</td>
+</tr>
+<tr>
+<td nowrap align="center">3-4</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>MSIF</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>ATA</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>USB</td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>EMCSM (nand)</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc10007c</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center"><tt>GPIO IO ENABLE</tt></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc100080</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br>
+ Access to system memory causes an exception unless <tt>0x00000007</tt>
+is written into this register.<br><br><div class="idx"><a href="index.html#idx8.3">index</a></div>
+<h3>
+<a name="sec8.3">
+8.3</a>&nbsp;&nbsp;? (interruptman)</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center"><b>Registerblock Base</b></td>
+<td nowrap align="center"><b>Size of Registerblock</b></td>
+<td nowrap align="center"><b>common access size</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc300000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">32 bit</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc300000</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<tt></tt>&nbsp;<br>
+upper 2 bits 'enable' ?, upper bits=mask ? (used in irq handler)<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc300008</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<tt></tt>&nbsp;<br>
+upper bits=mask,low 4 bits='ack,enable' ? (used in irq handler)<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc300010</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<tt></tt>&nbsp;<br>
+mask ? (used in irq handler)<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc300018</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<tt></tt>&nbsp;<br>
+mask ? (used in irq handler)<br><br><div class="idx"><a href="index.html#idx8.4">index</a></div>
+<h3>
+<a name="sec8.4">
+8.4</a>&nbsp;&nbsp;Profiler</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center"><b>Registerblock Base</b></td>
+<td nowrap align="center"><b>Size of Registerblock</b></td>
+<td nowrap align="center"><b>common access size</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc400000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">32 bit</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbc400000</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">ENABLE</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap>profiling disabled</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap>profiling enabled</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br>
+first clear all counter registers by writing 0 to them, then enable
+profiling. counter registers are as follows:<br><br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Address</b></td>
+<td nowrap><b>Unit</b></td>
+<td nowrap><b>Description</b></td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400004</tt></td>
+<td nowrap>cycles</td>
+<td nowrap>systemck</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400008</tt></td>
+<td nowrap>cycles</td>
+<td nowrap>cpu ck</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc40000c</tt></td>
+<td nowrap>cycles</td>
+<td nowrap>stall (total)</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400010</tt></td>
+<td nowrap>cycles</td>
+<td nowrap>stall (internal)</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400014</tt></td>
+<td nowrap>cycles</td>
+<td nowrap>stall (memory)</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400018</tt></td>
+<td nowrap>cycles</td>
+<td nowrap>stall (COPz)</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc40001c</tt></td>
+<td nowrap>cycles</td>
+<td nowrap>stall (VFPU)</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400020</tt></td>
+<td nowrap>cycles</td>
+<td nowrap>sleep</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400024</tt></td>
+<td nowrap>cycles</td>
+<td nowrap>bus access</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400028</tt></td>
+<td nowrap>times</td>
+<td nowrap>uncached load</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc40002c</tt></td>
+<td nowrap>times</td>
+<td nowrap>uncached store</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400030</tt></td>
+<td nowrap>times</td>
+<td nowrap>cached load</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400034</tt></td>
+<td nowrap>times</td>
+<td nowrap>cached store</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400038</tt></td>
+<td nowrap>times</td>
+<td nowrap>I cache miss</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc40003c</tt></td>
+<td nowrap>times</td>
+<td nowrap>D cache miss</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400040</tt></td>
+<td nowrap>times</td>
+<td nowrap>D cache wb</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400044</tt></td>
+<td nowrap>instructions</td>
+<td nowrap>COP0 inst</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400048</tt></td>
+<td nowrap>instructions</td>
+<td nowrap>FPU inst</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc40004c</tt></td>
+<td nowrap>instructions</td>
+<td nowrap>VFPU inst</td>
+</tr>
+<tr>
+<td nowrap><tt>0xbc400050</tt></td>
+<td nowrap>cycles</td>
+<td nowrap>local bus</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx8.5">index</a></div>
+<h3>
+<a name="sec8.5">
+8.5</a>&nbsp;&nbsp;ME Control</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center"><b>Registerblock Base</b></td>
+<td nowrap align="center"><b>Size of Registerblock</b></td>
+<td nowrap align="center"><b>common access size</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbcc00000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">32 bit</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbcc00010</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>reset. set to 1, then wait until 0</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbcc00030</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br>
+set to 0x00000008 at ME Reset<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbcc00040</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br>
+set to 0x00000002 at ME Reset<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbcc00070</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br>
+set to 0x00000001 at ME Reset<br><br><div class="idx"><a href="index.html#idx8.6">index</a></div>
+<h3>
+<a name="sec8.6">
+8.6</a>&nbsp;&nbsp;NAND Flash</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center"><b>Registerblock Base</b></td>
+<td nowrap align="center"><b>Size of Registerblock</b></td>
+<td nowrap align="center"><b>common access size</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd101000</tt></td>
+<td nowrap align="center">0x100 ?</td>
+<td nowrap align="center">32 bit</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbd101000</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r</td>
+<td nowrap align="center">NAND Control Register</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">18-31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>?</td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Calculate ECC for user page during writing</td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Calculate ECC for user page during reading</td>
+</tr>
+<tr>
+<td nowrap align="center">0-15</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>?</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbd101004</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r</td>
+<td nowrap align="center">Status ?</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>0: NAND is not write-protected, 1: NAND is write-protected</td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>0=busy, 1=ready</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbd101008</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">Command</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0-7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Command (see below)</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbd10100c</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">Address</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">10-26</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Physical page to access</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbd101014</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">Nand Reset Reg</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Reset NAND controller to default state?</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbd101020</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">Nand DMA Address Reg</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">10-26</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Physical page to access</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbd101024</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">NAND DMA Control</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">19-31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Set to enable DMA transfer? (ECC?) Or set to clear previous status?</td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Set to enable DMA transfer? (USER?) Or set to clear previous status?</td>
+</tr>
+<tr>
+<td nowrap align="center">2-7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>?</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>0 -&gt; Transfer from Nand to Nand Data Buffer 1 -&gt; Transfer from Nand
+Data Buffer to Nand</td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Set to enable DMA transfer</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbd101028</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r</td>
+<td nowrap align="center">NAND DMA Status</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0-31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>!=0 means write failed ?</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbd101038</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">rw</td>
+<td nowrap align="center">NAND DMA Intr</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>Probably the same bits as bd101024</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbd101200</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">resume (?)</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0-31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>write 0x0b040205 to resume?</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbd101300</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">rw</td>
+<td nowrap align="center">NAND serial Data </td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">24-31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>byte 3</td>
+</tr>
+<tr>
+<td nowrap align="center">16-23</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>byte 2</td>
+</tr>
+<tr>
+<td nowrap align="center">8-15</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>byte 1</td>
+</tr>
+<tr>
+<td nowrap align="center">0-7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>byte 0</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbff00000</tt></td>
+<td nowrap align="center">512</td>
+<td nowrap align="center">rw</td>
+<td nowrap align="center">Nand DMA User Data Buf</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>512 bytes buffer to hold DMA data for a user page.</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbff00800</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">rw</td>
+<td nowrap align="center">Nand User ECC Reg</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0-31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Hardware calculated ECC for a user page</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbff00900</tt></td>
+<td nowrap align="center">16</td>
+<td nowrap align="center">rw</td>
+<td nowrap align="center">Nand DMA Spare Data Buf</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>16 bytes buffer to hold DMA data for a spare page.</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx8.6.1">index</a></div>
+<h4>
+<a name="sec8.6.1">
+8.6.1</a>&nbsp;&nbsp;Command Set</h4>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Function</b></td>
+<td nowrap align="center"><b>1st Cycle</b></td>
+<td nowrap align="center"><b>2nd Cycle</b></td>
+<td nowrap align="center"><b>Acceptable when Busy</b></td>
+</tr>
+<tr>
+<td nowrap>Read 1</td>
+<td nowrap align="center">0x00/0x01</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">no</td>
+</tr>
+<tr>
+<td nowrap>Read 2</td>
+<td nowrap align="center">0x50</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">no</td>
+</tr>
+<tr>
+<td nowrap>Read ID</td>
+<td nowrap align="center">0x90</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">no</td>
+</tr>
+<tr>
+<td nowrap>Reset</td>
+<td nowrap align="center">0xff</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">yes</td>
+</tr>
+<tr>
+<td nowrap>Page Program</td>
+<td nowrap align="center">0x80</td>
+<td nowrap align="center">0x10</td>
+<td nowrap align="center">no</td>
+</tr>
+<tr>
+<td nowrap>Copy-Back Program</td>
+<td nowrap align="center">0x00</td>
+<td nowrap align="center">0x8a</td>
+<td nowrap align="center">no</td>
+</tr>
+<tr>
+<td nowrap>Block Erase</td>
+<td nowrap align="center">0x60</td>
+<td nowrap align="center">0xd0</td>
+<td nowrap align="center">no</td>
+</tr>
+<tr>
+<td nowrap>Read Status</td>
+<td nowrap align="center">0x70</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">yes</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx8.6.2">index</a></div>
+<h4>
+<a name="sec8.6.2">
+8.6.2</a>&nbsp;&nbsp;Read ID</h4>
+<br><ul>
+<li> write 0x90 to the Command Register
+</li>
+<li> write 0x00 to address input
+</li>
+<li> two sequential read cycles return
+<ul>
+<li> manufacture code
+</li>
+<li> device code
+</li>
+</ul>
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx8.6.3">index</a></div>
+<h4>
+<a name="sec8.6.3">
+8.6.3</a>&nbsp;&nbsp;read from NAND</h4>
+<br><ul>
+<li> Write appropriate flags to Nand Control reg (bd1010000)
+</li>
+<li> Write page number to Nand DMA Addr reg (bd101020)
+</li>
+<li> Clear appropriate flags in the Nand DMA Intr reg (bd101038)
+</li>
+<li> Start DMA transfer by writing the appropriate flags to the Nand DMA
+control reg (bd101024)
+</li>
+<li> Wait for interrupt
+</li>
+<li> Copy user data from Nand User Data buf (bff00000 - bff00200) (careful
+with cache!)
+</li>
+<li> Check User ECC status (?) (bff00800)
+</li>
+<li> Copy ECC value from from Nand User ECC buf (bff00800)
+</li>
+<li> Copy spare data from Nand Spare Data buf (bff00900)
+</li>
+<li> Check Spare ECC manually
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx8.6.4">index</a></div>
+<h4>
+<a name="sec8.6.4">
+8.6.4</a>&nbsp;&nbsp;write to NAND</h4>
+<br><ul>
+<li> Copy user data to Nand User Data buf (bff00000 - bff00200) (careful
+with cache!)
+</li>
+<li> Write ECC value to Nand User ECC buf (bff00800) (Alternatively, the
+hw might be able to generate it)
+</li>
+<li> Write appropriate flags to Nand Control reg (bd1010000)
+</li>
+<li> Write spare data to Nand Spare Data buf (bff00900 - bff00910)
+</li>
+<li> Write page number to Nand DMA Addr reg (bd101020)
+</li>
+<li> Clear appropriate flags in the Nand DMA Intr reg (bd101038)
+</li>
+<li> Start DMA transfer by writing the appropriate flags to Nand DMA control
+reg (bd101024)
+</li>
+<li> Wait for interrupt and process accordingly
+</li>
+</ul>
+(Maybe it's possible to write data using the serial data register
+too)
+     <div class="idx"><a href="index.html#idx8.7">index</a></div>
+<h3>
+<a name="sec8.7">
+8.7</a>&nbsp;&nbsp;KIRK - Decryption Engine</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center"><b>Registerblock Base</b></td>
+<td nowrap align="center"><b>Size of Registerblock</b></td>
+<td nowrap align="center"><b>common access size</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbde00000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">32 bit</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde00000</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">Signature</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>'K' 'I' 'R' 'K'</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde00004</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">Version</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>version: '0' '0' '1' '0'</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde00008</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">Error</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>set to 1 on incomplete processing</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde0000c</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">StartProcessing</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>set this to 1 or 2 to start phase 1/2 of the processing</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde00010</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center"><tt>command</tt></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0-4</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>command</b></td>
+<td nowrap><b>dest</b></td>
+<td nowrap>&nbsp;</td>
+<td nowrap><b>source</b></td>
+<td nowrap>&nbsp;</td>
+<td nowrap><b>extra</b></td>
+<td nowrap><b>description</b></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x01</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>size</tt></td>
+<td nowrap><tt>buf+0x40</tt></td>
+<td nowrap><tt>size+0x40</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>decrypt</tt></td>
+<td nowrap>memlmd, mesg_led</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x02</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x03</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x04</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>size+0x14</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>size+0x14</tt></td>
+<td nowrap><tt>0x04,code</tt></td>
+<td nowrap><tt>block cypher</tt></td>
+<td nowrap>chnnlsv, memab</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x05</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>size+0x14</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>size+0x14</tt></td>
+<td nowrap><tt>0x04,0x0100</tt></td>
+<td nowrap><tt>block cypher</tt></td>
+<td nowrap>chnnlsv</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x06</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x07</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>size+0x14</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>size+0x14</tt></td>
+<td nowrap><tt>0x05,code</tt></td>
+<td nowrap><tt>block cypher, scramble</tt></td>
+<td nowrap>memlmd, mesg_led,chnnlsv, memab</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x08</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>size+0x14</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>size+0x14</tt></td>
+<td nowrap><tt>0x05,0x0100</tt></td>
+<td nowrap><tt>block cypher</tt></td>
+<td nowrap>chnnlsv</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x09</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0a</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0b</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>size</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>size</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>SHA1 (size&gt;=0x14)</tt></td>
+<td nowrap>memlmd, mesg_led, memab</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0c</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>0x3c</tt></td>
+<td nowrap><tt>0</tt></td>
+<td nowrap><tt>0</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>? some read</tt></td>
+<td nowrap>memab</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0d</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>0x3c</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>0x3c</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>?</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0e</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>0x14</tt></td>
+<td nowrap><tt>0</tt></td>
+<td nowrap><tt>0</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>dbgsvrgetdata</tt></td>
+<td nowrap>mesg_led,chnnlsv,memab,semawm</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0f</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x10</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>0x34</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>0x34</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>memab</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x11</tt></td>
+<td nowrap><tt>0</tt></td>
+<td nowrap><tt>0</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>0x64</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>? some check</tt></td>
+<td nowrap>memab</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x12</tt></td>
+<td nowrap><tt>0</tt></td>
+<td nowrap><tt>0</tt></td>
+<td nowrap><tt>buf</tt></td>
+<td nowrap><tt>0xb8</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>? some check</tt></td>
+<td nowrap>openpsid, memab</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde00014</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center"><tt>result</tt></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>result of semaphore_XXXXXXXX functions (exported)</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde00018</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">?</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde0001c</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center"><tt>pattern</tt></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>pattern to check status of processing</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde00020</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center"><tt>asyncPattern</tt></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>pattern set before starting an async processing</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde00024</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center"><tt>asyncPattern_end</tt></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>value of asyncPattern after processing</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde00028</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center"><tt>pattern_end</tt></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>value of pattern after processing</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde0002c</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center"><tt>source_addr</tt></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>physical address of source buffer</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde00030</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center"><tt>dest_addr</tt></td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>physical address of destination buffer</tt></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde0004c</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">?</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbde00050</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">?</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br><br><div class="idx"><a href="index.html#idx8.7.1">index</a></div>
+<h4>
+<a name="sec8.7.1">
+8.7.1</a>&nbsp;&nbsp;Keys</h4>
+<br><table><tr><td nowrap width="0">
+<tt>0x6A, 0x19, 0x71, 0xF3, 0x18, 0xDE, 0xD3, 0xA2, 0x6D,</tt><br><tt>0x3B, 0xDE, 0xC7, 0xBE, 0x98, 0xE2, 0x4C, 0xE3, 0xDC,</tt><br><tt>0xDF, 0x42, 0x7B, 0x5B, 0x12, 0x28, 0x7D, 0xC0, 0x7A,</tt><br><tt>0x59, 0x86, 0xF0, 0xF5, 0xB5, 0x58, 0xD8, 0x64, 0x18,</tt><br><tt>0x84, 0x24, 0x7F, 0xE9, 0x57, 0xAB, 0x4F, 0xC6, 0x92,</tt><br><tt>0x6D, 0x70, 0x29, 0xD3, 0x61, 0x87, 0x87, 0xD0, 0xAE,</tt><br><tt>0x2C, 0xE7, 0x37, 0x77, 0xC7, 0x3C, 0x96, 0x7E, 0x21,</tt><br><tt>0x1F, 0x65, 0x95, 0xC0, 0x61, 0x57, 0xAC, 0x64, 0xD8,</tt><br><tt>0x5A, 0x6D, 0x14, 0xD2, 0x9C, 0x54, 0xC6, 0x68, 0x5D,</tt><br><tt>0xF5, 0xC3, 0xF0, 0x50, 0xDA, 0xEA, 0x19, 0x43, 0xA7,</tt><br><tt>0xAD, 0xC3, 0x2A, 0x14, 0xCA, 0xC8, 0x4C, 0x83, 0x86,</tt><br><tt>0x18, 0xAE, 0x86, 0x49, 0xFB, 0x4F, 0x45, 0x75, 0xD2,</tt><br><tt>0xC3, 0xD6, 0xE1, 0x13, 0x69, 0x37, 0xC6, 0x90, 0xCF,</tt><br><tt>0xF9, 0x79, 0xA1, 0x77, 0x3A, 0x3E, 0xBB, 0xBB, 0xD5,</tt><br><tt>0x3B, 0x84, 0x1B, 0x9A, 0xB8, 0x79, 0xF0, 0xD3, 0x5F,</tt><br><tt>0x6F, 0x4C, 0xC0, 0x28, 0x87, 0xBC, 0xAE, 0xDA, 0x00,</tt>
+</td></tr></table>
+<br><br><table><tr><td nowrap width="0">
+<tt>0x50, 0xCC, 0x03, 0xAC, 0x3F, 0x53, 0x1A, 0xFA, 0x0A,</tt><br><tt>0xA4, 0x34, 0x23, 0x86, 0x61, 0x7F, 0x97, 0x84, 0x1C,</tt><br><tt>0x1A, 0x1D, 0x08, 0xD4, 0x50, 0xB6, 0xD9, 0x73, 0x27,</tt><br><tt>0x80, 0xD1, 0xDE, 0xEE, 0xCA, 0x49, 0x8B, 0x84, 0x37,</tt><br><tt>0xDB, 0xF0, 0x70, 0xA2, 0xA6, 0x2B, 0x09, 0x4D, 0x3B,</tt><br><tt>0x29, 0xDE, 0x0B, 0xE1, 0x6F, 0x04, 0x7A, 0xC4, 0x18,</tt><br><tt>0x7A, 0x69, 0x73, 0xBF, 0x02, 0xD8, 0xA1, 0xD0, 0x58,</tt><br><tt>0x7E, 0x69, 0xCE, 0xAC, 0x5E, 0x1B, 0x0A, 0xF8, 0x19,</tt><br><tt>0xE6, 0x9A, 0xC0, 0xDE, 0xA0, 0xB2, 0xCE, 0x04, 0x43,</tt><br><tt>0xC0, 0x9D, 0x50, 0x5D, 0x0A, 0xD7, 0xFD, 0xC6, 0x53,</tt><br><tt>0xAA, 0x13, 0xDD, 0x2C, 0x3B, 0x2B, 0xBF, 0xAB, 0x7C,</tt><br><tt>0xF5, 0xA0, 0x4A, 0x79, 0xE3, 0xF1, 0x7B, 0x2E, 0xB2,</tt><br><tt>0xA3, 0xAC, 0x8E, 0x0A, 0x38, 0x9B, 0x9E, 0xAA, 0xEC,</tt><br><tt>0x2B, 0xA3, 0x75, 0x13, 0x75, 0x77, 0x98, 0x6A, 0x66,</tt><br><tt>0x92, 0x65, 0xBC, 0x97, 0x80, 0x0E, 0x32, 0x88, 0x9F,</tt><br><tt>0x64, 0xBA, 0x99, 0x8A, 0x72, 0x96, 0x9F, 0xE1, 0xE0,</tt>
+</td></tr></table>
+<br><br><div class="idx"><a href="index.html#idx8.8">index</a></div>
+<h3>
+<a name="sec8.8">
+8.8</a>&nbsp;&nbsp;GPIO</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center"><b>Registerblock Base</b></td>
+<td nowrap align="center"><b>Size of Registerblock</b></td>
+<td nowrap align="center"><b>common access size</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe240000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">32 bit</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe240004</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">Port Read</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe240008</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">Port Write</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe24000C</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">Port Clear</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx8.9">index</a></div>
+<h3>
+<a name="sec8.9">
+8.9</a>&nbsp;&nbsp;UART4</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center"><b>Registerblock Base</b></td>
+<td nowrap align="center"><b>Size of Registerblock</b></td>
+<td nowrap align="center"><b>common access size</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe4c0000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">32 bit</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe4c0000</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">FIFO</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0-7</td>
+<td nowrap align="center">r</td>
+<td nowrap>read byte from recieve buffer</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">w</td>
+<td nowrap>write byte to transmit buffer</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe4c0018</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">STATUS</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap>&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap>TXFULL</td>
+<td nowrap>1 if transmit buffer full</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap>RXEMPTY</td>
+<td nowrap>1 if recieve buffer empty</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe4c0024</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">DIV1 - upper bits of Baudrate Divisor</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(96000000 / baudrate) &gt;&nbsp;&gt; 6</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe4c0028</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">DIV2 - lower 6 bits of Baudrate Divisor</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0-5</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(96000000 / baudrate) &amp; 0x3f</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe4c002c</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">CONTROL</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>? (set to 1 if you want to set baudrate)</td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>? (set to 1 if you want to set baudrate)</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe4c0030</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">?</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe4c0034</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">?</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe4c0044</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">?</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx8.10">index</a></div>
+<h3>
+<a name="sec8.10">
+8.10</a>&nbsp;&nbsp;UART3 Headphone/Remote SIO</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center"><b>Registerblock Base</b></td>
+<td nowrap align="center"><b>Size of Registerblock</b></td>
+<td nowrap align="center"><b>common access size</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe500000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">32 bit</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe500000</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">FIFO</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0-7</td>
+<td nowrap align="center">r</td>
+<td nowrap>read byte from recieve buffer</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">w</td>
+<td nowrap>write byte to transmit buffer</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe500018</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">r/w</td>
+<td nowrap align="center">STATUS</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap>&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap>TXFULL</td>
+<td nowrap>1 if transmit buffer full</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap>RXEMPTY</td>
+<td nowrap>1 if recieve buffer empty</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe500024</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">DIV1 - upper bits of Baudrate Divisor</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(96000000 / baudrate) &gt;&nbsp;&gt; 6</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe500028</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">DIV2 - lower 6 bits of Baudrate Divisor</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">0-5</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(96000000 / baudrate) &amp; 0x3f</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table><tr>
+<td nowrap align="center"><tt>0xbe50002c</tt></td>
+<td nowrap align="center">4</td>
+<td nowrap align="center">w</td>
+<td nowrap align="center">CONTROL</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>? (set to 1 if you want to set baudrate)</td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>? (set to 1 if you want to set baudrate)</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx9">index</a></div>
+</body></html>

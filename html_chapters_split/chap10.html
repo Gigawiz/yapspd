@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec10">
+10</a>&nbsp;&nbsp;Video Processing</h2>
+<br><div class="idx"><a href="index.html#idx10.1">index</a></div>
+<h3>
+<a name="sec10.1">
+10.1</a>&nbsp;&nbsp;Overview</h3>
+<br><ul>
+<li> vram is located at <tt>0x04000000</tt><br>
+</li>
+<li> Pixel format is 16 bit BGR (ABBBBBGGGGGRRRRR.) or 32 bit
+</li>
+<li> visible Screen is 480*272 pixel
+</li>
+<li> virtual Screensize is 512*272 pixel
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx10.2">index</a></div>
+<h3>
+<a name="sec10.2">
+10.2</a>&nbsp;&nbsp;VRAM Mirrors</h3>
+<br>
+Writing to the VRAM Mirrors seem to have no effect; setting the drawbuffer
+pointer to one of these VRAM aliases just works as normal. So these
+Mirrors only have effects for reads, but work for all readers. (GE,
+Framebuffer scandout...)
+      <div class="idx"><a href="index.html#idx10.2.1">index</a></div>
+<h4>
+<a name="sec10.2.1">
+10.2.1</a>&nbsp;&nbsp;VRAM</h4>
+<br><img src="back.png" alt="images/back.png"><h5>10.2.1.1 <a name="sec10.2.1.1">
+    &nbsp;&nbsp;Depth Buffer</a>
+</h5>
+<br>
+The raw depth buffer in the normal VRAM space is rearranged in a swizzled-like
+way. This is the raw dump of the depth buffer converted to an 8bpp
+greyscale:
+<img src="d1.png" alt="images/d1.png"><div class="idx"><a href="index.html#idx10.2.2">index</a></div>
+<h4>
+<a name="sec10.2.2">
+10.2.2</a>&nbsp;&nbsp;VRAM +2Mib</h4>
+<br>
+VRAM with "swizzle"
+<img src="d2.png" alt="images/d2.png">
+This is clearly a fairly simple structure, with a simple column-wise
+rearrangement of each 16 pixel (32 byte) strip. When rearranged, it
+looks as expected:
+<img src="sd2.png" alt="images/sd2.png"><div class="idx"><a href="index.html#idx10.2.3">index</a></div>
+<h4>
+<a name="sec10.2.3">
+10.2.3</a>&nbsp;&nbsp;VRAM +4Mib</h4>
+<br>
+identical to normal VRAM
+      <div class="idx"><a href="index.html#idx10.2.4">index</a></div>
+<h4>
+<a name="sec10.2.4">
+10.2.4</a>&nbsp;&nbsp;VRAM +6Mib</h4>
+<br>
+VRAM with "swizzle" + 32-byte column interleave.
+Reading from VRAM+6Mib will give you a proper linearized version of
+the depth buffer with no effort. The GE sees the same view; a GE copy
+operation returns the same data (represented as RGB 565):
+<img src="readdepth.png" alt="images/readdepth.png"><div class="idx"><a href="index.html#idx11">index</a></div>
+</body></html>

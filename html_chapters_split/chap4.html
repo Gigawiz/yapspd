@@ -1,0 +1,5628 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec4">
+4</a>&nbsp;&nbsp;CPU Overview</h2>
+<br><div class="idx"><a href="index.html#idx4.1">index</a></div>
+<h3>
+<a name="sec4.1">
+4.1</a>&nbsp;&nbsp;Registers</h3>
+<br>
+32 32bit General Purpose Integer Registers (R0-R31)
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center"><tt>zero</tt></td>
+<td nowrap>wired zero</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center"><tt>at</tt></td>
+<td nowrap>assembler temp</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center"><tt>v0</tt></td>
+<td nowrap>return value</td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap align="center"><tt>v1</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center"><tt>a0</tt></td>
+<td nowrap>argument registers</td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap align="center"><tt>a1</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap align="center"><tt>a2</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap align="center"><tt>a3</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center"><tt>t0</tt></td>
+<td nowrap>caller saved (o32 old style names: default)</td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap align="center"><tt>t1</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap align="center"><tt>t2</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap align="center"><tt>t3</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center"><tt>t4</tt></td>
+<td nowrap>caller saved</td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap align="center"><tt>t5</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap align="center"><tt>t6</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">15</td>
+<td nowrap align="center"><tt>t7</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap align="center"><tt>s0</tt></td>
+<td nowrap>callee saved</td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap align="center"><tt>s1</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">18</td>
+<td nowrap align="center"><tt>s2</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">19</td>
+<td nowrap align="center"><tt>s3</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap align="center"><tt>s4</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">21</td>
+<td nowrap align="center"><tt>s5</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">22</td>
+<td nowrap align="center"><tt>s6</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">23</td>
+<td nowrap align="center"><tt>s7</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap align="center"><tt>t8</tt></td>
+<td nowrap>caller saved</td>
+</tr>
+<tr>
+<td nowrap align="center">25</td>
+<td nowrap align="center"><tt>t9</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">26</td>
+<td nowrap align="center"><tt>k0</tt></td>
+<td nowrap>kernel temporary</td>
+</tr>
+<tr>
+<td nowrap align="center">27</td>
+<td nowrap align="center"><tt>k1</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap align="center"><tt>gp</tt></td>
+<td nowrap>global pointer</td>
+</tr>
+<tr>
+<td nowrap align="center">29</td>
+<td nowrap align="center"><tt>sp</tt></td>
+<td nowrap>stack pointer</td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap align="center"><tt>fp/s8</tt></td>
+<td nowrap>frame pointer</td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap align="center"><tt>ra</tt></td>
+<td nowrap>return address</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx4.2">index</a></div>
+<h3>
+<a name="sec4.2">
+4.2</a>&nbsp;&nbsp;Debug Registers</h3>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap><tt>DRCNTL</tt></td>
+<td nowrap>Debug Register Control register</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap><tt>DEPC</tt></td>
+<td nowrap>Debug Exception PC register</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap><tt>DDATA0</tt></td>
+<td nowrap>Debug Data Monitor 0 and Monitor Data register</td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap><tt>DDATA1</tt></td>
+<td nowrap>Debug Data Monitor 1 register</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap><tt>IBC</tt></td>
+<td nowrap>Instruction Breakpoint Control/Status register</td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap><tt>DBC</tt></td>
+<td nowrap>Data Breakpoint Control/Status register</td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap><tt>DR6</tt></td>
+<td nowrap>Reserved</td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap><tt>DR7</tt></td>
+<td nowrap>Reserved</td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap><tt>IBA</tt></td>
+<td nowrap>Instruction Breakpoint Address register</td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap><tt>IBAM</tt></td>
+<td nowrap>Instruction Breakpoint Address Mask register</td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap><tt>DR10</tt></td>
+<td nowrap>Reserved</td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap><tt>DR11</tt></td>
+<td nowrap>Reserved</td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap><tt>DBA</tt></td>
+<td nowrap>Data Breakpoint Address register</td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap><tt>DBAM</tt></td>
+<td nowrap>Data Breakpoint Address Mask register</td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap><tt>DBD</tt></td>
+<td nowrap>Data Breakpoint Data register</td>
+</tr>
+<tr>
+<td nowrap align="center">15</td>
+<td nowrap><tt>DBDM</tt></td>
+<td nowrap>Data Breakpoint Data Mask register</td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap><tt>DR16</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap><tt>DR17</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">18</td>
+<td nowrap><tt>DR18</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">19</td>
+<td nowrap><tt>DR19</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap><tt>DR20</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">21</td>
+<td nowrap><tt>DR21</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">22</td>
+<td nowrap><tt>DR22</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">23</td>
+<td nowrap><tt>DR23</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap><tt>DR24</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">25</td>
+<td nowrap><tt>DR25</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">26</td>
+<td nowrap><tt>DR26</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">27</td>
+<td nowrap><tt>DR27</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap><tt>DR28</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">29</td>
+<td nowrap><tt>DR29</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap><tt>DR30</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap><tt>DR31</tt></td>
+<td nowrap>Undefined</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx4.3">index</a></div>
+<h3>
+<a name="sec4.3">
+4.3</a>&nbsp;&nbsp;COP0 (System Control)</h3>
+<br><div class="idx"><a href="index.html#idx4.3.1">index</a></div>
+<h4>
+<a name="sec4.3.1">
+4.3.1</a>&nbsp;&nbsp;Status Registers (mfc/mtc)</h4>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">-</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>not available (TLB)</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">-</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>not available (TLB)</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">-</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>not available (TLB)</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap align="center">-</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>not available (TLB)</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">-</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>not available (TLB context)</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap align="center">-</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>not available (TLB)</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap align="center">-</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>not available (TLB)</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>?</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">r</td>
+<td nowrap><tt>BadVaddr</tt></td>
+<td nowrap>virtual address of last error/exception</td>
+<td nowrap width="0">sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap align="center">r/w</td>
+<td nowrap><tt>Count</tt></td>
+<td nowrap>system counter</td>
+<td nowrap width="0">interruptman,sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap align="center">-</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>not available (TLB)</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap align="center">r/w</td>
+<td nowrap><tt>Compare</tt></td>
+<td nowrap>counter comparison value</td>
+<td nowrap width="0">interruptman,sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">r/w</td>
+<td nowrap><tt>Status</tt></td>
+<td nowrap>system status</td>
+<td nowrap width="0">threadman, reboot, mewrapper,mebooterumdvideo,mebooter,loadcore,interruptman,
+loadexec, exceptionman,sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap align="center">r/w</td>
+<td nowrap><tt>Cause</tt></td>
+<td nowrap>exception cause</td>
+<td nowrap width="0">threadman, mewrapper,mebooterumdvideo,mebooter,interruptman,exceptionman,sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap align="center">r/w</td>
+<td nowrap><tt>EPC</tt></td>
+<td nowrap>exception program counter </td>
+<td nowrap width="0">loadcore,interruptman,exceptionman,sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">15</td>
+<td nowrap align="center">r</td>
+<td nowrap><tt>PRId</tt></td>
+<td nowrap>processor revision id</td>
+<td nowrap width="0">interruptman,sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap align="center">r/w</td>
+<td nowrap><tt>Config</tt></td>
+<td nowrap>configuration</td>
+<td nowrap width="0">utils,reboot,mewrapper,mebooterumdvideo,mebooter,loadcore,sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>?</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">18</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>? Watch LO</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">19</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>? Watch HI</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap align="center">-</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>not available (TLB XContext)</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">21</td>
+<td nowrap align="center">r</td>
+<td nowrap><tt>SCCode</tt></td>
+<td nowrap>Ssyscall-code&lt;&nbsp;&lt;2</td>
+<td nowrap width="0">interruptman</td>
+</tr>
+<br><tr>
+<td nowrap align="center">22</td>
+<td nowrap align="center">r</td>
+<td nowrap><tt>CPUId</tt></td>
+<td nowrap>CPU ID (0=Main, 1=ME)</td>
+<td nowrap width="0">threadman, sysreg, reboot,loadcore,interruptman,exceptionman,sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">23</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>?</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>?</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">25</td>
+<td nowrap align="center">r/w</td>
+<td nowrap><tt>EBase</tt></td>
+<td nowrap>virtual address of exception vector</td>
+<td nowrap width="0">threadman, exceptionman,sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">26</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>? Cache ECC</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">27</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>? Cache Error </td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap align="center">r/w</td>
+<td nowrap><tt>TagLo</tt></td>
+<td nowrap>cache instruction register</td>
+<td nowrap width="0">utils,reboot,mewrapper,mebooterumdvideo,mebooter,sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">29</td>
+<td nowrap align="center">r/w</td>
+<td nowrap><tt>TagHi</tt></td>
+<td nowrap>cache instruction register</td>
+<td nowrap width="0">utils,reboot,mewrapper,mebooterumdvideo,mebooter,sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap align="center">r/w</td>
+<td nowrap><tt>ErrorEPC</tt></td>
+<td nowrap>error exception program counter</td>
+<td nowrap width="0">exceptionman,sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>?</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx4.3.2">index</a></div>
+<h4>
+<a name="sec4.3.2">
+4.3.2</a>&nbsp;&nbsp;Control Registers (cfc/ctc)</h4>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center"><b>num</b></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0"><b>used by</b></td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap><tt>COP0.EPC</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>context</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">EBase Handler, general exception handler, error handler,syscall handler</td>
+<td nowrap width="0">sysmem,interruptman, exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap><tt>COP0.EPC.err</tt></td>
+<td nowrap>0xbfc00000</td>
+<td nowrap>context</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">error (HW,SW,NMI) exception handler, error handler</td>
+<td nowrap width="0">sysmem,exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap><tt>COP0.Status </tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>context</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">EBase Handler, general exception handler,syscall handler</td>
+<td nowrap width="0">sysmem,interruptman, exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap><tt>COP0.Cause</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>context</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">EBase Handler, general exception handler,syscall handler</td>
+<td nowrap width="0">sysmem,interruptman, exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap><tt>GPR.v0</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>context</td>
+<td nowrap>saved v0</td>
+<td nowrap width="0">general exception handler ,syscall handler</td>
+<td nowrap width="0">sysmem,interruptman, exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap><tt>GPR.v1</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>context</td>
+<td nowrap>saved v1</td>
+<td nowrap width="0">general exception handler</td>
+<td nowrap width="0">sysmem,interruptman, exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap><tt>GPR.v0.err</tt></td>
+<td nowrap>0xbfc00000</td>
+<td nowrap>context</td>
+<td nowrap>saved v0</td>
+<td nowrap width="0">error (HW,SW,NMI) exception handler, EBase Handler</td>
+<td nowrap width="0">sysmem,exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap><tt>GPR.v1.err</tt></td>
+<td nowrap>0xbfc00000</td>
+<td nowrap>context</td>
+<td nowrap>saved v1</td>
+<td nowrap width="0">error (HW,SW,NMI) exception handler, EBase Handler</td>
+<td nowrap width="0">sysmem,exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap><tt>EXC_TABLE</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>vector table</td>
+<td nowrap>Exception vector table addr</td>
+<td nowrap width="0">general exception handler</td>
+<td nowrap width="0">sysmem,exceptionman(init)</td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap><tt>EXC_31_ERROR</tt></td>
+<td nowrap>0xbfc00000</td>
+<td nowrap>vector</td>
+<td nowrap>Error handler addr</td>
+<td nowrap width="0">error (HW,SW,NMI) exception handler</td>
+<td nowrap width="0">sysmem,exceptionman(init)</td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap><tt>EXC_27_DEBUG</tt></td>
+<td nowrap>0xbfc01000</td>
+<td nowrap>vector</td>
+<td nowrap>Debug handler addr</td>
+<td nowrap width="0">debug exception handler</td>
+<td nowrap width="0">sysmem,exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap><tt>EXC_8_SYSCALL</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>vector</td>
+<td nowrap>Syscall handler addr</td>
+<td nowrap width="0">EBase Handler, register/release exception handler functions</td>
+<td nowrap width="0">sysmem,exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap><tt>SC_TABLE</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>vector table</td>
+<td nowrap>(1st) syscalls table addr</td>
+<td nowrap width="0">syscall handler</td>
+<td nowrap width="0">sysmem,interruptman(init),</td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap><tt>SC_MAX</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>int</td>
+<td nowrap>(1st) max syscall code</td>
+<td nowrap width="0">syscall handler</td>
+<td nowrap width="0">sysmem,interruptman(init),</td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap><tt>GPR.sp.Kernel</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>context</td>
+<td nowrap>Stackpointer Kernel</td>
+<td nowrap width="0">&nbsp;</td>
+<td nowrap width="0">sysmem,threadman (init), interruptman,</td>
+</tr>
+<tr>
+<td nowrap align="center">15</td>
+<td nowrap><tt>GPR.sp.User</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>context</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">syscall handler</td>
+<td nowrap width="0">sysmem,threadman (init), interruptman,</td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap><tt>CurrentTCB</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>context</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">syscall handler</td>
+<td nowrap width="0">sysmem,threadman (init), interruptman,</td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap>?</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">?</td>
+<td nowrap width="0">sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">18</td>
+<td nowrap><tt>NMI_TABLE</tt></td>
+<td nowrap>0xbfc00000</td>
+<td nowrap>vector table</td>
+<td nowrap>NMI vector table addr</td>
+<td nowrap width="0">error handler</td>
+<td nowrap width="0">sysmem,exceptionman(init)</td>
+</tr>
+<tr>
+<td nowrap align="center">19</td>
+<td nowrap><tt>COP0.Status.err</tt></td>
+<td nowrap>0xbfc00000</td>
+<td nowrap>context</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">EBase Handler, error (HW,SW,NMI) exception handler</td>
+<td nowrap width="0">sysmem,exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap><tt>COP0.Cause.err</tt></td>
+<td nowrap>0xbfc00000</td>
+<td nowrap>context</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">error (HW,SW,NMI) exception handler</td>
+<td nowrap width="0">sysmem,exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">21</td>
+<td nowrap>?</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">?</td>
+<td nowrap width="0">sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">22</td>
+<td nowrap>?</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">?</td>
+<td nowrap width="0">sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">23</td>
+<td nowrap>? GPR.v0 </td>
+<td nowrap>&nbsp;</td>
+<td nowrap>? context</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">?</td>
+<td nowrap width="0">sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap>? GPR.v1</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>? context</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">?</td>
+<td nowrap width="0">sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">25</td>
+<td nowrap><tt>PROFILER_BASE</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>vector</td>
+<td nowrap>profiler hw base addr</td>
+<td nowrap width="0">general exception handler</td>
+<td nowrap width="0">sysmem,threadman, interruptman, exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">26</td>
+<td nowrap><tt>GPR.v0.dbg</tt></td>
+<td nowrap>0xbfc01000</td>
+<td nowrap>context</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">debug exception handler</td>
+<td nowrap width="0">sysmem,exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">27</td>
+<td nowrap><tt>GPR.v1.dbg</tt></td>
+<td nowrap>0xbfc01000</td>
+<td nowrap>context</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">debug exception handler</td>
+<td nowrap width="0">sysmem,exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap><tt>DBGENV</tt></td>
+<td nowrap>0xbfc01000</td>
+<td nowrap>vector</td>
+<td nowrap>debug handler env addr</td>
+<td nowrap width="0">debug exception handler</td>
+<td nowrap width="0">sysmem,exceptionman</td>
+</tr>
+<tr>
+<td nowrap align="center">29</td>
+<td nowrap>?</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">?</td>
+<td nowrap width="0">sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap>?</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">?</td>
+<td nowrap width="0">sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap>?</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">?</td>
+<td nowrap width="0">sysmem</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx4.4">index</a></div>
+<h3>
+<a name="sec4.4">
+4.4</a>&nbsp;&nbsp;COP1 (FPU)</h3>
+<br>
+32 32bit General Purpose Floatingpoint Registers (FPR0-FPR31)
+      <div class="idx"><a href="index.html#idx4.4.1">index</a></div>
+<h4>
+<a name="sec4.4.1">
+4.4.1</a>&nbsp;&nbsp;Status Registers (mfc/mtc)</h4>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">vshmain,video_plugin,update_plugin,sysreg,semawm,savedata_plugin,photo_plugin,
+paf,pafmini,osk_plugin,opening_plugin,netplay_client_plugin,music_plugin,msvideo_plugin,lcdc,impose_plugin,auth_plugin,common_gui,dialogmain,</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">vshmain,video_plugin,update_plugin,sysreg,sysclib,savedata_utility,savedata_plugin,power,photo_plugin,
+paf,pafmini,osk_plugin,opening_plugin,netplay_server_utility,netconf_plugin,music_plugin,msvideo_plugin,lcdc,impose_plugin,dialogmain,</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">video_plugin,sysreg,photo_plugin, paf,pafmini,osk_plugin,music_plugin,msvideo_plugin,lcdc,</td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">video_plugin,sysreg,photo_plugin, paf,pafmini,music_plugin,</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">vshmain,video_plugin,paf,pafmini,dialogmain,</td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">video_plugin,sysreg,photo_plugin, paf,pafmini,</td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">paf,pafmini,</td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">video_plugin,paf,pafmini,</td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">paf,pafmini,</td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">vshmain,video_plugin,update_plugin,sysconf_plugin,sysclib,savedata_utility,savedata_plugin,savedata_auto_dialog,photo_plugin,
+paf,pafmini,opening_plugin,netplay_client_plugin,netconf_plugin,music_plugin,msvideo_plugin,auth_plugin,common_gui,dialogmain,game_plugin,</td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">vshmain,update_plugin,sysconf_plugin,savedata_utility,savedata_plugin,photo_plugin,
+paf,pafmini,osk_plugin,netplay_client_plugin,netconf_plugin,music_plugin,msvideo_plugin,game_plugin,common_gui,</td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">vshmain,video_plugin,sysconf_plugin,savedata_utility,savedata_plugin,photo_plugin,
+paf,pafmini,music_plugin,msvideo_plugin,game_plugin,</td>
+</tr>
+<tr>
+<td nowrap align="center">15</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">syscon</td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">paf,pafmini,</td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">18</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">19</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">vshmain,video_plugin,sysconf_plugin,savedata_plugin,photo_plugin,
+paf,pafmini,osk_plugin,music_plugin,msvideo_plugin,impose_plugin,game_plugin,common_gui,dialogmain,</td>
+</tr>
+<tr>
+<td nowrap align="center">21</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">video_plugin,photo_plugin, paf,pafmini,osk_plugin,music_plugin,msvideo_plugin,game_plugin,common_gui,</td>
+</tr>
+<tr>
+<td nowrap align="center">22</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">sysconf_plugin,photo_plugin, paf,pafmini,music_plugin,msvideo_plugin,game_plugin,common_gui,</td>
+</tr>
+<tr>
+<td nowrap align="center">23</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">photo_plugin, paf,pafmini,</td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">paf,pafmini,</td>
+</tr>
+<tr>
+<td nowrap align="center">25</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">paf,pafmini,</td>
+</tr>
+<tr>
+<td nowrap align="center">26</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">27</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">29</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap width="0">&nbsp;</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx4.4.2">index</a></div>
+<h4>
+<a name="sec4.4.2">
+4.4.2</a>&nbsp;&nbsp;Control Registers (cfc/ctc)</h4>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap><tt>FIR</tt></td>
+<td nowrap>Floating Point Implementation Register</td>
+<td nowrap>sysmem</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap><tt>FCR1</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap><tt>FCR2</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap><tt>FCR3</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap><tt>FCR4</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap><tt>FCR5</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap><tt>FCR6</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>interrupt handler</td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap><tt>FCR7</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap><tt>FCR8</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap><tt>FCR9</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap><tt>FCR10</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap><tt>FCR11</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap><tt>FCR12</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap><tt>FCR13</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap><tt>FCR14</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">15</td>
+<td nowrap><tt>FCR15</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap><tt>FCR16</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap><tt>FCR17</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">18</td>
+<td nowrap><tt>FCR18</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">19</td>
+<td nowrap><tt>FCR19</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap><tt>FCR20</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">21</td>
+<td nowrap><tt>FCR21</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">22</td>
+<td nowrap><tt>FCR22</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">23</td>
+<td nowrap><tt>FCR23</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap><tt>FCR24</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">25</td>
+<td nowrap><tt>FCCR</tt></td>
+<td nowrap>Floating Point Condition Codes Register</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">26</td>
+<td nowrap><tt>FEXR</tt></td>
+<td nowrap>Floating Point Exceptions Register</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">27</td>
+<td nowrap><tt>FCR27</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap><tt>FENR</tt></td>
+<td nowrap>Floating Point Enables Register</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">29</td>
+<td nowrap><tt>FCR29</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap><tt>FCR30</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap><tt>FCSR</tt></td>
+<td nowrap>Floating Point Control and Status Register</td>
+<td nowrap>sysmem, interruptman, paf, pafmini</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx4.5">index</a></div>
+<h3>
+<a name="sec4.5">
+4.5</a>&nbsp;&nbsp;COP2 (VFPU)</h3>
+<br>
+The psp's VFPU (Vector Floating Point Unit) is a coprocessor that
+can perform quite a few useful operations. The main purpose of it
+is vector and matrix processing, but it also supports trigonemtric
+functions and other mathematical operations, conversions, and mathematical
+constants. 
+      <div class="idx"><a href="index.html#idx4.5.1">index</a></div>
+<h4>
+<a name="sec4.5.1">
+4.5.1</a>&nbsp;&nbsp;Registers</h4>
+<br>
+The VFPU has 128 single precision floating point (IEEE 754) registers
+(VFR0-VFR127), but they are arranged and accessed in various ways
+that make it very flexible. Many of the instructions for the VFPU
+support operations on: 
+<ul>
+<li> a single register
+</li>
+<li> a pair of registers
+</li>
+<li> three registers
+</li>
+<li> four regiters
+</li>
+<li> 2x2 matrix
+</li>
+<li> 3x3 matrix
+</li>
+<li> 4x4 matrix
+</li>
+</ul>
+And if that weren't enough, it can work with matrices in normal or
+transposed orders. 
+The registers are grouped into 8 blocks of 16 registers each. This
+gives you enough room to work with 8 4x4 matrices, 8 3x3 matrices,
+32 2x2 matrices. Or you can store up to 32 quad vectors, 40 triple
+vectors, 64 paired vectors, or 128 single values. 
+The register names you use on the VFPU depends highly on the instruction
+being performed, and can quickly become a nightmare when trying to
+figure out how to access or modify certain registers. Register names
+are numbered with 3 digits: Matrix, Column and Row. The tables below
+show how single, pair, triple, quad and matrix registers are mapped
+within a single 16 register block 
+<a name="tth_tAb1">
+</a> 
+<table><tr><td nowrap><table>
+<tr>
+<td nowrap><b>single Register</b></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>
+<table>
+<tr>
+<td nowrap><tt>S000</tt></td>
+<td nowrap><tt>S010</tt></td>
+<td nowrap><tt>S020</tt></td>
+<td nowrap><tt>S030</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>S001</tt></td>
+<td nowrap><tt>S011</tt></td>
+<td nowrap><tt>S021</tt></td>
+<td nowrap><tt>S031</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>S002</tt></td>
+<td nowrap><tt>S012</tt></td>
+<td nowrap><tt>S022</tt></td>
+<td nowrap><tt>S032</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>S003</tt></td>
+<td nowrap><tt>S013</tt></td>
+<td nowrap><tt>S023</tt></td>
+<td nowrap><tt>S033</tt></td>
+</tr>
+</table>
+</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><b>Quad Columns</b></td>
+<td nowrap><b>Quad Rows</b></td>
+</tr>
+<tr>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>C000</tt></td>
+<td nowrap align="center"><tt>C010</tt></td>
+<td nowrap align="center"><tt>C020</tt></td>
+<td nowrap align="center"><tt>C030</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+</table>
+</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>R000</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>R001</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>R002</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>R003</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap><b>4*4 Matrix</b></td>
+<td nowrap><b>4*4 Transpose Matrix</b></td>
+</tr>
+<tr>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>M000</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+</table>
+</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>E000</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap><b>Triple Columns (1)</b></td>
+<td nowrap><b>Triple Columns (2)</b></td>
+</tr>
+<tr>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>C000</tt></td>
+<td nowrap align="center"><tt>C010</tt></td>
+<td nowrap align="center"><tt>C020</tt></td>
+<td nowrap align="center"><tt>C030</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+</table>
+</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>C001</tt></td>
+<td nowrap align="center"><tt>C011</tt></td>
+<td nowrap align="center"><tt>C021</tt></td>
+<td nowrap align="center"><tt>C031</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap><b>Triple Rows (1)</b></td>
+<td nowrap><b>Triple Rows (2)</b></td>
+</tr>
+<tr>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>R000</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>R001</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<br><tr>
+<td nowrap align="center"><tt>R002</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>R003</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+</table>
+</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>R010</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>R011</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<br><tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>R012</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>R013</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap><b>3*3 Matrix (1)</b></td>
+<td nowrap><b>3*3 Matrix (2)</b></td>
+</tr>
+<tr>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>M000</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<br><tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+</table>
+</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>M001</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<br><tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap><b>3*3 Matrix (3)</b></td>
+<td nowrap><b>3*3 Matrix (4)</b></td>
+</tr>
+<tr>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>M10</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<br><tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+</table>
+</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>M011</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<br><tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap><b>3*3 Transpose Matrix (1)</b></td>
+<td nowrap><b>3*3 Transpose Matrix (2)</b></td>
+</tr>
+<tr>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>E000</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<br><tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+</table>
+</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>E001</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<br><tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap><b>3*3 Transpose Matrix (3)</b></td>
+<td nowrap><b>3*3 Transpose Matrix (4)</b></td>
+</tr>
+<tr>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>E10</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<br><tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+</table>
+</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>E011</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<br><tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap><b>Pair Columns</b></td>
+<td nowrap><b>Pair Rows</b></td>
+</tr>
+<tr>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>C000</tt></td>
+<td nowrap align="center"><tt>C010</tt></td>
+<td nowrap align="center"><tt>C020</tt></td>
+<td nowrap align="center"><tt>C030</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>C002</tt></td>
+<td nowrap align="center"><tt>C012</tt></td>
+<td nowrap align="center"><tt>C022</tt></td>
+<td nowrap align="center"><tt>C032</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+</table>
+</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>R000</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>R020</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>R001</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>R021</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>R002</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>R022</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>R003</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>R023</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap><b>2*2 Matrix</b></td>
+<td nowrap><b>2*2 Transpose Matrix</b></td>
+</tr>
+<tr>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>M000</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>M020</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>M002</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>M022</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+</table>
+</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><tt>E000</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>E020</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>E002</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>E022</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+<td nowrap align="center"><tt>....</tt></td>
+</tr>
+</table>
+</td>
+</tr>
+</table></td></tr></table>
+ Repeat all of the above with the other 7 blocks of registers. Just
+change the first digit of the register names to work on a different
+set
+      <div class="idx"><a href="index.html#idx4.5.2">index</a></div>
+<h4>
+<a name="sec4.5.2">
+4.5.2</a>&nbsp;&nbsp;Extra Registers</h4>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center">128</td>
+<td nowrap><tt>VFPU_PFXS</tt></td>
+<td nowrap>Source prefix stack</td>
+</tr>
+<tr>
+<td nowrap align="center">129</td>
+<td nowrap><tt>VFPU_PFXT</tt></td>
+<td nowrap>Target prefix stack</td>
+</tr>
+<tr>
+<td nowrap align="center">130</td>
+<td nowrap><tt>VFPU_PFXD</tt></td>
+<td nowrap>Destination prefix stack</td>
+</tr>
+<tr>
+<td nowrap align="center">131</td>
+<td nowrap><tt>VFPU_CC</tt></td>
+<td nowrap>Condition information</td>
+</tr>
+<tr>
+<td nowrap align="center">132</td>
+<td nowrap><tt>VFPU_INF4</tt></td>
+<td nowrap>VFPU internal information 4</td>
+</tr>
+<tr>
+<td nowrap align="center">133</td>
+<td nowrap><tt>VFPU_RSV5</tt></td>
+<td nowrap>Not used (reserved)</td>
+</tr>
+<tr>
+<td nowrap align="center">134</td>
+<td nowrap><tt>VFPU_RSV6</tt></td>
+<td nowrap>Not used (reserved)</td>
+</tr>
+<tr>
+<td nowrap align="center">135</td>
+<td nowrap><tt>VFPU_REV</tt></td>
+<td nowrap>VFPU revision information</td>
+</tr>
+<tr>
+<td nowrap align="center">136</td>
+<td nowrap><tt>VFPU_RCX0</tt></td>
+<td nowrap>Pseudorandom number generator information 0</td>
+</tr>
+<tr>
+<td nowrap align="center">137</td>
+<td nowrap><tt>VFPU_RCX1</tt></td>
+<td nowrap>Pseudorandom number generator information 1</td>
+</tr>
+<tr>
+<td nowrap align="center">138</td>
+<td nowrap><tt>VFPU_RCX2</tt></td>
+<td nowrap>Pseudorandom number generator information 2</td>
+</tr>
+<tr>
+<td nowrap align="center">139</td>
+<td nowrap><tt>VFPU_RCX3</tt></td>
+<td nowrap>Pseudorandom number generator information 3</td>
+</tr>
+<tr>
+<td nowrap align="center">140</td>
+<td nowrap><tt>VFPU_RCX4</tt></td>
+<td nowrap>Pseudorandom number generator information 4</td>
+</tr>
+<tr>
+<td nowrap align="center">141</td>
+<td nowrap><tt>VFPU_RCX5</tt></td>
+<td nowrap>Pseudorandom number generator information 5</td>
+</tr>
+<tr>
+<td nowrap align="center">142</td>
+<td nowrap><tt>VFPU_RCX6</tt></td>
+<td nowrap>Pseudorandom number generator information 6</td>
+</tr>
+<tr>
+<td nowrap align="center">143</td>
+<td nowrap><tt>VFPU_RCX7</tt></td>
+<td nowrap>Pseudorandom number generator information 7</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx4.6">index</a></div>
+<h3>
+<a name="sec4.6">
+4.6</a>&nbsp;&nbsp;Instruction Format</h3>
+<br>
+Every CPU instruction consists of a single word (32 bits) aligned
+on a word boundary and the major instruction formats are shown here:
+<ul>
+<li> I-Type (Immediate)
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><tt>op&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap><tt>rs&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap><tt>rt&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap><tt>immediate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>oooooo</tt></td>
+<td nowrap><tt>sssss</tt></td>
+<td nowrap><tt>ttttt</tt></td>
+<td nowrap><tt>iiiiiiiiiiiiiiii</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>31&nbsp;&nbsp;26</tt></td>
+<td nowrap><tt>25&nbsp;21</tt></td>
+<td nowrap><tt>20&nbsp;16</tt></td>
+<td nowrap><tt>15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0</tt></td>
+</tr>
+</table>
+</td></tr></table>
+</li>
+<li> J-Type (Jump)
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><tt>op&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap><tt>target&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>oooooo</tt></td>
+<td nowrap><tt>tttttttttttttttttttttttttt</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>31&nbsp;&nbsp;26</tt></td>
+<td nowrap><tt>25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0</tt></td>
+</tr>
+</table>
+</td></tr></table>
+</li>
+<li> R-Type (Register)
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><tt>op&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap><tt>rs&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap><tt>rt&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap><tt>rd&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap><tt>shamt</tt></td>
+<td nowrap><tt>func&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>oooooo</tt></td>
+<td nowrap><tt>sssss</tt></td>
+<td nowrap><tt>ttttt</tt></td>
+<td nowrap><tt>ddddd</tt></td>
+<td nowrap><tt>aaaaa</tt></td>
+<td nowrap><tt>ffffff</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>31&nbsp;&nbsp;26</tt></td>
+<td nowrap><tt>25&nbsp;21</tt></td>
+<td nowrap><tt>20&nbsp;16</tt></td>
+<td nowrap><tt>15&nbsp;11</tt></td>
+<td nowrap><tt>10&nbsp;&nbsp;6</tt></td>
+<td nowrap><tt>5&nbsp;&nbsp;&nbsp;&nbsp;0</tt></td>
+</tr>
+</table>
+</td></tr></table>
+</li>
+</ul>
+where:
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap>op</td>
+<td nowrap>6-bit operation code</td>
+</tr>
+<tr>
+<td nowrap>rs</td>
+<td nowrap>5-bit source register specifier</td>
+</tr>
+<tr>
+<td nowrap>rt</td>
+<td nowrap>5-bit target (source/destination) register or branch condition</td>
+</tr>
+<tr>
+<td nowrap>immediate</td>
+<td nowrap>16-bit immediate, branch displacement or address displacement</td>
+</tr>
+<tr>
+<td nowrap>target</td>
+<td nowrap>26-bit jump target address</td>
+</tr>
+<tr>
+<td nowrap>rd</td>
+<td nowrap>5-bit destination register specifier</td>
+</tr>
+<tr>
+<td nowrap>shamt</td>
+<td nowrap>5-bit shift amount</td>
+</tr>
+<tr>
+<td nowrap>func</td>
+<td nowrap>6-bit function field</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx4.7">index</a></div>
+<h3>
+<a name="sec4.7">
+4.7</a>&nbsp;&nbsp;MIPS Instructions</h3>
+<br><a name="tth_tAb1">
+</a> 
+<table><tr><td nowrap><table>
+<tr>
+<td nowrap><b>Mnemonic</b></td>
+<td nowrap><b>Opcode</b></td>
+<td nowrap><tt>op&nbsp;&nbsp;&nbsp;&nbsp; rs&nbsp;&nbsp;&nbsp; rt&nbsp;&nbsp;&nbsp; offset&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap><b>Description</b></td>
+</tr>
+<tr>
+<td nowrap><tt>lw rt, offset(rs)</tt></td>
+<td nowrap><tt>0x8c000000</tt></td>
+<td nowrap><tt>100011 sssss ttttt oooooooooooooooo</tt></td>
+<td nowrap>LoadWord Relative to Address in General Purpose Register</td>
+</tr>
+<tr>
+<td nowrap><tt>sw rt, offset(rs)</tt></td>
+<td nowrap><tt>0xac000000</tt></td>
+<td nowrap><tt>101011 sssss ttttt oooooooooooooooo</tt></td>
+<td nowrap>StoreWord Relative to Address in General Purpose Register</td>
+</tr>
+</table></td></tr></table>
+<a name="tth_tAb1">
+</a> 
+<table><tr><td nowrap><table>
+<tr>
+<td nowrap><b>Mnemonic</b></td>
+<td nowrap><b>Opcode</b></td>
+<td nowrap><tt>op&nbsp;&nbsp;&nbsp;&nbsp; rs&nbsp;&nbsp;&nbsp; rt&nbsp;&nbsp;&nbsp; immediate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap><b>Description</b></td>
+</tr>
+<tr>
+<td nowrap><tt>addiu rt,rs,immediate</tt></td>
+<td nowrap><tt>0x24000000</tt></td>
+<td nowrap><tt>001001 sssss ttttt iiiiiiiiiiiiiiii</tt></td>
+<td nowrap>Add Immediate Unsigned Word</td>
+</tr>
+</table></td></tr></table>
+<div class="idx"><a href="index.html#idx4.7.1">index</a></div>
+<h4>
+<a name="sec4.7.1">
+4.7.1</a>&nbsp;&nbsp;lw</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>lw</b></td>
+<td nowrap><b>LoadWord Relative to Address in General Purpose Register </b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>%rt &lt;- word_at_address (offset + %base)</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><tt>lw %rt, offset(%base) </tt></td>
+<td nowrap>&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%rt</tt></td>
+<td nowrap>GPR Target Register (0...31) </td>
+</tr>
+<tr>
+<td nowrap><tt>%base</tt></td>
+<td nowrap>GPR, specifies Source Address Base </td>
+</tr>
+<tr>
+<td nowrap><tt>offset</tt></td>
+<td nowrap>signed Offset added to Source Address Base</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.7.2">index</a></div>
+<h4>
+<a name="sec4.7.2">
+4.7.2</a>&nbsp;&nbsp;sw</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>sw</b></td>
+<td nowrap><b>StoreWord Relative to Address in General Purpose Register </b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>word_at_address (offset + %base) &lt;- %rt</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><tt>sw %rt, offset(%base) </tt></td>
+<td nowrap>&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%rt</tt></td>
+<td nowrap>GPR Target Register (0...31) </td>
+</tr>
+<tr>
+<td nowrap><tt>%base</tt></td>
+<td nowrap>GPR, specifies Source Address Base </td>
+</tr>
+<tr>
+<td nowrap><tt>offset</tt></td>
+<td nowrap>signed Offset added to Source Address Base </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.7.3">index</a></div>
+<h4>
+<a name="sec4.7.3">
+4.7.3</a>&nbsp;&nbsp;addiu</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>addiu</b></td>
+<td nowrap><b>Add Immediate Unsigned Word </b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>%rt &lt;- %rs + sign_extended(immediate)</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><tt>addiu %rt, %rs, immediate </tt></td>
+<td nowrap>&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%rt</tt></td>
+<td nowrap>GPR Target Register (0...31) </td>
+</tr>
+<tr>
+<td nowrap><tt>%rs</tt></td>
+<td nowrap>GPR Source Register (0...31) </td>
+</tr>
+<tr>
+<td nowrap><tt>immediate</tt></td>
+<td nowrap>value added to Source Register </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.8">index</a></div>
+<h3>
+<a name="sec4.8">
+4.8</a>&nbsp;&nbsp;Allegrex Instructions</h3>
+<br><a name="tth_tAb1">
+</a> 
+<table><tr><td nowrap><table>
+<tr>
+<td nowrap><b>Mnemonic</b></td>
+<td nowrap><b>Opcode</b></td>
+<td nowrap><tt>op&nbsp;&nbsp;&nbsp;&nbsp; rs&nbsp;&nbsp;&nbsp; rt&nbsp;&nbsp;&nbsp; rd&nbsp;&nbsp;&nbsp; shamt func</tt></td>
+<td nowrap><b>Description</b></td>
+</tr>
+<tr>
+<td nowrap><tt>halt</tt></td>
+<td nowrap><tt>0x70000000</tt></td>
+<td nowrap><tt>011100 00000 00000 00000 00000 000000</tt></td>
+<td nowrap>halt execution until next interrupt</td>
+</tr>
+<tr>
+<td nowrap><tt>mfic rt,rd</tt></td>
+<td nowrap><tt>0x70000024</tt></td>
+<td nowrap><tt>011100 00000 ttttt ddddd 00000 100100</tt></td>
+<td nowrap>move from IC (Interrupt) register</td>
+</tr>
+<tr>
+<td nowrap><tt>mtic rt,rd</tt></td>
+<td nowrap><tt>0x70000026</tt></td>
+<td nowrap><tt>011100 00000 ttttt ddddd 00000 100110</tt></td>
+<td nowrap>move to IC (Interrupt) register</td>
+</tr>
+</table></td></tr></table>
+<div class="idx"><a href="index.html#idx4.8.1">index</a></div>
+<h4>
+<a name="sec4.8.1">
+4.8.1</a>&nbsp;&nbsp;halt</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>halt</b></td>
+<td nowrap><b>halt execution until next interrupt</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><tt>halt</tt></td>
+<td nowrap>&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><ul>
+<li> this instruction is used in the idle-thread of the kernel, probably
+to initiate power saving
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx4.8.2">index</a></div>
+<h4>
+<a name="sec4.8.2">
+4.8.2</a>&nbsp;&nbsp;mfic / mtic</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>mfic</b></td>
+<td nowrap><b>move from IC (Interrupt) register</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><tt>mfic rt,rd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>mtic</b></td>
+<td nowrap><b>move to IC (Interrupt) register</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><tt>mtic rt,rd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><ul>
+<li> <tt>mfic $v0, zero</tt> <br>
+to save the interrupt state in v0
+</li>
+<li> <tt>mtic zero, zero</tt> <br>
+to disable them
+</li>
+<li> <tt>mtic $a0, zero</tt> <br>
+to renable based on the original mask in a0
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx4.9">index</a></div>
+<h3>
+<a name="sec4.9">
+4.9</a>&nbsp;&nbsp;VFPU Instructions</h3>
+<br><a name="tth_tAb1">
+</a> 
+<table><tr><td nowrap><table>
+<tr>
+<td nowrap><b>Mnemonic</b></td>
+<td nowrap><b>Opcode</b></td>
+<td nowrap><tt>op&nbsp;&nbsp;&nbsp;&nbsp; rs&nbsp;&nbsp;&nbsp; rt&nbsp;&nbsp;&nbsp; offset&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c &nbsp;</tt></td>
+<td nowrap><b>Description</b></td>
+</tr>
+<tr>
+<td nowrap><tt>lv.q rt, offset(rs)</tt></td>
+<td nowrap><tt>0xd8000000</tt></td>
+<td nowrap><tt>110110 sssss ttttt oooooooooooooo 0 t</tt></td>
+<td nowrap>LoadVector.Quadword Relative to Address in GPR</td>
+</tr>
+<tr>
+<td nowrap><tt>sv.q rt, offset(rs), wb</tt></td>
+<td nowrap><tt>0xf8000000</tt></td>
+<td nowrap><tt>111110 sssss ttttt oooooooooooooo w t</tt></td>
+<td nowrap>StoreVector.Quadword Relative to Address in GPR</td>
+</tr>
+</table></td></tr></table>
+<a name="tth_tAb1">
+</a> 
+<table><tr><td nowrap><table>
+<tr>
+<td nowrap><b>Mnemonic</b></td>
+<td nowrap><b>Opcode</b></td>
+<td nowrap><tt>op&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; rt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; rs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; rd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+<td nowrap><b>Description</b></td>
+</tr>
+<tr>
+<td nowrap><tt>vadd.s rd,rs,rt</tt></td>
+<td nowrap><tt>0x60000000</tt></td>
+<td nowrap><tt>011000 000 ttttttt 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vadd.p rd,rs,rt</tt></td>
+<td nowrap><tt>0x60000080</tt></td>
+<td nowrap><tt>011000 000 ttttttt 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vadd.t rd,rs,rt</tt></td>
+<td nowrap><tt>0x60008000</tt></td>
+<td nowrap><tt>011000 000 ttttttt 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vadd.q rd,rs,rt</tt></td>
+<td nowrap><tt>0x60008080</tt></td>
+<td nowrap><tt>011000 000 ttttttt 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsub.s rd,rs,rt</tt></td>
+<td nowrap><tt>0x60800000</tt></td>
+<td nowrap><tt>011010 000 ttttttt 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsub.p rd,rs,rt</tt></td>
+<td nowrap><tt>0x60800080</tt></td>
+<td nowrap><tt>011010 000 ttttttt 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsub.t rd,rs,rt</tt></td>
+<td nowrap><tt>0x60808000</tt></td>
+<td nowrap><tt>011010 000 ttttttt 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsub.q rd,rs,rt</tt></td>
+<td nowrap><tt>0x60808080</tt></td>
+<td nowrap><tt>011010 000 ttttttt 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vdiv.s rd,rs,rt</tt></td>
+<td nowrap><tt>0x63800000</tt></td>
+<td nowrap><tt>011000 111 ttttttt 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vdiv.p rd,rs,rt</tt></td>
+<td nowrap><tt>0x63800080</tt></td>
+<td nowrap><tt>011000 111 ttttttt 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vdiv.t rd,rs,rt</tt></td>
+<td nowrap><tt>0x63808000</tt></td>
+<td nowrap><tt>011000 111 ttttttt 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vdiv.q rd,rs,rt</tt></td>
+<td nowrap><tt>0x63808080</tt></td>
+<td nowrap><tt>011000 111 ttttttt 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmul.s rd,rs,rt</tt></td>
+<td nowrap><tt>0x64000000</tt></td>
+<td nowrap><tt>011001 000 ttttttt 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmul.p rd,rs,rt</tt></td>
+<td nowrap><tt>0x64000080</tt></td>
+<td nowrap><tt>011001 000 ttttttt 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmul.t rd,rs,rt</tt></td>
+<td nowrap><tt>0x64008000 </tt></td>
+<td nowrap><tt>011001 000 ttttttt 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmul.q rd,rs,rt</tt></td>
+<td nowrap><tt>0x64008080</tt></td>
+<td nowrap><tt>011001 000 ttttttt 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vdot.p rd,rs,rt</tt></td>
+<td nowrap><tt>0x64800080</tt></td>
+<td nowrap><tt>011001 001 ttttttt 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vdot.t rd,rs,rt</tt></td>
+<td nowrap><tt>0x64808000</tt></td>
+<td nowrap><tt>011001 001 ttttttt 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vdot.q rd,rs,rt</tt></td>
+<td nowrap><tt>0x64808080</tt></td>
+<td nowrap><tt>011001 001 ttttttt 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vhdp.p rd,rs,rt</tt></td>
+<td nowrap><tt>0x66000080</tt></td>
+<td nowrap><tt>011001 100 ttttttt 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vhdp.t rd,rs,rt</tt></td>
+<td nowrap><tt>0x66008000</tt></td>
+<td nowrap><tt>011001 100 ttttttt 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vhdp.q rd,rs,rt</tt></td>
+<td nowrap><tt>0x66008080</tt></td>
+<td nowrap><tt>011001 100 ttttttt 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmin.s rd,rs,rt</tt></td>
+<td nowrap><tt>0x6D000000</tt></td>
+<td nowrap><tt>011011 010 ttttttt 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmin.p rd,rs,rt</tt></td>
+<td nowrap><tt>0x6D000080</tt></td>
+<td nowrap><tt>011011 010 ttttttt 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmin.t rd,rs,rt</tt></td>
+<td nowrap><tt>0x6D008000</tt></td>
+<td nowrap><tt>011011 010 ttttttt 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmin.q rd,rs,rt</tt></td>
+<td nowrap><tt>0x6D008080</tt></td>
+<td nowrap><tt>011011 010 ttttttt 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmax.s rd,rs,rt</tt></td>
+<td nowrap><tt>0x6D800000</tt></td>
+<td nowrap><tt>011011 011 ttttttt 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmax.p rd,rs,rt</tt></td>
+<td nowrap><tt>0x6D800080</tt></td>
+<td nowrap><tt>011011 011 ttttttt 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmax.t rd,rs,rt</tt></td>
+<td nowrap><tt>0x6D808000</tt></td>
+<td nowrap><tt>011011 011 ttttttt 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmax.q rd,rs,rt</tt></td>
+<td nowrap><tt>0x6D808080</tt></td>
+<td nowrap><tt>011011 011 ttttttt 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vabs.s rd,rs</tt></td>
+<td nowrap><tt>0xd0010000</tt></td>
+<td nowrap><tt>110100 000 0000001 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vabs.p rd,rs</tt></td>
+<td nowrap><tt>0xd0010080</tt></td>
+<td nowrap><tt>110100 000 0000001 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vabs.t rd,rs</tt></td>
+<td nowrap><tt>0xd0018000</tt></td>
+<td nowrap><tt>110100 000 0000001 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vabs.q rd,rs</tt></td>
+<td nowrap><tt>0xd0018080</tt></td>
+<td nowrap><tt>110100 000 0000001 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vneg.s rd,rs</tt></td>
+<td nowrap><tt>0xd0020000</tt></td>
+<td nowrap><tt>110100 000 0000010 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vneg.p rd,rs</tt></td>
+<td nowrap><tt>0xd0020080</tt></td>
+<td nowrap><tt>110100 000 0000010 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vneg.t rd,rs</tt></td>
+<td nowrap><tt>0xd0028000</tt></td>
+<td nowrap><tt>110100 000 0000010 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vneg.q rd,rs</tt></td>
+<td nowrap><tt>0xd0028080</tt></td>
+<td nowrap><tt>110100 000 0000010 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vidt.p rd</tt></td>
+<td nowrap><tt>0xd0030080</tt></td>
+<td nowrap><tt>110100 000 0000011 0 0000000 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vidt.t rd</tt></td>
+<td nowrap><tt>0xd0038000</tt></td>
+<td nowrap><tt>110100 000 0000011 1 0000000 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vidt.q rd</tt></td>
+<td nowrap><tt>0xd0038080</tt></td>
+<td nowrap><tt>110100 000 0000011 1 0000000 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vzero.s rd</tt></td>
+<td nowrap><tt>0xd0060000</tt></td>
+<td nowrap><tt>110100 000 0000110 0 0000000 0 ddddddd</tt></td>
+<td nowrap>SetVectorZero.Single</td>
+</tr>
+<tr>
+<td nowrap><tt>vzero.p rd</tt></td>
+<td nowrap><tt>0xd0060080</tt></td>
+<td nowrap><tt>110100 000 0000110 0 0000000 1 ddddddd</tt></td>
+<td nowrap>SetVectorZero.Pair</td>
+</tr>
+<tr>
+<td nowrap><tt>vzero.t rd</tt></td>
+<td nowrap><tt>0xd0068000</tt></td>
+<td nowrap><tt>110100 000 0000110 1 0000000 0 ddddddd</tt></td>
+<td nowrap>SetVectorZero.Triple</td>
+</tr>
+<tr>
+<td nowrap><tt>vzero.q rd</tt></td>
+<td nowrap><tt>0xd0068080</tt></td>
+<td nowrap><tt>110100 000 0000110 1 0000000 1 ddddddd</tt></td>
+<td nowrap>SetVectorZero.Quad </td>
+</tr>
+<tr>
+<td nowrap><tt>vone.s rd</tt></td>
+<td nowrap><tt>0xd0070000</tt></td>
+<td nowrap><tt>110100 000 0000111 0 0000000 0 ddddddd</tt></td>
+<td nowrap>SetVectorOne.Single</td>
+</tr>
+<tr>
+<td nowrap><tt>vone.p rd</tt></td>
+<td nowrap><tt>0xd0070080</tt></td>
+<td nowrap><tt>110100 000 0000111 0 0000000 1 ddddddd</tt></td>
+<td nowrap>SetVectorOne.Pair</td>
+</tr>
+<tr>
+<td nowrap><tt>vone.t rd</tt></td>
+<td nowrap><tt>0xd0078000</tt></td>
+<td nowrap><tt>110100 000 0000111 1 0000000 0 ddddddd</tt></td>
+<td nowrap>SetVectorOne.Triple</td>
+</tr>
+<tr>
+<td nowrap><tt>vone.q rd</tt></td>
+<td nowrap><tt>0xd0078080</tt></td>
+<td nowrap><tt>110100 000 0000111 1 0000000 1 ddddddd</tt></td>
+<td nowrap>SetVectorOne.Quad</td>
+</tr>
+<tr>
+<td nowrap><tt>vrcp.s rs,rd</tt></td>
+<td nowrap><tt>0xd0100000</tt></td>
+<td nowrap><tt>110100 000 0010000 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vrcp.p rs,rd</tt></td>
+<td nowrap><tt>0xd0100080</tt></td>
+<td nowrap><tt>110100 000 0010000 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vrcp.t rs,rd</tt></td>
+<td nowrap><tt>0xd0108000</tt></td>
+<td nowrap><tt>110100 000 0010000 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vrcp.q rs,rd</tt></td>
+<td nowrap><tt>0xd0108080</tt></td>
+<td nowrap><tt>110100 000 0010000 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vrsq.s rs,rd</tt></td>
+<td nowrap><tt>0xd0110000</tt></td>
+<td nowrap><tt>110100 000 0010001 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vrsq.p rs,rd</tt></td>
+<td nowrap><tt>0xd0110080</tt></td>
+<td nowrap><tt>110100 000 0010001 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vrsq.t rs,rd</tt></td>
+<td nowrap><tt>0xd0118000</tt></td>
+<td nowrap><tt>110100 000 0010001 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vrsq.q rs,rd</tt></td>
+<td nowrap><tt>0xd0118080</tt></td>
+<td nowrap><tt>110100 000 0010001 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsin.s rs,rd</tt></td>
+<td nowrap><tt>0xd0120000</tt></td>
+<td nowrap><tt>110100 000 0010010 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsin.p rs,rd</tt></td>
+<td nowrap><tt>0xd0120080</tt></td>
+<td nowrap><tt>110100 000 0010010 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsin.t rs,rd</tt></td>
+<td nowrap><tt>0xd0128000</tt></td>
+<td nowrap><tt>110100 000 0010010 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsin.q rs,rd</tt></td>
+<td nowrap><tt>0xd0128080</tt></td>
+<td nowrap><tt>110100 000 0010010 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vcos.s rs,rd</tt></td>
+<td nowrap><tt>0xd0130000</tt></td>
+<td nowrap><tt>110100 000 0010011 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vcos.p rs,rd</tt></td>
+<td nowrap><tt>0xd0130080</tt></td>
+<td nowrap><tt>110100 000 0010011 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vcos.t rs,rd</tt></td>
+<td nowrap><tt>0xd0138000</tt></td>
+<td nowrap><tt>110100 000 0010011 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vcos.q rs,rd</tt></td>
+<td nowrap><tt>0xd0138080</tt></td>
+<td nowrap><tt>110100 000 0010011 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vexp2.s rs,rd</tt></td>
+<td nowrap><tt>0xd0140000</tt></td>
+<td nowrap><tt>110100 000 0010100 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vexp2.p rs,rd</tt></td>
+<td nowrap><tt>0xd0140080</tt></td>
+<td nowrap><tt>110100 000 0010100 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vexp2.t rs,rd</tt></td>
+<td nowrap><tt>0xd0148000</tt></td>
+<td nowrap><tt>110100 000 0010100 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vexp2.q rs,rd</tt></td>
+<td nowrap><tt>0xd0148080</tt></td>
+<td nowrap><tt>110100 000 0010100 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vlog2.s rs,rd</tt></td>
+<td nowrap><tt>0xd0150000</tt></td>
+<td nowrap><tt>110100 000 0010101 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vlog2.p rs,rd</tt></td>
+<td nowrap><tt>0xd0150080</tt></td>
+<td nowrap><tt>110100 000 0010101 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vlog2.t rs,rd</tt></td>
+<td nowrap><tt>0xd0158000</tt></td>
+<td nowrap><tt>110100 000 0010101 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vlog2.q rs,rd</tt></td>
+<td nowrap><tt>0xd0158080</tt></td>
+<td nowrap><tt>110100 000 0010101 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsqrt.s rs,rd</tt></td>
+<td nowrap><tt>0xd0160000</tt></td>
+<td nowrap><tt>110100 000 0010110 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsqrt.p rs,rd</tt></td>
+<td nowrap><tt>0xd0160080</tt></td>
+<td nowrap><tt>110100 000 0010110 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsqrt.t rs,rd</tt></td>
+<td nowrap><tt>0xd0168000</tt></td>
+<td nowrap><tt>110100 000 0010110 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsqrt.q rs,rd</tt></td>
+<td nowrap><tt>0xd0168080</tt></td>
+<td nowrap><tt>110100 000 0010110 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vasin.s rs,rd</tt></td>
+<td nowrap><tt>0xd0170000</tt></td>
+<td nowrap><tt>110100 000 0010111 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vasin.p rs,rd</tt></td>
+<td nowrap><tt>0xd0170080</tt></td>
+<td nowrap><tt>110100 000 0010111 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vasin.t rs,rd</tt></td>
+<td nowrap><tt>0xd0178000</tt></td>
+<td nowrap><tt>110100 000 0010111 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vasin.q rs,rd</tt></td>
+<td nowrap><tt>0xd0178080</tt></td>
+<td nowrap><tt>110100 000 0010111 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vnrcp.s rs,rd</tt></td>
+<td nowrap><tt>0xd0180000</tt></td>
+<td nowrap><tt>110100 000 0011000 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vnrcp.p rs,rd</tt></td>
+<td nowrap><tt>0xd0180080</tt></td>
+<td nowrap><tt>110100 000 0011000 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vnrcp.t rs,rd</tt></td>
+<td nowrap><tt>0xd0188000</tt></td>
+<td nowrap><tt>110100 000 0011000 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vnrcp.q rs,rd</tt></td>
+<td nowrap><tt>0xd0188080</tt></td>
+<td nowrap><tt>110100 000 0011000 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vnsin.s rs,rd</tt></td>
+<td nowrap><tt>0xd01a0000</tt></td>
+<td nowrap><tt>110100 000 0011010 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vnsin.p rs,rd</tt></td>
+<td nowrap><tt>0xd01a0080</tt></td>
+<td nowrap><tt>110100 000 0011010 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vnsin.t rs,rd</tt></td>
+<td nowrap><tt>0xd01a8000</tt></td>
+<td nowrap><tt>110100 000 0011010 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vnsin.q rs,rd</tt></td>
+<td nowrap><tt>0xd01a8080</tt></td>
+<td nowrap><tt>110100 000 0011010 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vrexp2.s rs,rd</tt></td>
+<td nowrap><tt>0xd01c0000</tt></td>
+<td nowrap><tt>110100 000 0011100 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vrexp2.p rs,rd</tt></td>
+<td nowrap><tt>0xd01c0080</tt></td>
+<td nowrap><tt>110100 000 0011100 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vrexp2.t rs,rd</tt></td>
+<td nowrap><tt>0xd01c8000</tt></td>
+<td nowrap><tt>110100 000 0011100 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vrexp2.q rs,rd</tt></td>
+<td nowrap><tt>0xd01c8080</tt></td>
+<td nowrap><tt>110100 000 0011100 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vi2uc.q rd,rs</tt></td>
+<td nowrap><tt>0xd03c8080</tt></td>
+<td nowrap><tt>110100 000 0111100 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>int to unsigned char</td>
+</tr>
+<tr>
+<td nowrap><tt>vi2s.p rd,rs</tt></td>
+<td nowrap><tt>0xd03f0080</tt></td>
+<td nowrap><tt>110100 000 0111111 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>int to short</td>
+</tr>
+<tr>
+<td nowrap><tt>vi2s.q rd,rs</tt></td>
+<td nowrap><tt>0xd03f8080</tt></td>
+<td nowrap><tt>110100 000 0111111 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>int to short</td>
+</tr>
+<tr>
+<td nowrap><tt>vsgn.s rd,rs</tt></td>
+<td nowrap><tt>0xd04a0000</tt></td>
+<td nowrap><tt>110100 000 1001010 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsgn.p rd,rs</tt></td>
+<td nowrap><tt>0xd04a0080</tt></td>
+<td nowrap><tt>110100 000 1001010 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsgn.t rd,rs</tt></td>
+<td nowrap><tt>0xd04a8000</tt></td>
+<td nowrap><tt>110100 000 1001010 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vsgn.q rd,rs</tt></td>
+<td nowrap><tt>0xd04a8080</tt></td>
+<td nowrap><tt>110100 000 1001010 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vcst.s rd, a</tt></td>
+<td nowrap><tt>0xd0600000</tt></td>
+<td nowrap><tt>110100 000 11aaaaa 0 0000000 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vcst.p rd, a</tt></td>
+<td nowrap><tt>0xd0600080</tt></td>
+<td nowrap><tt>110100 000 11aaaaa 0 0000000 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vcst.t rd, a</tt></td>
+<td nowrap><tt>0xd0608000</tt></td>
+<td nowrap><tt>110100 000 11aaaaa 1 0000000 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vcst.q rd, a</tt></td>
+<td nowrap><tt>0xd0608080</tt></td>
+<td nowrap><tt>110100 000 11aaaaa 1 0000000 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vf2in.s rd,rs,scale</tt></td>
+<td nowrap><tt>0xd2000000</tt></td>
+<td nowrap><tt>110100 100 SSSSSSS 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>float to int round to near</td>
+</tr>
+<tr>
+<td nowrap><tt>vf2in.p rd,rs,scale</tt></td>
+<td nowrap><tt>0xd2000080</tt></td>
+<td nowrap><tt>110100 100 SSSSSSS 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vf2in.t rd,rs,scale</tt></td>
+<td nowrap><tt>0xd2008000</tt></td>
+<td nowrap><tt>110100 100 SSSSSSS 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vf2in.q rd,rs,scale</tt></td>
+<td nowrap><tt>0xd2008080</tt></td>
+<td nowrap><tt>110100 100 SSSSSSS 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vi2f.s rd,rs,scale</tt></td>
+<td nowrap><tt>0xd2800000</tt></td>
+<td nowrap><tt>110100 101 SSSSSSS 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>int to float</td>
+</tr>
+<tr>
+<td nowrap><tt>vi2f.p rd,rs,scale</tt></td>
+<td nowrap><tt>0xd2800080</tt></td>
+<td nowrap><tt>110100 101 SSSSSSS 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vi2f.t rd,rs,scale</tt></td>
+<td nowrap><tt>0xd2808000</tt></td>
+<td nowrap><tt>110100 101 SSSSSSS 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vi2f.q rd,rs,scale</tt></td>
+<td nowrap><tt>0xd2808080</tt></td>
+<td nowrap><tt>110100 101 SSSSSSS 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmmul.p rd,rs,rt</tt></td>
+<td nowrap><tt>0xf0000080</tt></td>
+<td nowrap><tt>111100 000 ttttttt 0 sSsssss 1 ddddddd</tt></td>
+<td nowrap>(*1)</td>
+</tr>
+<tr>
+<td nowrap><tt>vmmul.t rd,rs,rt</tt></td>
+<td nowrap><tt>0xf0008000</tt></td>
+<td nowrap><tt>111100 000 ttttttt 1 sSsssss 0 ddddddd</tt></td>
+<td nowrap>(*1)</td>
+</tr>
+<tr>
+<td nowrap><tt>vmmul.q rd,rs,rt</tt></td>
+<td nowrap><tt>0xf0008080</tt></td>
+<td nowrap><tt>111100 000 ttttttt 1 sSsssss 1 ddddddd</tt></td>
+<td nowrap>(*1)</td>
+</tr>
+<tr>
+<td nowrap><tt>vhtfm2.p rd,rs,rt</tt></td>
+<td nowrap><tt>0xf0800000</tt></td>
+<td nowrap><tt>111100 001 ttttttt 0 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vtfm2.p rd,rs,rt</tt></td>
+<td nowrap><tt>0xf0800080</tt></td>
+<td nowrap><tt>111100 001 ttttttt 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vhtfm3.t rd,rs,rt</tt></td>
+<td nowrap><tt>0xf1000080</tt></td>
+<td nowrap><tt>111100 010 ttttttt 0 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vtfm3.t rd,rs,rt</tt></td>
+<td nowrap><tt>0xf1008000</tt></td>
+<td nowrap><tt>111100 010 ttttttt 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vhtfm4.q rd,rs,rt</tt></td>
+<td nowrap><tt>0xf1808000</tt></td>
+<td nowrap><tt>111100 011 ttttttt 1 sssssss 0 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vtfm4.q rd,rs,rt</tt></td>
+<td nowrap><tt>0xf1808080</tt></td>
+<td nowrap><tt>111100 011 ttttttt 1 sssssss 1 ddddddd</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>vmidt.p rd</tt></td>
+<td nowrap><tt>0xf3830080</tt></td>
+<td nowrap><tt>111100 111 0000011 0 0000000 1 ddddddd</tt></td>
+<td nowrap>SetMatrixIdentity.Pair</td>
+</tr>
+<tr>
+<td nowrap><tt>vmidt.t rd</tt></td>
+<td nowrap><tt>0xf3838000</tt></td>
+<td nowrap><tt>111100 111 0000011 1 0000000 0 ddddddd</tt></td>
+<td nowrap>SetMatrixIdentity.Triple</td>
+</tr>
+<tr>
+<td nowrap><tt>vmidt.q rd</tt></td>
+<td nowrap><tt>0xf3838080</tt></td>
+<td nowrap><tt>111100 111 0000011 1 0000000 1 ddddddd</tt></td>
+<td nowrap>SetMatrixIdentity.Quad </td>
+</tr>
+<tr>
+<td nowrap><tt>vmzero.p rd</tt></td>
+<td nowrap><tt>0xf3860080</tt></td>
+<td nowrap><tt>111100 111 0000110 0 0000000 1 ddddddd</tt></td>
+<td nowrap>SetMatrixZero.Pair</td>
+</tr>
+<tr>
+<td nowrap><tt>vmzero.t rd</tt></td>
+<td nowrap><tt>0xf3868000</tt></td>
+<td nowrap><tt>111100 111 0000110 1 0000000 0 ddddddd</tt></td>
+<td nowrap>SetMatrixZero.Triple</td>
+</tr>
+<tr>
+<td nowrap><tt>vmzero.q rd</tt></td>
+<td nowrap><tt>0xf3868080</tt></td>
+<td nowrap><tt>111100 111 0000110 1 0000000 1 ddddddd</tt></td>
+<td nowrap>SetMatrixZero.Quad</td>
+</tr>
+</table></td></tr></table>
+ *1) bit 5 of rs is inverted<br><br>
+VFPU load/store instructions seem to support only 16-byte-aligned
+accesses (similiar to Altivec and SSE).<br><div class="idx"><a href="index.html#idx4.9.1">index</a></div>
+<h4>
+<a name="sec4.9.1">
+4.9.1</a>&nbsp;&nbsp;lv</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>lv</b></td>
+<td nowrap><b>LoadVector Quadword Relative to Address in General Purpose
+Register </b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>fpu_vtr &lt;- vector_at_address (offset + %gpr)</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center">
+<tt>lv.q %vfpu_rt, offset(%base)</tt> </td>
+<td nowrap>&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%fpu_rt</tt></td>
+<td nowrap>VFPU Vector Target Register (column0-31/row32-63) </td>
+</tr>
+<tr>
+<td nowrap><tt>%base</tt></td>
+<td nowrap>GPR, specifies Source Address Base </td>
+</tr>
+<tr>
+<td nowrap><tt>offset</tt></td>
+<td nowrap>signed Offset added to Source Address Base </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br>
+Final Address needs to be 64-byte aligned. 
+      <div class="idx"><a href="index.html#idx4.9.2">index</a></div>
+<h4>
+<a name="sec4.9.2">
+4.9.2</a>&nbsp;&nbsp;sv</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>sv</b></td>
+<td nowrap><b>StoreVector Quadword Relative to Address in General Purpose
+Register</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vector_at_address (offset + %gpr) &lt;- fpu_vtr</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><tt>sv.q %vfpu_rt, offset(%base), cache_policy </tt></td>
+<td nowrap>&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%fpu_rt</tt></td>
+<td nowrap>VFPU Vector Target Register (column0-31/row32-63) </td>
+</tr>
+<tr>
+<td nowrap><tt>%base</tt></td>
+<td nowrap>specifies Source Address Base</td>
+</tr>
+<tr>
+<td nowrap><tt>offset</tt></td>
+<td nowrap>signed Offset added to Source Address Base</td>
+</tr>
+<tr>
+<td nowrap><tt>cache_policy</tt></td>
+<td nowrap>0 = write-through, 1 = write-back </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br>
+Final Address needs to be 64-byte aligned. 
+      <div class="idx"><a href="index.html#idx4.9.3">index</a></div>
+<h4>
+<a name="sec4.9.3">
+4.9.3</a>&nbsp;&nbsp;vzero</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vzero</b></td>
+<td nowrap><b>SetVectorZero (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rt] &lt;- 0.0f</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vzero.s %vfpu_rt</tt></td>
+<td nowrap>Set 1 Vector Component to 0.0f </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vzero.p %vfpu_rt</tt></td>
+<td nowrap>Set 2 Vector Components to 0.0f </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vzero.t %vfpu_rt</tt></td>
+<td nowrap>Set 3 Vector Components to 0.0f</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vzero.q %vfpu_rt</tt></td>
+<td nowrap>Set 4 Vector Components to 0.0f </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.4">index</a></div>
+<h4>
+<a name="sec4.9.4">
+4.9.4</a>&nbsp;&nbsp;vone</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vone</b></td>
+<td nowrap><b>SetVectorOne (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rt] &lt;- 0.0f</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vone.s %vfpu_rt</tt></td>
+<td nowrap>Set 1 Vector Component to 1.0f</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vone.p %vfpu_rt</tt></td>
+<td nowrap>Set 2 Vector Components to 1.0f </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vone.t %vfpu_rt</tt></td>
+<td nowrap>Set 3 Vector Components to 1.0f</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vone.q %vfpu_rt</tt></td>
+<td nowrap>Set 4 Vector Components to 1.0f </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.5">index</a></div>
+<h4>
+<a name="sec4.9.5">
+4.9.5</a>&nbsp;&nbsp;vmzero</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vmzero</b></td>
+<td nowrap><b>SetMatrixZero (Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_mtx[%vfpu_rt] &lt;- 0.0f</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vmzero.p %vfpu_rt</tt></td>
+<td nowrap>Set 2x2 Submatrix to 0.0f </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmzero.t %vfpu_rt</tt></td>
+<td nowrap>Set 3x3 Submatrix to 0.0f </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmzero.q %vfpu_rt</tt></td>
+<td nowrap>Set 4x4 Matrix to 0.0f </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Matrix Target Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.6">index</a></div>
+<h4>
+<a name="sec4.9.6">
+4.9.6</a>&nbsp;&nbsp;vmidt</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vmidt</b></td>
+<td nowrap><b>SetMatrixIdentity (Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_mtx[%vfpu_rt] &lt;- identity matrix</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vmidt.p %vfpu_rt</tt></td>
+<td nowrap>Set 2x2 Submatrix to Identity</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmidt.t %vfpu_rt</tt></td>
+<td nowrap>Set 3x3 Submatrix to Identity</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmidt.q %vfpu_rt</tt></td>
+<td nowrap>Set 4x4 Matrix to Identity </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Matrix Target Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.7">index</a></div>
+<h4>
+<a name="sec4.9.7">
+4.9.7</a>&nbsp;&nbsp;vmmul</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vmmul</b></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vmmul.p %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>multiply 2 2x2 Submatrices</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmmul.t %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>multiply 2 3x3 Submatrices</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmmul.q %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>multiply 2 4x4 Matrices</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.8">index</a></div>
+<h4>
+<a name="sec4.9.8">
+4.9.8</a>&nbsp;&nbsp;vrcp</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vrcp</b></td>
+<td nowrap><b>Reciprocal (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- 1.0 / vfpu_regs[%vfpu_rs]</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vrcp.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate reciprocal (1/z) on single </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vrcp.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate reciprocal (1/z) on pair </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vrcp.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate reciprocal (1/z) on triple </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vrcp.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate reciprocal (1/z) on quad </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.9">index</a></div>
+<h4>
+<a name="sec4.9.9">
+4.9.9</a>&nbsp;&nbsp;vexp2</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vexp2</b></td>
+<td nowrap><b>Exp2 (Single/Pair/Triple/Quad) (calculate 2 raised to the
+specified real number)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- 2^(vfpu_regs[%vfpu_rs])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vexp2.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate 2 ** y </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vexp2.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate 2 ** y </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vexp2.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate 2 ** y </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vexp2.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate 2 ** y </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127)</td>
+</tr>
+<tr>
+<td nowrap><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.10">index</a></div>
+<h4>
+<a name="sec4.9.10">
+4.9.10</a>&nbsp;&nbsp;vlog2</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vlog2</b></td>
+<td nowrap><b>Log2 (Single/Pair/Triple/Quad) (calculate logarithm base 2
+of the specified real number) </b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- log2(vfpu_regs[%vfpu_rs])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vlog2.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vlog2.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vlog2.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vlog2.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.11">index</a></div>
+<h4>
+<a name="sec4.9.11">
+4.9.11</a>&nbsp;&nbsp;vsqrt</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vsqrt</b></td>
+<td nowrap><b>SquareRoot (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- sqrt(vfpu_regs[%vfpu_rs])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vsqrt.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate square root </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vsqrt.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate square root </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vsqrt.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate square root </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vsqrt.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate square root </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127)</td>
+</tr>
+<tr>
+<td nowrap><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.12">index</a></div>
+<h4>
+<a name="sec4.9.12">
+4.9.12</a>&nbsp;&nbsp;vrsq</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vrsq</b></td>
+<td nowrap><b>ReciprocalSquareRoot (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- 1.0 / sqrt(vfpu_regs[%vfpu_rs])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vrsq.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate reciprocal sqrt (1/sqrt(x)) on single </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vrsq.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate reciprocal sqrt (1/sqrt(x)) on pair </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vrsq.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate reciprocal sqrt (1/sqrt(x)) on triple </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vrsq.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate reciprocal sqrt (1/sqrt(x)) on quad </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.13">index</a></div>
+<h4>
+<a name="sec4.9.13">
+4.9.13</a>&nbsp;&nbsp;vsin</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vsin</b></td>
+<td nowrap><b>Sinus (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- sin(vfpu_regs[%vfpu_rs]) </tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vsin.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate sin on single </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vsin.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate sin on pair </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vsin.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate sin on triple </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vsin.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate sin on quad </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br>
+note: trig functions on the vfpu expect input values like vsin(degrees/90)
+or vsin(2/PI * radians)
+      <div class="idx"><a href="index.html#idx4.9.14">index</a></div>
+<h4>
+<a name="sec4.9.14">
+4.9.14</a>&nbsp;&nbsp;vcos</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vcos</b></td>
+<td nowrap><b>Cosine (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- cos(vfpu_regs[%vfpu_rs])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vcos.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate cos on single </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vcos.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate cos on pair </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vcos.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate cos on triple </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vcos.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate cos on quad </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br>
+Note by John Kelley: trig functions on the vfpu expect input values
+like vsin(degrees/90) or vsin(2/PI * radians)
+      <div class="idx"><a href="index.html#idx4.9.15">index</a></div>
+<h4>
+<a name="sec4.9.15">
+4.9.15</a>&nbsp;&nbsp;vasin</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vasin</b></td>
+<td nowrap><b>ArcSin (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- arcsin(vfpu_regs[%vfpu_rs])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vasin.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate arcsin </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vasin.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate arcsin </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vasin.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate arcsin </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vasin.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate arcsin </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.16">index</a></div>
+<h4>
+<a name="sec4.9.16">
+4.9.16</a>&nbsp;&nbsp;vnrcp</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vnrcp</b></td>
+<td nowrap><b>NegativeReciprocal (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- -1/vfpu_regs[%vfpu_rs]</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vnrcp.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate negative reciprocal</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vnrcp.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate negative reciprocal</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vnrcp.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate negative reciprocal</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vnrcp.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate negative reciprocal</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.17">index</a></div>
+<h4>
+<a name="sec4.9.17">
+4.9.17</a>&nbsp;&nbsp;vnsin</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vnsin</b></td>
+<td nowrap><b>NegativeSin (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- -sin(vfpu_regs[%vfpu_rs])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vnsin.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate negative sin </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vnsin.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate negative sin </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vnsin.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate negative sin </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vnsin.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate negative sin </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.18">index</a></div>
+<h4>
+<a name="sec4.9.18">
+4.9.18</a>&nbsp;&nbsp;vrexp2</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vrexp2</b></td>
+<td nowrap><b>ReciprocalExp2 (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- 1/exp2(vfpu_regs[%vfpu_rs])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vrexp2.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate 1/(2^y)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vrexp2.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate 1/(2^y)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vrexp2.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate 1/(2^y)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vrexp2.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>calculate 1/(2^y)</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Target Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.19">index</a></div>
+<h4>
+<a name="sec4.9.19">
+4.9.19</a>&nbsp;&nbsp;vi2uc</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vi2uc</b></td>
+<td nowrap><b>int to unsigned char</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><tt>vi2uc.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>&nbsp;</td>
+</tr></table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.20">index</a></div>
+<h4>
+<a name="sec4.9.20">
+4.9.20</a>&nbsp;&nbsp;vi2s</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vi2s</b></td>
+<td nowrap><b>int to short</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vi2s.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vi2s.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.21">index</a></div>
+<h4>
+<a name="sec4.9.21">
+4.9.21</a>&nbsp;&nbsp;vcst</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vcst</b></td>
+<td nowrap><b>StoreConstant (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- constants[%a]</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vcst.s %vfpu_rd, %a</tt></td>
+<td nowrap>store constant into single</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vcst.p %vfpu_rd, %a</tt></td>
+<td nowrap>store constant into pair</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vcst.t %vfpu_rd, %a</tt></td>
+<td nowrap>store constant into triple</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vcst.q %vfpu_rd, %a</tt></td>
+<td nowrap>store constant into quad </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap><tt>%a</tt></td>
+<td nowrap>VFPU Constant </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="right"><b>ID</b></td>
+<td nowrap><b>Constant</b></td>
+<td nowrap align="right"><b>Value</b></td>
+</tr>
+<tr>
+<td nowrap align="right">0</td>
+<td nowrap>n/a</td>
+<td nowrap align="right">0</td>
+</tr>
+<tr>
+<td nowrap align="right">1</td>
+<td nowrap>HUGE </td>
+<td nowrap align="right">340282346638528859811704183484516925440.0</td>
+</tr>
+<tr>
+<td nowrap align="right">2</td>
+<td nowrap>SQRT(2) </td>
+<td nowrap align="right">1.41421</td>
+</tr>
+<tr>
+<td nowrap align="right">3</td>
+<td nowrap>1/SQRT(2) </td>
+<td nowrap align="right">0.70711</td>
+</tr>
+<tr>
+<td nowrap align="right">4</td>
+<td nowrap>2/SQRT(PI) </td>
+<td nowrap align="right">1.12838</td>
+</tr>
+<tr>
+<td nowrap align="right">5</td>
+<td nowrap>2/PI </td>
+<td nowrap align="right">0.63662</td>
+</tr>
+<tr>
+<td nowrap align="right">6</td>
+<td nowrap>1/PI</td>
+<td nowrap align="right">0.31831</td>
+</tr>
+<tr>
+<td nowrap align="right">7</td>
+<td nowrap>PI/4 </td>
+<td nowrap align="right">0.78540</td>
+</tr>
+<tr>
+<td nowrap align="right">8</td>
+<td nowrap>PI/2 </td>
+<td nowrap align="right">1.57080</td>
+</tr>
+<tr>
+<td nowrap align="right">9</td>
+<td nowrap>PI </td>
+<td nowrap align="right">3.14159</td>
+</tr>
+<tr>
+<td nowrap align="right">10</td>
+<td nowrap>E </td>
+<td nowrap align="right">2,71828</td>
+</tr>
+<tr>
+<td nowrap align="right">11</td>
+<td nowrap>LOG2E </td>
+<td nowrap align="right">1.44270</td>
+</tr>
+<tr>
+<td nowrap align="right">12</td>
+<td nowrap>LOG10E </td>
+<td nowrap align="right">0.43429</td>
+</tr>
+<tr>
+<td nowrap align="right">13</td>
+<td nowrap>LN2 </td>
+<td nowrap align="right">0.69315</td>
+</tr>
+<tr>
+<td nowrap align="right">14</td>
+<td nowrap>LN10 </td>
+<td nowrap align="right">2.30259</td>
+</tr>
+<tr>
+<td nowrap align="right">15</td>
+<td nowrap>2*PI </td>
+<td nowrap align="right">6.28319</td>
+</tr>
+<tr>
+<td nowrap align="right">16</td>
+<td nowrap>PI/6 </td>
+<td nowrap align="right">0.52360</td>
+</tr>
+<tr>
+<td nowrap align="right">17</td>
+<td nowrap>LOG10TWO </td>
+<td nowrap align="right">0.30103</td>
+</tr>
+<tr>
+<td nowrap align="right">18</td>
+<td nowrap>LOG2TEN </td>
+<td nowrap align="right">3.32193</td>
+</tr>
+<tr>
+<td nowrap align="right">19</td>
+<td nowrap>SQRT(3)/2 </td>
+<td nowrap align="right">0.86603</td>
+</tr>
+<tr>
+<td nowrap align="right">20-31</td>
+<td nowrap>n/a</td>
+<td nowrap align="right">0</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx4.9.22">index</a></div>
+<h4>
+<a name="sec4.9.22">
+4.9.22</a>&nbsp;&nbsp;vf2in</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vf2in</b></td>
+<td nowrap><b>float to int round to near</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vf2in.s %vfpu_rd, %vfpu_rs, scale</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vf2in.p %vfpu_rd, %vfpu_rs, scale</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vf2in.t %vfpu_rd, %vfpu_rs, scale</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vf2in.q %vfpu_rd, %vfpu_rs, scale</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.23">index</a></div>
+<h4>
+<a name="sec4.9.23">
+4.9.23</a>&nbsp;&nbsp;vi2f</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vi2f</b></td>
+<td nowrap><b>int to float</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vi2f.s %vfpu_rd, %vfpu_rs, scale</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vi2f.p %vfpu_rd, %vfpu_rs, scale</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vi2f.t %vfpu_rd, %vfpu_rs, scale</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vi2f.q %vfpu_rd, %vfpu_rs, scale</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.24">index</a></div>
+<h4>
+<a name="sec4.9.24">
+4.9.24</a>&nbsp;&nbsp;vadd</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vadd</b></td>
+<td nowrap><b>VectorAdd (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- vfpu_regs[%vfpu_rs] + vfpu_regs[%vfpu_rt]</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vadd.s %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Add Single</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vadd.p %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Add Pair </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vadd.t %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Add Triple </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vadd.q %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Add Quad </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.25">index</a></div>
+<h4>
+<a name="sec4.9.25">
+4.9.25</a>&nbsp;&nbsp;vsub</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vsub</b></td>
+<td nowrap><b>VectorSub (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- vfpu_regs[%vfpu_rs] - vfpu_regs[%vfpu_rt]</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vsub.s %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Sub Single </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vsub.p %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Sub Pair</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vsub.t %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Sub Triple</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vsub.q %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Sub Quad </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.26">index</a></div>
+<h4>
+<a name="sec4.9.26">
+4.9.26</a>&nbsp;&nbsp;vdiv</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vdiv</b></td>
+<td nowrap><b>VectorDiv (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- vfpu_regs[%vfpu_rs] / vfpu_regs[%vfpu_rt]</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vdiv.s %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>div Single</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vdiv.p %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>div Pair</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vdiv.t %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>div Triple</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vdiv.q %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>div Quad</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.27">index</a></div>
+<h4>
+<a name="sec4.9.27">
+4.9.27</a>&nbsp;&nbsp;vmul</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vmul</b></td>
+<td nowrap><b>VectorMul (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- vfpu_regs[%vfpu_rs] * vfpu_regs[%vfpu_rt]</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vmul.s %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>mul Single</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmul.p %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>mul Pair</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmul.t %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>mul Triple</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmul.q %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>mul Quad</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.28">index</a></div>
+<h4>
+<a name="sec4.9.28">
+4.9.28</a>&nbsp;&nbsp;vdot</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vdot</b></td>
+<td nowrap><b>VectorDotProduct (Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- dotproduct(vfpu_regs[%vfpu_rs],
+vfpu_regs[%vfpu_rt])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vdot.p %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Dot Product Pair</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vdot.t %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Dot Product Triple</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vdot.q %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Dot Product Quad</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register ([s - p - t - q]reg 0..127)</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.29">index</a></div>
+<h4>
+<a name="sec4.9.29">
+4.9.29</a>&nbsp;&nbsp;vhdp</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap><b>vhdp</b></td>
+<td nowrap><b>VectorHomogenousDotProduct (Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- homogenousdotproduct(vfpu_regs[%vfpu_rs],
+vfpu_regs[%vfpu_rt])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vhdp.p %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Dot Product Pair </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vhdp.t %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Dot Product Triple </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vhdp.q %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Dot Product Quad </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([s - p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register ([s - p - t - q]reg 0..127)</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.30">index</a></div>
+<h4>
+<a name="sec4.9.30">
+4.9.30</a>&nbsp;&nbsp;vidt</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vidt</b></td>
+<td nowrap><b>VectorLoadIdentity (Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- identity vector</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vidt.p %vfpu_rd</tt></td>
+<td nowrap>Set 2x1 Vector to Identity</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vidt.t %vfpu_rd</tt></td>
+<td nowrap>Set 3x1 Vector to Identity</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vidt.q %vfpu_rd</tt></td>
+<td nowrap>Set 4x1 Vector to Identity</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register ([s - p - t - q]reg 0..127) </td>
+</tr></table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.31">index</a></div>
+<h4>
+<a name="sec4.9.31">
+4.9.31</a>&nbsp;&nbsp;vabs</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vabs</b></td>
+<td nowrap><b>AbsoluteValue (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- abs(vfpu_regs[%vfpu_rs])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vabs.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>Absolute Value Single </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vabs.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>Absolute Value Pair </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vabs.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>Absolute Value Triple </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vabs.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>Absolute Value Quad </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register (m[p - t - q]reg 0..127)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register (m[p - t - q]reg 0..127) </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.32">index</a></div>
+<h4>
+<a name="sec4.9.32">
+4.9.32</a>&nbsp;&nbsp;vneg</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vneg</b></td>
+<td nowrap><b>Negate (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- -vfpu_regs[%vfpu_rs]</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vneg.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>Negate Single </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vneg.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>Negate Pair </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vneg.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>Negate Triple </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vneg.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>Negate Quad </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register (m[p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register (m[p - t - q]reg 0..127) </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.33">index</a></div>
+<h4>
+<a name="sec4.9.33">
+4.9.33</a>&nbsp;&nbsp;vsgn</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vsgn</b></td>
+<td nowrap><b>Sign.(Single/Pair/Triple/Quad )</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- sign(vfpu_regs[%vfpu_rs]) </tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vsgn.s %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>Get Sign Single</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vsgn.p %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>Get Sign Pair </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vsgn.t %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>Get Sign Triple</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vsgn.q %vfpu_rd, %vfpu_rs</tt></td>
+<td nowrap>Get Sign Quad </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register (m[p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register (m[p - t - q]reg 0..127) </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br>
+Sets rd values to 1 or -1, depending on sign of input values
+      <div class="idx"><a href="index.html#idx4.9.34">index</a></div>
+<h4>
+<a name="sec4.9.34">
+4.9.34</a>&nbsp;&nbsp;vmin</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vmin</b></td>
+<td nowrap><b>VectorMin (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- min(vfpu_regs[%vfpu_rs],
+vfpu_reg[%vfpu_rt])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vmin.s %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Get Minimum Value Single</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmin.p %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Get Minimum Value Pair</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmin.t %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Get Minimum Value Triple</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmin.q %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Get Minimum Value Quad</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Vector Source Register (sreg 0..127)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([p - t - q]reg 0..127)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register ([s - p - t - q]reg 0..127)</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.35">index</a></div>
+<h4>
+<a name="sec4.9.35">
+4.9.35</a>&nbsp;&nbsp;vmax</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vmax</b></td>
+<td nowrap><b>VectorMax (Single/Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- max(vfpu_regs[%vfpu_rs],
+vfpu_reg[%vfpu_rt])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vmax.s %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Get Maximum Value Single</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmax.p %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Get Maximum Value Pair</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmax.t %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Get Maximum Value Triple</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vmax.q %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Get Maximum Value Quad</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Vector Source Register (sreg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Vector Source Register ([p - t - q]reg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register ([s - p - t - q]reg 0..127)</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.36">index</a></div>
+<h4>
+<a name="sec4.9.36">
+4.9.36</a>&nbsp;&nbsp;vtfm</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vtfm</b></td>
+<td nowrap><b>VectorTransform (Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- transform(vfpu_matrix[%vfpu_rs],
+vfpu_vector[%vfpu_rt])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vtfm2.p %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Transform pair vector by pair matrix </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vtfm3.t %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Transform triple vector by triple matrix</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vtfm4.q %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Transform quad vector by quad matrix</td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Vector Source Register (qreg 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Matrix Source Register (qmatrix 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register (qreg 0..127) </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.9.37">index</a></div>
+<h4>
+<a name="sec4.9.37">
+4.9.37</a>&nbsp;&nbsp;vhtfm</h4>
+<br><table>
+<tr><td nowrap>
+<table>
+<tr>
+<td nowrap align="center"><b>vhtfm</b></td>
+<td nowrap><b>VectorHomogeneousTransform (Pair/Triple/Quad)</b></td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><tt>vfpu_regs[%vfpu_rd] &lt;- homeogenoustransform(vfpu_matrix[%vfpu_rs],
+vfpu_vector[%vfpu_rt])</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>vhtfm2.p %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Homogeneous transform quad vector by pair matrix </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vhtfm3.t %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Homogeneous transform quad vector by triple matrix </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>vhtfm4.q %vfpu_rd, %vfpu_rs, %vfpu_rt</tt></td>
+<td nowrap>Homogeneous transform quad vector by quad matrix </td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rt</tt></td>
+<td nowrap>VFPU Vector Source Register (qreg 0..127)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rs</tt></td>
+<td nowrap>VFPU Matrix Source Register (qmatrix 0..127) </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>%vfpu_rd</tt></td>
+<td nowrap>VFPU Vector Destination Register (qreg 0..127) </td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx4.10">index</a></div>
+<h3>
+<a name="sec4.10">
+4.10</a>&nbsp;&nbsp;Caches</h3>
+<br>
+There are two caches: the data cache and the instruction cache. The
+data cache is used when your program does a load or store to memory,
+and the instruction cache is used to actually execute all the instructions
+your program. In general you can ignore the instruction cache unless
+you're using dynamic code generation, though the discussion of cache
+locality also applies to the instruction cache.
+The PSP's cache structure is pretty simple compared to other CPUs.
+There's only a 32k L1 cache; there's no L2 cache to worry about.
+      <div class="idx"><a href="index.html#idx4.10.1">index</a></div>
+<h4>
+<a name="sec4.10.1">
+4.10.1</a>&nbsp;&nbsp;Cache structure and operation</h4>
+<br>
+The 32k of cache is divided up into 64-byte chunks, called cache lines.
+The cache is managed in terms of cache lines, so even if you only
+use 1 byte of a line, all 64 bytes are allocated.
+When the CPU goes to read a piece of memory, it first looks to see
+if there's a copy of the memory in cache. If there is, this is called
+a cache hit, and it can fetch the data in a few cycles. If not, this
+is a cache miss, and it will take a long time (possibly dozens of
+cycles) to fetch from main memory. However, on a cache miss, it will
+find a new cache line for the data, and read from main memory into
+the cache line; the next time you touch this 64-byte area of memory,
+it will probably get a cache hit.
+Writes are similar. When your program writes to memory, it will just
+write into the cache, allocating a cache line if necessary. Subsequent
+writes and reads to that cache line will be cache hits.
+A cache line can be in one of three states: invalid, clean or dirty.
+Invalid means that the cache line has no useful data, and no memory
+operation will hit it. Clean means that the cache line contains an
+up-to-date copy of a piece of main memory. Dirty means that the cache
+line has been written to, and main memory is out of date.
+So, what does "allocate a cache line" mean? Because
+the cache is small relative to main memory, whenever you need a new
+cache line, you probably need to throw something else out. If the
+cache line you're replacing is invalid, then you can just start using
+it. If the line is clean, you can also just drop the old line and
+start using it. If it is dirty, however, you need to write the old
+contents back to memory before reusing the line; if you don't then
+previously written data will effectively disappear.
+Note that this means that there's an indefinite, non-deterministic
+amount of time before a write actually hits main memory. The only
+thing which normally pushes a dirty cache line into memory is being
+replaced. If it is never replaced, then it will never be written.
+      <div class="idx"><a href="index.html#idx4.10.2">index</a></div>
+<h4>
+<a name="sec4.10.2">
+4.10.2</a>&nbsp;&nbsp;Cache Coherency</h4>
+<br>
+All this happens transparently from a software perspective. Apart
+from the performance effects of all this going on, there's really
+no way to know its happening, and you can safely ignore it. Or can
+you?
+The tricky part about all this is that the CPU ends up with its own
+copy of pieces of main memory. If the CPU were the only user of memory
+in the system, then this would be fine, but the PSP has several other
+functional units which all use memory, and communicate with the main
+CPU via memory. In order for this to work, you need to make sure that
+every user of memory has a consistent and coherent view of memory.
+In the Intel world, the CPU performs something called "cache
+snooping". This means that a dedicated piece of hardware
+looks at all memory operations to main memory, and checks to see if
+the CPU's cache has a more up-to-date version of the memory. It also
+looks at memory writes, and makes sure that the CPU's cache has the
+most up to date version of the data.
+The PSP's MIPS isn't like that. It has no snooping or hardware coherency
+support, which leads to a problem: if you simply write out a set of
+commands for the GE into memory, and then tell the GE to run them,
+there's no guarentee that your commands have actually been written
+to memory by the time GE tries to run them; they could just be still
+sitting there in dirty cache lines. You'll see some vertices looking
+fine, but others are way off in space. You'll see most of your texture,
+but chunks of it are missing or junk.
+      <div class="idx"><a href="index.html#idx4.10.3">index</a></div>
+<h4>
+<a name="sec4.10.3">
+4.10.3</a>&nbsp;&nbsp;The Uncached Address Space</h4>
+<br>
+The MIPS offers one solution to this problem: the uncached address
+space. If you bit-wise OR your pointer with <tt>0x40000000</tt> you
+end up with a corresponding pointer in the uncached address space,
+which is generally known as an uncached pointer. These two pointers
+are aliases: they're two different pointers which refer to the same
+piece of physical memory.
+When you use the uncached pointer, the memory access completely bypasses
+all the machinery described above: reads will come straight from memory,
+and writes will go straight to memory.
+This leads to a potiential problem. If you use memory through the
+cached pointer, and then start using the uncached pointer, then you
+will be in a world of pain. It won't explode, crash or do anything
+obvious. It may seem to work perfectly well 99% of the time. But
+then you'll get bitten by strange, non-deterministic, elusive bugs
+which will move around and disappear every time you try to debug the
+problem.
+When you use uncached memory, it completely ignores the cache, and
+the cache completely ignores the uncached access. If you write to
+cached memory, then read via uncached, you won't necessarily see the
+previously written value because its still in cache. If you write
+via the uncached pointer, your write may get undone at some later
+arbitrary point when the dirty cache line eventually gets written.
+The solution? You need to:
+<ul>
+<li> Always use cache-line aligned allocations; this means memalign rather
+than malloc (and always make sure your allocation is a cache-line
+size multiple too).
+</li>
+<li> Write-invalidate memory before using an uncached pointer alias to
+the memory.
+</li>
+</ul>
+Note that even if you freshly allocate memory and never touch it with
+a cached pointer, you still need to write-invalidate the memory range,
+because it may still be partially cached from when it was previously
+allocated (this is quite likely, because efficient allocators will
+try to return still-cached memory for good cache use).
+      <div class="idx"><a href="index.html#idx4.10.4">index</a></div>
+<h4>
+<a name="sec4.10.4">
+4.10.4</a>&nbsp;&nbsp;Cache Management Functions</h4>
+<br>
+The PSP Kernel provides a set of functions for manipulating the cache:
+<ul>
+<li> <tt>sceKernelDcacheWritebackAll(void)</tt><br>
+Writes back all dirty cache-lines in memory. All cache lines which
+were previously valid will remain valid, but all dirty cache lines
+will become clean. This is useful for when you write some data to
+be read by another memory-using device.
+</li>
+<li> <tt>sceKernelDcacheWritebackInvalidateAll(void)</tt><br>
+This writes back all dirty cache-lines, and invalidates the whole
+cache. This is useful when you want to read some data written by another
+device. If another device writes memory, but the CPU has clean valid
+cache lines for that memory, it will read stale data unless you invalidate
+the cache first. This function is safe because it also writes dirty
+cache lines, so there's no risk of data loss.
+</li>
+<li> <tt>sceKernelDcacheWritebackRange(const void *p, unsigned int
+size)</tt><br>
+This writes back a range of memory, making the cache lines in that
+range clean. p and size should be aligned to the cache-line size.
+This will probably be more efficient than writing back the whole cache
+if size is relatively small, but if size is more than around 16k,
+its probably better to just writeback the whole thing.
+</li>
+<li> <tt>sceKernelDcacheWritebackInvalidateRange(const void *p, unsigned
+int size)</tt><br>
+This writes back a range of memory and invalidates the cache for that
+range. p and size should be aligned to the cache-line size. This is
+like sceKernelDcacheWritebackInvalidateAll, but it only affects the
+specified memory range. This is likely to be more efficient, because
+it doesn't completely destroy the cache's working-set. You should
+always use this on a range of memory before accessing it via an uncached
+pointer.
+</li>
+<li> <tt>sceKernelDcacheInvalidateRange(const void *p, unsigned int
+size)</tt><br>
+This function should be used with extreme caution. It will invalidate
+a range of cache lines; if they were previously dirty, then the dirty
+data will be discarded. This should be used when you want to force
+data to be fetched from main memory, and you're certain that there
+are no dirty cache lines in that range of memory. It is very important
+that p and size are cache-aligned. Because this function affects whole
+cache lines, if you pass an unaligned pointer or size, then you may
+end up affecting unintended data.
+</li>
+</ul>
+<br><div class="idx"><a href="index.html#idx5">index</a></div>
+</body></html>

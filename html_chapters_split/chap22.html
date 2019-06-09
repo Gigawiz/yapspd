@@ -1,0 +1,174 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec22">
+22</a>&nbsp;&nbsp;Memory Stick Structure</h2>
+<br><tt>/PSP</tt><br><tt>&nbsp;&nbsp;/GAME</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/UPDATE</tt><br><tt>&nbsp;&nbsp;/MUSIC</tt><br><tt>&nbsp;&nbsp;/PHOTO</tt><br><tt>&nbsp;&nbsp;/SAVEDATA</tt><br><tt>&nbsp;&nbsp;/SYSTEM</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/BROWSER</tt><br><tt>/MP_ROOT</tt><br><tt>&nbsp;&nbsp;/100MNV01</tt><br><tt>&nbsp;&nbsp;/01MAQ100</tt><br><tt>&nbsp;&nbsp;/100MAQ10</tt><br><tt>/HIFI</tt><br><tt>/CONTROL</tt><br><tt>&nbsp;&nbsp;/PACKAGES</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/PKGxxxxx</tt><br><tt>/DCIM</tt><br><tt>&nbsp;&nbsp;/101MSDCF</tt><br><tt>/MISC</tt><br><div class="idx"><a href="index.html#idx22.1">index</a></div>
+<h3>
+<a name="sec22.1">
+22.1</a>&nbsp;&nbsp;Root Directory</h3>
+<br>
+In the root directory there are three entries which are of relevance
+to the PSP. The first is the file <tt>MEMSTICK.IND</tt> (or <tt>MSTK_PRO.IND</tt>)
+which just seems to be a indication that the stick is formatted (it
+is not specific to the PSP). The second is the directory psp which
+contains subdirectories for the different types of data used by the
+PSP. These are game, music, photo, and savedata. Not all subdirectories
+may exist if no data of the corresponding type is stored. The contents
+of the subdirectories are detailed in the following sections. In addition,
+there may be a mp_root directory in the root. This directory is for
+storing video, and should contain only a subdirectory called 100mnv01. 
+      <div class="idx"><a href="index.html#idx22.1.1">index</a></div>
+<h4>
+<a name="sec22.1.1">
+22.1.1</a>&nbsp;&nbsp;PSP Subdirectory</h4>
+<br><h5>22.1.1.1 <a name="sec22.1.1.1">
+    &nbsp;&nbsp;Game Subdirectory</a>
+</h5>
+<br>
+The game directory is for PSP software to be run directly from the
+memory stick. The Files are in PBP format (see Fileformats Section)
+<br>    &nbsp;&nbsp;&nbsp;<b><a name="sec22.1.1.1.1">
+    22.1.1.1.1&nbsp;&nbsp;Update Subdirectory</a>
+&nbsp;</b>
+official Firmware Updates should be placed here.
+<h5>22.1.1.2 <a name="sec22.1.1.2">
+    &nbsp;&nbsp;Music Subdirectory</a>
+</h5>
+<br>
+The music directory contains audio tracks for the music player. MPEG
+layer 3 files can be used as long as their filenames end with ".mp3".
+ID3 tags are supported and will be displayed by the player. It is
+possible to create subdirectories to put the tracks in, but only one
+level of subdirectories is supported.
+<h5>22.1.1.3 <a name="sec22.1.1.3">
+    &nbsp;&nbsp;Photo Subdirectory</a>
+</h5>
+<br>
+This directory contains picture files that can be viewed in the photo
+viewer. The files should be in JPEG format, and the filenames should
+end with ".jpg". Like with the music directory,
+one level of subdirectories is possible.
+<h5>22.1.1.4 <a name="sec22.1.1.4">
+    &nbsp;&nbsp;Savedata Subdirectory</a>
+</h5>
+<br>
+This is where the data saved by games goes. Each game creates a subdirectory
+with the product code of the game (e.g. ILJS00002) to get a private
+namespace, and then adds the following files to it:
+<ul>
+<li> <tt>ICON0.PNG</tt><br>
+A still picture icon in PNG format (24 bits per pixel, 144&times;80 pixels
+(standard); 300x170 (maximum))
+</li>
+<li> <tt>ICON1.PMF</tt><br>
+An animated version of the same icon, file format currently unknown.
+(Optional.)
+</li>
+<li> <tt>PIC1.PNG</tt><br>
+A full-screen background picture for the file manager in PNG format
+(24 bits per pixel, 480&times;272 pixels) (Optional.)
+</li>
+<li> <tt>SND0.AT3</tt><br>
+Background music to play in the file manager, ATRAC3plus encoded in
+a WAV file. (Optional.) must not be larger than 500kb, and not longer
+than 55 seconds.
+</li>
+<li> <tt>PARAM.SFO</tt><br>
+Metadata about the game, such as parental rating information. This
+is a PSF file with a category of MS. In addition to this, the game
+will of course have its actual save data, typically in a file called
+data.bin although any name could be used as well as multiple files.
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx22.1.2">index</a></div>
+<h4>
+<a name="sec22.1.2">
+22.1.2</a>&nbsp;&nbsp;MP_Root Subdirectory</h4>
+<br><h5>22.1.2.1 <a name="sec22.1.2.1">
+    &nbsp;&nbsp;100MNV01 Subdirectory</a>
+</h5>
+<br>
+Here video clips can be stored for viewing in the video player. According
+to the manual, the clip should be encoded using MPEG-4 (H.264/AVC
+MP Level3), but I have not yet found one that works... The maximum
+allowed bitrate is specified as 768kbps. Filenames must be on the
+format m4vnnnnn.mp4, where nnnnn is a 5 digit number. Remember that
+the mp_root directory should be in the root directory and not in
+the psp subdirectory. A thumbnail file can optionally be included,
+and will give a visual indication of the video's contents, as well
+as include any custom title. It must share the filename of the video
+it belongs to, but ends in a .THM extension instead of .MP4.
+<h5>22.1.2.2 <a name="sec22.1.2.2">
+    &nbsp;&nbsp;01maq100 Subdirectory</a>
+</h5>
+<br><h5>22.1.2.3 <a name="sec22.1.2.3">
+    &nbsp;&nbsp;100maq10 Subdirectory</a>
+</h5>
+<br>
+used for AVC on Firmware 2.0 and newer
+      <div class="idx"><a href="index.html#idx22.1.3">index</a></div>
+<h4>
+<a name="sec22.1.3">
+22.1.3</a>&nbsp;&nbsp;HIFI Subdirectory</h4>
+<br>
+used for DRM Protected ATRAC3 files
+<ul>
+<li> <tt>A3xxxxxx.MSA </tt><br>
+ATRAC3 or ATRAC3PLUS song files
+</li>
+<li> <tt>GPxxxxx.MSF </tt><br>
+ATRAC3 or ATRAC3PLUS group info and names
+</li>
+<li> <tt>PBLIST.MSF </tt><br>
+</li>
+<li> <tt>GPLIST.MSF </tt><br>
+</li>
+<li> <tt>MGCRL.MSF </tt><br>
+</li>
+<li> <tt>0001000A.MSF </tt><br>
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx22.1.4">index</a></div>
+<h4>
+<a name="sec22.1.4">
+22.1.4</a>&nbsp;&nbsp;CONTROL Subdirectory</h4>
+<br>
+used for DRM Protected ATRAC3 files
+<ul>
+<li> <tt>NAME.MSF </tt><br>
+</li>
+</ul>
+<h5>22.1.4.1 <a name="sec22.1.4.1">
+    &nbsp;&nbsp;PACKAGES Subdirectory</a>
+</h5>
+<br><ul>
+<li> <tt>DEVICE.SAL </tt><br>
+</li>
+</ul>
+<br>    &nbsp;&nbsp;&nbsp;<b><a name="sec22.1.4.1.1">
+    22.1.4.1.1&nbsp;&nbsp;PKGxxxxx Subdirectory</a>
+&nbsp;</b>
+<ul>
+<li> <tt>package.xml </tt><br>
+Song information in XML format similar in function to ID3V2 tags
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx22.1.5">index</a></div>
+<h4>
+<a name="sec22.1.5">
+22.1.5</a>&nbsp;&nbsp;DCIM Subdirectory</h4>
+<br>
+used by the Sony Cybershot Camera for Photos in jpg format
+      <div class="idx"><a href="index.html#idx22.1.6">index</a></div>
+<h4>
+<a name="sec22.1.6">
+22.1.6</a>&nbsp;&nbsp;MISC Subdirectory</h4>
+<br>
+used by the Sony Cybershot Camera, ignored by the PSP
+ <div class="idx"><a href="index.html#idx23">index</a></div>
+</body></html>

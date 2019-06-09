@@ -1,0 +1,625 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec19">
+19</a>&nbsp;&nbsp;Flash Memory</h2>
+<br><div class="idx"><a href="index.html#idx19.1">index</a></div>
+<h3>
+<a name="sec19.1">
+19.1</a>&nbsp;&nbsp;Physical Layout</h3>
+<br>
+The PSP MCP uses a 32MB NAND with the following layout: 
+<ul>
+<li> 512+16 bytes per page
+</li>
+<li> 32 pages per block (16K+512)
+</li>
+<li> 2048 blocks per device (32MB+1MB)
+</li>
+</ul>
+A block is the smallest erasable unit, a page the smallest writable
+(programmable). A Block holds 32 pages (for the latest small page
+NAND devices, including the MCP used for the PSP).
+     <div class="idx"><a href="index.html#idx19.2">index</a></div>
+<h3>
+<a name="sec19.2">
+19.2</a>&nbsp;&nbsp;User Area (Main Data)</h3>
+<br>
+The IPL doesn't seem to be part of any kind of FS (blocks appear at
+fixed physical locations). Everything else (above 1MiB phys) is FAT12
+with a SmartMedia style Block mapping but with a custom mapping area
+(i.e. different layout from what is/was mandated for SM). 
+Only FAT organized area of on-board flash chip, system file volume
+and configuration file volume, can be accessed via FAT Filesystem.
+The bootstrap area is unreachable by the flash and lflash drivers.
+(lflash returns all 0x00)
+      <div class="idx"><a href="index.html#idx19.2.1">index</a></div>
+<h4>
+<a name="sec19.2.1">
+19.2.1</a>&nbsp;&nbsp;Physical Layout (unmapped)</h4>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00000000</tt></td>
+<td nowrap align="center"><tt>0x000FFFFF</tt></td>
+<td nowrap align="center">1MB</td>
+<td nowrap>bootstrap Area</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00100000</tt></td>
+<td nowrap align="center"><tt>0x01ffffff</tt></td>
+<td nowrap align="center"><tt>31MB</tt></td>
+<td nowrap>mapped Area</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><div class="idx"><a href="index.html#idx19.2.2">index</a></div>
+<h4>
+<a name="sec19.2.2">
+19.2.2</a>&nbsp;&nbsp;Logical Layout (mapped)</h4>
+<br>
+When the Flashdriver starts up it reads all the extra data sections
+(usually from the first page of each block). From this data it extracts
+the logical block number which in turn is used to build up a table
+(index is LBN, value is PBN). Reading from logical Blocks works by
+simple address translation (LBN-&gt;PBN). Writing is usually done using
+a write before erase strategy, i.e. an emtpy block is filled with
+the data (new/replacement), then the LBN entry is remapped to the
+new PBN and the old physical block is erased (and goes either back
+to the free pool are becomes a bad block).<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">Offset</td>
+<td nowrap align="center">Block</td>
+<td nowrap align="center">Offset</td>
+<td nowrap align="center">Block</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00000000</tt></td>
+<td nowrap align="center"><tt>0x000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Master Boot Record (MBR)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00008000</tt></td>
+<td nowrap align="center"><tt>0x002</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Partition Boot Record (PBR)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0000c000</tt></td>
+<td nowrap align="center"><tt>0x003</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">24MiB</td>
+<td nowrap>FAT12 Partition #1 (flash0)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x01808000</tt></td>
+<td nowrap align="center"><tt>0x602</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0180C000</tt></td>
+<td nowrap align="center"><tt>0x603</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>4MiB</tt></td>
+<td nowrap>FAT12 Partition #2 (flash1)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x01C08000</tt></td>
+<td nowrap align="center"><tt>0x702</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x01C0C000</tt></td>
+<td nowrap align="center"><tt>0x703</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>FAT12 Partition #3 (empty)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x01D08000</tt></td>
+<td nowrap align="center"><tt>0x742</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x01D0C000</tt></td>
+<td nowrap align="center"><tt>0x743</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>FAT12 Partition #4 (empty)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x01DF8000</tt></td>
+<td nowrap align="center"><tt>0x77e</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x01DFC000</tt></td>
+<td nowrap align="center"><tt>0x77f</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Last Block </td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><div class="idx"><a href="index.html#idx19.2.3">index</a></div>
+<h4>
+<a name="sec19.2.3">
+19.2.3</a>&nbsp;&nbsp;Bootstrap (IPL Area)</h4>
+<br>
+The IPL, region and serial number are located within the nand non-fat
+area (using an ecrypted form)
+<tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap align="center"><b>block</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00000000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">64k</td>
+<td nowrap align="center">1-3</td>
+<td nowrap>? (all 0xff)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00010000</tt></td>
+<td nowrap align="center"><tt>0x00013fff</tt></td>
+<td nowrap align="center">16k</td>
+<td nowrap align="center">4</td>
+<td nowrap>physical block numbers of IPL</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00014000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">5</td>
+<td nowrap>block numbers of IPL (duplicated)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00018000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">6</td>
+<td nowrap>block numbers of IPL (duplicated)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0001c000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">7</td>
+<td nowrap>block numbers of IPL (duplicated)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00020000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">8</td>
+<td nowrap>block numbers of IPL (duplicated)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00024000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">9</td>
+<td nowrap>block numbers of IPL (duplicated)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00028000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">10</td>
+<td nowrap>block numbers of IPL (duplicated)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0002c000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">11</td>
+<td nowrap>block numbers of IPL (duplicated)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00030000</tt></td>
+<td nowrap align="center"><tt>0x0003ffff</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>all 0xff</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00040000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">16k</td>
+<td nowrap align="center">16-29</td>
+<td nowrap>encrypted IPL (encrypted chunks of <tt>0x1000</tt> bytes each)</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>0x000bffff</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>rest 0xff (max 0x20 blocks free for IPL)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x000c0000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>ID Storage Area</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x000d4180</tt></td>
+<td nowrap align="center"><tt>0x000FFFFF</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>rest 0xff</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>19.2.3.1 <a name="sec19.2.3.1">
+    &nbsp;&nbsp;IPL Block Mapping</a>
+</h5>
+<br>
+Physical blocks 4-11 hold mapping information. Each block contains
+the same information, for redundancy presumably. If one of these blocks
+becomes invalid, the next one is used etc. If all these blocks are
+bad the PSP might be dead
+      <div class="idx"><a href="index.html#idx19.2.4">index</a></div>
+<h4>
+<a name="sec19.2.4">
+19.2.4</a>&nbsp;&nbsp;ID Storage Area</h4>
+<br>
+Various subsystems in the PSP make use of the id-storage including
+usb, wlan, umd, etc. (The firmware provides a driver in idstorage.prx
+to facilitate manipulations. )
+The id-storage area begins at 0xc0000 and appears to be used to store
+low-level information. The id-storage area is an associative array
+and information is stored using key/value pairs. The id-storage seems
+a little coupled to the the physical storage as each key maps to an
+area of 512-bytes, which is equal to the pagesize of the PSP standard
+nand-flash, and it seems 512-byte page operations are intended. 
+key 0x100-0x11F same as key 0x120-0x13F 
+old ver psp haven't key 0x046, 0x047 
+old old ver psp haven't key 0x140
+<h5>19.2.4.1 <a name="sec19.2.4.1">
+    &nbsp;&nbsp;Index</a>
+</h5>
+<br>
+The keys are stored in an index which consists of two nand pages of
+512 bytes. The index is identified by byte 6 of the spare area being
+0x73. Byte 7 might be the id-storage version number. Byte 8 must be
+1 (or possibly 0) and might indicate whether the storage is formatted
+or not, and a value greater than 1 in byte 9 indicates that the id-storage
+is read-only. 
+Keys are 16-bit integers. The location of the data associated with
+a key is identified by the key's position in the index. For instance,
+a key appearing at position 97 (byte 194) in the index will find its
+associated data at location: 0xc0000 + (97 * 512) = 0xcc200. 
+<h5>19.2.4.2 <a name="sec19.2.4.2">
+    &nbsp;&nbsp;key 0x041 : USB Descriptor</a>
+</h5>
+<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>offset</b></td>
+<td nowrap><b>description</b></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0000</tt></td>
+<td nowrap>idVendor</td>
+<td nowrap>4C 05 </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0002</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>00 00 </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0004</tt></td>
+<td nowrap>bLength</td>
+<td nowrap>0A</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0005</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>03</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0006</tt></td>
+<td nowrap>iManufacturer String</td>
+<td nowrap>'S.o.n.y.'</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0044</tt></td>
+<td nowrap>? bNum</td>
+<td nowrap>05</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0045</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>00 00 00 </td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0048</tt></td>
+<td nowrap>idProduct</td>
+<td nowrap>C8 01</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x004A</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>00 00</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x004C</tt></td>
+<td nowrap>bLength</td>
+<td nowrap>16</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x004D</tt></td>
+<td nowrap>? bDescriptorType</td>
+<td nowrap>03</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x004E</tt></td>
+<td nowrap>iProduct String</td>
+<td nowrap>'P.S.P. .T.y.p.e. .A.'</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x008C</tt></td>
+<td nowrap>idProduct</td>
+<td nowrap>C9 01</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x008E</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>00 00</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0090</tt></td>
+<td nowrap>bLength</td>
+<td nowrap>16</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0091</tt></td>
+<td nowrap>? bDescriptorType</td>
+<td nowrap>03</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0092</tt></td>
+<td nowrap>iProduct String</td>
+<td nowrap>'P.S.P. .T.y.p.e. .B.'</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00D0</tt></td>
+<td nowrap>idProduct</td>
+<td nowrap>CA 01</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00D2</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>00 00</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00D4</tt></td>
+<td nowrap>bLength</td>
+<td nowrap>16</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00D5</tt></td>
+<td nowrap>? bDescriptorType</td>
+<td nowrap>03</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00D6</tt></td>
+<td nowrap>iProduct String</td>
+<td nowrap>'P.S.P. .T.y.p.e. .C.'</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0114</tt></td>
+<td nowrap>idProduct</td>
+<td nowrap>CB 01</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0116</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>00 00</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0118</tt></td>
+<td nowrap>bLength</td>
+<td nowrap>16</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0119</tt></td>
+<td nowrap>? bDescriptorType</td>
+<td nowrap>03</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x011A</tt></td>
+<td nowrap>iProduct String</td>
+<td nowrap>'P.S.P. .T.y.p.e. .D.'</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0158</tt></td>
+<td nowrap>idProduct</td>
+<td nowrap>CC 01</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x015A</tt></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>00 00</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x015C</tt></td>
+<td nowrap>bLength</td>
+<td nowrap>16</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x015D</tt></td>
+<td nowrap>? bDescriptorType</td>
+<td nowrap>03</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x015E</tt></td>
+<td nowrap>iProduct String</td>
+<td nowrap>'P.S.P. .T.y.p.e. .E.'</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>19.2.4.3 <a name="sec19.2.4.3">
+    &nbsp;&nbsp;key 0x044 : MAC Address </a>
+</h5>
+<br><h5>19.2.4.4 <a name="sec19.2.4.4">
+    &nbsp;&nbsp;key 0x050 : Serial Number</a>
+</h5>
+<br><div class="idx"><a href="index.html#idx19.2.5">index</a></div>
+<h4>
+<a name="sec19.2.5">
+19.2.5</a>&nbsp;&nbsp;FAT Area</h4>
+<br>
+FAT12 with a cluster size of 16K which conveniently matches the erase
+block size.
+     <div class="idx"><a href="index.html#idx19.3">index</a></div>
+<h3>
+<a name="sec19.3">
+19.3</a>&nbsp;&nbsp;Spare Area (extra Data)</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>4</tt></td>
+<td nowrap>user_ecc</td>
+<td nowrap>calculated per 512 byte page of user data (byte 3 is always 0x00)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x04</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>1</tt></td>
+<td nowrap>block_fmt</td>
+<td nowrap>0xff = IPL, 0x00 = FAT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x05</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>1</tt></td>
+<td nowrap>block_stat</td>
+<td nowrap>0xff = valid block</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x06</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>2</tt></td>
+<td nowrap>block_addr</td>
+<td nowrap>logical block number for FAT, mostly 0xff 0xff for IPL, 0x73 0x01
+= ID-Storage Index</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x08</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>2</tt></td>
+<td nowrap>?</td>
+<td nowrap>ID-Storage Index =0x01 0x01 / IPL = 0x38 0x4a or 0x01 0x01 / others
+0x00 0x00</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0a</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>2</tt></td>
+<td nowrap>?</td>
+<td nowrap>ID-Storage Index =0xff 0xff / IPL = 0xc6 0x6d or 0xff 0xff / others
+0x00 0x00</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0c</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>2</tt></td>
+<td nowrap>spare_ecc</td>
+<td nowrap>calculated from bytes 0x04-0x0b of spare area (12 bit, high nybble
+always 0xf)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0e</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>2</tt></td>
+<td nowrap>?</td>
+<td nowrap>always 0xff 0xff </td>
+</tr>
+</table>
+</td></tr></table>
+<br>
+note: If reading a dump from a live PSP, it is important to verify
+the ECC. Hardware automatically reclaims single-bit errors in the
+user-area, but for the spare area this must be done manually.
+     <div class="idx"><a href="index.html#idx19.4">index</a></div>
+<h3>
+<a name="sec19.4">
+19.4</a>&nbsp;&nbsp;Tools</h3>
+<br><ul>
+<li> <tt>dumpipl</tt> (MrBrown, Tyranid, John Kelley) dump IPL from Flash
+to Memstick [runs on PSP]
+</li>
+</ul>
+<br><div class="idx"><a href="index.html#idx20">index</a></div>
+</body></html>

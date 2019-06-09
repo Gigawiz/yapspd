@@ -1,0 +1,259 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec31">
+31</a>&nbsp;&nbsp;Appendix</h2>
+<br><div class="idx"><a href="index.html#idx31.1">index</a></div>
+<h3>
+<a name="sec31.1">
+31.1</a>&nbsp;&nbsp;GCC Quick How To</h3>
+<br>
+note: the instructions in this chapter are only for dyhards that want
+to bootstrap their own GCC from vanilla sources. For everyone else
+a toolchain containing allegrex specific patches is highly recommended.
+For short: you dont need this :)
+      <div class="idx"><a href="index.html#idx31.1.1">index</a></div>
+<h4>
+<a name="sec31.1.1">
+31.1.1</a>&nbsp;&nbsp;compile ASM to object:</h4>
+<br><tt>&lt;GCCROOT&gt;/bin/???-elf-as -c </tt><br><tt>-I &lt;GCCROOT&gt;/???-elf/include -I &lt;additional includes&gt; </tt><br><tt>testasm.s -o testasm.o</tt><br><div class="idx"><a href="index.html#idx31.1.2">index</a></div>
+<h4>
+<a name="sec31.1.2">
+31.1.2</a>&nbsp;&nbsp;compile C to object:</h4>
+<br><tt>&lt;GCCROOT&gt;/bin/???-elf-gcc -c </tt><br><tt>-I &lt;GCCROOT&gt;/???-elf/include -I &lt;additional includes&gt; </tt><br><tt>-nostdlib testc.c -o testc.o</tt><br><div class="idx"><a href="index.html#idx31.1.3">index</a></div>
+<h4>
+<a name="sec31.1.3">
+31.1.3</a>&nbsp;&nbsp;compile C++ to object:</h4>
+<br><tt>&lt;GCCROOT&gt;/bin/???-elf-g++ -c </tt><br><tt>-I &lt;GCCROOT&gt;/???-elf/include -I &lt;additional includes&gt; </tt><br><tt>-nostdlib -fno-exceptions testcpp.cpp -o testcpp.o</tt><br><div class="idx"><a href="index.html#idx31.1.4">index</a></div>
+<h4>
+<a name="sec31.1.4">
+31.1.4</a>&nbsp;&nbsp;link objects</h4>
+<br><tt>&lt;GCCROOT&gt;/bin/???-elf-ld -T mips-pspbin.x -o test.elf crt0.o
+</tt><br><tt>&lt;GCCROOT&gt;/lib/gcc-lib/???-elf/3.3/crtbegin.o </tt><br><tt>&lt;GCCROOT&gt;/lib/gcc-lib/???-elf/3.3/crtend.o </tt><br><tt>testasm.o testc.o testcpp.o -lg -lstdc++ -lm -lc -lnosys</tt>&nbsp;<br><tt></tt>&nbsp;<br>
+you only need to link against crtbegin.o/crtend.o if you are using
+c++, and you only need -lg,-lstdc++,-lc,-lm if you are actually using
+these libraries (of course:)). however if you do so, linking against
+-lnosys as well is essential.
+      <div class="idx"><a href="index.html#idx31.1.5">index</a></div>
+<h4>
+<a name="sec31.1.5">
+31.1.5</a>&nbsp;&nbsp;remove unneeded sections (debug info etc) from object</h4>
+<br><tt>&lt;GCCROOT&gt;/bin/???-elf-strip -s test.elf</tt><br><div class="idx"><a href="index.html#idx31.1.6">index</a></div>
+<h4>
+<a name="sec31.1.6">
+31.1.6</a>&nbsp;&nbsp;convert object to plain binary</h4>
+<br><tt>&lt;GCCROOT&gt;/bin/???-elf-objcopy -O binary test.elf test.bin</tt><br><div class="idx"><a href="index.html#idx31.1.7">index</a></div>
+<h4>
+<a name="sec31.1.7">
+31.1.7</a>&nbsp;&nbsp;convert absolute address into filename/line number/function</h4>
+<br>
+compile with "-g" flag, then use<br><br><tt>&lt;GCCROOT&gt;/bin/???-elf-addr2line -f -e test.elf &lt;address&gt;</tt><br><div class="idx"><a href="index.html#idx31.1.8">index</a></div>
+<h4>
+<a name="sec31.1.8">
+31.1.8</a>&nbsp;&nbsp;Building a Crosscompiler</h4>
+<br>
+configure options:<br><tt>--target=misel-elf</tt><br><tt>--with-cpu=r4000</tt><br><tt>--disable-threads</tt><br><tt>--enable-languages=c</tt><br><tt>--disable-shared</tt><br><tt>--disable-nls</tt><br><tt>--with-newlib</tt>&nbsp;<br><tt></tt>&nbsp;<br>
+note: a specialised 'allegrex' port is highly recommended. r4000
+(or r5900) will work, but is suboptimal
+      <div class="idx"><a href="index.html#idx31.1.9">index</a></div>
+<h4>
+<a name="sec31.1.9">
+31.1.9</a>&nbsp;&nbsp;Linker Script</h4>
+<br>
+to do
+      <div class="idx"><a href="index.html#idx31.1.10">index</a></div>
+<h4>
+<a name="sec31.1.10">
+31.1.10</a>&nbsp;&nbsp;Startup Code</h4>
+<br>
+to do
+     <div class="idx"><a href="index.html#idx31.2">index</a></div>
+<h3>
+<a name="sec31.2">
+31.2</a>&nbsp;&nbsp;Games</h3>
+<br><ul>
+<li> AC Formula Front - FromSoftware
+</li>
+<li> Ape Escape - SCEJ
+</li>
+<li> Axel Impact - Axis Entertainment Inc.
+</li>
+<li> Bomberman - Hudson Soft
+</li>
+<li> BBG - SEED9
+</li>
+<li> Darkstalkers Chronicle - Capcom
+</li>
+<li> Derby - SCEJ
+</li>
+<li> Detective Adventure Jinguji - WorkJam
+</li>
+<li> Devil May Cry - Capcom
+</li>
+<li> DoraSlot - Dorasu Corp.
+</li>
+<li> Dokodemo Issho - SCEJ
+</li>
+<li> Dynasty Warriors - Koei
+</li>
+<li> The Evil Village - Now Production
+</li>
+<li> Far East of Eden - Hudson Soft
+</li>
+<li> The Gagharv - Bandai
+</li>
+<li> Ghost in the Shell Stand Alone Complex - SCEJ
+</li>
+<li> Gran Turismo 4 Mobile - SCEJ
+</li>
+<li> - Marvelous Interactive
+</li>
+<li> Harvest Moon - Marvelous Interactive
+</li>
+<li> Hot Shots Golf (AKA Everybody's Golf) - SCEJ
+</li>
+<li> Kollon - CyberFront Corp.
+</li>
+<li> Legend of River King - Marvelous Interactive
+</li>
+<li> License of Intelligence - Now Production
+</li>
+<li> - Marvelous Interactive
+</li>
+<li> Mah-Jong Fight Club - Konami
+</li>
+<li> Mah-jong Mate - Success Corp
+</li>
+<li> Mahjong - Koei
+</li>
+<li> Makai Wars - Nippon Ichi Software
+</li>
+<li> Metal Gear Acid - Konami
+</li>
+<li> Mobile Suit Gundam - Bandai
+</li>
+<li> Moji-Pittan - Namco
+</li>
+<li> Monkey Games - SCEJ
+</li>
+<li> Need For Speed Underground - EA
+</li>
+<li> New Ridge Racer - Namco
+</li>
+<li> Pilot Academy - Marvelous Interactive
+</li>
+<li> Popolocrois Story - SCEJ
+</li>
+<li> Powerful Proyakyu - Konami
+</li>
+<li> Pro-wrestling - Yuke's
+</li>
+<li> Project S - Sega
+</li>
+<li> Puyo Pop Fever - Sega
+</li>
+<li> Puzzle Bobble - Taito
+</li>
+<li> RS Revolution - Spike
+</li>
+<li> - Hudson Soft
+</li>
+<li> Romance of the Three Kingdoms - Koei
+</li>
+<li> Shintenmakai - Idea Factory
+</li>
+<li> - Marvelous Interactive
+</li>
+<li> Shutkou Battle - Genki
+</li>
+<li> Super Robot Wars - Banpresto
+</li>
+<li> TGM-K - Akira
+</li>
+<li> T.O.E. - Namco
+</li>
+<li> Talkman - SCEJ
+</li>
+<li> Techniccute - Akira
+</li>
+<li> Ten No Kagi, Chi No Mon - SCEJ
+</li>
+<li> Tiger Woods PGA Tour - EA
+</li>
+<li> Viewtiful Joe - Capcom
+</li>
+<li> Vulcanus Online - Zepetto Studios
+</li>
+<li> Winning Eleven (aka Pro-Evolution Soccer) - Konami
+</li>
+<li> Ys VI - The Ark of Napishtim - Konami
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx31.3">index</a></div>
+<h3>
+<a name="sec31.3">
+31.3</a>&nbsp;&nbsp;Developers</h3>
+<br><ul>
+<li> FromSoftware
+</li>
+<li> Axis Entertainment Inc.
+</li>
+<li> SEED9
+</li>
+<li> WorkJam
+</li>
+<li> Capcom
+</li>
+<li> Dorasu Corp.
+</li>
+<li> CyberFront Corp.
+</li>
+<li> Now Production
+</li>
+<li> Success Corp
+</li>
+<li> Nippon Ichi Software
+</li>
+<li> Bandai
+</li>
+<li> Yuke's
+</li>
+<li> Sega
+</li>
+<li> Taito
+</li>
+<li> Spike
+</li>
+<li> Hudson Soft
+</li>
+<li> Koei
+</li>
+<li> Idea Factory
+</li>
+<li> Marvelous Interactive
+</li>
+<li> Genki
+</li>
+<li> Banpresto
+</li>
+<li> Namco
+</li>
+<li> Akira
+</li>
+<li> SCEJ
+</li>
+<li> EA
+</li>
+<li> Zepetto Studios
+</li>
+<li> Konami
+</li>
+<li> UBI Soft
+</li>
+</ul>
+<br><div class="idx"><a href="index.html#idx32">index</a></div>
+</body></html>

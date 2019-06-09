@@ -1,0 +1,960 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec9">
+9</a>&nbsp;&nbsp;Exception Processing</h2>
+<br><div class="idx"><a href="index.html#idx9.1">index</a></div>
+<h3>
+<a name="sec9.1">
+9.1</a>&nbsp;&nbsp;Exception Cause</h3>
+<br>
+The cause of the exception that was raised can be determined by the
+value of the cause register (causereg &gt;&nbsp;&gt; 2 to b<br>
+specific) which has the following meaning:<br><br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">INT</td>
+<td nowrap>Interrupt</td>
+<td nowrap>Hardware or Software Interrupt. </td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">MOD</td>
+<td nowrap>(n/a) TLB modification</td>
+<td nowrap>The memory address translation mapped to a TLB entry, but that entrys
+dirty-bit was set.</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">TLBL</td>
+<td nowrap>(n/a) TLB load/inst fetch</td>
+<td nowrap>TLB exception caused by a data load (i.e., a load word or similar
+instruction) or instruction fetch. The memory address translation
+did not match any valid TLB entry.</td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap align="center">TLBS</td>
+<td nowrap>(n/a) TLB store</td>
+<td nowrap>TLB exception caused by a data store (i.e., a store word or similar
+instruction). The memory address translation did not match any valid
+TLB entry.</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">ADEL</td>
+<td nowrap>Address load/inst fetch</td>
+<td nowrap>The PC was not word-aligned, or the address the load instruction wanted
+to load from was not aligned to the width of the load instruction.
+(For example, load halfword instructions must be 2-byte aligned.)</td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap align="center">ADES</td>
+<td nowrap>Address store</td>
+<td nowrap>The address the store instruction wanted to store to was not aligned
+to the width of the store instruction. (For example, store halfword
+instructions must be 2-byte aligned.)</td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap align="center">IBE</td>
+<td nowrap>Bus error (instr)</td>
+<td nowrap>The PC does not correspond to any real area of memory </td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap align="center">DBE</td>
+<td nowrap>Bus error (data)</td>
+<td nowrap>The target address of the load or store instruction does not correspond
+to any real area of memory. </td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">SYS</td>
+<td nowrap>Syscall</td>
+<td nowrap>Some code was trying to call the operating system, using a SYSCALL
+instruction. This exception is the processors way of transferring
+control to the operating system.</td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap align="center">BP</td>
+<td nowrap>Breakpoint</td>
+<td nowrap>Some process executed a BREAK instruction. This is the processors
+way of allowing the operating system to stop the process and do whatever
+is appropriate (alert the user using the debugger, for example).</td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap align="center">RI</td>
+<td nowrap>Reserved instruction</td>
+<td nowrap>Some code executed something which wasn't a valid MIPS-1 instruction.</td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap align="center">CPU</td>
+<td nowrap>Coprocessor unusable</td>
+<td nowrap>Some code executed an instruction which tried to reference a coprocessor
+that isn't valid</td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">OV</td>
+<td nowrap>Arithmetic overflow</td>
+<td nowrap>Some code executed an instruction whose arithmetic answer was too
+big to fit in a register using twos-complement arithmetic. The processor
+issues this exception so that the operating system can stop or otherwise
+signal the process.</td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap align="center">TR</td>
+<td nowrap>Trap</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap align="center">VCEI</td>
+<td nowrap>Virtual Coherency Exception (instruction).</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">15</td>
+<td nowrap align="center">FPE</td>
+<td nowrap>FPU Exception</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">18</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">19</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">21</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">22</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">23</td>
+<td nowrap align="center">WATCH</td>
+<td nowrap>Reference to WatchHi/WatchLo address detected.</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap align="center">DEBUG</td>
+<td nowrap>Debug Exception</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">25</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">26</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">27</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">29</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(reserved)</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap align="center">VCED</td>
+<td nowrap>Virtual Coherency Exception (data)</td>
+<td nowrap>called 'Error' on the PSP</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx9.2">index</a></div>
+<h3>
+<a name="sec9.2">
+9.2</a>&nbsp;&nbsp;Reset Vector (HW,SW,NMI)</h3>
+<br><tt>bfc00000(/* v0 */) /*</tt> <tt><b>(exceptionman,
+mebooter, mebooter_umdvideo, me_wrapper, power, sysreg)</b></tt> <tt>*/</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.6=v0 /*</tt> <tt><b>save v0</b></tt> <tt></tt><tt><b>in
+cc0.6 (GPR.v0)</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(COP0STAT.22!=0) /*</tt> <tt><b>get c0.22
+(CPU ID?) (if!=0 then ME)</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto ME_Reset_Handler; /*</tt> <tt><b>jump</b></tt>
+<tt></tt><tt><b>directly to ME Reset Handler</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>} <tt>else {</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call (COP0CTRL.9); /*</tt> <tt><b>jump
+(indirect over vector in cc0.9) to Error Handler (EXC_31_ERROR handler)</b></tt>
+<tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<br><div class="idx"><a href="index.html#idx9.2.1">index</a></div>
+<h4>
+<a name="sec9.2.1">
+9.2.1</a>&nbsp;&nbsp;ME Reset Handler</h4>
+<br><tt>ME_Reset_Handler() /* bfc00040</tt> <tt><b>(mebooter,
+mebooter_umdvideo, me_wrapper)</b></tt> <tt>*/</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0xbc100050)=0x00000007; /* bus clock enable
+AW?/AW?/ME */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0xbc100004)=0xffffffff; /* acknowledge/clear
+all interrupts */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0xbc100040)=0x00000001; /* set ram size (32mb)
+*/</tt>&nbsp;<br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;k0=COP0STAT.16; /*</tt> <tt><b>get c0.16 (Config)</b></tt>
+<tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.28=0; /*</tt> <tt><b>set c0.28 (TagLo)
+= 0</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.29=0; /*</tt> <tt><b>set c0.29 (TagHi)
+= 0</b></tt> <tt>*/</tt>&nbsp;<br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* invalidate caches */</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;k1=0x0800&lt;&nbsp;&lt;((k0&gt;&nbsp;&gt;6)&amp;0x00000007);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;do()</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k1-=0x40;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;asm('cache 0x01, 0($k1)'); /*</tt> <tt><b>Index
+Invalidate (primary Data Cache)</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;} while(k1!=0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;k1=0x0800&lt;&nbsp;&lt;((k0&gt;&nbsp;&gt;(3))&amp;0x00000007);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;do()</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k1-=0x40;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;asm('cache 0x11, 0($k1)'); /*</tt> <tt><b>Hit
+Invalidate (primary Data Cache)</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;} while(k1!=0);</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.13=0; /*</tt> <tt><b>set c0.13 (Cause)
+= 0</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=0x20000000; /*</tt> <tt><b>set
+set c0.12 (Status) = 0x20000000</b></tt> <tt>*/</tt>&nbsp;<br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0xbcc00010)=0x0001;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;while(*(0xbcc00010)==1){/*</tt> <tt><b>wait</b></tt>
+<tt>*/};</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0xbcc00070)=0x00000001;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0xbcc00030)=0x00000008;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0xbcc00040)=0x00000002;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;sync();</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* k0=0x88380000 t0=0xbfc00000 sp=0x80200000 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;88380000(0,0x88300000,0x00080000); /* call handler
+at 0x88380000 */</tt><br><tt>}</tt>&nbsp;<br><tt>88380000()</tt><br><tt>{</tt><br><tt>...</tt><br><tt>}</tt><br><div class="idx"><a href="index.html#idx9.3">index</a></div>
+<h3>
+<a name="sec9.3">
+9.3</a>&nbsp;&nbsp;EBASE Vector (IRQ,Syscall)</h3>
+<br><tt>EBase( /* v0, v1 */) /* 8801cd38 */</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.6=v0; /* save v1 in cc0.6 (GPR.v0) */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.7=v1; /* save v1 in cc0.7 (GPR.v1) */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.0=COP0STAT.30; /*</tt> <tt><b>save
+(EPC) in cc0.0 Exception Program Counter</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.2=COP0STAT.12; /*</tt> <tt><b>save
+v1 (Status) in cc0.2 Status register</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;u32 cause=COP0STAT.13;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.3=cause; /*</tt> <tt><b>save (Cause)
+in cc0.3</b></tt> <tt>*/;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;cause&amp;=0x7c;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(cause!=(8&lt;&nbsp;&lt;2)) /* not syscall? */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exception_handler(cause); /* v0=offset
+in table */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;} else {</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call (COP0CTRL.11); /*</tt> <tt><b>jump
+(indirect over vector in cc0.11) to Syscall Handler (EXC_8_Syscall
+handler)</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><br><div class="idx"><a href="index.html#idx9.4">index</a></div>
+<h3>
+<a name="sec9.4">
+9.4</a>&nbsp;&nbsp;Error Handler</h3>
+<br><tt>EXC_31_ERROR_handler(/* v1 */) /*</tt> <tt><b>(exceptionman:0x06c8)</b></tt>
+<tt>*/</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.7=v1; /*</tt> <tt><b>save v1 in cc0.7
+(GPR.v1) */</b></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.20=COP0STAT.13; /*</tt> <tt><b>save
+(Cause) in cc0.20</b></tt> <tt>*/;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.1=COP0STAT.30; /*</tt> <tt><b>save
+(ErrorEPC) in cc0.1</b></tt> <tt></tt><tt><b>Error Exception Program
+Counter</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.19=COP0STAT.12; /*</tt> <tt><b>save
+v1 (Status) in cc0.19 Status register</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;exception_handler(31&lt;&nbsp;&lt;2); /*</tt>
+<tt><b>v0=0x007c default offset in table</b></tt> <tt>*/</tt><br><tt>}</tt><br><div class="idx"><a href="index.html#idx9.5">index</a></div>
+<h3>
+<a name="sec9.5">
+9.5</a>&nbsp;&nbsp;Exception Handler </h3>
+<br><ul>
+<li> return from exception using eret
+</li>
+</ul>
+<tt>exception_handler(u32 offset /* v0 */) /* 8801cd70</tt>
+<tt><b>(exceptionman:0x0670)</b></tt> <tt>*/</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if (COP0CTRL.25!=NULL) /*</tt> <tt><b>Profiler
+HW Base</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt><b>; profiler stuff</b></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(PROFILER+0x0c)=offset; /*</tt> <tt><b>save
+v0 to PROFILER+0x0c (stall total)</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=*(PROFILER+0x00);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=*(v1+0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(v1+0)=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sync();</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(*(PROFILER+0x08)==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(PROFILER+0x04)=v0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt><b>; count cpu ticks</b></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(PROFILER+0x08)++; /* cpu ck */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset=*(PROFILER+0x0c); /*</tt> <tt><b>get
+v0 from PROFILER+0x0c (stall total)</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/*</tt> <tt><b>jump to exception handler from
+table</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;u8 *Exception_Vector_Table;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;Exception_Vector_Table=COP0CTRL.8; /*</tt> <tt><b>Exception
+Vector Table</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;call((u32)Exception_Vector_Table[offset]);</tt><br><tt>}</tt>&nbsp;<br><tt></tt>&nbsp;<br><tt>void *ExceptionVectorTable[32] /* 8801ea00</tt> <tt><b>(exceptionman)
+Exception Vector Table (32 Entries)</b></tt> <tt>*/</tt><br><tt>{</tt><br><tt>/* &nbsp;0 */ 88020F74</tt> <tt><b>(interruptman:0x2274)</b></tt>
+<tt>/* IRQ (=default_irq_handler) */</tt><br><tt>/* &nbsp;1 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* &nbsp;2 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* &nbsp;3 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* &nbsp;4 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* &nbsp;5 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* &nbsp;6 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* &nbsp;7 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* &nbsp;8 */ 88021E74</tt> <tt><b>(interruptman:0x3174)</b></tt>
+<tt>/* syscall (=EXC_8_Syscall handler) */</tt><br><tt>/* &nbsp;9 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 10 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 11 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 12 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 13 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 14 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 15 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 16 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 17 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 18 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 19 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 20 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 21 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 22 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 23 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 24 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt> <tt>/*
+debug exception */</tt><br><tt>/* 25 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 26 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 27 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt> <tt></tt><br><tt>/* 28 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 29 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 30 */ 8801D130</tt> <tt><b>(hang)while(1);</b></tt><br><tt>/* 31 */ 8801D370</tt> <tt><b>(exceptionman:0x0c70)</b></tt>
+<tt>/* error, default (=default_error_handler) */</tt>&nbsp;<br><tt>}</tt>&nbsp;<br>
+note: the PSP Kernel provides a function called <tt>sceKernelRegisterPriorityExceptionHandler</tt>
+to register a handler in the above table.
+      <div class="idx"><a href="index.html#idx9.5.1">index</a></div>
+<h4>
+<a name="sec9.5.1">
+9.5.1</a>&nbsp;&nbsp;error</h4>
+<br><tt>typedef struct</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x00 */ unsigned long unk;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x04 */ unsigned long at;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x08 */ unsigned long a0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x0c */ unsigned long a1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x10 */ unsigned long a2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x14 */ unsigned long a3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x18 */ unsigned long t0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x1c */ unsigned long t1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x20 */ unsigned long t2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x24 */ unsigned long t3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x28 */ unsigned long t4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x2c */ unsigned long t5;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x30 */ unsigned long t6;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x34 */ unsigned long t7;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x38 */ unsigned long s0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x3c */ unsigned long s1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x40 */ unsigned long s2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x44 */ unsigned long s3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x48 */ unsigned long s4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x4c */ unsigned long s5;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x50 */ unsigned long s6;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x54 */ unsigned long s7;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x58 */ unsigned long t8;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x5c */ unsigned long t9;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x60 */ unsigned long k0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x64 */ unsigned long k1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x68 */ unsigned long gp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x6c */ unsigned long sp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x70 */ unsigned long fp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x74 */ unsigned long ra;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x78 */ unsigned long hi;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x7c */ unsigned long lo;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x80 */ unsigned long f0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x84 */ unsigned long f1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x88 */ unsigned long f2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x8c */ unsigned long f3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x90 */ unsigned long f4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x94 */ unsigned long f5;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x98 */ unsigned long f6;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x9c */ unsigned long f7;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xa0 */ unsigned long f8;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xa4 */ unsigned long f9;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xa8 */ unsigned long f10;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xac */ unsigned long f11;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xb0 */ unsigned long f12;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xb4 */ unsigned long f13;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xb8 */ unsigned long f14;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xbc */ unsigned long f15;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xc0 */ unsigned long f16;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xc4 */ unsigned long f17;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xc8 */ unsigned long f18;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xcc */ unsigned long f19;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xd0 */ unsigned long f20;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xd4 */ unsigned long f21;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xd8 */ unsigned long f22;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xdc */ unsigned long f23;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xe0 */ unsigned long f24;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xe4 */ unsigned long f25;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xe8 */ unsigned long f26;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xec */ unsigned long f27;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xf0 */ unsigned long f28;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xf4 */ unsigned long f29;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xf8 */ unsigned long f30;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xfc */ unsigned long f31;</tt><br><tt>} ERRFRAME; /* 0x8801e8c0 */</tt>&nbsp;<br><tt></tt>&nbsp;<br><tt>void *user_error_handler; /* 0x8801d368 */</tt><br><tt>void *curr_nmi_handler; /* 0x8801d884 */</tt><br><tt>int flag; /* 0x8801d880 */</tt><br><tt>default_error_handler(void) /* 8801D370-8801d770</tt> <tt><b>(exceptionman:0x0c70)</b></tt>
+<tt>*/</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(flag) goto l8801d76c; // break</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;flag++;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;curr_nmi_handler=NULL; /* clear nmi handler addr
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=sp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;sp=0x8801e8c0;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* save at-ra in frame (not shown */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(ERRFRAME*)sp-&gt;hi=mfhi();</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(ERRFRAME*)sp-&gt;lo=mflo();</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* save f0-f31 (not shown) */</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;s0=*(0xbc100000);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if((s0&amp;0x03ff03ff)==0) goto l8801d768; // break</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=bitrev(s0); // reverse bit order</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;s1=clz(v1); // count left zeros</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if((s0&amp;0x000003ff)==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((s0&amp;0x03ff0000)==0) goto l8801d768; //
+break</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s2=s0&gt;&nbsp;&gt;0x10; // nmi nr</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s2=s1; // nmi nr</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(s2==0x00000008)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=0xbc100010;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else if(s2==0x00000009)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=0xbc100028;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=0xbc100034-(s2&lt;&nbsp;&lt;2);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=*(v0);</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if((v0&gt;&nbsp;&gt;0x1f)!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;k0=v0&amp;0x80000000;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a3=COP0CTRL.0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t0=COP0CTRL.1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0CTRL.18; /* NMI vector table addr */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;curr_nmi_handler=*(v0+(s2&lt;&nbsp;&lt;2));
+/* get addr of handler */</tt>&nbsp;<br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(curr_nmi_handler)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(0xbc100004)=s0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call(curr_nmi_handler); /* a0=0/1 a1=0/1
+k0=0xbc100004; sp=0x8801e8c0; */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* restore f0-f1 (not shown) */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;mthi((ERRFRAME*)sp-&gt;hi);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;mtlo((ERRFRAME*)sp-&gt;lo);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* restore at-ra (not shown) */</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;flag=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=COP0CTRL.19&amp;0xffbfffff; /* status */</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(curr_nmi_handler!=NULL)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* restore remaining regs and return from
+exception */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=COP0STAT.12&amp;0xffefffff; /*
+status */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.13=COP0CTRL.20; /* cause */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.30=COP0CTRL.1; /* Error EPC */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0CTRL.6;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=COP0CTRL.7;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eret();</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call(user_error_handler);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt></tt><tt>l8801d768:</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;brk(0x20000);</tt><br><tt>l8801d76c:</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;brk(0x20000);</tt><br><tt>}</tt><br><div class="idx"><a href="index.html#idx9.5.2">index</a></div>
+<h4>
+<a name="sec9.5.2">
+9.5.2</a>&nbsp;&nbsp;interrupt</h4>
+<br><h5>9.5.2.1 <a name="sec9.5.2.1">
+    &nbsp;&nbsp;Interrupt Cause</a>
+</h5>
+<br><a name="tth_tAb1">
+</a> 
+<table><tr><td nowrap><table>
+<tr>
+<td nowrap align="right"><b>Number</b></td>
+<td nowrap align="right"><b>Subs</b></td>
+<td nowrap><b>Name</b></td>
+<td nowrap><b>Description</b></td>
+</tr>
+<tr>
+<td nowrap align="right">0</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>UART_ALL</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">1</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SPI_ALL</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">2</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>TIM_PERI_ALL</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">3</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>USB_ALL</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">4</td>
+<td nowrap align="right">32</td>
+<td nowrap><tt>GPIO</tt></td>
+<td nowrap>GPIO</td>
+</tr>
+<tr>
+<td nowrap align="right">5</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>ATA</tt></td>
+<td nowrap>ATA/ATAPI</td>
+</tr>
+<tr>
+<td nowrap align="right">6</td>
+<td nowrap align="right">16</td>
+<td nowrap><tt>SPOCK</tt></td>
+<td nowrap>UMD MAN</td>
+</tr>
+<tr>
+<td nowrap align="right">7</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SMS1</tt></td>
+<td nowrap>Memstick (MSCM0)</td>
+</tr>
+<tr>
+<td nowrap align="right">8</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SMS2</tt></td>
+<td nowrap>WLAN</td>
+</tr>
+<tr>
+<td nowrap align="right">9</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>MG</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">10</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>AUDIO1</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">11</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>AUDIO2</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">12</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>IIC</tt></td>
+<td nowrap>I2C</td>
+</tr>
+<tr>
+<td nowrap align="right">13</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>KEY</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">14</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SIRCS</tt></td>
+<td nowrap>IrDA</td>
+</tr>
+<tr>
+<td nowrap align="right">15</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>TIM0_SYS</tt></td>
+<td nowrap>Systimer 0</td>
+</tr>
+<tr>
+<td nowrap align="right">16</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>TIM1_SYS</tt></td>
+<td nowrap>Systimer 1</td>
+</tr>
+<tr>
+<td nowrap align="right">17</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>TIM2_SYS</tt></td>
+<td nowrap>Systimer 2</td>
+</tr>
+<tr>
+<td nowrap align="right">18</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>TIM3_SYS</tt></td>
+<td nowrap>Systimer 3</td>
+</tr>
+<tr>
+<td nowrap align="right">19</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>COUNT</tt></td>
+<td nowrap>Thread0</td>
+</tr>
+<tr>
+<td nowrap align="right">20</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>EMC_SM</tt></td>
+<td nowrap>NAND</td>
+</tr>
+<tr>
+<td nowrap align="right">21</td>
+<td nowrap align="right">10</td>
+<td nowrap><tt>DMAC128</tt></td>
+<td nowrap>DMACPLUS</td>
+</tr>
+<tr>
+<td nowrap align="right">22</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>DMAC_SC1</tt></td>
+<td nowrap>DMA0</td>
+</tr>
+<tr>
+<td nowrap align="right">23</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>DMAC_SC2</tt></td>
+<td nowrap>DMA1</td>
+</tr>
+<tr>
+<td nowrap align="right">24</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>KIRK</tt></td>
+<td nowrap>MEMLMD</td>
+</tr>
+<tr>
+<td nowrap align="right">25</td>
+<td nowrap align="right">32</td>
+<td nowrap><tt>AW</tt></td>
+<td nowrap>GE</td>
+</tr>
+<tr>
+<td nowrap align="right">26</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>USB_MAIN</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">27</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">28</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">29</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">30</td>
+<td nowrap align="right">32</td>
+<td nowrap><tt>VSYNC</tt></td>
+<td nowrap>Display VBlank</td>
+</tr>
+<tr>
+<td nowrap align="right">31</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SYS_REG</tt></td>
+<td nowrap>ME Codec</td>
+</tr>
+<tr>
+<td nowrap align="right">32</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>UART1</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">33</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>UART2</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">34</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>UART3</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">35</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>UART4</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">36</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>UART5</tt></td>
+<td nowrap>HP Remote</td>
+</tr>
+<tr>
+<td nowrap align="right">37</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>UART6</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">38</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">39</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">40</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SPI1</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">41</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SPI2</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">42</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SPI3</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">43</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SPI4</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">44</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SPI5</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">45</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SPI6</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">46</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">47</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">48</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>TIM1_PERI</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">49</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>TIM2_PERI</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">50</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>TIM3_PERI</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">51</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>TIM4_PERI</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">52</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">53</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">54</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">55</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">56</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>USB_TS</tt></td>
+<td nowrap>USB Resume</td>
+</tr>
+<tr>
+<td nowrap align="right">57</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>USBCON_TS</tt></td>
+<td nowrap>USB Ready</td>
+</tr>
+<tr>
+<td nowrap align="right">58</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>USBDIS_TS</tt></td>
+<td nowrap>USB Connect</td>
+</tr>
+<tr>
+<td nowrap align="right">59</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>USBREADY_TS</tt></td>
+<td nowrap>USB Disconnect</td>
+</tr>
+<tr>
+<td nowrap align="right">60</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SMS1_CON</tt></td>
+<td nowrap>Memstick Insertion (MSCM1)</td>
+</tr>
+<tr>
+<td nowrap align="right">61</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SMS1_DISCON</tt></td>
+<td nowrap>Memstick Removal (MSCM2)</td>
+</tr>
+<tr>
+<td nowrap align="right">62</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SMS2_CON</tt></td>
+<td nowrap>WLAN</td>
+</tr>
+<tr>
+<td nowrap align="right">63</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SMS2_DISCON</tt></td>
+<td nowrap>WLAN</td>
+</tr>
+<tr>
+<td nowrap align="right">64</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SOFT1</tt></td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="right">65</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>SOFT2</tt></td>
+<td nowrap>Thread1</td>
+</tr>
+<tr>
+<td nowrap align="right">66</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap><tt>CPUTIMER</tt></td>
+<td nowrap>Interrupt</td>
+</tr>
+</table></td></tr></table>
+<h5>9.5.2.2 <a name="sec9.5.2.2">
+    &nbsp;&nbsp;Interrupt Handler</a>
+</h5>
+<br><tt>typedef struct</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x00 */ unsigned long unk000; /* some kind
+of flag */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x04 */ unsigned long at;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x08 */ unsigned long gprv0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x0c */ unsigned long gprv1;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x10 */ unsigned long a0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x14 */ unsigned long a1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x18 */ unsigned long a2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x1c */ unsigned long a3;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x20 */ unsigned long t0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x24 */ unsigned long t1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x28 */ unsigned long t2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x2c */ unsigned long t3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x30 */ unsigned long t4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x34 */ unsigned long t5;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x38 */ unsigned long t6;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x3c */ unsigned long t7;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x40 */ unsigned long s0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x44 */ unsigned long s1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x48 */ unsigned long s2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x4c */ unsigned long s3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x50 */ unsigned long s4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x54 */ unsigned long s5;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x58 */ unsigned long s6;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x5c */ unsigned long s7;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x60 */ unsigned long t8;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x64 */ unsigned long t9;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x68 */ unsigned long k0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x6c */ unsigned long k1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x70 */ unsigned long gp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x74 */ unsigned long sp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x78 */ unsigned long fp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x7c */ unsigned long ra;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x80 */ unsigned long f0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x84 */ unsigned long f1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x88 */ unsigned long f2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x8c */ unsigned long f3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x90 */ unsigned long f4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x94 */ unsigned long f5;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x98 */ unsigned long f6;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x9c */ unsigned long f7;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xa0 */ unsigned long f8;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xa4 */ unsigned long f9;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xa8 */ unsigned long f10;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xac */ unsigned long f11;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xb0 */ unsigned long f12;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xb4 */ unsigned long f13;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xb8 */ unsigned long f14;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xbc */ unsigned long f15;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xc0 */ unsigned long f16;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xc4 */ unsigned long f17;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xc8 */ unsigned long f18;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xcc */ unsigned long f19;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xd0 */ unsigned long f20;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xd4 */ unsigned long f21;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xd8 */ unsigned long f22;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xdc */ unsigned long f23;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xe0 */ unsigned long f24;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xe4 */ unsigned long f25;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xe8 */ unsigned long f26;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xec */ unsigned long f27;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xf0 */ unsigned long f28;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xf4 */ unsigned long f29;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xf8 */ unsigned long f30;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0xfc */ unsigned long f31;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x100 */ unsigned long unk100; /* COP1CTRL.6
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x104 */ unsigned long hi;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x108 */ unsigned long lo;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x10c */ unsigned long cop0status;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x110 */ unsigned long cop0epc;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* 0x114 */ unsigned long cop0cause;</tt><br><tt>} IRQFRAME;</tt>&nbsp;<br><tt>void * /* [r] 0x88020f6c 'null' handler address */</tt>&nbsp;<br><tt>// these 3 structs are probably the same</tt><br><tt>typedef struct </tt><br><tt>{</tt><br><tt>/* 0x00 */ u32 unk00;</tt><br><tt>/* 0x04 */ u32 unk04;</tt><br><tt>} struct88022610 [4]; /* [r/w] 0x88022610 ? (2628)
+*/</tt>&nbsp;<br><br><tt>typedef struct </tt><br><tt>{</tt><br><tt>/* 0x00 */ u32 unk00;</tt><br><tt>/* 0x04 */ u32 unk04;</tt><br><tt>} struct88022630 [4]; /* [r/w] 0x88022630 ? */</tt>&nbsp;<br><tt>typedef struct </tt><br><tt>{</tt><br><tt>/* 0x00 */ u32 unk00;</tt><br><tt>/* 0x04 */ u32 unk04;</tt><br>
+} <tt>struct88022650 [4]; /* [r/w] 0x88022650 ? */</tt>&nbsp;<br><br><tt>typedef struct </tt><br><tt>{</tt><br><tt>/* 0x00 */ void *entry;</tt><br><tt>/* 0x04 */ void *gp;</tt><br><tt>/* 0x08 */ u32</tt><br><tt>/* 0x0c */ u32 calls;</tt><br><tt>/* 0x10 */ u32 min_clock_lo;</tt><br><tt>/* 0x14 */ u32 min_clock_hi;</tt><br><tt>/* 0x18 */ u32 max_clock_lo;</tt><br><tt>/* 0x1c */ u32 max_clock_hi;</tt><br><tt>/* 0x20 */ u32 total_clock_lo;</tt><br><tt>/* 0x24 */ u32 total_clock_hi;</tt><br><tt>/* 0x28 */ void *</tt><br><tt>/* 0x2c */ void *</tt><br><tt>/* 0x30 */ u32</tt><br><tt>/* 0x34 */ u32</tt><br><tt>} IntrHandlerOptionParam *IntrHandlerOption[67]; /*
+[r/w] 88022770 */</tt>&nbsp;<br><br><tt>/* [r/w] 0x8802277c ? some flag */</tt><br><tt>unsigned long long88022780[4]; /* [w] 0x88022780 stackpointer
+before calling handler */</tt><br><tt>/* [w] 0x88022790 ? cop0stat.9 count */</tt><br><tt>/* [w] 0x88022794 ? cop0stat.9 count */</tt><br><tt>/* [w] 0x88022798 ? */</tt><br><tt>/* [r/w] 0x8802279c ? */</tt><br><tt>/* [r/w] 0x880227a0 ? counter */</tt>&nbsp;<br><tt>typedef struct </tt><br><tt>{</tt><br><tt>/* 0x00 */ u32 unk00;</tt><br><tt>/* 0x04 */ u32 unk04;</tt><br><tt>} struct880227a4; /* [r] 0x880227a4 ? */</tt>&nbsp;<br><tt>void * /* [r] 880227ac ? handler address (8803be58 threadman:?)
+*/</tt><br><tt>void * /* [r] 880227b0 ? handler address (8802d724 threadman:?)
+*/</tt><br><tt>/* [r] 880227b4 ? stack stuff */</tt><br><tt>void * /* [r/w] 880227d0 ? handler address */</tt>&nbsp;<br><tt>default_irq_handler(void) /* 88020F74</tt> <tt><b>(interruptman:0x2274)</b></tt>
+<tt>*/</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;some preparations, set up the stack</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(beware of gotos :])</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*/</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=sp; // original stackpointer</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(*(0x8802277c)==0) goto l88020fa4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if((COP0CTRL.2&amp;0x18)!=0) goto l88020fb8; /* cop0.status
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;goto l88020f94;</tt><br><tt>l88020fa4:</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0x88022790)=COP0STAT.9; /* count */</tt><br><tt>l88020fb8:</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(COP0CTRL.14!=0) goto l88020fc4; /* GPR.sp.Kernel
+*/</tt><br><tt>l88020f94: </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* allocate and align stackframe */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;sp=(sp+0xfffffee0)&amp;0xffffffc0;</tt><br><tt>l88020fc4:</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/*</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;save environment on the stack</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*/</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;at=at;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;sp=v1; // original stackpointer</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;gprv0=COP0CTRL.4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;gprv1=COP0CTRL.5;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;a0=a0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;a1=a1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;a2=a2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;a3=a3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;k0=k0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;k1=k1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;gp=gp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;fp=fp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;ra=ra;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;hi=mfhi();</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;lo=mflo();</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;cop0status=COP0CTRL.2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;cop0cause=COP0CTRL.3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;cop0epc=COP0CTRL.0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;unk100=COP1CTRL.2;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP1CTRL.6=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP1CTRL.6=0x00000e00;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/*</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alloc space on stack for local variables</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)sp-&gt;unk=0;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(*(0x8802277c))</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=COP0CTRL.15; /* GPR.sp.User */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k0=sp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(COP0CTRL.2&amp;0x18) sp=a1; /* cop0status
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(0x880227b4) + 0x0240;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at=(sp&lt;a0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(at!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=(IRQFRAME*)sp-&gt;cop0status
+&amp; 0x2fffffe0; /* status */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while(1)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brk(0xfff);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sp+=0xffffffe0; /* alloc 0x20 bytes on stack
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(sp+0x001c)=k0; // save pointer to IRQFRAME</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k0=sp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sp=0x880257a0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(sp+0x1c)=k0; // save pointer to IRQFRAME</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(i=0;i&lt;4;i++)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;struct88022630[i]=struct88022610[i];</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;k1=*(0x8802277c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0x8802277c)++; </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=88022208(); /* also returns v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;struct88022650[k1].unk00=v0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;struct88022650[k1].unk04=v1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;long88022780[k1]=sp;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/*</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find number of irq (and put it in a0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=(IRQFRAME*)k0-&gt;cop0status &amp; 0x2fffffe0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=v0; // status</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(( (v0 &amp; (IRQFRAME*)k0-&gt;cop0cause) &amp;0x8300)!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=((v1&lt;&nbsp;&lt;5)|v1)&lt;&nbsp;&lt;0x10;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=clz(v1); // count left zeros</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k1=66-v1; /* 66=highest irq number */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=88022218(struct88022630[0].unk00,struct88022630[0].unk04);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=k1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=880221d8(); /* also returns v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(k0=0;k0&lt;3 /* ? */;k0++)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=struct88022630[k0+1].unk00; //
+0x88022638</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=struct88022630[k0+1].unk04; //
+0x8802263c</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=a0&amp;v0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3=a1&amp;v1;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((a2|a3)!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=88022218(struct88022630[k0].unk00,struct88022630[k0].unk04);</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k0=a2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k1=a3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(k0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=bitrev(k0); //
+reverse bit order</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=clz(a1); // count
+left zeros</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(k1==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* set handler
+address to 'null' handler and end irq handling */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(0x880227d0)=*(0x88020f6c);
+// 88021c98</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto l880219d4;
+// call handler *(0x880227d0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=bitrev(k1); //
+reverse bit order</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=clz(a1); // count
+left zeros</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0+=0x0020;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto l880211e4; // call registered
+handler in a0</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* set handler address to 'null' handler
+and end irq handling */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(0x880227d0)=*(0x88020f6c); // 88021c98</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto l880219d4; // call handler *(0x880227d0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><br><tt>l880211e4:</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/*</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call registered handler for individual interrupt
+(in a0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;k0=IntrHandlerOption[a0]-&gt;entry;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;k1=IntrHandlerOption[a0]-&gt;entry;</tt>&nbsp;<br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;if((k1==3) - |(k1==0)) // no handler registered</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* set handler address to 'null' handler
+and end irq handling */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(0x880227d0)=*(0x88020f6c); // 88021c98</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto l880219d4; // call handler *(0x880227d0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;*(sp+0x0014)=a0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0x88022798)=a0;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(a0!=0x88022798)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((a0+0xffffffc0)&lt;0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=88022234(a0); /* also returns
+v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=~((v0+1)&lt;&nbsp;&lt;8);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=COP0STAT.13 &amp; v0; /* cause */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.13=v1; /* cause */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;while(1)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(sp+0x0018)=k0; /* k0: pointer to IntrHandlerOptionParam
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=*(k0+0x0008);</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=*(sp+0x001c); // get pointer to IRQFRAME</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=(IRQFRAME*)a2-&gt;cop0epc;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp=*(k0+0x0004);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=k1&amp;0x0003;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at=0x0003;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(v0==at)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(0x880227d0)=k1&amp;0xfffffffc; /*
+handler address */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto l880219d4; // call handler *(0x880227d0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if(v0!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=*(sp+0x001c); // get pointer
+to IRQFRAME</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((IRQFRAME*)v0-&gt;unk000!=4)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* save t0...t9 in *(v0+0x20...0x64)(not
+shown) */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* save f0...t31 in *(v0+0x80...0xfc)(not
+shown) */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)v0-&gt;unk000=4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((*(k0+0x0030) &amp; 0x0100)==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ra=COP0STAT.9; /* count */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=struct880227a4.unk04+(ra&lt;struct880227a4.unk00);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(sp+0x000c)=ra;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(sp+0x0010)=v1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=k1&amp;0xfffffffc;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ra=(a0&lt;0x40);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtic(ra);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k1=0;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call(v0); /* call handler (jal) */</tt>&nbsp;<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtic(0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k0=*(sp+0x0018);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(k0+0x0030) &amp; 0x0100;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(a0==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(sp)=v0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3=0x880227a4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=struct880227a4.unk04;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=((COP0STAT.9)&lt;(struct880227a4.unk00));
+/* count */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1+=a2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(sp+0x000c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=*(sp+0x0010);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1-=a1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=(v0&lt;a0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0-=a0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1-=a1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(k0+0x0010);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=*(k0+0x0014);</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((a1&lt;v1)==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((a1!=v1)|((a0&lt;v0)==0))</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(k0+0x0010)=v0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(k0+0x0014)=v1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(k0+0x0018);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=*(k0+0x001c);</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((v1&lt;a1)==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((v1!=a1)|((v0&lt;a0)==0))</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(k0+0x0018)=v0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(k0+0x001c)=v1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(k0+0x0020) + v0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=*(k0+0x0024) + v1 + (a0&lt;v0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(k0+0x0020)+=a0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(k0+0x0024)+=a1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=*(sp);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(0x8802279c)++;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(k0+0x000c)++;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(k0+0x0030) &amp; 0x1000;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(a0!=0) break;</tt><br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0++;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(v0==0) break;</tt><br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ra=v0+1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(ra==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(sp+0x0014);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=66; // 66=number of highest irq</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(a0==v1) break;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=a0+0xffffffc0;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(v0&gt;=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=COP0STAT.12&amp;(((v0+1)&lt;&nbsp;&lt;8)^0xffffffff);
+/* status */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* make bitmask */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=0;v1=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=a0+0xffffffe0;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(a1&lt;0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=1&lt;&nbsp;&lt;a0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=1&lt;&nbsp;&lt;a1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0^=0xffffffff;&nbsp;v1^=0xffffffff;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* AND array with mask (0x60 bytes)
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=0x88022610; // start</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3=a2+0x0060; // end</tt>&nbsp;<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;do</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a2+0)&amp;=v0; </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a2+4)&amp;=v1; </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2+=8;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} while(a2&lt;a3);</tt>&nbsp;<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=(v0-1)&lt;&nbsp;&lt;2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ra=*(sp+0x0018);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ra=*(ra+0x0028);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(sp+0x0014);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k0=*(ra);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k1=*(k0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;} // while(1)</tt>&nbsp;<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=*(0x8802277c) - 1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0x8802277c)=v0;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(v0==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ra=0x88022628;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k1=v0&lt;&nbsp;&lt;3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ra=0x88022650+k1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;88022218(*(ra),*(ra+0x0004));</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* ********** **********
+********** ********** **********
+**********</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thread management</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*/</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a0=*(sp+0x001c); // pointer to IRQFRAME</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(*(0x8802277c)==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=0x880227a0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(0x880227a0)++;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call(*(0x880227b0)); /* call handler (jal)
+(8802d724 threadman:?) (note: accesses memory at the second 4mb!)
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(sp+0x001c); // pointer to IRQFRAME</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(v0!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((IRQFRAME*)a0-&gt;unk000!=4)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* save t0...t9 in *(a0+0x20...0x64)(not
+shown) */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* save f0...t31 in *(a0+0x80...0xfc)(not
+shown) */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(IRQFRAME*)a0-&gt;unk000=4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=call(*(0x880227ac)); /* call
+handler (jal) (8803be58 threadman:?) returns pointer to IRQFRAME */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* ********** **********
+********** ********** **********
+**********</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;restore environment and return from exception</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*/</tt>&nbsp;<br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;sp=a0; // get pointer to IRQFRAME</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a0=(IRQFRAME*)sp-&gt;unk000; // flag ?</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(a0==1)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* restore f20...f31 from *(sp+0xd0...0xfc)
+(not shown) */ </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP1CTRL.6=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP1CTRL.6=(IRQFRAME*)sp-&gt;unk100;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* restore s0...s7,gp,fp from *(sp+0x40...0x5c,0x70,0x78)
+(not shown) */ </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ra=(IRQFRAME*)sp-&gt;ra; /* handler address
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=0x0008ff00;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=((IRQFRAME*)sp-&gt;cop0status &amp;
+(~v0)) - (COP0STAT.12 &amp; v0); /* Status */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(0x88022794)=COP0STAT.9; /* Count */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* restore k0,k1,sp from *(sp+0x68,0x6c,0x74)
+(not shown) */ </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call(ra); /* call handler (j) */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* never reaches here **********
+********** ********** */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else if(a0!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* restore f0...f31 from *(sp+0x80...0xfc)
+(not shown) */ </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mthi((IRQFRAME*)sp-&gt;hi);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtlo((IRQFRAME*)sp-&gt;lo);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* restore at...fp from *(sp+0x04...0x78)
+(not shown) */ </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mthi((IRQFRAME*)sp-&gt;hi);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtlo((IRQFRAME*)sp-&gt;lo);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* restore at...a3,gp,fp from *(sp+0x04...0x1c,0x70,0x78)
+(not shown) */ </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;ra=0x0008ff00;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=(((IRQFRAME*)sp-&gt;cop0status) &amp; (~ra))
+ -  (COP0STAT.12 &amp; ra); /* status */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.14=(IRQFRAME*)sp-&gt;cop0epc; /* epc */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP1CTRL.6=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP1CTRL.6=(IRQFRAME*)sp-&gt;unk100;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0x88022794)=COP0STAT.9; /* count */;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/*</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Profiler Stuff</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*/</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(COP0CTRL.25!=0) /* PROFILER_BASE */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k0=*(PROFILER_BASE+0x0008);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(k0!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k0--;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(PROFILER_BASE+0x0008)=k0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(k0==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k0=*(PROFILER_BASE+0x0004);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k1=*(PROFILER_BASE);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(k1)=k0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sync();</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* restore k0,k1,ra,sp from *(sp+0x68,0x6c,0x7c,0x74)
+(not shown) */ </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;eret();</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* ********** **********
+********** ********** **********
+**********</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;restore environment and call handler *(0x880227d0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>*/<br><tt></tt><tt>l880219d4: </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=*(0x8802277c)-1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0x8802277c)=v0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;88022218(struct88022650[v0].unk00,struct88022650[v0].unk04);</tt><br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;sp=*(sp+0x001c); /* get pointer to IRQFRAME */</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if((IRQFRAME*)sp-&gt;unk000==4)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{<tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* restore t0...t9 from *(sp+0x20...0x64)
+(not shown) */ </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* restore f0...f31 from *(sp+0x80...0xfc)
+(not shown) */ </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;mtic(0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.3=(IRQFRAME*)sp-&gt;cop0cause; /* cop0.cause
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.0=(IRQFRAME*)sp-&gt;cop0epc; /* cop0.epc
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.4=(IRQFRAME*)sp-&gt;gprv0; /* gpr.v0 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.5=(IRQFRAME*)sp-&gt;gprv1; /* gpr.v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=0xfff700ff;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.2=((IRQFRAME*)sp-&gt;cop0status &amp; v0) |((~v0)
+&amp; COP0STAT.12); /* cop0.status, Status */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* restore at,a0...a3,k0..gp,fp,ra from *(sp+...)
+(not shown) */ </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;mthi((IRQFRAME*)sp-&gt;hi);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;mtlo((IRQFRAME*)sp-&gt;lo);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=(IRQFRAME*)sp-&gt;cop0status; /* Status
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP1CTRL.6=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP1CTRL.6=(IRQFRAME*)sp-&gt;unk100;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.4=(IRQFRAME*)sp-&gt;gprv0; /* gpr.v0 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.5=(IRQFRAME*)sp-&gt;gprv1; /* gpr.v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;sp=(IRQFRAME*)sp-&gt;sp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;call(*(0x880227d0)) /* call handler (j) */</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* will never reach here **********
+********** ********** */</tt><br><tt>}</tt>&nbsp;<br><tt>/* 'null' handler */</tt><br><tt>void 88021c98(void)</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.14=COP0CTRL.0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=COP0CTRL.2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0CTRL.4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=COP0CTRL.5;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;eret();</tt><br>
+}<br><tt></tt><tt>unsigned long 880221d8(void)</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=*(0xbc300000) &amp; 0xfffffff0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=*(0xbc300010);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;return v0; /* also v1 */</tt><br>
+}<br><tt>unsigned long 88022208(void)</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=*(0xbc300008);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=*(0xbc300018);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;return v0; /* also v1 */</tt><br>
+}<br><tt>unsigned long 88022218(unsigned long a0, unsigned long a1)</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0xbc300008)=a0|0x0000000f;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(0xbc300018)=a1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;sync();</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;return 0xbc300000;</tt><br>
+}<br><tt>unsigned long 88022234(unsigned long a0)</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if((0x1f&gt;=a0)&amp;(a0&gt;=0x1e))</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=1&lt;&nbsp;&lt;a0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=0xbc300000;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(0xbc300000)=v1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sync();</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;return v0; /* also v1 */</tt><br>
+}<br><h5>9.5.2.3 <a name="sec9.5.2.3">
+    &nbsp;&nbsp;Thread Management</a>
+</h5>
+<br>
+// note: this is the first of two routines called by the interrupt
+handler
+<tt>unsigned long 8802d724(void) /* 8802d724 - threadman: ? */</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a1=0x88040000;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a0=0x88042a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a2=*(a0+0x0418); // 0x88042e20</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(a2==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=*(a1+0x2a08); // 0x88042a08</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=*(a0+0x0004); // 0x88042a0c</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=a2^v1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=(0&lt;a1);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(v0!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(v1+0x00e4)=v1+0x00e8;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;return v0;</tt><br>
+}<br>
+// note: this is the second of two routines called by the interrupt
+handler
+<tt>8803be58( /* a0 */ ) /* 8803be58 - threadman:? */</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/*</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;create stackframe (0x10 bytes) and save s0,s1,s2,ra
+(not shown)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*/</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;s2=0x88040000;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=s2+0x2a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a1=*(v1+0x418); // 0x88042e20</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=a0;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(a1==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s0=*(s2+0x2a08);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=*(s0+0x000c);</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(*(s0+0x0108)!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=0xbc400000;</tt> /* <tt>PROFILER+0x00</tt>
+*/
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=v0+0x0010;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3=0xbc400000;</tt> /* <tt>PROFILER+0x00</tt>
+*/
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t0=0xbc400050;</tt> /* <tt>PROFILER+0x50</tt>
+*/<tt></tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* copy profiler regs to *(a2)
+(0x50 bytes) */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;do</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t3=*(a3+0x00);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t2=*(a3+0x04);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=*(a3+0x08);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t1=*(a3+0x0c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a2)=t3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3+=0x10;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2+=0x10;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a2+0xfffffff4)=t2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a2+0xfffffff8)=a1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a2+0xfffffffc)=t1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} while(a3!=t0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=*(a3);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a2)=v0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=*(s0+0x000c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=+0x0020;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s1=s2+0x2a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(v0==a2) goto 0x8803bf48;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=*(s0+0x0070);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t0=*(s0+0x00f4);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=*(s0+0x0008);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3=*(a2);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s1=*(t0+0x0074);</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(a3!=a1)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3=*(s0+0x0074);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t8=0x88040000;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=0x88042634;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t0=s1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;880412b8(0x88042634,0x00000000,0x00000000,0x00000000)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t7=s2+0x2a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t6=*(t7+0x0640);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t5=*(u8*)(t6+0x15);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t4=t5&lt;&nbsp;&lt;2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=s0-t4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;880405a0(0x00000000,0x00000000,0x00000000,0x00000000)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt>l8803bf28:</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t9=*(s0+0x00d0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=*(s0+0x007c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(t9&lt;0) goto l8803c150;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=*(s0+0x0070);</tt><br><tt></tt><tt>l8803bf38:</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t4=(s1&lt;a2);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(t4!=0) goto 0x8803c11c;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3=*(s0+0x0074);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s1=s2+0x2a08;</tt><br><tt>l8803bf48:</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=*(s1+0x0004);</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(v0==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;88040310(a0,a1,a2,a3)</tt>;
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=*(s1+0x0004);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(s0==v0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=t6+0x0001;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(s1+0x0680)=v1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t6=*(s1+0x0680);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;88038090(0x00000000,0x00000000,0x00000000,0x00000000);</tt><br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t7=s1+0x0428;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t9=*(t7+0x0004);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t1=*(s1+0x0428);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t6=s0+0x0064;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=*(s0+0x0064);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t2=*(t6+0x0004);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t5=t9&lt;&nbsp;&lt;0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t9=a0+t1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t8=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t3=(t9&lt;t1);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t4=t2&lt;&nbsp;&lt;0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=t5+a3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t2=t8+a1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t5=a2+t3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=t4+a3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t3=(t2&lt;a1);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=a0+t3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t8=(v0&lt;t9);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t3=v1-t5;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=v0-t9;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t5=t2+a0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t4=t3-t8;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t9=(t5&lt;a0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t8=a1+t4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t0=t8+t9;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t3=v1&gt;&nbsp;&gt;0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t2=t0&gt;&nbsp;&gt;0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(t7+0x0004)=t3;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(s1+0x0428)=v0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(t6+0x0004)=t2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(s0+0x0064)=t5;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(s1+0x067c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t9=*(s0+0x00e4);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=a0+0x0001;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(s1+0x067c)=a1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t1=*(t9);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=t1+0x0001;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(t9)=v1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s1=s2+0x2a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=*(s1+0x0738);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s2=*(s1+0x0004);</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(v1!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t0=*(s0+0x0010);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3=*(s0+0x0008);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t2=*(s2+0x0010);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t1=*(s2+0x0008);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=+0x0001;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=0x00000004;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call(v1);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s0=*(s1+0x0004);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s0=*(s1+0x0004);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}<br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s1=0x88040000;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=*(s0+0x0108);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(s1+0x2a08)=s0; //0x88042a08</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(v1==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.25=0x00000000;</tt> /* <tt>PROFILER_BASE</tt>
+*/
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(s0+0x00f4);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t0=v1+0x0060;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3=0xbc400000;</tt> /* <tt>PROFILER+0x00</tt>
+*/
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=v1+0x0010;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;do</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t8=*(a2);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=*(a2+0x0004);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t4=*(a2+0x0008);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t7=*(a2+0x000c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a3)=t8;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2+=0x10;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3+=0x10;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a3-0x0c)=a1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a3-0x08)=t4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a3-0x04)=t7;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} while(a2!=0);</tt>&nbsp;<br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=*(a2);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a3)=v0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sync();</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t0=*(s0+0x0108);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.25=t0; /* PROFILER_BASE
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(s0+0x00f4);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=0x40000000;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t2=*(a0+0x010c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3=t2&amp;v0;</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(a3!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=s0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8803c1b4(0x00000000,0x00000000,0x00000000,0x00000000);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(s0+0x00f4);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt>&nbsp;<br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.14=a0; /* GPR.sp.KERNEL */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t3=*(s0+0x0104);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.15=t3; /* GPR.sp.USER */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=s0+0x0100;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.16=a2; /* CurrentTCB */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=*(s0+0x00f4);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;/*</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;restore ra,s2,s1,s0 and destroy stackframe
+(0x10 bytes) (not shown)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*/</tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;return v0;</tt><br><tt>l8803c11c:</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a1=*(s0+0x0008);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t8=0x88040000;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a0=t8+0x2634;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t0=s1</tt>;
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;880412b8(0x88042634,0x00000000,0x00000000,0x00000000)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t7=s2+0x2a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t6=*(t7+0x0640);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t5=*(u8*)(t6+0x15);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;s1=t5&lt;&nbsp;&lt;2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a0=s0-s1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;880405a0(0x00000000,0x00000000,0x00000000,0x00000000)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;s1=s2+0x2a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;goto l8803bf48</tt>;
+<tt>l8803c150:</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a1=*(s0+0x0008);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=*(a2);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t3=0x88040000;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(v1==a1) goto 0x8803c188;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a3=*(s0+0x0080);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a0=t3+0x2634;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t0=s1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;880412b8(0x88042634,0x00000000,0x00000000,0x00000000)</tt>;
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;t2=s2+0x2a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a0=*(t2+0x0640);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a1=*(u8*)(a0+0x15);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t1=a1&lt;&nbsp;&lt;2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a0=s0-t1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;880405a0(0x00000000,0x00000000,0x00000000,0x00000000)</tt><br><tt>l8803c188:</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=*(s0+0x00f4);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a3=*(v0+0x010c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a2=*(s0+0x0070);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if((a3&amp;0x0018)!=0) goto 0x8803bf38;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a2=*(s0+0x007c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t0=(s1&lt;a2);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;s1=s2+0x2a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(t0==0) goto 0x8803bf48;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a3=*(s0+0x0080);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;goto l8803c11c;</tt><br>
+}<br><tt>// called by 8803be58</tt><br><tt>88038090()</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;...</tt><br><tt>}</tt>&nbsp;<br><tt>// called by 8803be58</tt><br><tt>8803c1b4(/* a0 */) /* 8803c1b4 - threadman: ? */</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;sp+=0xfffffff0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(sp+0x0008)=s2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;s2=0x88040000;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(sp+0x0004)=s1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;s1=a0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a0=s2+0x2a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(sp+0x000c)=ra;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(sp)=s0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=*(0x88042e24);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;a1=*(s1+0x00fc);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;ra=*(sp+0x000c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(v0!=a1)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1=*(s1+0x00d0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1=*(a0+0x0420);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s0=v1&gt;&nbsp;&gt;0x1f;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s0_d=s0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s0=s2+0x2a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(a1!=s0_d)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8802d984(0x00000000,0x00000000,0x00000000,0x00000000)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(s0==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a3=*(0xbc000044);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=a3|0x0020;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=*(0xbc000044);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2=0xffffffdf;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=a0&amp;a2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at=0xbc000000;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(0xbc000044)=v0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sync();</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t0=s2+0x2a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(t0+0x0420)=s0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s0=s2+0x2a08;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t1=*(s0+0x041c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0=t1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(t1!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8802d760(0x00000000,0x00000000,0x00000000,0x00000000)</tt>;
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t4=*(s1+0x00fc);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t4=*(s1+0x00fc);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(s0+0x041c)=t4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8802d874(t4,0x00000000,0x00000000,0x00000000)</tt>;
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t3=*(s0+0x0684);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t2=t3+0x0001;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(s0+0x0684)=t2;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ra=*(sp+0x000c);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;s2=*(sp+0x0008);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;s1=*(sp+0x0004);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;s0=*(sp);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;sp+=0x0010;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;return v0;</tt><br><tt>}</tt>&nbsp;<br><tt>8802d760()</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;...</tt><br>
+}<br><tt>8802d874()</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;...</tt><br>
+}<br><tt>8802d984()</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;...</tt><br>
+}<br><tt>/* following functions are located in the second 'protected'
+4mb */</tt>&nbsp;<br><br><tt>88040310()</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;...</tt><br><tt>}</tt>&nbsp;<br><tt>880405a0()</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;...</tt><br><tt>}</tt>&nbsp;<br><tt>880412b8()</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;...</tt><br><tt>}</tt><br><div class="idx"><a href="index.html#idx9.5.3">index</a></div>
+<h4>
+<a name="sec9.5.3">
+9.5.3</a>&nbsp;&nbsp;syscall</h4>
+<br><tt>typedef struct _SCTABHDR</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;struct _SCTABHDR *next; /* pointer to next table
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long offset; /* offset to substract from
+syscall code */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long num; /* number of entries in list*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long unk; /* ? */</tt><br><tt>} SCTABHDR;</tt>&nbsp;<br><br><tt>typedef struct</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long status; /* COP0CTRL.2 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long epc; /* COP0STAT.14 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long sp; /* sp*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long ra; /* ra*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long k1; /* k1*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long unk14; /* COP1CTRL.2*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long unk18; /* COP0CTRL.4*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long tcb; /* *(COP0CTRL.16) */</tt><br><tt>} SCFRAME;</tt><br><tt>EXC_8_Syscall_handler(/* v0, v1 */) /* 88021e74-88022018</tt>
+<tt><b>(interruptman:0x3174) */</b></tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0CTRL.0 /* COP0.EPC */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=COP0CTRL.3 /* COP0.Cause */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t6=COP0CTRL.13 /* max sc */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t7=COP0STAT.21 /* sc code */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0+=4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.14=v0; /* EPC */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t4=COP0CTRL.12; /* sc tab */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(t7&lt;=t6) /* if syscall is in range */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t4+=t7; /* sc tab + sc code */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t7=*(t4+0x10)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(v1&gt;=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call(t7); /* call regular individual
+syscall handler */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while(1)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break #ffe</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* further handling for syscall that is not in range
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(v1&gt;&nbsp;&gt;=0x1f) v0=ra;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.14=v0; /* EPC */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;do</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t4=*(t4+0); /* 0x88026820 (8802379c 0)
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t5=*(t4+4); /* (0x00) 0x8000 (0 x) */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t6=*(t4+8); /* (0xfc) 0xbffc (0 x) */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(t5==0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.14=COP0CTRL.0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0=*(0x88021e6c); /* ? reverse
+further */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call($v0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;} while((t7&lt;t5)|(t6&lt;t7)); /* sccode&lt;t5 or scnum&lt;sccode
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t7-=t5; /* sccode-=offset */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t4+=t7; /* sctab+=sccode */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t7=*(t4+0x10); /* get handler address */</tt>&nbsp;<br><tt></tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* get stackframe address */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(COP0CTRL.2&amp;0x0018==0) t4=sp; /* COP0.Status
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else t4=COP0CTRL.15; /* GPR.sp.USER */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t4-=sizeof(SCFRAME);</tt>&nbsp;<br><tt></tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(SCFRAME*)t4-&gt;status=COP0CTRL.2; /* COP0.Status
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(SCFRAME*)t4-&gt;epc=COP0STAT.14; /* EPC */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(SCFRAME*)t4-&gt;sp=sp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(SCFRAME*)t4-&gt;ra=ra;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(SCFRAME*)t4-&gt;k1=k1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(SCFRAME*)t4-&gt;unk18=COP0CTRL.4; /* GPR.v0 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;(SCFRAME*)t4-&gt;unk14=COP1CTRL.2;</tt>&nbsp;<br><tt></tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP1CTRL.6=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP1CTRL.6=0x00000e00;</tt>&nbsp;<br><tt></tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* set frame and call handler */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;sp=t4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t6=COP0CTRL.16; /* current.TCB */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(t6!=0) </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(SCFRAME*)t4-&gt;tcb=*(t6);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(t6)=sp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;k1=(COP0CTRL.2&amp;0x00ff)&lt;&nbsp;&lt;16; /*
+COP0.Status */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=COP0CTRL.2&amp;0x0000ffe5; /* status */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;call(t7);</tt>&nbsp;<br><tt></tt>&nbsp;<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* restore original frame and return */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;mtic(0);</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=((SCFRAME*)sp-&gt;status&amp;0xfff700ff) - (COP0STAT.12&amp;0x0008ff00);
+/* status */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;t6=COP0CTRL.16; /* current.TCB */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(t6!=0)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>{
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(t6)=(SCFRAME*)sp-&gt;tcb;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>}
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;COP1CTRL.6=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP1CTRL.6=(SCFRAME*)sp-&gt;unk14;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;k1=(SCFRAME*)sp-&gt;k1;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;ra=(SCFRAME*)sp-&gt;ra;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.14=(SCFRAME*)sp-&gt;epc; /* EPC */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;sp=(SCFRAME*)sp-&gt;sp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;eret();</tt><br><tt>}</tt><br><div class="idx"><a href="index.html#idx9.6">index</a></div>
+<h3>
+<a name="sec9.6">
+9.6</a>&nbsp;&nbsp;Debug Exception Vectors</h3>
+<br><ul>
+<li> return from exception using <tt>dreg</tt><br>
+</li>
+</ul>
+<tt>bfc01000(/* v0, v1 */) /*</tt> <tt><b>(exceptionman,
+power)</b></tt> <tt>*/</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.26=v0 /*</tt> <tt><b>save v0</b></tt> <tt></tt><tt><b>in
+cc0.26 (Ex.GPR.v0)</b></tt> <tt>*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;call (COP0CTRL.10); /*</tt> <tt><b>jump (indirect
+over vector in cc0.10)</b></tt> <tt>*/</tt><br>
+}<br>
+following handlers look all like the one above<br><tt>bfc01100(/* v0 */)</tt>&nbsp;<br><tt>bfc01200(/* v0 */)</tt>&nbsp;<br><tt>bfc01300(/* v0 */)</tt>&nbsp;<br><tt>bfc01400(/* v0 */)</tt>&nbsp;<br><tt>bfc01500(/* v0 */)</tt>&nbsp;<br><tt>bfc01600(/* v0 */)</tt>&nbsp;<br><tt>bfc01700(/* v0 */)</tt>&nbsp;<br><tt>bfc01800(/* v0 */) /*</tt> <tt><b>(me_wrapper)</b></tt>
+<tt>*/</tt><tt><b></b></tt>&nbsp;<br><tt>bfc01900(/* v0 */)</tt>&nbsp;<br><tt>bfc01a00(/* v0 */)</tt>&nbsp;<br><tt>bfc01b00(/* v0 */)</tt>&nbsp;<br><tt>bfc01c00(/* v0 */)</tt>&nbsp;<br><tt>bfc01d00(/* v0 */)</tt>&nbsp;<br><tt>bfc01e00(/* v0 */)</tt>&nbsp;<br><tt>bfc01f00(/* v0 */)</tt>&nbsp;<br><div class="idx"><a href="index.html#idx9.6.1">index</a></div>
+<h4>
+<a name="sec9.6.1">
+9.6.1</a>&nbsp;&nbsp;Debug Handler</h4>
+<br><tt>typedef struct</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long flags;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long unknown; /* probably DRCTRL */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long IBC;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long DBC;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long IBA;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long IBAM;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long DBA;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long DBAM;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long DBD;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long DBDM;</tt><br><tt>} DBGENV;</tt><br><tt>DBGENV dbgenv;</tt><br><br><tt>debug_handler(/* v1 */) /* 8801ce30</tt> <tt><b>(exceptionman:0x0730)</b></tt>
+<tt>*/</tt><tt><b></b></tt>&nbsp;<br><tt>{</tt><br><tt>DBGENV *env;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.27=v1; /* save v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env=COP0CTRL.28; /* v0=8801ec10 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=env-&gt;flags;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;if(v1&amp;0x0004)</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto dbg_handler_0005( env /* v0 */
+); /* store debug environment */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else if(v1&amp;0x0008) </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto dbg_handler_000a( env /* v0 */
+); /* restore debug environment */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else if(v1&amp;0x0001) </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto dbg_handler_0005( env /* v0 */
+); /* store debug environment */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else if(v1&amp;0x0002) </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto dbg_handler_000a( env /* v0 */
+); /* restore debug environment */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else if(v1&amp;0x0010) /* single step in kernel mode
+one instuction then continue */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto dbg_handler_0010( env /* v0 */
+); </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else if(v1&amp;0x0020) /* single step one instruction
+in user mode and continue */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto dbg_handler_0020( env /* v0 */
+); </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else if(v1&amp;0x0040) /* single step in kernel mode
+one instuction then break into debugger */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto dbg_handler_0040( env /* v0 */
+); </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else if(v1&amp;0x0080) /* single step one instruction
+in user mode then break into debugger */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto dbg_handler_0080( env /* v0 */
+); </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;else if(v1&amp;0x0100) /* clear step mode */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto dbg_handler_0100( env /* v0 */
+); </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;/* default */ </tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DRCNTL&amp;=0xffdf;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;*(COP0CTRL.28+4)=DRCNTL;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.4 =COP0CTRL.26; /* GPR.v0 = Ex.GPR.v0 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.5 =COP0CTRL.27; /* GPR.v1 = Ex.GPR.v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.0 = DEPC /* COP0.EPC=DEPC */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DEPC=&amp;8801d10c; /* -&gt; below */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.3=COP0STAT.13; /* COP0.Cause = Cause */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.1=COP0STAT.30; /* COP0.EPC.err = ErrorEPC
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0STAT.12; /* Status */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.2=v0; /* COP0.Status = v0 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=v0|0x00000002;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;dret();</tt><br><tt>}</tt><tt><b></b></tt>&nbsp;<br><tt>8801d10c()</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;exception_handler(24&lt;&nbsp;&lt;2);</tt><br><tt>}</tt>&nbsp;<br>
+this code immediatly follows (?)<br><tt>8801d118( /* v0 */ )</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0CTRL.26=v0; // save v0</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0CTRL.10; // debug handler address</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;call(v0) // call debug handler</tt><br><tt>}</tt><br><h5>9.6.1.1 <a name="sec9.6.1.1">
+    &nbsp;&nbsp;Debug Sub Handler 0005</a>
+</h5>
+<br><tt>dbg_handler_0005( DBGENV *env /* v0 */ ) /* 0x8801cf30
+*/</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DEPC+=4;</tt><br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;flags=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;IBC=IBC;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;DBC=DBC;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;IBA=IBA;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;IBAM=IBAM;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;DBA=DBA;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;DBAM=DBAM;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;DBD=DBD;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;DBDM=DBDM;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0CTRL.26; /* restore v0 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=COP0CTRL.27; /* restore v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;dret();</tt><br><br><h5>9.6.1.2 <a name="sec9.6.1.2">
+    &nbsp;&nbsp;Debug Sub Handler 000a</a>
+</h5>
+<br><tt>dbg_handler_000a(DBGENV *env /* v0 */ ) /* 0x8801cf90
+*/</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DEPC+=4;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;flags=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;IBC=env-&gt;IBC;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DBC=env-&gt;DBC;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;IBA=env-&gt;IBA;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;IBAM=env-&gt;IBAM;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DBA=env-&gt;DBA;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DBAM=env-&gt;DBAM;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DBD=env-&gt;DBD;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DBDM=env-&gt;DBDM;</tt><br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0CTRL.26; /* restore v0 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=COP0CTRL.27; /* restore v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;dret();</tt><br><br><h5>9.6.1.3 <a name="sec9.6.1.3">
+    &nbsp;&nbsp;Debug Sub Handler 0010</a>
+</h5>
+<br><tt>dbg_handler_0010(DBGENV *env /* v0 */ ) /* 0x8801cff0
+*/</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;flags=0x0100; /* clear step mode */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DEPC=COP0STAT.14; /* DEPC=COP0.EPC */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12&amp;=0xfff9; /* COP0.Status */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DRCNTL|=0x0020;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0CTRL.26; /* restore v0 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=COP0CTRL.27; /* restore v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;dret();</tt><br><br><h5>9.6.1.4 <a name="sec9.6.1.4">
+    &nbsp;&nbsp;Debug Sub Handler 0020</a>
+</h5>
+<br><tt>dbg_handler_0020(DBGENV *env /* v0 */ ) /* 0x8801d02c
+*/</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;flags=0x0100; /* clear step mode */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DEPC=COP0STAT.14; /* DEPC=EPC */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=(COP0STAT.12&amp;0xfff9)|0x0010; /* COP0.Status
+*/</tt><br><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;DRCNTL|=0x0020;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0CTRL.26; /* restore v0 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=COP0CTRL.27; /* restore v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;dret();</tt><br><br><h5>9.6.1.5 <a name="sec9.6.1.5">
+    &nbsp;&nbsp;Debug Sub Handler 0040</a>
+</h5>
+<br><tt>dbg_handler_0040(DBGENV *env /* v0 */ ) /* 0x8801d070
+*/</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;flags=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DEPC=COP0STAT.14; /* DEPC=EPC */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12&amp;=0xfff9; /* COP0.Status */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DRCNTL|=0x0020;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0CTRL.26; /* restore v0 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=COP0CTRL.27; /* restore v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;dret();</tt><br><br><h5>9.6.1.6 <a name="sec9.6.1.6">
+    &nbsp;&nbsp;Debug Sub Handler 0080</a>
+</h5>
+<br><tt>dbg_handler_0080(DBGENV *env /* v0 */ ) /* 0x8801d0a8
+*/</tt><br><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;flags=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DEPC=COP0STAT.14; /* DEPC=EPC */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;COP0STAT.12=(COP0STAT.12&amp;0xfff9)|0x0010; /* COP0.Status
+*/</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DRCNTL|=0x0020;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0CTRL.26; /* restore v0 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=COP0CTRL.27; /* restore v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;dret();</tt><br><br><h5>9.6.1.7 <a name="sec9.6.1.7">
+    &nbsp;&nbsp;Debug Sub Handler 0100</a>
+</h5>
+<br><tt>dbg_handler_0100(DBGENV *env /* v0 */ ) /* 0x8801d0e8
+*/</tt><br><tt>{</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;env-&gt;flags=0;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;DRCNTL&amp;=0xffdf;</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v0=COP0CTRL.26; /* restore v0 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;v1=COP0CTRL.27; /* restore v1 */</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;dret();</tt><br><tt>}</tt><br><div class="idx"><a href="index.html#idx10">index</a></div>
+</body></html>

@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec23">
+23</a>&nbsp;&nbsp;UMD Game Structure</h2>
+<br><tt>/PSP_GAME</tt><br><tt>&nbsp;&nbsp;/SYSDIR</tt><br><tt>&nbsp;&nbsp;/USRDIR</tt><br><div class="idx"><a href="index.html#idx23.1">index</a></div>
+<h3>
+<a name="sec23.1">
+23.1</a>&nbsp;&nbsp;Root Directory</h3>
+<br><ul>
+<li> <tt>UMD_DATA.BIN</tt>&nbsp;<br><tt></tt>&nbsp;<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>0x0b</tt></td>
+<td nowrap>Gamecode (terminated by <tt>0x7c</tt>)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0b</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>0x11</tt></td>
+<td nowrap>unique disk id (terminated by <tt>0x7c</tt>)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x1c</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>0x05</tt></td>
+<td nowrap>number of disk ? (terminated by <tt>0x7c</tt>)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x21</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><tt>0x0f</tt></td>
+<td nowrap>? (terminated by <tt>0x7c</tt>)</td>
+</tr>
+</table>
+</td></tr></table>
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx23.1.1">index</a></div>
+<h4>
+<a name="sec23.1.1">
+23.1.1</a>&nbsp;&nbsp;PSP_GAME Subdirectory</h4>
+<br><ul>
+<li> <tt>ICON0.PNG</tt>&nbsp;<br>
+thumbnail icon
+</li>
+<li> <tt>ICON1.PNG</tt>&nbsp;<br>
+thumbnail icon highlighted
+</li>
+<li> <tt>ICON1.PMF</tt>&nbsp;<br>
+movie icon highlighted
+</li>
+<li> <tt>PARAM.SFO</tt><br>
+</li>
+<li> <tt>SND0.AT3</tt>&nbsp;<br>
+ambient sound
+</li>
+<li> <tt>PIC0.PNG</tt><br>
+</li>
+<li> <tt>PIC1.PNG</tt><br>
+background image
+</li>
+</ul>
+note: the files in this directory resemble the contents of the PBP
+fileformat (see fileformats section)
+<h5>23.1.1.1 <a name="sec23.1.1.1">
+    &nbsp;&nbsp;Sysdir Subdirectory</a>
+</h5>
+<br><ul>
+<li> <tt>EBOOT.BIN</tt><br>
+encrypted main executable
+</li>
+<li> <tt>BOOT.BIN</tt><br>
+main executable
+</li>
+</ul>
+<h5>23.1.1.2 <a name="sec23.1.1.2">
+    &nbsp;&nbsp;Usrdir Subdirectory</a>
+</h5>
+<br>
+contains the 'user' game files which can be different for any game.
+ <div class="idx"><a href="index.html#idx24">index</a></div>
+</body></html>

@@ -1,0 +1,320 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec5">
+5</a>&nbsp;&nbsp;Media Engine</h2>
+<br><div class="idx"><a href="index.html#idx5.1">index</a></div>
+<h3>
+<a name="sec5.1">
+5.1</a>&nbsp;&nbsp;Overview</h3>
+<br><ul>
+<li> Video RAM appears to be inaccessable, at least at the usual address.
+(there is something mapped at 0x04000000 ?, appears to be mmio and
+not ram)
+</li>
+<li> I/O seems to be accessable (unconfirmed)
+</li>
+<li> looks like the exception handler location is set by loading cop0 register
+25 (usually perfcnt) with the address of your handler
+</li>
+<li> INT 31 catches the ME irq on the main core
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx5.2">index</a></div>
+<h3>
+<a name="sec5.2">
+5.2</a>&nbsp;&nbsp;Memory Map</h3>
+<br><div class="idx"><a href="index.html#idx5.2.1">index</a></div>
+<h4>
+<a name="sec5.2.1">
+5.2.1</a>&nbsp;&nbsp;physical Memory</h4>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00000000</tt></td>
+<td nowrap align="center"><tt>0x001fffff</tt></td>
+<td nowrap align="center">2mb</td>
+<td nowrap>ME internal RAM</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x08000000</tt></td>
+<td nowrap align="center"><tt>0x09ffffff</tt></td>
+<td nowrap align="center">32mb </td>
+<td nowrap>Main Memory</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x1fc00000</tt></td>
+<td nowrap align="center"><tt>0x1fcfffff</tt></td>
+<td nowrap align="center">1mb</td>
+<td nowrap>Hardware Exception Vectors (RAM)</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx5.2.2">index</a></div>
+<h4>
+<a name="sec5.2.2">
+5.2.2</a>&nbsp;&nbsp;Ram Usage</h4>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80000000</tt></td>
+<td nowrap align="center"><tt>0x801fffff</tt></td>
+<td nowrap align="center">2mb</td>
+<td nowrap>ME internal RAM</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x88000000</tt></td>
+<td nowrap align="center"><tt>0x89ffffff</tt></td>
+<td nowrap align="center">32mb </td>
+<td nowrap>Main Memory</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfc00000</tt></td>
+<td nowrap align="center"><tt>0xbfcfffff</tt></td>
+<td nowrap align="center">1mb</td>
+<td nowrap>Hardware Exception Vectors (RAM)</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx5.3">index</a></div>
+<h3>
+<a name="sec5.3">
+5.3</a>&nbsp;&nbsp;COP0</h3>
+<br><div class="idx"><a href="index.html#idx5.3.1">index</a></div>
+<h4>
+<a name="sec5.3.1">
+5.3.1</a>&nbsp;&nbsp;Status registers (mfc/mtc)</h4>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">2</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">3</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">4</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">5</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">6</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">7</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">8</td>
+<td nowrap align="center">r</td>
+<td nowrap>badvaddr</td>
+<td nowrap>virtual address of last error/exception</td>
+</tr>
+<tr>
+<td nowrap align="center">9</td>
+<td nowrap align="center">r/w</td>
+<td nowrap>count</td>
+<td nowrap>system counter</td>
+</tr>
+<tr>
+<td nowrap align="center">10</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">11</td>
+<td nowrap align="center">r/w</td>
+<td nowrap>compare</td>
+<td nowrap>counter comparison value</td>
+</tr>
+<tr>
+<td nowrap align="center">12</td>
+<td nowrap align="center">r/w</td>
+<td nowrap>status</td>
+<td nowrap>system status</td>
+</tr>
+<tr>
+<td nowrap align="center">13</td>
+<td nowrap align="center">r/w</td>
+<td nowrap>cause</td>
+<td nowrap>exception cause</td>
+</tr>
+<tr>
+<td nowrap align="center">14</td>
+<td nowrap align="center">r/w</td>
+<td nowrap>EPC</td>
+<td nowrap>exception program counter </td>
+</tr>
+<tr>
+<td nowrap align="center">15</td>
+<td nowrap align="center">r</td>
+<td nowrap>prid</td>
+<td nowrap>processor revision id</td>
+</tr>
+<tr>
+<td nowrap align="center">16</td>
+<td nowrap align="center">r</td>
+<td nowrap>config</td>
+<td nowrap>configuration</td>
+</tr>
+<tr>
+<td nowrap align="center">17</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">18</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">19</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">20</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">21</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>SC-code</td>
+<td nowrap>SC-code &lt;&nbsp;&lt; 2</td>
+</tr>
+<br><tr>
+<td nowrap align="center">22</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>CPU ID (0=Main, 1=ME)</td>
+</tr>
+<tr>
+<td nowrap align="center">23</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">24</td>
+<td nowrap align="center">?</td>
+<td nowrap>?</td>
+<td nowrap>?</td>
+</tr>
+<tr>
+<td nowrap align="center">25</td>
+<td nowrap align="center">r/w</td>
+<td nowrap>Ebase</td>
+<td nowrap>virtual address of exception vector</td>
+</tr>
+<tr>
+<td nowrap align="center">26</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">27</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center">28</td>
+<td nowrap align="center">r/w</td>
+<td nowrap>TagLo</td>
+<td nowrap>cache instruction register</td>
+</tr>
+<tr>
+<td nowrap align="center">29</td>
+<td nowrap align="center">r/w</td>
+<td nowrap>TagHi</td>
+<td nowrap>cache instruction register</td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap align="center">r/w</td>
+<td nowrap>ErrorEPC</td>
+<td nowrap>error exception program counter</td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx5.3.2">index</a></div>
+<h4>
+<a name="sec5.3.2">
+5.3.2</a>&nbsp;&nbsp;Control Registers (cfc/ctc)</h4>
+<br><div class="idx"><a href="index.html#idx5.4">index</a></div>
+<h3>
+<a name="sec5.4">
+5.4</a>&nbsp;&nbsp;COP1 (FPU)</h3>
+<br><div class="idx"><a href="index.html#idx5.4.1">index</a></div>
+<h4>
+<a name="sec5.4.1">
+5.4.1</a>&nbsp;&nbsp;Status Registers (mfc/mtc)</h4>
+<br><div class="idx"><a href="index.html#idx5.4.2">index</a></div>
+<h4>
+<a name="sec5.4.2">
+5.4.2</a>&nbsp;&nbsp;Control Registers (cfc/ctc)</h4>
+<br><div class="idx"><a href="index.html#idx6">index</a></div>
+</body></html>

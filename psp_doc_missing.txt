@@ -1,0 +1,94 @@
+
+send additions to groepaz@gmx.net
+
+MOST WANTED:
+- info on the watchdog
+- info on video display hardware
+
+(very incomplete) list of things that need to be done:
+
+# CPU Overview
+ * Mips Instructions
+   - most mips commands missing
+ * VFPU Instructions
+   - more vfpu commands should be added
+
+# Media Engine
+ * COP0
+   - more info needed
+ * COP1
+   - more info needed
+
+# VME
+ - more Info needed
+
+# Memory Map
+ * Hardware
+   - more info needed
+
+# Hardware Registers
+   - more info needed
+
+# Exception Processing
+ * Exception Handler
+  + interrupt
+    - reverse further
+
+# Video Processing
+ - info on vram "mirrors"
+ - more info on hw needed
+
+# Audio Processing
+ - more info on hw needed
+
+# Infrared Port
+ - more info on hw needed
+
+# WLAN
+ - more info on hw needed
+
+# USB Port
+ - more info on hw needed
+
+# UMD
+ - more info on hw needed
+
+# Memory Stick
+ - more info on hw needed
+
+# Flash Memory
+ - still inaccurate in some areas
+
+# Fileformats
+ * PMF
+   - more info needed
+ * AT3
+   - more info needed
+ * RCO
+   - more info needed
+ * DIC
+   - more info needed
+
+# Graphic Formats
+ * S3TC Compression
+   - more info needed
+
+# Boot Process
+ - add more details
+
+# Kernel
+ * Return Codes
+   - very incomplete, reverse more
+ * VSH
+   - more info needed
+ * Game Sharing
+   - more info needed
+
+# Appendix
+ * GCC Quick Howto
+  + CRT0
+    - todo
+  + Linkerscript
+    - todo
+  + Gamecodes
+    - todo

@@ -1,0 +1,674 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec7">
+7</a>&nbsp;&nbsp;Memory Map</h2>
+<br><div class="idx"><a href="index.html#idx7.1">index</a></div>
+<h3>
+<a name="sec7.1">
+7.1</a>&nbsp;&nbsp;Segments</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>virtual address</b></td>
+<td nowrap align="center"><b>msb</b></td>
+<td nowrap align="center"><b>physical address</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap align="center"><b>type</b></td>
+<td nowrap><b>comment</b></td>
+<td nowrap><b>mode(s)</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x0.......</tt></td>
+<td nowrap align="center"><tt>000</tt></td>
+<td nowrap align="center"><tt>0x0.......</tt></td>
+<td nowrap align="center">1024 MB</td>
+<td nowrap align="center">KU0</td>
+<td nowrap>cached</td>
+<td nowrap>user/supervisor/kernel</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x4.......</tt></td>
+<td nowrap align="center"><tt>010</tt></td>
+<td nowrap align="center"><tt>0x0.......</tt></td>
+<td nowrap align="center">1024 MB</td>
+<td nowrap align="center">KU1</td>
+<td nowrap>uncached</td>
+<td nowrap>user/supervisor/kernel</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8.......</tt></td>
+<td nowrap align="center"><tt>100</tt></td>
+<td nowrap align="center"><tt>0x0.......</tt></td>
+<td nowrap align="center">512 MB</td>
+<td nowrap align="center">K0</td>
+<td nowrap>cached</td>
+<td nowrap>kernel</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xA.......</tt></td>
+<td nowrap align="center"><tt>101</tt></td>
+<td nowrap align="center"><tt>0x0.......</tt></td>
+<td nowrap align="center">512 MB</td>
+<td nowrap align="center">K1</td>
+<td nowrap>uncached</td>
+<td nowrap>kernel</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xC.......</tt></td>
+<td nowrap align="center"><tt>110</tt></td>
+<td nowrap align="center"><tt>0x0.......</tt></td>
+<td nowrap align="center">512 MB</td>
+<td nowrap align="center">K2/KS</td>
+<td nowrap>cached</td>
+<td nowrap>supervisor/kernel</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xE.......</tt></td>
+<td nowrap align="center"><tt>111</tt></td>
+<td nowrap align="center"><tt>0x0.......</tt></td>
+<td nowrap align="center">512 MB</td>
+<td nowrap align="center">K3</td>
+<td nowrap>cached</td>
+<td nowrap>kernel</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br>
+note: K2 and K3 segments seem to be unused
+     <div class="idx"><a href="index.html#idx7.2">index</a></div>
+<h3>
+<a name="sec7.2">
+7.2</a>&nbsp;&nbsp;physical Memory</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00010000</tt></td>
+<td nowrap align="center"><tt>0x00013fff</tt></td>
+<td nowrap align="center">16kb</td>
+<td nowrap>scratchpad</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x04000000</tt></td>
+<td nowrap align="center"><tt>0x041fffff</tt></td>
+<td nowrap align="center">2mb</td>
+<td nowrap>Video Memory / Frame Buffer</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x08000000</tt></td>
+<td nowrap align="center"><tt>0x09ffffff</tt></td>
+<td nowrap align="center">32mb </td>
+<td nowrap>Main Memory</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x1c000000</tt></td>
+<td nowrap align="center"><tt>0x1fbfffff</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Hardware i/o</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x1fc00000</tt></td>
+<td nowrap align="center"><tt>0x1fcfffff</tt></td>
+<td nowrap align="center">1mb</td>
+<td nowrap>Hardware Exception Vectors (RAM)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x1fd00000</tt></td>
+<td nowrap align="center"><tt>0x1fffffff</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Hardware i/o</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx7.3">index</a></div>
+<h3>
+<a name="sec7.3">
+7.3</a>&nbsp;&nbsp;Ram usage</h3>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap align="center"><b>segment</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x04000000</tt></td>
+<td nowrap align="center"><tt>0x041fffff</tt></td>
+<td nowrap align="center">2mb</td>
+<td nowrap align="center">KU0</td>
+<td nowrap>Video Memory / Frame Buffer</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x88000000</tt></td>
+<td nowrap align="center"><tt>0x887fffff</tt></td>
+<td nowrap align="center">8mb</td>
+<td nowrap align="center">K0</td>
+<td nowrap>Kernel Memory</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x08800000</tt></td>
+<td nowrap align="center"><tt>0x09ffffff</tt></td>
+<td nowrap align="center">24mb</td>
+<td nowrap align="center">KU0</td>
+<td nowrap>Userspace Memory</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfc00000</tt></td>
+<td nowrap align="center"><tt>0xbfcfffff</tt></td>
+<td nowrap align="center">1mb</td>
+<td nowrap align="center">K1</td>
+<td nowrap>Hardware Exception Vectors (RAM)</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt><br><div class="idx"><a href="index.html#idx7.3.1">index</a></div>
+<h4>
+<a name="sec7.3.1">
+7.3.1</a>&nbsp;&nbsp;Kernel</h4>
+<br><h5>7.3.1.1 <a name="sec7.3.1.1">
+    &nbsp;&nbsp;K0</a>
+</h5>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x88000000</tt></td>
+<td nowrap align="center"><tt>0x8837ffff</tt></td>
+<td nowrap align="center">3.5mb</td>
+<td nowrap>kernel modules are loaded here</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x88380000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>ME Resetcode</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x883d6000</tt></td>
+<td nowrap align="center"><tt>0x883fffff</tt></td>
+<td nowrap align="center">168k</td>
+<td nowrap>seems to be unused</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x88400000</tt></td>
+<td nowrap align="center"><tt>0x887fffff</tt></td>
+<td nowrap align="center">4mb</td>
+<td nowrap>Module/Threadmanager Memory (v1.5 FW only ?)</td>
+</tr>
+<tr>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x88C00000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Loadexec Stage 2</td>
+</tr>
+</table>
+</td></tr></table>
+<tt></tt><br><h5>7.3.1.2 <a name="sec7.3.1.2">
+    &nbsp;&nbsp;K1</a>
+</h5>
+<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="right"><b>size</b></td>
+<td nowrap width="0"><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfc00000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap width="0">Reset Vector? (cop0.9:EXC31_ErrVec)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfc00040</tt></td>
+<td nowrap align="center"><tt>0xbfc000ff</tt></td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap width="0">ME Handler</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfc00160</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap width="0">(mebooter, mebooter_umdvideo)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfc00400</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap width="0">(sysreg)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfc00600</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap width="0">ME RPC-Call struct (s1, s2, s3, s4, s5, s6, s7, fp, arg0) (me_wrapper)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfc00700</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap width="0">Exception struct (flag, COP0.EPC, COP0.EPC.err, COP0.Status, COP0.Cause,
+COP0.BadVAddr) (mebooter, mebooter_umdvideo, me_wrapper)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfc00ffc</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap width="0">(sysreg)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfc01000</tt></td>
+<td nowrap align="center"><tt>0xbfc01fff</tt></td>
+<td nowrap align="right">16*0x0100</td>
+<td nowrap width="0">Exception Vectors? (cop0.10:?)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfc02000</tt></td>
+<td nowrap align="center"><tt>0xbfcfffff</tt></td>
+<td nowrap align="right">254*0x1000</td>
+<td nowrap width="0">Exception Vectors? (cop0.9:EXC31_ErrVec)</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx7.3.2">index</a></div>
+<h4>
+<a name="sec7.3.2">
+7.3.2</a>&nbsp;&nbsp;Userspace</h4>
+<br><h5>7.3.2.1 <a name="sec7.3.2.1">
+    &nbsp;&nbsp;KU0</a>
+</h5>
+<br><tt></tt>
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x08800000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x08900000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>user main program start address</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>7.3.2.2 <a name="sec7.3.2.2">
+    &nbsp;&nbsp;KU1</a>
+</h5>
+<br>
+all Memory that can be acessed from KU0 segment, which is cached,
+can also be acessed from the KU1 segment, which is uncached.
+     <div class="idx"><a href="index.html#idx7.4">index</a></div>
+<h3>
+<a name="sec7.4">
+7.4</a>&nbsp;&nbsp;Hardware</h3>
+<br><tt></tt><br><a name="tth_tAb1">
+</a> 
+<table><tr><td nowrap><table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap width="0"><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc0000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">memory interface ?? (mpeg_vsh, sysmem, sysreg, threadman, usb)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc1000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">System Control (IPL, dmacman, emc_ddr, memlmd, mscm, syscon, sysmem,
+sysreg, exceptionman, ata, mebooter, mebooter_umdvideo , me_wrapper,
+reboot, uart4)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc20000x</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">irq?? (sysreg)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc3000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">irq?? (interruptman)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc400000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">Hardware Profiler (threadman, utils)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc500000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">irq, Timer? (systimer)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc6000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(threadman)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc8000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">DMA control (dmacplus)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbc9000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">DMA control (dmacman)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbca00000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">DMA control (dmacman)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbcc00000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">ME Control (mebooter, mebooter_umdvideo, me_wrapper)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd0000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">systemcontrol, watchdog, sram controller ?? (emc_ddr, mpeg_vsh,
+usb, syscon)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd100000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">NAND Flash (ems_sm, mpeg_vsh, reboot)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd1010xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">NAND Flash (ems_sm)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd101200</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">NAND Flash (ems_sm)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd101300</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">NAND Flash (ems_sm)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd200000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">memstick? (mscm, mpeg_vsh)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd300000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">WLAN (wlan)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd40000x</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">Graphics engine (ge)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd4001xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(ge)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd400200</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(ge)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd4003xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(ge)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd400400</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(ge)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd4008xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(ge)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd400900</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(ge)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd400acx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(ge)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd400b10</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(ge)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd5000x0</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(ge)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd6000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">atapi? (ata, umdman)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd70000x</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">ATA (ata, umdman)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd800000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">USB regs (usb, mpeg_vsh)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd800214</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">USB regs (usb, mpeg_vsh)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbd8004xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">USB regs (usb, mpeg_vsh)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbde000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">Crypt Engine (IPL, memlmd, reboot)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbdf000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">umd stuff (umdman)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe0000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">audio stuff (audio, mpeg_vsh)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe100000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(mgr)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe1400xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">LCDC (display?) (lcdc)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe2000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">IIC stuff, (which component uses i2c at all -&gt; clock generator and
+the WM8750 audio codec ) (i2c)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe2400xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">general purpose IO (gpio, syscon)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe300000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">power management (pwm)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe3400xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">IRDA (sircs)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe4c00xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">UART4 Uart4/kernel debug(?) UART (IPL, uart4, reboot)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe5000xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">UART3(?) headphone remote SIO (hpremote)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe5400xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">UART2(?) IRDA ? (sircs)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe5800xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">UART1(?) Serial EPROM(?) system control ? (syscon)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbe7400xx</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">display controler (display)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbf000000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(mpeg_vsh, pspnet_inet)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfa00000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(power)</td>
+</tr>
+</table></td></tr></table>
+<tt></tt><br><a name="tth_tAb1">
+</a> 
+<table><tr><td nowrap><table>
+<tr>
+<td nowrap align="center"><b>start</b></td>
+<td nowrap align="center"><b>end</b></td>
+<td nowrap width="0"><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfe00000</tt></td>
+<td nowrap align="center"><tt>0xbfffffff</tt></td>
+<td nowrap width="0">? all accessable, but all 0 and can not be written to?</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbff00000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">Nand DMA User Data Buf (rw), 512 bytes buffer to hold DMA data for
+a user page (emc_sm, reboot)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbff00800</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">Nand User ECC Reg (rw), 32bit Hardware calculated ECC for a user page
+(emc_sm)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbff00900</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">Nand DMA Spare Data Buf start (rw), 16 bytes buffer to hold DMA data
+for a spare page (emc_sm)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfff0000</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(power, pspnet, sysmem, threadman)</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xbfffffff</tt></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap width="0">(threadman, power, sysmem)</td>
+</tr>
+</table></td></tr></table>
+<div class="idx"><a href="index.html#idx8">index</a></div>
+</body></html>

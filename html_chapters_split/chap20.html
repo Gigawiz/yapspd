@@ -1,0 +1,1895 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec20">
+20</a>&nbsp;&nbsp;Flash Memory Structure (flash0)</h2>
+<br><tt>/DATA</tt><br><tt>&nbsp;&nbsp;/CERT</tt><br><tt>/DIC</tt><br><tt>/FONT</tt><br><tt>/KD</tt><br><tt>&nbsp;&nbsp;/RESOURCE</tt><br><tt>/VSH</tt><br><tt>&nbsp;&nbsp;/ETC</tt><br><tt>&nbsp;&nbsp;/MODULE</tt><br><tt>&nbsp;&nbsp;/RESOURCE</tt><br><div class="idx"><a href="index.html#idx20.1">index</a></div>
+<h3>
+<a name="sec20.1">
+20.1</a>&nbsp;&nbsp;DATA Subdirectory</h3>
+<br><div class="idx"><a href="index.html#idx20.1.1">index</a></div>
+<h4>
+<a name="sec20.1.1">
+20.1.1</a>&nbsp;&nbsp;CERT Subdirectory</h4>
+<br>
+Contains lots of certificates. They are ordinal base64 encoded certificate,
+not encrypted.<br><br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Filename</b></td>
+<td nowrap align="right"><b>Size</b></td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>Class1_PCA_G2_v2.cer</td>
+<td nowrap align="right">1122</td>
+<td nowrap>SHA1/RSA1024</td>
+<td nowrap>VeriSign</td>
+<td nowrap align="center">*1</td>
+</tr>
+<tr>
+<td nowrap>Class1_PCA_G3v2.cer </td>
+<td nowrap align="right">1508</td>
+<td nowrap>SHA1/RSA2048 </td>
+<td nowrap>VeriSign</td>
+<td nowrap align="center">*1</td>
+</tr>
+<tr>
+<td nowrap>Class1_PCA_ss_v4.cer</td>
+<td nowrap align="right">854</td>
+<td nowrap>MD2 /RSA1024</td>
+<td nowrap>VeriSign</td>
+<td nowrap align="center">*1</td>
+</tr>
+<tr>
+<td nowrap>Class2_PCA_G2_v2.cer</td>
+<td nowrap align="right">1126</td>
+<td nowrap>SHA1/RSA1024 </td>
+<td nowrap>VeriSign</td>
+<td nowrap align="center">*1</td>
+</tr>
+<tr>
+<td nowrap>Class2_PCA_G3v2.cer </td>
+<td nowrap align="right">1504</td>
+<td nowrap>SHA1/RSA2048</td>
+<td nowrap>VeriSign</td>
+<td nowrap align="center">*1</td>
+</tr>
+<tr>
+<td nowrap>Class2_PCA_ss_v4.cer</td>
+<td nowrap align="right">848</td>
+<td nowrap>MD2 /RSA1024 </td>
+<td nowrap>VeriSign </td>
+<td nowrap align="center">*1</td>
+</tr>
+<tr>
+<td nowrap>Class3_PCA_G2_v2.cer </td>
+<td nowrap align="right">1122</td>
+<td nowrap>SHA1/RSA1024</td>
+<td nowrap>VeriSign </td>
+<td nowrap align="center">*1</td>
+</tr>
+<tr>
+<td nowrap>Class3_PCA_G3v2.cer</td>
+<td nowrap align="right">1508</td>
+<td nowrap>SHA1/RSA2048 </td>
+<td nowrap>VeriSign </td>
+<td nowrap align="center">*1</td>
+</tr>
+<tr>
+<td nowrap>Class3_PCA_ss_v4.cer</td>
+<td nowrap align="right">848</td>
+<td nowrap>MD2 /RSA1024</td>
+<td nowrap>VeriSign</td>
+<td nowrap align="center">*1</td>
+</tr>
+<tr>
+<td nowrap>Class4_PCA_G2_v2.cer </td>
+<td nowrap align="right">1122</td>
+<td nowrap>SHA1/RSA1024 </td>
+<td nowrap>VeriSign </td>
+<td nowrap align="center">*1</td>
+</tr>
+<tr>
+<td nowrap>Class4_PCA_G3v2.cer </td>
+<td nowrap align="right">1508</td>
+<td nowrap>SHA1/RSA2048</td>
+<td nowrap>VeriSign </td>
+<td nowrap align="center">*1</td>
+</tr>
+<tr>
+<td nowrap>RSA1024_v1.cer </td>
+<td nowrap align="right">1066</td>
+<td nowrap>SHA1/RSA1024 </td>
+<td nowrap>ValiCert </td>
+<td nowrap align="center">*2</td>
+</tr>
+<tr>
+<td nowrap>RSA2048_v3.cer </td>
+<td nowrap align="right">1233</td>
+<td nowrap>SHA1/RSA2048 </td>
+<td nowrap>RSA Security</td>
+<td nowrap align="center">*2</td>
+</tr>
+<tr>
+<td nowrap>RSA_SecureServer.cer </td>
+<td nowrap align="right">840</td>
+<td nowrap>MD2 /RSA1024</td>
+<td nowrap>RSA Data Security </td>
+<td nowrap align="center">*2</td>
+</tr>
+<tr>
+<td nowrap>SCE_CA01.cer</td>
+<td nowrap align="right">1387</td>
+<td nowrap>SHA1/RSA2048</td>
+<td nowrap>SCEI </td>
+<td nowrap align="center">*3</td>
+</tr>
+<tr>
+<td nowrap>SCE_CA02.cer</td>
+<td nowrap align="right">1387</td>
+<td nowrap>SHA1/RSA2048</td>
+<td nowrap>SCEI</td>
+<td nowrap align="center">*3</td>
+</tr>
+<tr>
+<td nowrap>SCE_CA03.cer</td>
+<td nowrap align="right">1387</td>
+<td nowrap>SHA1/RSA2048 </td>
+<td nowrap>SCEI </td>
+<td nowrap align="center">*3</td>
+</tr>
+<tr>
+<td nowrap>SCE_CA04.cer</td>
+<td nowrap align="right">1387</td>
+<td nowrap>SHA1/RSA2048</td>
+<td nowrap>SCEI </td>
+<td nowrap align="center">*3</td>
+</tr>
+<tr>
+<td nowrap>SCE_CA05.cer</td>
+<td nowrap align="right">1387</td>
+<td nowrap>SHA1/RSA2048</td>
+<td nowrap>SCEI </td>
+<td nowrap align="center">*3</td>
+</tr>
+<tr>
+<td nowrap>VeriSign_TSA_CA.cer </td>
+<td nowrap align="right">1402</td>
+<td nowrap>SHA1/RSA1024 </td>
+<td nowrap>VeriSign, Time Stamping Authority</td>
+<td nowrap align="center">*4</td>
+</tr>
+</table>
+</td></tr></table>
+<br><br>
+1) These are relating to 'Primary Certificate Authority' certificates
+from VeriSign. They have specific groups that monitor and certify
+Certificate Authorities, providing direct trust to CA certificates.
+These form the root of the trust network for signed code. Pretty much
+every Windows machine has these for use in Internet Explorer and the
+like.
+2) These are related to the BSAFE technology RSA Security provides.
+They are likely used for the wireless communications, as BSAFE has
+wireless security software packages aimed at systems like ARM for
+things like SSL over WiFi (sound familiar?). I don't know if they
+are linked through Verisign's PCAs or form their own root. It would
+make more sense if they were signed by either Verisign's PCAs or by
+one of Sony's CAs.
+3) A series of certificates in Sony's control, very likely signed
+by the PCA certificates mentioned above. These are probably used to
+sign code certificates for developers, and those certificates are
+included with the games themselves. So code signatures are done by
+the developer, while encryption is done by Sony. The trust can still
+be verified by checking the signed game certificate, seeing that it
+belongs to SCE_CA0x, and then seeing /that/ belongs to Verisign,
+which is the root trust node.
+4)Says exactly what it is on the tin, used to time-stamp things in
+such a way that it cannot be spoofed. (i.e, Verisign encrypts the
+time stamp of a signing with their private key, allowing everyone
+to verify the time stamp, but nobody can make a different time stamp
+that can be verified correctly without VeriSign's key) <br><br>
+This as a whole is a trust tree, to setup a base list of trusted certificates
+for the PSP. Anything signed directly by the owners of these certificates,
+or using a key which has been signed by the owners of these certificates
+will be trusted. (I.E. can the certificate presented by the game/software
+to be run be verified as to be connected to these certificates?)
+     <div class="idx"><a href="index.html#idx20.2">index</a></div>
+<h3>
+<a name="sec20.2">
+20.2</a>&nbsp;&nbsp;DIC Subdirectory</h3>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Filename</b></td>
+<td nowrap align="right"><b>Size</b></td>
+</tr>
+<tr>
+<td nowrap>apotp.dic</td>
+<td nowrap align="right">1346880</td>
+</tr>
+<tr>
+<td nowrap>atokp.dic</td>
+<td nowrap align="right">939166</td>
+</tr>
+<tr>
+<td nowrap>aux0.dic</td>
+<td nowrap align="right">14886</td>
+</tr>
+<tr>
+<td nowrap>aux1.dic</td>
+<td nowrap align="right">9647</td>
+</tr>
+<tr>
+<td nowrap>aux2.dic</td>
+<td nowrap align="right">4631</td>
+</tr>
+<tr>
+<td nowrap>aux3.dic</td>
+<td nowrap align="right">13172</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx20.3">index</a></div>
+<h3>
+<a name="sec20.3">
+20.3</a>&nbsp;&nbsp;FONT Subdirectory</h3>
+<br>
+contains various Fonts used by the PSP OS
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Filename</b></td>
+<td nowrap align="right"><b>Size</b></td>
+</tr>
+<tr>
+<td nowrap>jpn0.pgf</td>
+<td nowrap align="right">1679100</td>
+</tr>
+<tr>
+<td nowrap>ltn0.pgf </td>
+<td nowrap align="right">123896</td>
+</tr>
+<tr>
+<td nowrap>ltn1.pgf </td>
+<td nowrap align="right">113200</td>
+</tr>
+<tr>
+<td nowrap>ltn10.pgf </td>
+<td nowrap align="right">58256</td>
+</tr>
+<tr>
+<td nowrap>ltn11.pgf </td>
+<td nowrap align="right">55924</td>
+</tr>
+<tr>
+<td nowrap>ltn12.pgf </td>
+<td nowrap align="right">61816</td>
+</tr>
+<tr>
+<td nowrap>ltn13.pgf </td>
+<td nowrap align="right">58788</td>
+</tr>
+<tr>
+<td nowrap>ltn14.pgf </td>
+<td nowrap align="right">64100</td>
+</tr>
+<tr>
+<td nowrap>ltn15.pgf </td>
+<td nowrap align="right">59924</td>
+</tr>
+<tr>
+<td nowrap>ltn2.pgf </td>
+<td nowrap align="right">129652</td>
+</tr>
+<tr>
+<td nowrap>ltn3.pgf </td>
+<td nowrap align="right">115940</td>
+</tr>
+<tr>
+<td nowrap>ltn4.pgf </td>
+<td nowrap align="right">132536</td>
+</tr>
+<tr>
+<td nowrap>ltn5.pgf </td>
+<td nowrap align="right">121548</td>
+</tr>
+<tr>
+<td nowrap>ltn6.pgf </td>
+<td nowrap align="right">138472</td>
+</tr>
+<tr>
+<td nowrap>ltn7.pgf </td>
+<td nowrap align="right">124868</td>
+</tr>
+<tr>
+<td nowrap>ltn8.pgf </td>
+<td nowrap align="right">56512</td>
+</tr>
+<tr>
+<td nowrap>ltn9.pgf </td>
+<td nowrap align="right">54484</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx20.4">index</a></div>
+<h3>
+<a name="sec20.4">
+20.4</a>&nbsp;&nbsp;KD Subdirectory</h3>
+<br><div class="idx"><a href="index.html#idx20.4.1">index</a></div>
+<h4>
+<a name="sec20.4.1">
+20.4.1</a>&nbsp;&nbsp;Kernel Modules</h4>
+<br><a name="tth_tAb1">
+</a> 
+<table><tr><td nowrap><table>
+<tr>
+<td nowrap><b>Module Filename</b></td>
+<td nowrap><b>API-Module</b></td>
+<td nowrap><b>Format</b></td>
+<td nowrap align="right"><b>v1.0</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><b>v1.5</b></td>
+<td nowrap align="center">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap align="right"><b>size</b></td>
+<td nowrap align="center"><b>version</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap align="center"><b>version</b></td>
+</tr>
+<tr>
+<td nowrap>ata.prx</td>
+<td nowrap>sceATA_ATAPI_driver</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">13232</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>audio.prx </td>
+<td nowrap>sceAudio_Driver</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">9040</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>audiocodec.prx</td>
+<td nowrap>sceAudiocodec_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">3248</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>blkdev.prx</td>
+<td nowrap>sceBLK_driver</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">3712</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>chkreg.prx</td>
+<td nowrap>sceChkreg </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">3488</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>clockgen.prx</td>
+<td nowrap>sceClockgen_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">2416</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>codec.prx</td>
+<td nowrap>sceWM8750_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">4096</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>ctrl.prx</td>
+<td nowrap>sceController_Service</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">5600</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>display.prx</td>
+<td nowrap>sceDisplay_Service</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">7248</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>dmacman.prx</td>
+<td nowrap>sceDMAManager</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">6032</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>dmacplus.prx</td>
+<td nowrap>sceDMACPLUS_Driver</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">8768</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>emc_ddr.prx </td>
+<td nowrap>sceDDR_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">2384</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>emc_sm.prx</td>
+<td nowrap>sceNAND_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">8080</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>exceptionman.prx</td>
+<td nowrap>sceExceptionManager</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">3248</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>fatmsmod.prx</td>
+<td nowrap>sceMSFAT_Driver</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">71760</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>ge.prx</td>
+<td nowrap>sceGE_Manager</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">8720</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>gpio.prx</td>
+<td nowrap>sceGPIO_Driver</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">3184</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>hpremote.prx</td>
+<td nowrap>sceHP_Remote_Driver</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">6800</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>i2c.prx</td>
+<td nowrap>sceI2C_Driver</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">4368</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>idstorage.prx</td>
+<td nowrap>sceIdStorage_Service</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">7072</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>ifhandle.prx </td>
+<td nowrap>sceNetIfhandle_Service </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">10848</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>impose.prx </td>
+<td nowrap>sceImpose_Driver</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">32480</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>init.prx</td>
+<td nowrap>sceInit </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">7056</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>interruptman.prx</td>
+<td nowrap>sceInterruptManager </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">9872</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>iofilemgr.prx</td>
+<td nowrap>sceIOFileManager </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">11520</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>isofs.prx</td>
+<td nowrap>sceIsofs_driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">23520</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>lcdc.prx</td>
+<td nowrap>sceLCDC_Driver</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">3328</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>led.prx</td>
+<td nowrap>sceLED_Service </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">2448</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>lfatfs.prx</td>
+<td nowrap>sceLFatFs_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">37472</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>lflash_fatfmt.prx</td>
+<td nowrap>sceLflashFatfmt </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">6192</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>libatrac3plus.prx</td>
+<td nowrap>sceATRAC3plus_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">10192</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>libhttp.prx</td>
+<td nowrap>SceHttp_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">36896</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>libparse_http.prx</td>
+<td nowrap>SceParseHTTPheader_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">3008</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>libparse_uri.prx</td>
+<td nowrap>SceParseURI_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">8112</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>libupdown.prx</td>
+<td nowrap>SceUpdateDL_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">10928</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>loadcore.prx</td>
+<td nowrap>sceLoaderCore </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">41168</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>loadexec.prx</td>
+<td nowrap>sceLoadExec </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">8016</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>me_for_vsh.prx</td>
+<td nowrap>me_for_vsh </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">1040</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>me_wrapper.prx</td>
+<td nowrap>sceMeCodecWrapper </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">13008</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>mebooter.prx</td>
+<td nowrap>sceMeBooter </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">285856</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>mebooter_umdvideo.prx</td>
+<td nowrap>sceMeBooter </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">126448</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>mediaman.prx</td>
+<td nowrap>sceUmd_driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">8240</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>mediasync.prx</td>
+<td nowrap>sceMediaSync </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">2816</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>memab.prx</td>
+<td nowrap>sceMemab </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">15216</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>memlmd.prx</td>
+<td nowrap>sceMemlmd </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">8800</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>mesg_led.prx</td>
+<td nowrap>sceMesgLed </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">14128</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>mgr.prx</td>
+<td nowrap>sceMgr_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">20720</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>modulemgr.prx</td>
+<td nowrap>sceModuleManager </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">13824</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>mpeg_vsh.prx</td>
+<td nowrap>sceMpeg_library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">19664</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>mpegbase.prx</td>
+<td nowrap>sceMpegbase_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">4304</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>msaudio.prx </td>
+<td nowrap>sceMsAudio_Service </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">8112</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>mscm.prx</td>
+<td nowrap>sceMScm_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">16048</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>msstor.prx</td>
+<td nowrap>sceMSstor_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">20352</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>openpsid.prx</td>
+<td nowrap>sceOpenPSID_Service </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">3136</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>peq.prx</td>
+<td nowrap>scePEQ_Library_driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">1728</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>power.prx</td>
+<td nowrap>scePower_Service </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">12608</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>pspnet.prx</td>
+<td nowrap>sceNet_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">27472</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>pspnet_adhoc.prx</td>
+<td nowrap>sceNetAdhoc_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">20080</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>pspnet_adhoc_auth.prx </td>
+<td nowrap>sceNetAdhocAuth_Service </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">10832</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>pspnet_adhoc_download.prx</td>
+<td nowrap>sceNetAdhocDownload_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">7904</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>pspnet_adhoc_matching.prx</td>
+<td nowrap>sceNetAdhocMatching_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">9088</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>pspnet_adhocctl.prx </td>
+<td nowrap>sceNetAdhocctl_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">17968</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>pspnet_ap_dialog_dummy.prx</td>
+<td nowrap>sceNetApDialogDummy_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">2608</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>pspnet_apctl.prx</td>
+<td nowrap>sceNetApctl_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">22784</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>pspnet_inet.prx</td>
+<td nowrap>sceNetInet_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">130944</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>pspnet_resolver.prx</td>
+<td nowrap>sceNetResolver_Library </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">6880</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>pwm.prx</td>
+<td nowrap>scePWM_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">1904</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>reboot.prx</td>
+<td nowrap>sceReboot </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">53136</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>registry.prx</td>
+<td nowrap>sceRegistry_Service </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">16896</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>rtc.prx</td>
+<td nowrap>sceRTC_Service </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">11136</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>semawm.prx </td>
+<td nowrap>sceSemawm </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">34768</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>sircs.prx </td>
+<td nowrap>sceSIRCS_IrDA_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">6464</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>stdio.prx</td>
+<td nowrap>sceStdio </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">3744</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>sysclib.prx</td>
+<td nowrap>sceSysclib </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">6032</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>syscon.prx</td>
+<td nowrap>sceSYSCON_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">9936</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>sysmem.prx</td>
+<td nowrap>sceSystemMemoryManager </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">72304</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>sysmem_uart4.prx</td>
+<td nowrap>sceSystemMemoryManager </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">27536</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>sysreg.prx</td>
+<td nowrap>sceSYSREG_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">5808</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>systimer.prx</td>
+<td nowrap>sceSystimer </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">2736</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>threadman.prx</td>
+<td nowrap>sceThreadManager </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">44512</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>uart4.prx</td>
+<td nowrap>sceUart4 </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">2288</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>umd9660.prx</td>
+<td nowrap>sceUmd9660_driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">17504</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>umdman.prx</td>
+<td nowrap>sceUmdMan_driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">34864</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>usb.prx</td>
+<td nowrap>sceUSB_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">29248</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>usbstor.prx</td>
+<td nowrap>sceUSB_Stor_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">8656</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>usbstorboot.prx</td>
+<td nowrap>sceUSB_Stor_Boot_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">13088</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>usbstormgr.prx</td>
+<td nowrap>sceUSB_Stor_Mgr_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">10720</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>usbstorms.prx</td>
+<td nowrap>sceUSB_Stor_Ms_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">9328</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>usersystemlib.prx</td>
+<td nowrap>sceKernelLibrary </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">1168</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>utility.prx</td>
+<td nowrap>sceUtility_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">9216</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>utils.prx</td>
+<td nowrap>sceKernelUtils </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">10272</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>vaudio.prx</td>
+<td nowrap>sceVaudio_driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">2784</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>vaudio_game.prx</td>
+<td nowrap>sceVaudio_driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">1088</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>videocodec.prx</td>
+<td nowrap>sceVideocodec_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">3824</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>vshbridge.prx</td>
+<td nowrap>sceVshBridge_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">2704</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>wlan.prx</td>
+<td nowrap>sceWlan_Driver </td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">114480</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+</table></td></tr></table>
+[PSP] means ~PSP type encrypted file
+      <div class="idx"><a href="index.html#idx20.4.2">index</a></div>
+<h4>
+<a name="sec20.4.2">
+20.4.2</a>&nbsp;&nbsp;Boot Configurations</h4>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Filename</b></td>
+<td nowrap><b>Description</b></td>
+<td nowrap><b>Format</b></td>
+<td nowrap align="right"><b>v1.0</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><b>v1.5</b></td>
+<td nowrap align="center">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap align="right"><b>size</b></td>
+<td nowrap align="center"><b>version</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap align="center"><b>version</b></td>
+</tr>
+<tr>
+<td nowrap>pspcnf_tbl.txt</td>
+<td nowrap>List of Possible Configurations</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">432</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>pspbtcnf.txt</td>
+<td nowrap>VSH Configuration</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">1584</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>pspbtcnf_game.txt</td>
+<td nowrap>Game Configuration</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">1376</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>pspbtcnf_updater.txt</td>
+<td nowrap>Updater Configuration</td>
+<td nowrap>~PSP</td>
+<td nowrap align="right">1600</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>20.4.2.1 <a name="sec20.4.2.1">
+    &nbsp;&nbsp;Configuration Table</a>
+</h5>
+<br>
+pspcnf_tbl.txt
+<table><tr><td nowrap width="0">
+<tt>vsh /kd/pspbtcnf.txt</tt><br><tt>game /kd/pspbtcnf_game.txt</tt><br><tt>updater /kd/pspbtcnf_updater.txt</tt>
+</td></tr></table>
+<br><h5>20.4.2.2 <a name="sec20.4.2.2">
+    &nbsp;&nbsp;VSH Configuration</a>
+</h5>
+<br><h5>20.4.2.3 <a name="sec20.4.2.3">
+    &nbsp;&nbsp;Game Configuration</a>
+</h5>
+<br><h5>20.4.2.4 <a name="sec20.4.2.4">
+    &nbsp;&nbsp;Updater Configuration</a>
+</h5>
+<br><div class="idx"><a href="index.html#idx20.5">index</a></div>
+<h3>
+<a name="sec20.5">
+20.5</a>&nbsp;&nbsp;VSH Subdirectory</h3>
+<br><div class="idx"><a href="index.html#idx20.5.1">index</a></div>
+<h4>
+<a name="sec20.5.1">
+20.5.1</a>&nbsp;&nbsp;ETC Subdirectory</h4>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Filename</b></td>
+<td nowrap align="right"><b>Size</b></td>
+</tr>
+<tr>
+<td nowrap>jis2ucs.bin </td>
+<td nowrap align="right">131072</td>
+</tr>
+<tr>
+<td nowrap>jis2ucs.cbin</td>
+<td nowrap align="right">16182</td>
+</tr>
+<tr>
+<td nowrap>ucs2jis.bin</td>
+<td nowrap align="right">131072</td>
+</tr>
+<tr>
+<td nowrap>ucs2jis.cbin</td>
+<td nowrap align="right">33672</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>20.5.1.1 <a name="sec20.5.1.1">
+    &nbsp;&nbsp;Version Info</a>
+</h5>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Filename</b></td>
+<td nowrap align="right"><b>Format</b></td>
+<td nowrap align="right"><b>Size</b></td>
+</tr>
+<tr>
+<td nowrap>index.dat </td>
+<td nowrap align="right">~PSP</td>
+<td nowrap align="right">480</td>
+</tr>
+<tr>
+<td nowrap>version.txt</td>
+<td nowrap align="right">plain</td>
+<td nowrap align="right">135</td>
+</tr>
+</table>
+</td></tr></table>
+<br>
+index.dat is used to store version/built information about the current
+firmware. version.txt is simply the decrypted (plaintext) version
+of the same data.
+All the firmware revisions from 1.00 to 2.01 can load decrypted index.dat
+(aka version.txt) and share the very same index.dat decryption keys
+while 2.50+ cannot load decrypted index.dat and cannot load old index.dat
+(featuring another encryption) either. That move was done by sony
+to prevent downgrading by swapping the index.dat (as it has been done
+on 2.00) 
+Having a corrupted index.dat in flash0:/vsh/etc/ will result on the
+psp viewing any eboot/umd (including updaters) as corrupted data and
+wont load those (this happends on all versions up to 2.50 as far as
+I could test &lt;Ookm&gt;) 
+When using the 2.50 index.dat with 2.00 firmware revision it will
+see it as corrupted, as the 2.00 firmware does not have the required
+keys to decrypt the new index.dat files as well as the newer firmwares
+no longer possess the keys required to decrypt older index.dat or
+the ability to load those decrypted.
+The hexadecimal Number in the system: line is exactly the value returned
+by the <tt>sceKernelDevkitVersion</tt> Syscall.
+<br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.1">
+    20.5.1.1.1&nbsp;&nbsp;1.0</a>
+&nbsp;</b>
+<table><tr><td nowrap width="0">
+<tt>release:1.00:</tt><br><tt>build:106,1:root@psp-vsh</tt><br><tt>system:16214,0x00100000:</tt><br><tt>vsh:2004_1104_s16214_p3883_v8335:</tt>
+</td></tr></table>
+<br><table><tr><td nowrap width="0">
+<tt>release:1.00: </tt><br><tt>build:228,0,3,1,0:root@psp-vsh </tt><br><tt>system:17919@release_103a,0x01000300: </tt><br><tt>vsh:p4029@special_day1,v9972@special_day1,20041201:</tt>
+</td></tr></table>
+<br><br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.2">
+    20.5.1.1.2&nbsp;&nbsp;1.5</a>
+&nbsp;</b>
+<table><tr><td nowrap width="0">
+<tt>release:1.50:</tt><br><tt>build:376,0,3,1,0:root@psp-vsh</tt><br><tt>system:20182@release_150,0x01050001:</tt><br><tt>vsh:p4201@release_150,v11079@release_150,20050201:</tt>
+</td></tr></table>
+<br><br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.3">
+    20.5.1.1.3&nbsp;&nbsp;1.51</a>
+&nbsp;</b>
+<table><tr><td nowrap width="0">
+<tt>release:1.51:</tt><br><tt>build:513,0,3,1,0:root@psp-vsh</tt><br><tt>system:22984@release_151,0x01050100:</tt><br><tt>vsh:p4388@release_151_sc,v12875@release_151_sc,20050507:</tt>
+</td></tr></table>
+<br><br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.4">
+    20.5.1.1.4&nbsp;&nbsp;1.52</a>
+&nbsp;</b>
+<table><tr><td nowrap width="0">
+<tt>release:1.52:</tt><br><tt>build:555,0,3,1,0:root@psp-vsh</tt><br><tt>system:23740@release_152,0x01050200:</tt><br><tt>vsh:p4421@release_152,v13394@release_152,20050525:</tt>
+</td></tr></table>
+<br><br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.5">
+    20.5.1.1.5&nbsp;&nbsp;2.0</a>
+&nbsp;</b>
+<table><tr><td nowrap width="0">
+<tt>release:2.00:</tt><br><tt>build:725,0,3,1,0:root@psp-vsh</tt><br><tt>system:26084@release_200,0x02000010:</tt><br><tt>vsh:p4705@release_200,v15867@release_200,20050726:</tt><br><tt>target:1:WorldWide</tt>
+</td></tr></table>
+<br><br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.6">
+    20.5.1.1.6&nbsp;&nbsp;2.01</a>
+&nbsp;</b>
+<table><tr><td nowrap width="0">
+<tt>release:2.01:</tt><br><tt>build:822,0,3,1,0:root@psp-vsh</tt><br><tt>system:26084@release_200,0x02000010:</tt><br><tt>vsh:p4793@release_201,v18444@release_201,20050928:</tt><br><tt>target:1:WorldWide</tt>
+</td></tr></table>
+<br><br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.7">
+    20.5.1.1.7&nbsp;&nbsp;2.5</a>
+&nbsp;</b>
+<table><tr><td nowrap width="0">
+<tt>release:2.50:</tt><br><tt>build:863,0,3,1,0:root@vsh-build</tt><br><tt>system:28611@release_250,0x02050010:</tt><br><tt>vsh:p4810@release_250,v19039@release_250,20051011:</tt><br><tt>target:1:WorldWide</tt>
+</td></tr></table>
+<br><br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.8">
+    20.5.1.1.8&nbsp;&nbsp;2.6</a>
+&nbsp;</b>
+from update eboot:
+<table><tr><td nowrap width="0">
+<tt>release:2.60:</tt><br><tt>build:962,0,3,1,0:root@vsh-build</tt><br><tt>system:29904@release_260,0x02060010:</tt><br><tt>vsh:p5029@release_260,v20391@release_260,20051125:</tt><br><tt>target::WorldWide</tt>
+</td></tr></table>
+<br>
+from retail (version I) PSP:
+<table><tr><td nowrap width="0">
+<tt>release:2.60:</tt><br><tt>build:985,0,3,1,0:root@vsh-build</tt><br><tt>system:29904@release_260,0x02060010:</tt><br><tt>vsh:p5029@release_260,v20603@release_260_2,20051209:</tt><br><tt>target:1:WorldWide</tt>
+</td></tr></table>
+<br><br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.9">
+    20.5.1.1.9&nbsp;&nbsp;2.7</a>
+&nbsp;</b>
+<table><tr><td nowrap width="0">
+<tt>release:2.70: </tt><br><tt>build:1238,0,3,1,0:builder@vsh-build2 </tt><br><tt>system:33151@release_270,0x02070010: </tt><br><tt>vsh:p5186@release_270,v22631@release_270,20060420: </tt><br><tt>target::WorldWide</tt>
+</td></tr></table>
+<br><br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.10">
+    20.5.1.1.10&nbsp;&nbsp;2.71</a>
+&nbsp;</b>
+<table><tr><td nowrap width="0">
+<tt>release:2.71:</tt><br><tt>build:1299,0,3,1,0:builder@vsh-build2</tt><br><tt>system:33696@release_271,0x02070110:</tt><br><tt>vsh:p5218@release_271,v22873@release_271,20060529:</tt><br><tt>target::WorldWide</tt>
+</td></tr></table>
+<br><br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.11">
+    20.5.1.1.11&nbsp;&nbsp;2.8</a>
+&nbsp;</b>
+<br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.12">
+    20.5.1.1.12&nbsp;&nbsp;2.81</a>
+&nbsp;</b>
+<table><tr><td nowrap width="0">
+<tt>build:1450,0,3,1,0:builder@vsh-build2</tt><br><tt>system:35536@release_281,0x02080110:</tt><br><tt>vsh:p5291@release_281,v24983@release_281,20060828:</tt><br><tt>target:1:WorldWide</tt>
+</td></tr></table>
+<br><br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.13">
+    20.5.1.1.13&nbsp;&nbsp;3.0</a>
+&nbsp;</b>
+<br>    &nbsp;&nbsp;&nbsp;<b><a name="sec20.5.1.1.14">
+    20.5.1.1.14&nbsp;&nbsp;3.01</a>
+&nbsp;</b>
+<table><tr><td nowrap width="0">
+<tt>release:3.01: </tt><br><tt>build:1628,0,3,1,0:builder@vsh-build2 </tt><br><tt>system:36993@release_301,0x03000110: </tt><br><tt>vsh:p5403@release_301,v27265@release_301,20061122: </tt><br><tt>target:1:WorldWide</tt>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx20.5.2">index</a></div>
+<h4>
+<a name="sec20.5.2">
+20.5.2</a>&nbsp;&nbsp;MODULE Subdirectory</h4>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Module Filename</b></td>
+<td nowrap><b>API-Module</b></td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap align="right"><b>v1.0</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center"><b>v1.5</b></td>
+<td nowrap align="center">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap align="right">&nbsp;</td>
+<td nowrap align="right"><b>size</b></td>
+<td nowrap align="center"><b>version</b></td>
+<td nowrap align="center"><b>size</b></td>
+<td nowrap align="center"><b>version</b></td>
+</tr>
+<tr>
+<td nowrap>auth_plugin.prx</td>
+<td nowrap>auth_plugin_module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">5856</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>chnnlsv.prx</td>
+<td nowrap>sceChnnlsv</td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">8464</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>common_gui.prx</td>
+<td nowrap>sceVshCommonGui_Module</td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">16944</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>common_util.prx</td>
+<td nowrap>sceVshCommonUtil_Module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">15392</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>dialogmain.prx</td>
+<td nowrap>sceDialogmain_Module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">22784</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>game_plugin.prx </td>
+<td nowrap>game_plugin_module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">33168</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>heaparea1.prx </td>
+<td nowrap>scePafHeaparea_Module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">1952</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>heaparea2.prx</td>
+<td nowrap>scePafHeaparea_Module</td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">1952</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>impose_plugin.prx </td>
+<td nowrap>impose_plugin_module</td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">4256</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>msgdialog_plugin.prx </td>
+<td nowrap>sceVshMSDPlugin_Module</td>
+<td nowrap align="right">plain</td>
+<td nowrap align="right">8996</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>msvideo_plugin.prx</td>
+<td nowrap>msvideo_plugin_module</td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">149184</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>music_plugin.prx </td>
+<td nowrap>music_plugin_module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">204608</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>netconf_plugin.prx</td>
+<td nowrap>sceVshNetconf_Module</td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">39744</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>netplay_client_plugin.prx</td>
+<td nowrap>sceVshGSPlugin_Module</td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">16432</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>netplay_server_utility.prx</td>
+<td nowrap>sceVshGSUtility_Module</td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">10592</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.2</td>
+</tr>
+<tr>
+<td nowrap>opening_plugin.prx</td>
+<td nowrap>opening_plugin_module</td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">4960</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>osk_plugin.prx</td>
+<td nowrap>sceVshOSK_Module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">35520</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>paf.prx</td>
+<td nowrap>scePaf_Module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">599072</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>pafmini.prx </td>
+<td nowrap>scePaf_Module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">513184</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>photo_plugin.prx </td>
+<td nowrap>photo_plugin_module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">79056</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>savedata_auto_dialog.prx</td>
+<td nowrap>sceVshSDAuto_Module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">60224</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>savedata_plugin.prx </td>
+<td nowrap>sceVshSDPlugin_Module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">61344</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>savedata_utility.prx</td>
+<td nowrap>sceVshSDUtility_Module</td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">59344</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>sysconf_plugin.prx</td>
+<td nowrap>sysconf_plugin_module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">42464</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>update_plugin.prx</td>
+<td nowrap>update_plugin_module </td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">15840</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>video_plugin.prx</td>
+<td nowrap>video_plugin_module</td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">137936</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+<tr>
+<td nowrap>vshmain.prx</td>
+<td nowrap>vsh_module</td>
+<td nowrap align="right">[PSP]</td>
+<td nowrap align="right">67040</td>
+<td nowrap align="center">1.1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">1.1</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx20.5.3">index</a></div>
+<h4>
+<a name="sec20.5.3">
+20.5.3</a>&nbsp;&nbsp;RESOURCE Subdirectory</h4>
+<br><h5>20.5.3.1 <a name="sec20.5.3.1">
+    &nbsp;&nbsp;Background Images</a>
+</h5>
+<br>
+The background images of the VSH. (60x34 bitmaps).
+<table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Filename</b></td>
+<td nowrap align="right"><b>Size</b></td>
+</tr>
+<tr>
+<td nowrap>01.bmp</td>
+<td nowrap align="right">6176</td>
+</tr>
+<tr>
+<td nowrap>02.bmp</td>
+<td nowrap align="right">6176</td>
+</tr>
+<tr>
+<td nowrap>03.bmp</td>
+<td nowrap align="right">6176</td>
+</tr>
+<tr>
+<td nowrap>04.bmp</td>
+<td nowrap align="right">6176</td>
+</tr>
+<tr>
+<td nowrap>05.bmp</td>
+<td nowrap align="right">6176</td>
+</tr>
+<tr>
+<td nowrap>06.bmp</td>
+<td nowrap align="right">6176</td>
+</tr>
+<tr>
+<td nowrap>07.bmp</td>
+<td nowrap align="right">6176</td>
+</tr>
+<tr>
+<td nowrap>08.bmp</td>
+<td nowrap align="right">6176</td>
+</tr>
+<tr>
+<td nowrap>09.bmp</td>
+<td nowrap align="right">6176</td>
+</tr>
+<tr>
+<td nowrap>10.bmp</td>
+<td nowrap align="right">6176</td>
+</tr>
+<tr>
+<td nowrap>11.bmp</td>
+<td nowrap align="right">6176</td>
+</tr>
+<tr>
+<td nowrap>12.bmp</td>
+<td nowrap align="right">6176</td>
+</tr>
+</table>
+</td></tr></table>
+<br><h5>20.5.3.2 <a name="sec20.5.3.2">
+    &nbsp;&nbsp;Localized Resources</a>
+</h5>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Filename</b></td>
+<td nowrap align="right"><b>Size</b></td>
+</tr>
+<tr>
+<td nowrap>auth_plugin.rco </td>
+<td nowrap align="right">4556 </td>
+</tr>
+<tr>
+<td nowrap>game_plugin.rco </td>
+<td nowrap align="right">57148 </td>
+</tr>
+<tr>
+<td nowrap>gameboot.pmf </td>
+<td nowrap align="right">200704 </td>
+</tr>
+<tr>
+<td nowrap>impose_plugin.rco</td>
+<td nowrap align="right">87828 </td>
+</tr>
+<tr>
+<td nowrap>msgdialog_plugin.rco</td>
+<td nowrap align="right">7028</td>
+</tr>
+<tr>
+<td nowrap>msvideo_plugin.rco </td>
+<td nowrap align="right">158124 </td>
+</tr>
+<tr>
+<td nowrap>music_plugin.rco</td>
+<td nowrap align="right">220976 </td>
+</tr>
+<tr>
+<td nowrap>netconf_dialog.rco </td>
+<td nowrap align="right">68552 </td>
+</tr>
+<tr>
+<td nowrap>netplay_plugin.rco </td>
+<td nowrap align="right">12560</td>
+</tr>
+<tr>
+<td nowrap>opening_plugin.rco</td>
+<td nowrap align="right">254480 </td>
+</tr>
+<tr>
+<td nowrap>osk_plugin.rco </td>
+<td nowrap align="right">318548 </td>
+</tr>
+<tr>
+<td nowrap>osk_utility.rco </td>
+<td nowrap align="right">121384</td>
+</tr>
+<tr>
+<td nowrap>photo_plugin.rco </td>
+<td nowrap align="right">182604</td>
+</tr>
+<tr>
+<td nowrap>savedata_plugin.rco </td>
+<td nowrap align="right">68328 </td>
+</tr>
+<tr>
+<td nowrap>savedata_utility.rco</td>
+<td nowrap align="right">64428</td>
+</tr>
+<tr>
+<td nowrap>sysconf_plugin.rco</td>
+<td nowrap align="right">151540 </td>
+</tr>
+<tr>
+<td nowrap>system_plugin.rco</td>
+<td nowrap align="right">98136</td>
+</tr>
+<tr>
+<td nowrap>system_plugin_bg.rco </td>
+<td nowrap align="right">10776</td>
+</tr>
+<tr>
+<td nowrap>system_plugin_fg.rco </td>
+<td nowrap align="right">45508</td>
+</tr>
+<tr>
+<td nowrap>topmenu_plugin.rco </td>
+<td nowrap align="right">216320 </td>
+</tr>
+<tr>
+<td nowrap>update_plugin.rco </td>
+<td nowrap align="right">14048 </td>
+</tr>
+<tr>
+<td nowrap>video_plugin.rco </td>
+<td nowrap align="right">26464 </td>
+</tr>
+<tr>
+<td nowrap>video_plugin_videotoolbar.rco </td>
+<td nowrap align="right">115888 </td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx21">index</a></div>
+</body></html>

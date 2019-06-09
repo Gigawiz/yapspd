@@ -1,0 +1,1997 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec29">
+29</a>&nbsp;&nbsp;Kernel</h2>
+<br><div class="idx"><a href="index.html#idx29.1">index</a></div>
+<h3>
+<a name="sec29.1">
+29.1</a>&nbsp;&nbsp;Devices</h3>
+<br><div class="idx"><a href="index.html#idx29.1.1">index</a></div>
+<h4>
+<a name="sec29.1.1">
+29.1.1</a>&nbsp;&nbsp;Block Devices</h4>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Name</b></td>
+<td nowrap align="center"><b>r</b></td>
+<td nowrap align="center"><b>w</b></td>
+<td nowrap align="center"><b>blocksize</b></td>
+<td nowrap align="center"><b>seekable</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>msstor:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">512</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Memory Stick (whole; mbr, partition1,...)</td>
+</tr>
+<tr>
+<td nowrap>msstor0:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>alias for msstor:</td>
+</tr>
+<tr>
+<td nowrap>msstor0p0:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>partition 0</td>
+</tr>
+<tr>
+<td nowrap>msstor0p1:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>partition 1</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>mscm:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">no</td>
+<td nowrap>Memory Stick</td>
+</tr>
+<tr>
+<td nowrap>mscm0:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>mscmhc:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>mscmhc0:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>umd:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">2048</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>UMD</td>
+</tr>
+<tr>
+<td nowrap>umd1:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>alias for umd:</td>
+</tr>
+<tr>
+<td nowrap>umd00:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>alias for umd:</td>
+</tr>
+<tr>
+<td nowrap>umd01:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>alias for umd:</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>lflash:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">512</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>internal flash</td>
+</tr>
+<tr>
+<td nowrap>lflash?:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>(?=any number) alias for lflash:</td>
+</tr>
+<tr>
+<td nowrap>lflash0:0,0</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>internal flash, logical partition 0 (flash0)</td>
+</tr>
+<tr>
+<td nowrap>lflash0:0,1</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>internal flash, logical partition 1 (flash1)</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>rda:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">any</td>
+<td nowrap align="center">no</td>
+<td nowrap>infrared Port</td>
+</tr>
+<tr>
+<td nowrap>irda:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">any</td>
+<td nowrap align="center">no</td>
+<td nowrap>alias for rda:</td>
+</tr>
+<tr>
+<td nowrap>irda?:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">any</td>
+<td nowrap align="center">no</td>
+<td nowrap>(?=any number) alias for rda:</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx29.1.2">index</a></div>
+<h4>
+<a name="sec29.1.2">
+29.1.2</a>&nbsp;&nbsp;Filesystems</h4>
+<br><table><tr><td nowrap align="center">
+<table>
+<tr>
+<td nowrap><b>Name</b></td>
+<td nowrap align="center"><b>r</b></td>
+<td nowrap align="center"><b>w</b></td>
+<td nowrap align="center"><b>seekable</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>fatms0:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>Memorystick</td>
+</tr>
+<tr>
+<td nowrap>ms0:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>alias for fatms0:</td>
+</tr>
+<tr>
+<td nowrap>fatms:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>alias for fatms0:</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>umd0:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>UMD</td>
+</tr>
+<tr>
+<td nowrap>isofs:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>UMD</td>
+</tr>
+<tr>
+<td nowrap>isofs0:</td>
+<td nowrap align="center">*</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>alias for isofs:</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>flash0:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>internal flash, system file volume</td>
+</tr>
+<tr>
+<td nowrap>flashfat:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>alias for flash0:</td>
+</tr>
+<tr>
+<td nowrap>flashfat0:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>alias for flash0:</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>flash1:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>internal flash, configuration file volume</td>
+</tr>
+<tr>
+<td nowrap>flashfat1:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>alias for flash1:</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>host0:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>devkit (SC) fileserver</td>
+</tr>
+<tr>
+<td nowrap>host1:</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>devkit (ME) fileserver</td>
+</tr>
+<tr>
+<td nowrap>&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx29.2">index</a></div>
+<h3>
+<a name="sec29.2">
+29.2</a>&nbsp;&nbsp;Return Codes</h3>
+<br><div class="idx"><a href="index.html#idx29.2.1">index</a></div>
+<h4>
+<a name="sec29.2.1">
+29.2.1</a>&nbsp;&nbsp;Structure</h4>
+<br><table>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap><tt>31</tt></td>
+<td nowrap align="right"><tt>24</tt></td>
+<td nowrap><tt>23</tt></td>
+<td nowrap align="right"><tt>16</tt></td>
+<td nowrap><tt>15</tt></td>
+<td nowrap align="right"><tt>8</tt></td>
+<td nowrap><tt>7</tt></td>
+<td nowrap align="right"><tt>0</tt></td>
+</tr>
+<tr>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+<td nowrap><tt>....</tt></td>
+<td nowrap align="right"><tt>....</tt></td>
+</tr>
+</table>
+</td></tr>
+<tr><td nowrap>
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>bit(s)</b></td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center">31</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap>OK</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap>Error</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap align="center">30</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>
+<table>
+<tr>
+<td nowrap align="center">0</td>
+<td nowrap>normal</td>
+</tr>
+<tr>
+<td nowrap align="center">1</td>
+<td nowrap>critical</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td nowrap align="center">28-29</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>reserved/unused</td>
+</tr>
+<tr>
+<td nowrap align="center">16-27</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>facility</td>
+</tr>
+<tr>
+<td nowrap align="center">0-15</td>
+<td nowrap align="center">&nbsp;</td>
+<td nowrap>type of error</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<br><div class="idx"><a href="index.html#idx29.2.2">index</a></div>
+<h4>
+<a name="sec29.2.2">
+29.2.2</a>&nbsp;&nbsp;Facilities</h4>
+<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>code</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00000000</tt></td>
+<td nowrap>General</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00010000</tt></td>
+<td nowrap>Errno</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x00020000</tt></td>
+<td nowrap>Kernel</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx29.2.3">index</a></div>
+<h4>
+<a name="sec29.2.3">
+29.2.3</a>&nbsp;&nbsp;General Errors</h4>
+<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>code</b></td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx29.2.4">index</a></div>
+<h4>
+<a name="sec29.2.4">
+29.2.4</a>&nbsp;&nbsp;Errnos</h4>
+<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>code</b></td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx29.2.5">index</a></div>
+<h4>
+<a name="sec29.2.5">
+29.2.5</a>&nbsp;&nbsp;Kernel Errors </h4>
+<br><tt></tt><br><a name="tth_tAb1">
+</a> 
+<table><tr><td nowrap><table>
+<tr>
+<td nowrap align="center"><b>code</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020001</tt></td>
+<td nowrap>ERROR</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020002</tt></td>
+<td nowrap>NOTIMP</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020032</tt></td>
+<td nowrap>ILLEGAL_EXPCODE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020033</tt></td>
+<td nowrap>EXPHANDLER_NOUSE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020034</tt></td>
+<td nowrap>EXPHANDLER_USED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020035</tt></td>
+<td nowrap>SYCALLTABLE_NOUSED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020036</tt></td>
+<td nowrap>SYCALLTABLE_USED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020037</tt></td>
+<td nowrap>ILLEGAL_SYSCALLTABLE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020038</tt></td>
+<td nowrap>ILLEGAL_PRIMARY_SYSCALL_NUMBER</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020039</tt></td>
+<td nowrap>PRIMARY_SYSCALL_NUMBER_INUSE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020064</tt></td>
+<td nowrap>ILLEGAL_CONTEXT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020065</tt></td>
+<td nowrap>ILLEGAL_INTRCODE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020066</tt></td>
+<td nowrap>CPUDI</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020067</tt></td>
+<td nowrap>FOUND_HANDLER</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020068</tt></td>
+<td nowrap>NOTFOUND_HANDLER</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020069</tt></td>
+<td nowrap>ILLEGAL_INTRLEVEL</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002006a</tt></td>
+<td nowrap>ILLEGAL_ADDRESS</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002006b</tt></td>
+<td nowrap>ILLEGAL_INTRPARAM</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002006c</tt></td>
+<td nowrap>ILLEGAL_STACK_ADDRESS</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002006d</tt></td>
+<td nowrap>ALREADY_STACK_SET</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020096</tt></td>
+<td nowrap>NO_TIMER</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020097</tt></td>
+<td nowrap>ILLEGAL_TIMERID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020098</tt></td>
+<td nowrap>ILLEGAL_SOURCE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020099</tt></td>
+<td nowrap>ILLEGAL_PRESCALE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002009a</tt></td>
+<td nowrap>TIMER_BUSY</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002009b</tt></td>
+<td nowrap>TIMER_NOT_SETUP</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002009c</tt></td>
+<td nowrap>TIMER_NOT_INUSE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200a0</tt></td>
+<td nowrap>UNIT_USED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200a1</tt></td>
+<td nowrap>UNIT_NOUSE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200a2</tt></td>
+<td nowrap>NO_ROMDIR</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200c8</tt></td>
+<td nowrap>IDTYPE_EXIST</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200c9</tt></td>
+<td nowrap>IDTYPE_NOT_EXIST</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200ca</tt></td>
+<td nowrap>IDTYPE_NOT_EMPTY</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200cb</tt></td>
+<td nowrap>UNKNOWN_UID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200cc</tt></td>
+<td nowrap>UNMATCH_UID_TYPE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200cd</tt></td>
+<td nowrap>ID_NOT_EXIST</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200ce</tt></td>
+<td nowrap>NOT_FOUND_UIDFUNC</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200cf</tt></td>
+<td nowrap>UID_ALREADY_HOLDER</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200d0</tt></td>
+<td nowrap>UID_NOT_HOLDER</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200d1</tt></td>
+<td nowrap>ILLEGAL_PERM</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200d2</tt></td>
+<td nowrap>ILLEGAL_ARGUMENT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200d3</tt></td>
+<td nowrap>ILLEGAL_ADDR</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200d4</tt></td>
+<td nowrap>OUT_OF_RANGE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200d5</tt></td>
+<td nowrap>MEM_RANGE_OVERLAP</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200d6</tt></td>
+<td nowrap>ILLEGAL_PARTITION</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200d7</tt></td>
+<td nowrap>PARTITION_INUSE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200d8</tt></td>
+<td nowrap>ILLEGAL_MEMBLOCKTYPE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200d9</tt></td>
+<td nowrap>MEMBLOCK_ALLOC_FAILED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200da</tt></td>
+<td nowrap>MEMBLOCK_RESIZE_LOCKED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200db</tt></td>
+<td nowrap>MEMBLOCK_RESIZE_FAILED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200dc</tt></td>
+<td nowrap>HEAPBLOCK_ALLOC_FAILED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200dd</tt></td>
+<td nowrap>HEAP_ALLOC_FAILED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200de</tt></td>
+<td nowrap>ILLEGAL_CHUNK_ID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200df</tt></td>
+<td nowrap>NOCHUNK</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800200e0</tt></td>
+<td nowrap>NO_FREECHUNK</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002012c</tt></td>
+<td nowrap>LINKERR</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002012d</tt></td>
+<td nowrap>ILLEGAL_OBJECT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002012e</tt></td>
+<td nowrap>UNKNOWN_MODULE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002012f</tt></td>
+<td nowrap>NOFILE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020130</tt></td>
+<td nowrap>FILEERR</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020131</tt></td>
+<td nowrap>MEMINUSE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020132</tt></td>
+<td nowrap>PARTITION_MISMATCH</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020133</tt></td>
+<td nowrap>ALREADY_STARTED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020134</tt></td>
+<td nowrap>NOT_STARTED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020135</tt></td>
+<td nowrap>ALREADY_STOPPED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020136</tt></td>
+<td nowrap>CAN_NOT_STOP</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020137</tt></td>
+<td nowrap>NOT_STOPPED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020138</tt></td>
+<td nowrap>NOT_REMOVABLE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020139</tt></td>
+<td nowrap>EXCLUSIVE_LOAD</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002013a</tt></td>
+<td nowrap>LIBRARY_NOT_YET_LINKED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002013b</tt></td>
+<td nowrap>LIBRARY_FOUND</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002013c</tt></td>
+<td nowrap>LIBRARY_NOTFOUND</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002013d</tt></td>
+<td nowrap>ILLEGAL_LIBRARY</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002013e</tt></td>
+<td nowrap>LIBRARY_INUSE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002013f</tt></td>
+<td nowrap>ALREADY_STOPPING</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020140</tt></td>
+<td nowrap>ILLEGAL_OFFSET</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020141</tt></td>
+<td nowrap>ILLEGAL_POSITION</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020142</tt></td>
+<td nowrap>ILLEGAL_ACCESS</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020143</tt></td>
+<td nowrap>MODULE_MGR_BUSY</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020144</tt></td>
+<td nowrap>ILLEGAL_FLAG</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020145</tt></td>
+<td nowrap>CANNOT_GET_MODULELIST</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020146</tt></td>
+<td nowrap>PROHIBIT_LOADMODULE_DEVICE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020147</tt></td>
+<td nowrap>PROHIBIT_LOADEXEC_DEVICE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020148</tt></td>
+<td nowrap>UNSUPPORTED_PRX_TYPE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020149</tt></td>
+<td nowrap>ILLEGAL_PERM_CALL</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002014a</tt></td>
+<td nowrap>CANNOT_GET_MODULE_INFORMATION</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002014b</tt></td>
+<td nowrap>ILLEGAL_LOADEXEC_BUFFER</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002014c</tt></td>
+<td nowrap>ILLEGAL_LOADEXEC_FILENAME</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002014d</tt></td>
+<td nowrap>NO_EXIT_CALLBACK</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020190</tt></td>
+<td nowrap>NO_MEMORY</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020191</tt></td>
+<td nowrap>ILLEGAL_ATTR</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020192</tt></td>
+<td nowrap>ILLEGAL_ENTRY</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020193</tt></td>
+<td nowrap>ILLEGAL_PRIORITY</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020194</tt></td>
+<td nowrap>ILLEGAL_STACK_SIZE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020195</tt></td>
+<td nowrap>ILLEGAL_MODE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020196</tt></td>
+<td nowrap>ILLEGAL_MASK</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020197</tt></td>
+<td nowrap>ILLEGAL_THID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020198</tt></td>
+<td nowrap>UNKNOWN_THID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020199</tt></td>
+<td nowrap>UNKNOWN_SEMID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002019a</tt></td>
+<td nowrap>UNKNOWN_EVFID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002019b</tt></td>
+<td nowrap>UNKNOWN_MBXID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002019c</tt></td>
+<td nowrap>UNKNOWN_VPLID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002019d</tt></td>
+<td nowrap>UNKNOWN_FPLID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002019e</tt></td>
+<td nowrap>UNKNOWN_MPPID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002019f</tt></td>
+<td nowrap>UNKNOWN_ALMID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201a0</tt></td>
+<td nowrap>UNKNOWN_TEID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201a1</tt></td>
+<td nowrap>UNKNOWN_CBID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201a2</tt></td>
+<td nowrap>DORMANT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201a3</tt></td>
+<td nowrap>SUSPEND</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201a4</tt></td>
+<td nowrap>NOT_DORMANT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201a5</tt></td>
+<td nowrap>NOT_SUSPEND</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201a6</tt></td>
+<td nowrap>NOT_WAIT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201a7</tt></td>
+<td nowrap>CAN_NOT_WAIT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201a8</tt></td>
+<td nowrap>WAIT_TIMEOUT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201a9</tt></td>
+<td nowrap>WAIT_CANCEL</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201aa</tt></td>
+<td nowrap>RELEASE_WAIT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201ab</tt></td>
+<td nowrap>NOTIFY_CALLBACK</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201ac</tt></td>
+<td nowrap>THREAD_TERMINATED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201ad</tt></td>
+<td nowrap>SEMA_ZERO</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201ae</tt></td>
+<td nowrap>SEMA_OVF</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201af</tt></td>
+<td nowrap>EVF_COND</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201b0</tt></td>
+<td nowrap>EVF_MULTI</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201b1</tt></td>
+<td nowrap>EVF_ILPAT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201b2</tt></td>
+<td nowrap>MBOX_NOMSG</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201b3</tt></td>
+<td nowrap>MPP_FULL</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201b4</tt></td>
+<td nowrap>MPP_EMPTY</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201b5</tt></td>
+<td nowrap>WAIT_DELETE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201b6</tt></td>
+<td nowrap>ILLEGAL_MEMBLOCK</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201b7</tt></td>
+<td nowrap>ILLEGAL_MEMSIZE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201b8</tt></td>
+<td nowrap>ILLEGAL_SPADADDR</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201b9</tt></td>
+<td nowrap>SPAD_INUSE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201ba</tt></td>
+<td nowrap>SPAD_NOT_INUSE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201bb</tt></td>
+<td nowrap>ILLEGAL_TYPE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201bc</tt></td>
+<td nowrap>ILLEGAL_SIZE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201bd</tt></td>
+<td nowrap>ILLEGAL_COUNT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201be</tt></td>
+<td nowrap>UNKNOWN_VTID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201bf</tt></td>
+<td nowrap>ILLEGAL_VTID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201c0</tt></td>
+<td nowrap>ILLEGAL_KTLSID</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201c1</tt></td>
+<td nowrap>KTLS_FULL</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800201c2</tt></td>
+<td nowrap>KTLS_BUSY</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020258</tt></td>
+<td nowrap>PM_INVALID_PRIORITY</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020259</tt></td>
+<td nowrap>PM_INVALID_DEVNAME</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002025a</tt></td>
+<td nowrap>PM_UNKNOWN_DEVNAME</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002025b</tt></td>
+<td nowrap>PM_PMINFO_REGISTERED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002025c</tt></td>
+<td nowrap>PM_PMINFO_UNREGISTERED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002025d</tt></td>
+<td nowrap>PM_INVALID_MAJOR_STATE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002025e</tt></td>
+<td nowrap>PM_INVALID_REQUEST</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002025f</tt></td>
+<td nowrap>PM_UNKNOWN_REQUEST</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020260</tt></td>
+<td nowrap>PM_INVALID_UNIT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020261</tt></td>
+<td nowrap>PM_CANNOT_CANCEL</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020262</tt></td>
+<td nowrap>PM_INVALID_PMINFO</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020263</tt></td>
+<td nowrap>PM_INVALID_ARGUMENT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020264</tt></td>
+<td nowrap>PM_ALREADY_TARGET_PWRSTATE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020265</tt></td>
+<td nowrap>PM_CHANGE_PWRSTATE_FAILED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020266</tt></td>
+<td nowrap>PM_CANNOT_CHANGE_DEVPWR_STATE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020267</tt></td>
+<td nowrap>PM_NO_SUPPORT_DEVPWR_STATE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202bc</tt></td>
+<td nowrap>DMAC_REQUEST_FAILED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202bd</tt></td>
+<td nowrap>DMAC_REQUEST_DENIED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202be</tt></td>
+<td nowrap>DMAC_OP_QUEUED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202bf</tt></td>
+<td nowrap>DMAC_OP_NOT_QUEUED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202c0</tt></td>
+<td nowrap>DMAC_OP_RUNNING</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202c1</tt></td>
+<td nowrap>DMAC_OP_NOT_ASSIGNED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202c2</tt></td>
+<td nowrap>DMAC_OP_TIMEOUT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202c3</tt></td>
+<td nowrap>DMAC_OP_FREED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202c4</tt></td>
+<td nowrap>DMAC_OP_USED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202c5</tt></td>
+<td nowrap>DMAC_OP_EMPTY</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202c6</tt></td>
+<td nowrap>DMAC_OP_ABORTED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202c7</tt></td>
+<td nowrap>DMAC_OP_ERROR</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202c8</tt></td>
+<td nowrap>DMAC_CHANNEL_RESERVED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202c9</tt></td>
+<td nowrap>DMAC_CHANNEL_EXCLUDED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202ca</tt></td>
+<td nowrap>DMAC_PRIVILEGE_ADDRESS</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202cb</tt></td>
+<td nowrap>DMAC_NO_ENOUGHSPACE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202cc</tt></td>
+<td nowrap>DMAC_CHANNEL_NOT_ASSIGNED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202cd</tt></td>
+<td nowrap>DMAC_CHILD_OPERATION</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202ce</tt></td>
+<td nowrap>DMAC_TOO_MUCH_SIZE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800202cf</tt></td>
+<td nowrap>DMAC_INVALID_ARGUMENT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020320</tt></td>
+<td nowrap>MFILE</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020321</tt></td>
+<td nowrap>NODEV</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020322</tt></td>
+<td nowrap>XDEV</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020323</tt></td>
+<td nowrap>BADF</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020324</tt></td>
+<td nowrap>INVAL</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020325</tt></td>
+<td nowrap>UNSUP</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020326</tt></td>
+<td nowrap>ALIAS_USED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020327</tt></td>
+<td nowrap>CANNOT_MOUNT</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020328</tt></td>
+<td nowrap>DRIVER_DELETED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x80020329</tt></td>
+<td nowrap>ASYNC_BUSY</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002032a</tt></td>
+<td nowrap>NOASYNC</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002032b</tt></td>
+<td nowrap>REGDEV</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002032c</tt></td>
+<td nowrap>NOCWD</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002032d</tt></td>
+<td nowrap>NAMETOOLONG</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800203e8</tt></td>
+<td nowrap>NXIO</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800203e9</tt></td>
+<td nowrap>IO</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800203ea</tt></td>
+<td nowrap>NOMEM</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x800203eb</tt></td>
+<td nowrap>STDIO_NOT_OPENED</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0x8002044c</tt></td>
+<td nowrap>CACHE_ALIGNMENT</td>
+</tr>
+</table></td></tr></table>
+<div class="idx"><a href="index.html#idx29.2.6">index</a></div>
+<h4>
+<a name="sec29.2.6">
+29.2.6</a>&nbsp;&nbsp;Network Errors</h4>
+<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table><tr>
+<td nowrap align="center"><b>code</b></td>
+<td nowrap><b>description</b></td>
+</tr></table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx29.2.7">index</a></div>
+<h4>
+<a name="sec29.2.7">
+29.2.7</a>&nbsp;&nbsp;unspecified Errors</h4>
+<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table>
+<tr>
+<td nowrap align="center"><b>code</b></td>
+<td nowrap><b>description</b></td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xfffffed0</tt></td>
+<td nowrap>?</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xfffffed3</tt></td>
+<td nowrap>prx tag not found?</td>
+</tr>
+<tr>
+<td nowrap align="center"><tt>0xfffffed5</tt></td>
+<td nowrap>descramble error?</td>
+</tr>
+</table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx29.3">index</a></div>
+<h3>
+<a name="sec29.3">
+29.3</a>&nbsp;&nbsp;Versions</h3>
+<br><div class="idx"><a href="index.html#idx29.3.1">index</a></div>
+<h4>
+<a name="sec29.3.1">
+29.3.1</a>&nbsp;&nbsp;1.0</h4>
+<br><ul>
+<li> The first batch of PSPs was shipped with this firmware in Japan.
+</li>
+<li> 1.0 will run an unsigned binary in a PBP file without worry.
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx29.3.2">index</a></div>
+<h4>
+<a name="sec29.3.2">
+29.3.2</a>&nbsp;&nbsp;1.5</h4>
+<br><ul>
+<li> 1.5 will refuse to run an unsigned binary in a PBP file, but will
+execute a bare elf file if you can provide that file after the PSP
+has already loaded the PBP.
+</li>
+<li> the 1.50-US and the 1.50 JP flash0 are identical
+</li>
+</ul>
+Files added/modified from 1.0:<br><br><tt>flash0:/kd/ata.prx </tt><br><tt>flash0:/kd/audio.prx </tt><br><tt>flash0:/kd/audiocodec.prx</tt><br><tt>flash0:/kd/blkdev.prx</tt><br><tt>flash0:/kd/chkreg.prx </tt><br><tt>flash0:/kd/clockgen.prx </tt><br><tt>flash0:/kd/codec.prx </tt><br><tt>flash0:/kd/ctrl.prx </tt><br><tt>flash0:/kd/display.prx </tt><br><tt>flash0:/kd/dmacman.prx</tt><br><tt>flash0:/kd/dmacplus.prx </tt><br><tt>flash0:/kd/emc_ddr.prx</tt><br><tt>flash0:/kd/emc_sm.prx</tt><br><tt>flash0:/kd/exceptionman.prx </tt><br><tt>flash0:/kd/fatmsmod.prx </tt><br><tt>flash0:/kd/ge.prx </tt><br><tt>flash0:/kd/gpio.prx </tt><br><tt>flash0:/kd/hpremote.prx</tt><br><tt>flash0:/kd/i2c.prx </tt><br><tt>flash0:/kd/idstorage.prx</tt><br><tt>flash0:/kd/ifhandle.prx </tt><br><tt>flash0:/kd/impose.prx </tt><br><tt>flash0:/kd/init.prx</tt><br><tt>flash0:/kd/interruptman.prx </tt><br><tt>flash0:/kd/iofilemgr.prx</tt><br><tt>flash0:/kd/isofs.prx </tt><br><tt>flash0:/kd/lcdc.prx</tt><br><tt>flash0:/kd/led.prx </tt><br><tt>flash0:/kd/lfatfs.prx</tt><br><tt>flash0:/kd/lflash_fatfmt.prx </tt><br><tt>flash0:/kd/libatrac3plus.prx</tt><br><tt>flash0:/kd/libhttp.prx </tt><br><tt>flash0:/kd/libparse_http.prx</tt><br><tt>flash0:/kd/libparse_uri.prx </tt><br><tt>flash0:/kd/libupdown.prx</tt><br><tt>flash0:/kd/loadcore.prx</tt><br><tt>flash0:/kd/loadexec.prx</tt><br><tt>flash0:/kd/me_for_vsh.prx</tt><br><tt>flash0:/kd/me_wrapper.prx </tt><br><tt>flash0:/kd/mebooter.prx </tt><br><tt>flash0:/kd/mebooter_umdvideo.prx </tt><br><tt>flash0:/kd/mediaman.prx </tt><br><tt>flash0:/kd/mediasync.prx</tt><br><tt>flash0:/kd/memab.prx </tt><br><tt>flash0:/kd/memlmd.prx </tt><br><tt>flash0:/kd/mesg_led.prx </tt><br><tt>flash0:/kd/mgr.prx</tt><br><tt>flash0:/kd/modulemgr.prx </tt><br><tt>flash0:/kd/mpeg_vsh.prx</tt><br><tt>flash0:/kd/mpegbase.prx </tt><br><tt>flash0:/kd/msaudio.prx</tt><br><tt>flash0:/kd/mscm.prx </tt><br><tt>flash0:/kd/msstor.prx </tt><br><tt>flash0:/kd/openpsid.prx</tt><br><tt>flash0:/kd/peq.prx </tt><br><tt>flash0:/kd/power.prx </tt><br><tt>flash0:/kd/pspbtcnf.txt </tt><br><tt>flash0:/kd/pspbtcnf_game.txt</tt><br><tt>flash0:/kd/pspbtcnf_updater.txt </tt><br><tt>flash0:/kd/pspcnf_tbl.txt </tt><br><tt>flash0:/kd/pspnet.prx</tt><br><tt>flash0:/kd/pspnet_adhoc.prx</tt><br><tt>flash0:/kd/pspnet_adhoc_auth.prx </tt><br><tt>flash0:/kd/pspnet_adhoc_download.prx </tt><br><tt>flash0:/kd/pspnet_adhoc_matching.prx </tt><br><tt>flash0:/kd/pspnet_adhocctl.prx </tt><br><tt>flash0:/kd/pspnet_ap_dialog_dummy.prx</tt><br><tt>flash0:/kd/pspnet_apctl.prx </tt><br><tt>flash0:/kd/pspnet_inet.prx </tt><br><tt>flash0:/kd/pspnet_resolver.prx </tt><br><tt>flash0:/kd/pwm.prx </tt><br><tt>flash0:/kd/reboot.prx</tt><br><tt>flash0:/kd/registry.prx</tt><br><tt>flash0:/kd/rtc.prx </tt><br><tt>flash0:/kd/semawm.prx</tt><br><tt>flash0:/kd/sircs.prx </tt><br><tt>flash0:/kd/stdio.prx </tt><br><tt>flash0:/kd/sysclib.prx </tt><br><tt>flash0:/kd/syscon.prx </tt><br><tt>flash0:/kd/sysmem.prx </tt><br><tt>flash0:/kd/sysmem_uart4.prx (removed, only in 1.00-JP)</tt><br><tt>flash0:/kd/sysreg.prx </tt><br><tt>flash0:/kd/systimer.prx </tt><br><tt>flash0:/kd/threadman.prx </tt><br><tt>flash0:/kd/uart4.prx </tt><br><tt>flash0:/kd/umd9660.prx</tt><br><tt>flash0:/kd/umdman.prx </tt><br><tt>flash0:/kd/usb.prx </tt><br><tt>flash0:/kd/usbstor.prx </tt><br><tt>flash0:/kd/usbstorboot.prx </tt><br><tt>flash0:/kd/usbstormgr.prx </tt><br><tt>flash0:/kd/usbstorms.prx </tt><br><tt>flash0:/kd/usersystemlib.prx </tt><br><tt>flash0:/kd/utility.prx </tt><br><tt>flash0:/kd/utils.prx </tt><br><tt>flash0:/kd/vaudio.prx</tt><br><tt>flash0:/kd/vaudio_game.prx </tt><br><tt>flash0:/kd/videocodec.prx </tt><br><tt>flash0:/kd/vshbridge.prx </tt><br><tt>flash0:/kd/wlan.prx </tt><br><tt>flash0:/kd/resource/impose.rsc (only in 1.50-US )</tt><br><tt>flash0:/vsh/etc/index.dat </tt><br><tt>flash0:/vsh/etc/jis2ucs.bin </tt><br><tt>flash0:/vsh/etc/jis2ucs.cbin </tt><br><tt>flash0:/vsh/etc/version.txt </tt><br><tt>flash0:/vsh/module/auth_plugin.prx </tt><br><tt>flash0:/vsh/module/chnnlsv.prx </tt><br><tt>flash0:/vsh/module/common_gui.prx </tt><br><tt>flash0:/vsh/module/common_util.prx </tt><br><tt>flash0:/vsh/module/dialogmain.prx </tt><br><tt>flash0:/vsh/module/game_plugin.prx </tt><br><tt>flash0:/vsh/module/heaparea1.prx </tt><br><tt>flash0:/vsh/module/heaparea2.prx </tt><br><tt>flash0:/vsh/module/impose_plugin.prx </tt><br><tt>flash0:/vsh/module/msgdialog_plugin.prx</tt><br><tt>flash0:/vsh/module/msvideo_plugin.prx </tt><br><tt>flash0:/vsh/module/music_plugin.prx </tt><br><tt>flash0:/vsh/module/netconf_plugin.prx </tt><br><tt>flash0:/vsh/module/netplay_client_plugin.prx</tt><br><tt>flash0:/vsh/module/netplay_server_utility.prx </tt><br><tt>flash0:/vsh/module/opening_plugin.prx</tt><br><tt>flash0:/vsh/module/osk_plugin.prx </tt><br><tt>flash0:/vsh/module/paf.prx </tt><br><tt>flash0:/vsh/module/pafmini.prx </tt><br><tt>flash0:/vsh/module/photo_plugin.prx</tt><br><tt>flash0:/vsh/module/savedata_auto_dialog.prx </tt><br><tt>flash0:/vsh/module/savedata_plugin.prx </tt><br><tt>flash0:/vsh/module/savedata_utility.prx </tt><br><tt>flash0:/vsh/module/sysconf_plugin.prx </tt><br><tt>flash0:/vsh/module/update_plugin.prx</tt><br><tt>flash0:/vsh/module/video_plugin.prx</tt><br><tt>flash0:/vsh/module/vshmain.prx </tt><br><tt>flash0:/vsh/resource/auth_plugin.rco </tt><br><tt>flash0:/vsh/resource/game_plugin.rco </tt><br><tt>flash0:/vsh/resource/impose_plugin.rco </tt><br><tt>flash0:/vsh/resource/msgdialog_plugin.rco</tt><br><tt>flash0:/vsh/resource/msvideo_plugin.rco </tt><br><tt>flash0:/vsh/resource/music_plugin.rco </tt><br><tt>flash0:/vsh/resource/netconf_dialog.rco</tt><br><tt>flash0:/vsh/resource/netplay_plugin.rco </tt><br><tt>flash0:/vsh/resource/opening_plugin.rco</tt><br><tt>flash0:/vsh/resource/osk_plugin.rco</tt><br><tt>flash0:/vsh/resource/osk_utility.rco </tt><br><tt>flash0:/vsh/resource/photo_plugin.rco </tt><br><tt>flash0:/vsh/resource/savedata_plugin.rco</tt><br><tt>flash0:/vsh/resource/savedata_utility.rco</tt><br><tt>flash0:/vsh/resource/sysconf_plugin.rco </tt><br><tt>flash0:/vsh/resource/system_plugin.rco</tt><br><tt>flash0:/vsh/resource/system_plugin_bg.rco </tt><br><tt>flash0:/vsh/resource/system_plugin_fg.rco </tt><br><tt>flash0:/vsh/resource/topmenu_plugin.rco</tt><br><tt>flash0:/vsh/resource/update_plugin.rco </tt><br><tt>flash0:/vsh/resource/video_plugin.rco</tt><br><tt>flash0:/vsh/resource/video_plugin_videotoolbar.rco </tt><br><div class="idx"><a href="index.html#idx29.3.3">index</a></div>
+<h4>
+<a name="sec29.3.3">
+29.3.3</a>&nbsp;&nbsp;1.51</h4>
+<br><ul>
+<li> The ability to run unencrypted, unsigned binaries was removed in this
+Firmware.
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx29.3.4">index</a></div>
+<h4>
+<a name="sec29.3.4">
+29.3.4</a>&nbsp;&nbsp;1.52</h4>
+<br><ul>
+<li> The first batch of european PSPs was shipped with this firmware
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx29.3.5">index</a></div>
+<h4>
+<a name="sec29.3.5">
+29.3.5</a>&nbsp;&nbsp;2.0</h4>
+<br><h5>29.3.5.1 <a name="sec29.3.5.1">
+    &nbsp;&nbsp;new Features</a>
+</h5>
+<br><ul>
+<li> Network
+<ul>
+<li> Internet browser was added. (Doesn't yet support Macromedia Flash,
+some webpages will not be displayed correctly)
+</li>
+</ul>
+</li>
+<li> Video 
+<ul>
+<li> Jump function was added (UMD Video and UMD Music).
+</li>
+<li> A-B repeat function was added (UMD Video, UMD Music and Memory Stick
+Duo)
+</li>
+<li> 4:3 screen mode was added (Memory Stick Duo)
+</li>
+<li> Voice switch function was added (Memory Stick Duo)
+</li>
+<li> MP4 AVC support was added (Memory Stick Duo)
+</li>
+</ul>
+</li>
+<li> Music 
+<ul>
+<li> SonicStage version 3.2 now supports using ATRAC3plus with the Memory
+Stick PRO Duo on the PSP.
+</li>
+<li> MP4 AAC and WAV PCM support added (Memory Stick Duo)
+</li>
+</ul>
+</li>
+<li> Photo
+<ul>
+<li> Wallpaper function was added.
+</li>
+<li> Sending and receiving of images was added.
+</li>
+<li> TIFF, GIF, PNG and BMP support added.
+</li>
+</ul>
+</li>
+<li> Settings
+<ul>
+<li> Korean language was added.
+</li>
+<li> Theme setting was added.
+</li>
+<li> Security setting was added.
+</li>
+<li> WPA-PSK support added.
+</li>
+</ul>
+</li>
+</ul>
+<h5>29.3.5.2 <a name="sec29.3.5.2">
+    &nbsp;&nbsp;updated Files</a>
+</h5>
+<br><table><tr><td nowrap align="center">
+<table><tr><td nowrap width="0">
+<tt>flash0:/data/cert/Equifax_S_CA.cer </tt><br><tt>flash0:/data/cert/Equifax_S_eBiz_CA-1.cer </tt><br><tt>flash0:/data/cert/GeoTrust_G_CA.cer </tt><br><tt>flash0:/font/shadow.pgf </tt><br><tt>flash0:/kd/cert_loader.prx </tt><br><tt>flash0:/kd/http_storage.prx </tt><br><tt>flash0:/kd/libdnas.prx </tt><br><tt>flash0:/kd/libdnas_core.prx </tt><br><tt>flash0:/kd/libssl.prx </tt><br><tt>flash0:/kd/mcctrl.prx </tt><br><tt>flash0:/kd/pspnet_adhoc_transfer_int.prx </tt><br><tt>flash0:/kd/resource </tt><br><tt>flash0:/kd/resource/big5_table.dat </tt><br><tt>flash0:/kd/resource/cp949_table.dat </tt><br><tt>flash0:/kd/resource/gbk_table.dat </tt><br><tt>flash0:/vsh/etc/cp1251ucs.bin </tt><br><tt>flash0:/vsh/etc/cp1252ucs.bin </tt><br><tt>flash0:/vsh/etc/ucs2uhc.bin </tt><br><tt>flash0:/vsh/etc/uhc2ucs.bin </tt><br><tt>flash0:/vsh/module </tt><br><tt>flash0:/vsh/module/dnas_plugin.prx </tt><br><tt>flash0:/vsh/module/htmlviewer_plugin.prx </tt><br><tt>flash0:/vsh/module/htmlviewer_ui.prx </tt><br><tt>flash0:/vsh/module/htmlviewer_utility.prx </tt><br><tt>flash0:/vsh/module/libfont_hv.prx </tt><br><tt>flash0:/vsh/module/libslim.prx </tt><br><tt>flash0:/vsh/module/libwww.prx </tt><br><tt>flash0:/vsh/module/netconf_plugin_auto_bfl.prx </tt><br><tt>flash0:/vsh/module/netconf_plugin_auto_nec.prx </tt><br><tt>flash0:/vsh/module/netfront.prx </tt><br><tt>flash0:/vsh/resource/dnas_plugin.rco </tt><br><tt>flash0:/vsh/resource/htmlviewer.fbm </tt><br><tt>flash0:/vsh/resource/htmlviewer.gim </tt><br><tt>flash0:/vsh/resource/htmlviewer.msg </tt><br><tt>flash0:/vsh/resource/htmlviewer.res </tt><br><tt>flash0:/vsh/resource/htmlviewer.snd </tt><br><tt>flash0:/vsh/resource/htmlviewer_plugin.rco </tt><br><tt>flash0:/vsh/resource/netfront.rc </tt><br><tt>flash0:/vsh/resource/netfront.skn </tt><br><tt>flash0:/vsh/resource/netfront.uhc </tt><br><tt>flash1:/net/http </tt><br><tt>ipl:/psp_ipl.bin</tt>
+</td></tr></table>
+</td></tr></table>
+<br><b>29.3.5.3<a name="sec29.3.5.3">
+    &nbsp;&nbsp;</a>
+&nbsp;</b>
+      <div class="idx"><a href="index.html#idx29.3.6">index</a></div>
+<h4>
+<a name="sec29.3.6">
+29.3.6</a>&nbsp;&nbsp;2.01</h4>
+<br><h5>29.3.6.1 <a name="sec29.3.6.1">
+    &nbsp;&nbsp;new Features</a>
+</h5>
+<br>
+This was a quick release by Sony to fix the TIFF overflow exploit
+found in the previous version
+<h5>29.3.6.2 <a name="sec29.3.6.2">
+    &nbsp;&nbsp;updated Files</a>
+</h5>
+<br><table><tr><td nowrap align="center">
+<table><tr><td nowrap width="0">
+<tt>paf.prx</tt><br><tt>index.dat</tt><br><tt>version.txt</tt>
+</td></tr></table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx29.3.7">index</a></div>
+<h4>
+<a name="sec29.3.7">
+29.3.7</a>&nbsp;&nbsp;2.5</h4>
+<br><h5>29.3.7.1 <a name="sec29.3.7.1">
+    &nbsp;&nbsp;new Features</a>
+</h5>
+<br><ul>
+<li> Streaming Video Support
+</li>
+<li> Unicode support in the Browser with automatic Encoding Detection
+</li>
+<li> Save your text size settings in the Browser
+</li>
+<li> Save your Browser input history (URLs)
+</li>
+<li> Videos with DRM can be played
+</li>
+<li> NTP (Network Time Protocol) support
+</li>
+<li> WPA and PSK have been added to network setting
+</li>
+<li> Korean input keyboard method
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx29.3.8">index</a></div>
+<h4>
+<a name="sec29.3.8">
+29.3.8</a>&nbsp;&nbsp;2.6</h4>
+<br><h5>29.3.8.1 <a name="sec29.3.8.1">
+    &nbsp;&nbsp;new Features</a>
+</h5>
+<br><ul>
+<li> Revisions to strengthen security have been added
+</li>
+<li> [LocationFree Player] has been added as a feature under [Network]
+</li>
+<li> [Auto-Select] and [Unicode (UTF-8)] have been added as options
+to [Encoding] under [View] in the [Internet Browser] menu bar
+</li>
+<li> [Text Size] and [Display Mode] settings of the [Internet Browser]
+can now be saved
+</li>
+<li> The input history of online forms accessed through the [Internet
+Browser] can now be saved
+</li>
+<li> Copyright-protected video can now be played under [Video]. (This
+applies to video data saved on Memory Stick)
+</li>
+<li> [Set via Internet] has been added as an option to [Date &amp; Time
+Settings] under [Settings]
+</li>
+<li> WPA-PSK (AES) has been added as a security method under [Network
+Settings]
+</li>
+<li> Korean input mode has been added to the on-screen keyboard
+</li>
+<li> [RSS Channel] has been added as a feature under [Network]
+</li>
+<li> [Simplified Chinese (GB18030)] and [Traditional Chinese (Big5)]
+have been added as options to [Encoding] under [View] in the [Internet
+Browser] menu bar
+</li>
+<li> [Volume Adjustment] has been added as a feature to [LocationFree
+Player]
+</li>
+<li> You can now download video data that supports copyright protection
+using the [Internet Browser]
+</li>
+<li> WMA has been added as a codec that can be played under [Music].
+(This applies to music data saved on the Memory Stick)
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx29.3.9">index</a></div>
+<h4>
+<a name="sec29.3.9">
+29.3.9</a>&nbsp;&nbsp;2.7</h4>
+<br><ul>
+<li> GTA exploit has been patched ("Load failed. Savegame is corrupted"
+is message displayed during launch).
+</li>
+</ul>
+<h5>29.3.9.1 <a name="sec29.3.9.1">
+    &nbsp;&nbsp;new Features</a>
+</h5>
+<br><ul>
+<li> [Internet Browser] now supports Macromedia Flash contents playback.
+<ul>
+<li> You need to enable the Flash contents playback in the [System Settings].
+</li>
+<li> The version of the flash player is Macromedia Flash Player 6 (a part
+of the functions is not supported).
+</li>
+</ul>
+</li>
+<li> The settings of the [Internet Browser] is added into [Settings]
+-&gt; [Connection Settings]
+</li>
+<li> The audio contents from channels in the [RSS Channel] section now
+can be saved into your memory stick.
+</li>
+<li> [Auto] option added to [Rate Change] in [Location Free Player].
+</li>
+<li> Added file extension to playable AAC format.
+</li>
+<li> You can simply put a JPEG file in the same folder as the music, creating
+the art for the playlist.
+</li>
+<li> Added [Enable Flash Player] in [System Settings].
+<ul>
+<li> To change this option, you need to connect to the Internet
+</li>
+</ul>
+</li>
+<li> "Simplified Chinese" and "Traditional Chinese"
+added to [System Settings] -&gt; [System Language].
+</li>
+<li> Added [RSS Channel Settings].
+</li>
+<li> Added [UMD Video L &amp; R Button] into [Video Settings].
+</li>
+<li> Fixed some issues when using a memory stick with more than 2GB free
+space.
+</li>
+</ul>
+<h5>29.3.9.2 <a name="sec29.3.9.2">
+    &nbsp;&nbsp;new modules</a>
+</h5>
+<br><tt>amctrl.prx </tt><br><tt>avcodec.prx </tt><br><tt>game_install_plugin.prx </tt><br><tt>iofilemgr_dnas.prx </tt><br><tt>irda.prx </tt><br><tt>mm_flash.prx </tt><br><tt>psheet.prx </tt><br><tt>usbacc.prx </tt><br><tt>usbcam.prx </tt><br><tt>usbgps.prx </tt><br><tt>usbgps_serial.prx </tt><br><tt>usbmic.prx </tt><br><tt>usbpspcm.prx </tt><br><tt>video_main_plugin.prx</tt><br><div class="idx"><a href="index.html#idx29.3.10">index</a></div>
+<h4>
+<a name="sec29.3.10">
+29.3.10</a>&nbsp;&nbsp;2.71</h4>
+<br><div class="idx"><a href="index.html#idx29.3.11">index</a></div>
+<h4>
+<a name="sec29.3.11">
+29.3.11</a>&nbsp;&nbsp;2.8</h4>
+<br>
+[Network]
+<ul>
+<li> In [RSS Channel], the download function for animation contents and
+image contents is now supported.
+</li>
+<li> In [Location Free Player], it is now possible to login via wireless
+LAN access point.
+</li>
+</ul>
+[Music]
+<ul>
+<li> AAC files in ".3gp" extension can now be played.
+</li>
+</ul>
+[Misc]
+<ul>
+<li> Supporting saving to "MUSIC", "PICTURE"
+and "VIDEO" folders in "Memory Stick Duo".
+</li>
+<li> Adding the next downloadable game demo to the "Memory Stick
+Duo".
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx29.3.12">index</a></div>
+<h4>
+<a name="sec29.3.12">
+29.3.12</a>&nbsp;&nbsp;2.81</h4>
+<br><div class="idx"><a href="index.html#idx29.3.13">index</a></div>
+<h4>
+<a name="sec29.3.13">
+29.3.13</a>&nbsp;&nbsp;2.82</h4>
+<br><ul>
+<li> Ability to play Flash content in the Internet Browser (Connection
+to internet required for license)
+</li>
+<li> Connection Settings added under Settings in Internet Browser
+</li>
+<li> Ability to save content added in RSS to Memory Stick
+</li>
+<li> Automatic has been added under Rate in Location Free Player
+</li>
+<li> UMD Video L/R button added under Video Settings in Settings
+</li>
+<li> Ability to disable Chapter Skip feature of the L/R Buttons (UMD Video)
+</li>
+<li> New playable extension - AAC
+</li>
+<li> Simplified Chinese, Tradition Chinese added as new languages
+</li>
+<li> RSS channel Settings added in Settings
+</li>
+<li> Demos can now be downloaded from Browser and saved on Memory Stick
+</li>
+<li> Video output can now be displayed correctly when an external tuner
+is selected in Location Free Player
+</li>
+<li> Ability to download Video and Image content under RSS Channel
+</li>
+<li> Ability to register devices via a wireless LAN access point under
+Location Free Player
+</li>
+<li> Ability to play AAC files with .3gp extension under Music
+</li>
+<li> Ability to play content saved in MUSIC, PICTURE and VIDEO folders
+on a Memory Stick
+</li>
+<li> Added security strengthening revisions.
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx29.3.14">index</a></div>
+<h4>
+<a name="sec29.3.14">
+29.3.14</a>&nbsp;&nbsp;3.0</h4>
+<br><ul>
+<li> Remote Play - Remote play is a new feature in Firmware 3.00 that allows
+you to remotely control your PlayStation 3 from your PSP. This also
+includes the display of PS3 content on the PSP. "You can
+display a PLAYSTATION&reg;3 system screen on a PSP system and play content
+that is on the PS3 system. To use this feature, you must adjust the
+necessary settings on the PSP system and the PS3 system."
+Using this new mode of playback, one can control the Photo, Music,
+Video, and Internet Browser features of the PlayStation 3 from a remote
+location via their Playstation Portable.
+</li>
+<li> Video Compatibility - In this updated version of the Playstation Portable
+firmware, you are also able to play a few new video formats. The Motion
+JPEG format (M-JPEG), is an "informal name for multimedia
+formats where each video frame or interlaced field of a digital video
+sequence is separately compressed as a JPEG image". The PlayStation
+Portable plays both the Linear PCM and the u-Law Versions of the Motion
+JPEG video format.
+</li>
+<li> In addition, you will now be able to access the Camera (functionality)
+from the photo option menus, for quicker easier access when taking
+photos or video.
+</li>
+<li> Another nifty function is the ability to finally turn off Auto Play
+for inserted UMD Discs via UMD Auto Boot.
+</li>
+<li> PlayStation Games - Here's the big tip you've been waiting for. Finally,
+Sony is going to drop their highly anticipated PlayStation One emulator
+onto the PSP. From the manual however, there seems to be a unavoidable
+catch. If you don't have a PS3, your not going to be enjoying PlayStation
+One games emulating on Sony's PlayStation One emulator for PSP anytime
+soon. From the manual it states that you must connect to the Playstation
+Online store with your PSP connected to the PlayStation 3 in order
+to download and play the games. In addition, they mention that you
+can in fact share the games, but you must activate the other system
+in the Friends menu as a PS3 Network Account.
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx29.3.15">index</a></div>
+<h4>
+<a name="sec29.3.15">
+29.3.15</a>&nbsp;&nbsp;3.01</h4>
+<br><ul>
+<li> security fixes
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx29.3.16">index</a></div>
+<h4>
+<a name="sec29.3.16">
+29.3.16</a>&nbsp;&nbsp;3.02</h4>
+<br><div class="idx"><a href="index.html#idx29.3.17">index</a></div>
+<h4>
+<a name="sec29.3.17">
+29.3.17</a>&nbsp;&nbsp;3.03</h4>
+<br><div class="idx"><a href="index.html#idx29.4">index</a></div>
+<h3>
+<a name="sec29.4">
+29.4</a>&nbsp;&nbsp;Exploits</h3>
+<br><div class="idx"><a href="index.html#idx29.4.1">index</a></div>
+<h4>
+<a name="sec29.4.1">
+29.4.1</a>&nbsp;&nbsp;Kxploit (Code Execution)</h4>
+<br>
+found and Proof of Concept by: spanish PSPDEV team
+<h5>29.4.1.1 <a name="sec29.4.1.1">
+    &nbsp;&nbsp;Overview</a>
+</h5>
+<br><h5>29.4.1.2 <a name="sec29.4.1.2">
+    &nbsp;&nbsp;Details</a>
+</h5>
+<br>
+All kxploit does is create two directories, like this:<br><br><tt>/MYPROG%</tt><br><tt>/MYPROG</tt>&nbsp;<br><tt></tt>&nbsp;<br>
+or, to hide the 'broken data' items, like this:<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><tt>/MYPROG~1%</tt> (exactly 8 characters including
+~1)
+<tt>/MYPROG_________________________1</tt>
+(exactly 32 characters)<br><br>
+The first contains an 'empty' PBP file (no actual executable) and
+the second the real unsigned binary. The PSP sees one as corrupt (and
+shows the corrupt icon) and one as valid. Once you launch the valid
+one, the PSP incorrectly parses the "%" sign as
+part of a standard printf-style formatting string, and so removes
+it, and then finds the elf file and loads it. 
+Memory stick swap works in the same way - it finds the pbp first on
+the first memory stick, and then finds the elf on the second after
+having run the pbp from the menu. <br><br>
+note: the filename hack to hide the broken icons has a subtle problem:<br><br>
+if you copy <tt>MYPROG~1%</tt> first: 
+<tt>MYPROG~1</tt> is the short name for <tt>MYPROG~1%</tt> 
+<tt>MYPROG~2</tt> is the short name for <tt>MYPROG_________________________1</tt>
+<br><br>
+if you copy <tt>MYPROG_________________________1</tt>
+first: 
+<tt>MYPROG~1</tt> is the short name for <tt>MYPROG_________________________1</tt> 
+<tt>MYPROG~2</tt> is the short name for <tt>MYPROG~1%</tt>
+<br><br>
+The second case works properly. The first does not. Remember why the
+kxploit trick works at all: the vsh sees a nicely formed file in "<tt>MYPROG~1%</tt>",
+but then passes "<tt>MYPROG~1</tt>"
+to the bootstrap, which executes the bare ELF. If "<tt>MYPROG~1</tt>"
+is the short name for the wrong directory, of course it won't work.
+<b>29.4.1.3<a name="sec29.4.1.3">
+    &nbsp;&nbsp;__SCE__ variant ("SCEKxploit")</a>
+&nbsp;</b>
+a simelar bug can be exploited, name the two directories like this:<br><br><tt>%__SCE__MYPROG</tt><br><tt>__SCE__MYPROG</tt><br><br>
+this variation of the Kxploit has the advantage that it hides the
+corrupted icons without having the above mentioned subtle problem
+(since the shortened filenames of the two directories can not be confused).
+      <div class="idx"><a href="index.html#idx29.4.2">index</a></div>
+<h4>
+<a name="sec29.4.2">
+29.4.2</a>&nbsp;&nbsp;TIFF Exploit (Code Execution)</h4>
+<br>
+found and Proof of Concept by: Niacin, Skylark
+works in firmware version 2.0. 
+<h5>29.4.2.1 <a name="sec29.4.2.1">
+    &nbsp;&nbsp;Overview</a>
+</h5>
+<br>
+The exploit involves using a wallpaper and a TIFF image file containing
+a buffer overflow. Since the data from the wallpaper is in a known
+location(VRAM) we can use the TIFF overflow to jump to the known VRAM
+location and execute code. 
+<h5>29.4.2.2 <a name="sec29.4.2.2">
+    &nbsp;&nbsp;Details</a>
+</h5>
+<br><div class="idx"><a href="index.html#idx29.4.3">index</a></div>
+<h4>
+<a name="sec29.4.3">
+29.4.3</a>&nbsp;&nbsp;GTA Savegame Exploit (Code Execution)</h4>
+<br>
+found and Proof of Concept by: Edison Carter
+works in firmware version 2.0 (required to run GTA) up to 2.6 (2.7
+fixes the GTA exploit) .The Exploit was patched in a second batch
+of GTA. <br>
+German Version:
+<ul>
+<li> ULES 00182 - Unpatched
+</li>
+</ul>
+Europe (UK/EU) Version:
+<ul>
+<li> ULES-00151# - Unpatched - Contains fw 2.0 Update on UMD
+</li>
+<li> ULES-00151#2 - Patched - Contains the 2.60 update on UMD
+</li>
+</ul>
+North American (US) Version:
+<ul>
+<li> ULUS 10041 - Patched - Contails UPDL 010050 on the UMD.
+</li>
+<li> ULUS 10041 - Unpatched - Contains UPDL 0048501A 5, plus IFPI L332
+in very small letters.
+</li>
+<li> ULUS 10041 Unpatched, and Patched UMDs look exactly the same... Only
+the small codes are different.
+</li>
+</ul>
+Another slight variation that is also on the spine of the UMD case.
+The18 logo in a red circle is present in the pre 2.6 version, but
+in the patched 2.6 game the 18 red circle logo isn't present on the
+spine. Another indication is the copyright Date, if its 2005 then
+its unpatched, if its 2006 then its patched.
+<h5>29.4.3.1 <a name="sec29.4.3.1">
+    &nbsp;&nbsp;Overview</a>
+</h5>
+<br>
+The GTA exploit is a classic stack buffer overflow, in the savedata
+processing.
+<h5>29.4.3.2 <a name="sec29.4.3.2">
+    &nbsp;&nbsp;Details</a>
+</h5>
+<br>
+In essence, the savedata mostly consists of a large structure, with
+an element indicating the total size. GTA allocates a statically-sized
+buffer for this to be read into, on the stack - presumably using sizeof(savestruct)
+or similar. But it copies the number of bytes given by the .size element
+from the savedata into the stack buffer. By editing the .size element
+in the saved data, we can therefore force a buffer overflow. The .size
+element is at offset 0004 in the DATA.BIN file, in the savegame folder. 
+Note that the DATA.BIN is encrypted, so you need to use something
+like the savedata sample from the pspsdk in order to modify it.
+      <div class="idx"><a href="index.html#idx29.4.4">index</a></div>
+<h4>
+<a name="sec29.4.4">
+29.4.4</a>&nbsp;&nbsp;LoadExec Exploit (gain Kernel access)</h4>
+<br>
+found and Proof of Concept by: Hitchhikr
+works in firmware version 2.5 and 2.6
+<h5>29.4.4.1 <a name="sec29.4.4.1">
+    &nbsp;&nbsp;Overview</a>
+</h5>
+<br><h5>29.4.4.2 <a name="sec29.4.4.2">
+    &nbsp;&nbsp;Details</a>
+</h5>
+<br>
+The exploit is located in a function which can be found in the loadexec.prx
+file at address <tt>0x88064C94</tt> (game mode) in the firmware 2.6
+(the same bug is also present in the firmware 2.5), a module located
+in the kernel space memory (therefore running in kernel mode). 
+The purpose of this procedure (used in other functions like "sceLoadExec")
+is to check that the drive part of a filename is valid &amp; legit. It
+allocates 48 bytes of stack and the return address to the calling
+function is stored at the end of it (from 44th to 47th bytes).
+It starts by checking the first char of the string to see if it's
+an empty drive name, if it's not, the routine extracts the part of
+the filename that contain the drive name and copies it into the allocated
+stack, it only stops when it encounters a ':' char.
+Since it doesn't check any string length during the copy, if the drive
+name we supply is big enough it'll overwrite the rest of the stack
+based values, like the return address for example.
+That's why a drive name of 48 chars (+ an extra ':' char to let the
+loop ends) containing an address to an arbitrary position in memory
+(pointing to a function of ours for example) located from the 44th
+to 47th chars in the filename will allow us to run any code we want
+in the context of the executing routine (kernel mode) as when it ends,
+it reloads the return address from the stack and directly jumps to
+it.
+     <div class="idx"><a href="index.html#idx29.5">index</a></div>
+<h3>
+<a name="sec29.5">
+29.5</a>&nbsp;&nbsp;Network Update</h3>
+<br>
+When you select "Network Update" in the PSP menu,
+it will fetch a file from the web, this file currently has the following
+contents: 
+<ul>
+<li> Japanese PSP (JP Region)
+fetches from <tt>http://fj01.psp.update.playstation.org/update/jp/psp-updatelist.txt</tt>&nbsp;<br><tt></tt>&nbsp;<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table><tr><td nowrap width="0">
+<tt># JP</tt><br><tt>Dest=00;ImageVersion=00000000;CDN=http://dj01.psp.update.playstation.org/update/jp/
+nodata;CDN_Timeout=30;</tt>
+</td></tr></table>
+</td></tr></table>
+<tt></tt>&nbsp;<br><tt></tt>&nbsp;<br><tt>or</tt>&nbsp;<br><tt></tt>&nbsp;<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table><tr><td nowrap width="0">
+<tt># JP</tt><br><tt>Dest=00;ImageVersion=000002d5;CDN=http://dj01.psp.update.playstation.org/update/jp/
+2005_0824_50c7032754835b588319c1a6c652cdc0/EBOOT.PBP;CDN_Timeout=30;</tt>
+</td></tr></table>
+</td></tr></table>
+<tt></tt>&nbsp;<br>
+</li>
+<li> American PSP (US Region)
+fetches from <tt>http://fj01.psp.update.playstation.org/update/us/psp-updatelist.txt</tt>&nbsp;<br><tt></tt>&nbsp;<br><table><tr><td nowrap align="center">
+<tt></tt>
+<table><tr><td nowrap width="0">
+<tt># US</tt><br><tt>Dest=01;ImageVersion=000002d5;CDN=http://du01.psp.update.playstation.org/update/us/
+2005_0824_50c7032754835b588319c1a6c652cdc0/EBOOT.PBP;CDN_Timeout=30;</tt>
+</td></tr></table>
+</td></tr></table>
+<tt></tt>&nbsp;<br>
+</li>
+<li> European PSP (EU Region)
+fetches from <tt>http://fj01.psp.update.playstation.org/update/eu/psp-updatelist.txt</tt><br><br><table><tr><td nowrap align="center">
+<tt></tt>
+<table><tr><td nowrap width="0">
+<tt># EU</tt><br><tt>Dest=02;ImageVersion=000002d5;CDN=http://de01.psp.update.playstation.org/update/eu/
+2005_0824_50c7032754835b588319c1a6c652cdc0/EBOOT.PBP;CDN_Timeout=30;</tt>
+</td></tr></table>
+</td></tr></table>
+</li>
+</ul>
+If an image with a higher version than what is currently installed
+is available, the PSP can download it from the URL specified after
+CDN= and install it. The upgrade image consists of a game file in
+the PBP format, which should reflash the system software when run.
+     <div class="idx"><a href="index.html#idx29.6">index</a></div>
+<h3>
+<a name="sec29.6">
+29.6</a>&nbsp;&nbsp;Network Test</h3>
+<br>
+In order for the PSP to check for updates, you must make sure you
+have valid Wi-Fi settings. In the "SETTINGS-&gt;Network Settings-&gt;Infrastructure
+Mode", if you selection the triangle button while the cursor
+is on a connection name, you can select the "Test Connection"
+and the PSP will actually try to reach this URL: http://fj00.psp.update.playstation.org/networktest/trial.txt
+<table><tr><td nowrap align="center">
+<tt></tt>
+<table><tr><td nowrap width="0">p</td></tr></table>
+</td></tr></table>
+<br><div class="idx"><a href="index.html#idx29.7">index</a></div>
+<h3>
+<a name="sec29.7">
+29.7</a>&nbsp;&nbsp;Registry</h3>
+<br>
+The PSP stores some non-critical settings (fonts, language, owners
+name, WEP passwords, user password) in a set of 2 files. Those files,
+named 'system.dreg' and 'system.ireg' can be called "the
+registry", not unlike the Windows one. Since the registry
+is placed on Flash1, it can be accessed by userland code in any version
+from 1.50 to 2.60.
+For some reason (possibly wear leveling the Flash), the PSP registry
+is pretty awkwardly defined. Namely, the DREG part (data) consists
+of 512-byte sectors, not unlike hardware sectors on a hard disk. The
+IREG part (info) contains information on finding those sectors, since
+some blocks can be longer than 1 sector. 
+This is very similar to a filesystem - IREG part works as a "FAT"
+and DREG part works as the data area. 
+     <div class="idx"><a href="index.html#idx29.8">index</a></div>
+<h3>
+<a name="sec29.8">
+29.8</a>&nbsp;&nbsp;VSH</h3>
+<br><div class="idx"><a href="index.html#idx29.9">index</a></div>
+<h3>
+<a name="sec29.9">
+29.9</a>&nbsp;&nbsp;Game Sharing</h3>
+<br><div class="idx"><a href="index.html#idx30">index</a></div>
+</body></html>

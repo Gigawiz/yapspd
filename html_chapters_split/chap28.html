@@ -1,0 +1,95 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="techdoc v0.0.1">
+<link rel="stylesheet" type="text/css" href="techdoc.css">
+<br><title> yet another PlayStationPortable Documentation</title>
+</head>
+<body><h2><a name="sec28">
+28</a>&nbsp;&nbsp;Boot Process</h2>
+<br><div class="idx"><a href="index.html#idx28.1">index</a></div>
+<h3>
+<a name="sec28.1">
+28.1</a>&nbsp;&nbsp;Cold Boot</h3>
+<br><div class="idx"><a href="index.html#idx28.1.1">index</a></div>
+<h4>
+<a name="sec28.1.1">
+28.1.1</a>&nbsp;&nbsp;embedded Bootstrap</h4>
+<br>
+does minimal initialization, copies Stage 1 to RAM and executes it.
+      <div class="idx"><a href="index.html#idx28.1.2">index</a></div>
+<h4>
+<a name="sec28.1.2">
+28.1.2</a>&nbsp;&nbsp;IPL Stage 1</h4>
+<br>
+decrypts and executes Stage 2
+      <div class="idx"><a href="index.html#idx28.1.3">index</a></div>
+<h4>
+<a name="sec28.1.3">
+28.1.3</a>&nbsp;&nbsp;IPL Stage 2</h4>
+<br>
+initializes the System, boots PRXs in 'VSH Mode' (from <tt>/kd/pspbtcnf.txt)</tt>and
+finally launches the VSH.
+     <div class="idx"><a href="index.html#idx28.2">index</a></div>
+<h3>
+<a name="sec28.2">
+28.2</a>&nbsp;&nbsp;Load Exec</h3>
+<br><div class="idx"><a href="index.html#idx28.2.1">index</a></div>
+<h4>
+<a name="sec28.2.1">
+28.2.1</a>&nbsp;&nbsp;Stage 1</h4>
+<br>
+sceKernelLoadExec
+<ul>
+<li> do some sanity checks<br>
+return 0x80020064 if called from interrupt handler<br>
+0x800200d3 on *file==NULL or other error
+</li>
+<li> call LoadExec
+</li>
+</ul>
+LoadExec
+<ul>
+<li> start "LoadExecBody" as new thread
+</li>
+</ul>
+LoadExecBody
+<ul>
+<li> call LoadExecAction
+</li>
+</ul>
+LoadExecAction
+<ul>
+<li> call sub_FCC
+</li>
+</ul>
+sub_FCC
+LoadExecAction
+<ul>
+<li> gunzip to <tt>0x88C00000</tt><br>
+</li>
+<li> call <tt>0x88C00000</tt>, execution continues here (no return)
+</li>
+</ul>
+<div class="idx"><a href="index.html#idx28.2.2">index</a></div>
+<h4>
+<a name="sec28.2.2">
+28.2.2</a>&nbsp;&nbsp;Stage 2</h4>
+<br>
+initializes the System, boots PRXs in 'Game Mode' (from <tt>/kd/pspbtcnf_game.txt)</tt>
+,or 'Updater Mode' (from <tt>/kd/pspbtcnf_updater.txt</tt>) if
+the Executable is launched from an updater directory, and finally
+launches the Game or Updater. Similar to IPL Stage 2
+     <div class="idx"><a href="index.html#idx28.3">index</a></div>
+<h3>
+<a name="sec28.3">
+28.3</a>&nbsp;&nbsp;Exit Game</h3>
+<br>
+initializes the System, boots PRXs in 'VSH Mode' (from <tt>/kd/pspbtcnf.txt)</tt>and
+finally launches the VSH.
+     <div class="idx"><a href="index.html#idx28.4">index</a></div>
+<h3>
+<a name="sec28.4">
+28.4</a>&nbsp;&nbsp;reboot.prx</h3>
+<br><div class="idx"><a href="index.html#idx29">index</a></div>
+</body></html>
